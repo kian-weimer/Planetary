@@ -259,7 +259,6 @@ public class planetGenerator : MonoBehaviour
     {
         foreach (PlanetInfo planetInfo in planetInfoList[gridPosition])
         {
-            Debug.Log(planetInfo.position[1]);
             Planet planet = Instantiate(planetTypes[planetInfo.rarity].planets[planetInfo.type]);
             planet.Initialize(planetInfo);
             planetsObjectsInGame.Add(planet.gameObject);
