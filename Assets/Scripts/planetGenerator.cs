@@ -19,7 +19,7 @@ public class planetGenerator : MonoBehaviour
     public ArrayList planetsObjectsInGame;
 
     // distance from center before planets spawn in
-    public int homeOffset = 50;
+    public int homeOffset = 1000;
 
     // smaller values mean less degrees of space between planets
     public float degreeResolution = 10; // the number of degrees each increment of the random degree creation makes // 0.5
@@ -36,12 +36,16 @@ public class planetGenerator : MonoBehaviour
 
     public int rarityRingDistanceLimit = 20;
 
-
     // Start is called before the first frame update
     void Awake()
     {
+        /*
+        var go1 = new GameObject { name = "HomeCircle" };
+        go1.transform.position = new Vector2(0, 0);
+        go1.transform.Rotate(90f, 0, 0);
+        go1.DrawCircle(70, .25f);//radius, thickness
+        */
         int numberOfRings = FindObjectOfType<GameManager>().numberOfRings;
-
         planetInfoList = new Dictionary<Vector2, ArrayList>();
         planetsObjectsInGame = new ArrayList();
 

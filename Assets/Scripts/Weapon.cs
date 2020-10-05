@@ -11,7 +11,6 @@ public class Weapon : MonoBehaviour
 
     public void Shoot(Vector3 position, Vector2 direction)
     {
-        Debug.Log("TICK!" + Time.time + "     " + lastShotTime);
         if (Time.time > lastShotTime + 1/firerate)
         {
             lastShotTime = Time.time;

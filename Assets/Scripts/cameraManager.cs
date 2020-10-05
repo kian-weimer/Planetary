@@ -16,7 +16,7 @@ public class cameraManager : MonoBehaviour
     public Camera camera;
     void Update()
     {
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        float scroll = -Input.GetAxis("Mouse ScrollWheel");
         if (gameObject.GetComponent<Camera>().orthographicSize + scroll * zoomSpeed > 0)
         {
             gameObject.GetComponent<Camera>().orthographicSize += scroll * zoomSpeed;

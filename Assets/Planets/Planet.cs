@@ -12,6 +12,7 @@ public class Planet : MonoBehaviour
     public Vector3 position;
     //public int type; // the type of planet (used to create image)
     public bool discovered; // true is the planet has been seen
+    public GameObject planetExplosion;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,11 @@ public class Planet : MonoBehaviour
         rarity = info.rarity;
         discovered = info.discovered;
 
+    }
+    public void destroy()
+    {
+        GameObject exp = Instantiate(planetExplosion);
+        exp.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        Destroy(gameObject);
     }
 }

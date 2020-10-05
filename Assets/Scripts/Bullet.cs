@@ -19,6 +19,18 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Planet")
+        {
+            Debug.Log(collision.gameObject.GetComponent<Planet>().health);
+            collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - 10;
+
+            if (collision.gameObject.GetComponent<Planet>().health <= 0)
+            {
+                collision.gameObject.GetComponent<Planet>().destroy();
+            }
+
+        }
+
         if (collision.gameObject.tag != "Player")
         {
             Debug.Log(transform.position);

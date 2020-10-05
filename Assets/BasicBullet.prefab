@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 2544709206327447535, guid: 31b64d25adf9dc643ad2e8204cb2909e,
     type: 3}
+  planetExplosion: {fileID: 6964601313405217548, guid: c1abf32938cf5954f8c71ea5641176c8,
+    type: 3}
 --- !u!212 &9203446941361601900
 SpriteRenderer:
   m_ObjectHideFlags: 0
