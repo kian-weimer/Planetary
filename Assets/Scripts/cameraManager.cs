@@ -13,7 +13,6 @@ public class cameraManager : MonoBehaviour
 
     public GameObject player;
 
-    public Camera camera;
     void Update()
     {
         float scroll = -Input.GetAxis("Mouse ScrollWheel");

@@ -16,7 +16,6 @@ public class Weapon : MonoBehaviour
             lastShotTime = Time.time;
             Bullet tempBullet = Instantiate(bullet);
             tempBullet.transform.position = position;
-            Debug.Log("BANG!");
             tempBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
         }
     }

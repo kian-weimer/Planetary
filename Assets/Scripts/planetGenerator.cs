@@ -288,5 +288,11 @@ public class planetGenerator : MonoBehaviour
         planetsObjectsInGame = planetsObjectsInGameArrayTemp;
 
     }
+    public void destroyPlanet(Planet planet)
+    {
+        planetInfoList[GetGridPosition(planet.position)].Remove(planet.info);
+        planetsObjectsInGame.Remove(planet.gameObject);
+        Destroy(planet.gameObject);
+    }
 }
  

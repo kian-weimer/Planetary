@@ -40,6 +40,6 @@ public class Planet : MonoBehaviour
     {
         GameObject exp = Instantiate(planetExplosion);
         exp.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        Destroy(gameObject);
+        FindObjectOfType<planetGenerator>().destroyPlanet(this);
     }
 }

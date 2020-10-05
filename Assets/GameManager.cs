@@ -8,5 +8,5 @@ public class GameManager : MonoBehaviour
     public int numberOfRings; // actually number of planet rings not the number of planets
 
     [HideInInspector]
-    public int gridResolution = 100;
+    public int gridResolution = 100; // whaT DOES THIS DO
 }

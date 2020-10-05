@@ -21,7 +21,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Planet")
         {
-            Debug.Log(collision.gameObject.GetComponent<Planet>().health);
             collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - 10;
 
             if (collision.gameObject.GetComponent<Planet>().health <= 0)
@@ -33,7 +32,6 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.tag != "Player")
         {
-            Debug.Log(transform.position);
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 

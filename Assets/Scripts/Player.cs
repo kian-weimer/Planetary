@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            Debug.Log("CLICK!");
             weapon.Shoot(transform.position, new Vector2(Mathf.Cos(((rb.rotation+90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180)));
         }
     }
