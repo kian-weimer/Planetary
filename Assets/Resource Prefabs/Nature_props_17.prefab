@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7832891276514855637}
   - component: {fileID: -4335774865187817580}
   - component: {fileID: -7693011075733171847}
-  - component: {fileID: 3765561886260172814}
+  - component: {fileID: 419798284055550014}
   m_Layer: 0
   m_Name: Nature_props_17
   m_TagString: resource
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: -0.0041463375, y: -0.077399135}
   serializedVersion: 2
   m_Radius: 0.40061843
---- !u!114 &3765561886260172814
+--- !u!114 &419798284055550014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
