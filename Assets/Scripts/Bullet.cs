@@ -6,9 +6,6 @@ public class Bullet : MonoBehaviour
 {
     public GameObject explosion;
     // Start is called before the first frame update
-    void Start()
-    {
-        
     public float despawnTime = 3;
 
     private float spawnTime;
