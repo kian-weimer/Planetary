@@ -34,13 +34,15 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        //Debug.Log(direction);
+
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            float rotation = (transform.eulerAngles.z + 90);//rotation.z+1)*180 + 90; // rb.rotation + 90
+            float rotation = (rb.rotation + 90);
             Debug.Log(rotation);
-            weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
+            weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));//new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
         }
     }
 }

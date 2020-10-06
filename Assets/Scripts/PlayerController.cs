@@ -7,10 +7,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float thrust = 1.0f;
+    public float speed = 0f;
     public float turnSpeed = 1;
     public float maxSpeed = 70f;
   
-    [Range(0, 1f)]
+    [Range(0, 3f)]
     public float landingSpeed = 0.4f;
     [Range(0, 1f)]
     public float breakEffectiveness = 0.2f;
@@ -19,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public float angularDrag = 0.1f;
     public float stoppingPoint = 0.5f;
     public Rigidbody2D rb;
+
+    [Range(0, .5f)]
+    public float driftPercentage = 0;
 
     public planetGenerator PG;
     public Vector2 gridPosition;
@@ -58,29 +62,40 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("w") && rb.velocity.magnitude < maxSpeed)
+        if (Input.GetKey("w") && speed < maxSpeed)
         {
+            speed += thrust;
             //rb.velocity += new Vector2(0, thrust);
             Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation+90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
-            rb.velocity += direction * thrust;
+            Debug.Log(rb.velocity * 0);
+            rb.velocity = direction * speed + rb.velocity * driftPercentage;
             //rb.velocity += new Vector2(0, thrust);
         }
         else if (Input.GetKey("s"))
         {
+            Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
             if (Input.GetKey(KeyCode.LeftShift)) {
-                Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
                 rb.velocity = -1 * direction * landingSpeed;
             }
-            rb.velocity = rb.velocity * (1 - breakEffectiveness);
+            else
+            {
+                speed = speed * (1 - breakEffectiveness);
+                rb.velocity = direction * speed + rb.velocity * driftPercentage;
+                // rb.velocity = rb.velocity * (1 - breakEffectiveness);
+            }
         }
         else
         {
-            if (rb.velocity.magnitude > 1) {
+            if (rb.velocity.magnitude > stoppingPoint) {
                 //Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation - 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation - 90) * Mathf.PI) / 180));
-                rb.velocity = rb.velocity * (1-drag);
+                speed = speed * (1 - drag);
+                Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
+                rb.velocity = direction * speed + rb.velocity * driftPercentage;
+                // rb.velocity = rb.velocity * (1-drag);
             }
             else if (rb.velocity.magnitude > 0)
             {
+                speed = 0;
                 rb.velocity = new Vector2(0,0);
             }
         }

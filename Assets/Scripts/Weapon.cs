@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public float bulletSpeed;
     public float lastShotTime;
 
-    public void Shoot(Vector3 position, Vector2 direction)
+    public void Shoot(Vector2 position, Vector2 direction)
     {
         if (Time.time > lastShotTime + 1/firerate)
         {
