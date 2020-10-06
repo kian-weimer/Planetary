@@ -135,6 +135,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6964601313405217548, guid: c1abf32938cf5954f8c71ea5641176c8,
         type: 3}
+    - target: {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5,
+        type: 3}
+      propertyPath: resource
+      value: 
+      objectReference: {fileID: 7945304767727497163, guid: e6f822adfdfe8fe4cb465668bb7cb6c0,
+        type: 3}
+    - target: {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5,
+        type: 3}
+      propertyPath: planetResource
+      value: 
+      objectReference: {fileID: 7945304767727497163, guid: e6f822adfdfe8fe4cb465668bb7cb6c0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
 --- !u!1 &3034571166669146707 stripped

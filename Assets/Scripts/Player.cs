@@ -1,4 +1,7 @@
 ﻿using System.Collections;
+    public int maxHealth; 
+
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +22,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        resourceInShip = null;
         health = maxHealth;
         info = new PlayerInfo(0, 0, maxHealth, health);
         weapon.lastShotTime = 0;
@@ -41,8 +45,18 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             float rotation = (rb.rotation + 90);
-            Debug.Log(rotation);
             weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));//new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.tag == "resource" && resourceInShip == null)
+        {
+            Debug.Log(resourceInShip);
+            resourceInShip = collision.gameObject;
+            Debug.Log(resourceInShip);
+            collision.gameObject.GetComponent<Resource>().Pickedup();
         }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FxTemporaire
   - Planet
+  - resource
   layers:
   - Default
   - TransparentFX
