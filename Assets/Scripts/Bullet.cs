@@ -9,12 +9,23 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         
+    public float despawnTime = 3;
+
+    private float spawnTime;
+    // Start is called before the first frame update
+    void Start()
+    {
+        spawnTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+        if (Time.time >= spawnTime + despawnTime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
