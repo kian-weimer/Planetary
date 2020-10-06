@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 70f;
   
     [Range(0, 3f)]
-    public float landingSpeed = 0.4f;
+    public float landingSpeed = 1f;
     [Range(0, 1f)]
     public float breakEffectiveness = 0.2f;
     [Range(0, 0.1f)]
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey("s"))
         {
             Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
-            if (Input.GetKey(KeyCode.LeftShift)) {
+            if (Input.GetKey(KeyCode.LeftShift)  && speed < stoppingPoint) {
                 rb.velocity = -1 * direction * landingSpeed;
             }
             else
