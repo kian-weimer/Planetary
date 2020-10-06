@@ -1,5 +1,3 @@
-﻿using System.Collections;
-    public int maxHealth; 
 
 ﻿using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +16,7 @@ public class Player : MonoBehaviour
 
     public Vector3 position;
     public Rigidbody2D rb;
+    public GameObject resourceInShip;
 
     // Start is called before the first frame update
     void Start()
