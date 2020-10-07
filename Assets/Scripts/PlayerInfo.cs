@@ -11,12 +11,17 @@ public class PlayerInfo
     public int maxHealth; // player's max health
     public int health; // player's health
 
-    public PlayerInfo(float xpos, float ypos, int maxHealth, int health)
+    public float maxGas;
+    public float gas;
+
+    public PlayerInfo(float xpos, float ypos, int maxHealth, int health, float maxGas, float gas)
     {
         position = new float[2];
         position[0] = xpos;
         position[1] = ypos;
         this.maxHealth = maxHealth;
         this.health = health;
+        this.maxGas = maxGas;
+        this.gas = gas;
     }
 }
