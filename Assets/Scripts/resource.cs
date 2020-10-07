@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Resource : MonoBehaviour
+public class resource : MonoBehaviour
 {
     // Start is called before the first frame update
     // Start is called before the first frame update

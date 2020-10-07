@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "resource" && resourceInShip == null)
         {
             resourceInShip = collision.gameObject;
-            collision.gameObject.GetComponent<Resource>().Pickedup();
+            collision.gameObject.GetComponent<rsrce>().Pickedup();
         }
         if (collision.gameObject.tag == "Popup")
         {
@@ -67,9 +67,13 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.activeSelf)
+        if(collision.gameObject.tag == "Popup")
         {
-            collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(false);
+            if (collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.activeSelf)
+            {
+                collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(false);
+            }
         }
+      
     }
 }
