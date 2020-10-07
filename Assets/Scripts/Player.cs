@@ -9,9 +9,15 @@ public class Player : MonoBehaviour
     public PlayerInfo info;
 
     public int maxHealth;
+    public float maxGas;
+    public GameObject gasBar;
 
     [HideInInspector]
     public int health; // player's health
+    //[HideInInspector]
+    public float gas; // player's health
+
+    public float fuelConsumption;
 
     public Weapon weapon;
 
@@ -24,7 +30,8 @@ public class Player : MonoBehaviour
     {
         resourceInShip = null;
         health = maxHealth;
-        info = new PlayerInfo(0, 0, maxHealth, health);
+        gas = maxGas;
+        info = new PlayerInfo(0, 0, maxHealth, health, maxGas, gas);
         weapon.lastShotTime = 0;
     }
 
@@ -75,5 +82,23 @@ public class Player : MonoBehaviour
             }
         }
       
+    }
+
+    public bool ConsumeGas()
+    {
+        gas -= fuelConsumption;
+        gasBar.transform.localScale =  new Vector3(gasBar.transform.localScale.x * gas/maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+        if (gas > 1)
+        {
+            gasBar.transform.localScale = new Vector3(-1 * gas / maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+            return true;
+        }
+        else
+        {
+            gas = 0;
+            gasBar.transform.localScale = new Vector3(0, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+            return false;
+
+        }
     }
 }

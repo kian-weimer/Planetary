@@ -61,20 +61,29 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKey("w") && speed < maxSpeed)
+        bool hasGas = false;
+        if (Input.GetKey("w") && speed < maxSpeed || Input.GetKey("s"))
         {
+            hasGas = transform.GetComponent<Player>().ConsumeGas();
+        }
+    
+        if (Input.GetKey("w") && speed < maxSpeed && hasGas)
+        {
+
             speed += thrust;
             //rb.velocity += new Vector2(0, thrust);
-            Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation+90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
+            Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
 
             rb.velocity = direction * speed + rb.velocity * driftPercentage;
             //rb.velocity += new Vector2(0, thrust);
+            
         }
-        else if (Input.GetKey("s"))
+        else if (Input.GetKey("s") && hasGas)
         {
+
             Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
-            if (Input.GetKey(KeyCode.LeftShift)  && speed < stoppingPoint) {
+            if (Input.GetKey(KeyCode.LeftShift) && speed < stoppingPoint)
+            {
                 rb.velocity = -1 * direction * landingSpeed;
             }
             else
@@ -83,6 +92,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = direction * speed + rb.velocity * driftPercentage;
                 // rb.velocity = rb.velocity * (1 - breakEffectiveness);
             }
+            
         }
         else
         {
