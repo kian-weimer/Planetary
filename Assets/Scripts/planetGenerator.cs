@@ -16,6 +16,7 @@ public class planetGenerator : MonoBehaviour
     public Dictionary<Vector2, ArrayList>  planetInfoList; // the info of each of the actual planets in the game
 
     // a list of all planet gameObjects currently spawned in
+    // NOT INCLUDING HOME PLANETS
     public ArrayList planetsObjectsInGame;
 
     // distance from center before planets spawn in
@@ -36,6 +37,7 @@ public class planetGenerator : MonoBehaviour
 
     public int rarityRingDistanceLimit = 20;
 
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,12 +47,12 @@ public class planetGenerator : MonoBehaviour
         go1.transform.Rotate(90f, 0, 0);
         go1.DrawCircle(70, .25f);//radius, thickness
         */
+
+        // Randomly generate all outside planets
         int numberOfRings = FindObjectOfType<GameManager>().numberOfRings;
         planetInfoList = new Dictionary<Vector2, ArrayList>();
         planetsObjectsInGame = new ArrayList();
-
         int maxRarity = 1; // the maximum rarity level allowed in a ring
-
         for (int i = 0; i < numberOfRings; i++)
         {
             if ((i+1)%rarityRingDistanceLimit == 0)
@@ -197,7 +199,7 @@ public class planetGenerator : MonoBehaviour
 
     }
 
-    Vector2 PositionGenerator(int ringNumber)
+    public Vector2 PositionGenerator(int ringNumber)
     {
         float degrees = (UnityEngine.Random.Range(0, (int)(360f / degreeResolution)) * degreeResolution) + iterationalRotationalOffset * ringNumber; // may want ro reduce rondomness of this
         return new Vector2(Mathf.Cos((degrees * Mathf.PI) / 180), Mathf.Sin((degrees * Mathf.PI) / 180));

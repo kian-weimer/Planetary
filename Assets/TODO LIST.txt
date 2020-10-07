@@ -1,0 +1,13 @@
+NOW: 
+
+
+MIDTERM: 
+Planets can't spawn directly on top of each other but can overlap, fix this
+	Home planets have no spawn prevention at all
+
+LONGTERM: 
+Save info stuff needs updated:
+	https://www.youtube.com/watch?v=XOjd_qU2Ido
+	HomeInfo -- not implemented
+	PlanetInfo -- need way to load in each planet
+Make installer for game: https://www.clickteam.com/install-creator-2
