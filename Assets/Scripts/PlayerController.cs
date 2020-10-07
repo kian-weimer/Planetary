@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public planetGenerator PG;
     public Vector2 gridPosition;
     public Vector2 gridsInView;
+    public Vector2 bbVel = new Vector2(1,1);
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +77,8 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = direction * speed + rb.velocity * driftPercentage;
             //rb.velocity += new Vector2(0, thrust);
-            
+            rb.velocity *= bbVel;
+
         }
         else if (Input.GetKey("s") && hasGas)
         {
@@ -92,7 +94,8 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = direction * speed + rb.velocity * driftPercentage;
                 // rb.velocity = rb.velocity * (1 - breakEffectiveness);
             }
-            
+            rb.velocity *= bbVel;
+
         }
         else
         {
@@ -101,6 +104,7 @@ public class PlayerController : MonoBehaviour
                 speed = speed * (1 - drag);
                 Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
                 rb.velocity = direction * speed + rb.velocity * driftPercentage;
+                rb.velocity *= bbVel;
                 // rb.velocity = rb.velocity * (1-drag);
             }
             else if (rb.velocity.magnitude > 0)
@@ -141,6 +145,13 @@ public class PlayerController : MonoBehaviour
 
     public void bounceBack()
     {
-        rb.velocity = new Vector2(0, -10);
+        bbVel = new Vector2(-0.3f, -0.3f) * bbVel;
+        Invoke("StopBounceBack", 0.6f);
+    }
+
+    public void StopBounceBack()
+    {
+        bbVel = new Vector2(1, 1);
+        speed = 0;
     }
 }

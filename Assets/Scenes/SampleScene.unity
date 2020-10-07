@@ -1415,6 +1415,7 @@ MonoBehaviour:
   PG: {fileID: 1643416489}
   gridPosition: {x: 0, y: 0}
   gridsInView: {x: 0, y: 0}
+  bbVel: {x: 1, y: 1}
 --- !u!4 &949674681
 Transform:
   m_ObjectHideFlags: 0
@@ -1450,7 +1451,7 @@ MonoBehaviour:
     maxGas: 0
     gas: 0
   maxHealth: 0
-  maxGas: 200
+  maxGas: 2000
   gasBar: {fileID: 1499567271}
   health: 0
   gas: 200
