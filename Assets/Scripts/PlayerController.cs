@@ -128,4 +128,9 @@ public class PlayerController : MonoBehaviour
         return grids;
         
     }
+
+    public void bounceBack()
+    {
+        rb.velocity = new Vector2(0, -10);
+    }
 }
