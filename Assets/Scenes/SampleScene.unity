@@ -5338,7 +5338,7 @@ PrefabInstance:
     - target: {fileID: 5922281835901781066, guid: bc2a7ddb5d7d39f48bfd9bf016335832,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 0.07470077
+      value: 0.07070297
       objectReference: {fileID: 0}
     - target: {fileID: 5922281835901781066, guid: bc2a7ddb5d7d39f48bfd9bf016335832,
         type: 3}

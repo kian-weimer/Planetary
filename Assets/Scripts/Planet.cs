@@ -13,8 +13,9 @@ public class Planet : MonoBehaviour
     public Vector3 position;
     //public int type; // the type of planet (used to create image)
     public bool discovered; // true is the planet has been seen
-    public GameObject planetExplosion;
-    public GameObject planetResource;
+    public GameObject planetExplosion; // holds the prefab of the explosionm animation used when the planet is destroyed
+    public GameObject planetResource; // holds the item resource that the planet pops out when destroyed
+    public bool inHomeSystem = false; // is true when its in the home solar system
 
     // Start is called before the first frame update
     void Start()
