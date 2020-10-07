@@ -69,7 +69,7 @@ public class planetGenerator : MonoBehaviour
                 int planet = UnityEngine.Random.Range(0, planetTypes[rarity].planets.Count);
                 Vector2 pos = (i * spacialResolution + homeOffset)* PositionGenerator(i);
                 Vector2 gridPosition = GetGridPosition(pos); // calculate the grid position that this planet falls in
-                PlanetInfo info = new PlanetInfo(pos.x, pos.y, rarity, 100, planet);
+                PlanetInfo info = new PlanetInfo(pos.x, pos.y, rarity, 100, planet, false);
 
                 // A planet already exists in this grid position
                 if (planetInfoList.ContainsKey(gridPosition))
@@ -137,7 +137,7 @@ public class planetGenerator : MonoBehaviour
                 Vector2 pos = (i * spacialResolution + homeOffset) * PositionGenerator(i);
                 // calculate the grid position that this planet falls in
                 Vector2 gridPosition = new Vector2((float)Math.Floor(pos.x / gridResolution), (float)Math.Floor(pos.y / gridResolution));
-                PlanetInfo info = new PlanetInfo(pos.x, pos.y, rarity, 100, planet);
+                PlanetInfo info = new PlanetInfo(pos.x, pos.y, rarity, 100, planet, false);
 
                 if (planetInfoList.ContainsKey(gridPosition))
                 {

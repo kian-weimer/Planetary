@@ -12,8 +12,9 @@ public class PlanetInfo
     public int health; // planet's health
     public int type; // the type of planet (used to create image)
     public bool discovered; // true is the planet has been seen
+    public bool inHomeSystem;
 
-    public PlanetInfo(float xpos, float ypos , int rarity, int health, int type)
+    public PlanetInfo(float xpos, float ypos , int rarity, int health, int type, bool inHomeSystem)
     {
         position = new float[2];
         position[0] = xpos;
@@ -22,5 +23,6 @@ public class PlanetInfo
         this.health = health;
         this.type = type;
         discovered = false;
+        this.inHomeSystem = inHomeSystem;
     }
 }

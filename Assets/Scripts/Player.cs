@@ -58,9 +58,10 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Popup")
         {
-
-            collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(true);
-
+            if (collision.gameObject.transform.parent.GetComponent<Planet>().inHomeSystem == true)
+            {
+                collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(true);
+            }
 
 
         }
@@ -69,11 +70,13 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Popup")
         {
-            if (collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.activeSelf)
+            if(collision.gameObject.transform.parent.GetComponent<Planet>().inHomeSystem == true)
             {
-                collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(false);
+                if (collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.activeSelf)
+                {
+                    collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(false);
+                }
             }
         }
-      
     }
 }

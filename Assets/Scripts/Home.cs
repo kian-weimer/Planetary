@@ -22,13 +22,13 @@ public class Home : MonoBehaviour
         for (int i = 0; i < numberOfStartingHomePlanets; i++)
         {
             int numberOfHomeRings = (int) Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
-            Debug.Log(PG.homeOffset);
 
             Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
             // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
-            PlanetInfo info = new PlanetInfo(pos.x, pos.y, 0, 100, 0);
+            PlanetInfo info = new PlanetInfo(pos.x, pos.y, 0, 100, 0, true);
 
             Planet planet = Instantiate(rockPlanet);
+            planet.inHomeSystem = true;
             planet.Initialize(info);
             
         }
