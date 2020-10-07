@@ -2,12 +2,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public PlayerInfo info;
 
-    public int maxHealth; 
+    public int maxHealth;
 
     [HideInInspector]
     public int health; // player's health
@@ -49,13 +50,26 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.gameObject.tag == "resource" && resourceInShip == null)
         {
-            Debug.Log(resourceInShip);
             resourceInShip = collision.gameObject;
-            Debug.Log(resourceInShip);
             collision.gameObject.GetComponent<Resource>().Pickedup();
+        }
+        if (collision.gameObject.tag == "Popup")
+        {
+
+            collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(true);
+
+
+
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.activeSelf)
+        {
+            collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(false);
         }
     }
 }

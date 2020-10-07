@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             speed += thrust;
             //rb.velocity += new Vector2(0, thrust);
             Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation+90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
-            Debug.Log(rb.velocity * 0);
+
             rb.velocity = direction * speed + rb.velocity * driftPercentage;
             //rb.velocity += new Vector2(0, thrust);
         }

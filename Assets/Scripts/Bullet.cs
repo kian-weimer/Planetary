@@ -35,10 +35,9 @@ public class Bullet : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Planet>().destroy();
             }
-
         }
 
-        if (collision.gameObject.tag != "Player")
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Popup")
         {
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);

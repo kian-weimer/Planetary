@@ -58,4 +58,11 @@ public class Planet : MonoBehaviour
         
         FindObjectOfType<planetGenerator>().destroyPlanet(this);
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.GetType() == typeof(BoxCollider2D))
+        {
+            Debug.Log("hi");
+        }
+    }
 }
