@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public int maxHealth;
     public float maxGas;
     public GameObject gasBar;
+    public GameObject gasBarEnd;
 
     [HideInInspector]
     public int health; // player's health
@@ -24,6 +25,8 @@ public class Player : MonoBehaviour
     public Vector3 position;
     public Rigidbody2D rb;
     public GameObject resourceInShip;
+
+    public bool isHome = true;
 
     // Start is called before the first frame update
     void Start()
@@ -91,15 +94,21 @@ public class Player : MonoBehaviour
     {
         gas -= fuelConsumption;
         //gasBar.transform.localScale =  new Vector3(gasBar.transform.localScale.x * gas/maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
-        if (gas > 1)
+        if (gas > 0.5)
         {
-            gasBar.transform.localScale = new Vector3(1 * gas / maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+            gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+          
+            if (gas <= maxGas*.1f)
+            {
+                gasBarEnd.transform.localScale = new Vector3(-1 * (maxGas * .1f - gas) / (maxGas * .1f), gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
+            }
             return true;
         }
         else
         {
             gas = 0;
             gasBar.transform.localScale = new Vector3(0, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+            gasBarEnd.transform.localScale = new Vector3(-1, gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
             return false;
 
         }
