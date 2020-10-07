@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     [HideInInspector]
     public int health; // player's health
-    //[HideInInspector]
+    [HideInInspector]
     public float gas; // player's health
 
     public float fuelConsumption;
@@ -90,10 +90,10 @@ public class Player : MonoBehaviour
     public bool ConsumeGas()
     {
         gas -= fuelConsumption;
-        gasBar.transform.localScale =  new Vector3(gasBar.transform.localScale.x * gas/maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+        //gasBar.transform.localScale =  new Vector3(gasBar.transform.localScale.x * gas/maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
         if (gas > 1)
         {
-            gasBar.transform.localScale = new Vector3(-1 * gas / maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+            gasBar.transform.localScale = new Vector3(1 * gas / maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
             return true;
         }
         else
