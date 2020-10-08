@@ -47,15 +47,15 @@ public class Planet : MonoBehaviour
         GameObject resource = Instantiate(planetResource);
         planetResource.tag = "resource";
         resource.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        Vector2 velocityDirection = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+        Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
 
-        while((velocityDirection.x < .25f && velocityDirection.x > -.25f) && (velocityDirection.y < .25f && velocityDirection.y > -.25f))
+        while((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
         {
-            velocityDirection = new Vector2(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
+            velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
         }
 
         resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;
-        resource.GetComponent<Rigidbody2D>().angularVelocity = 360;
+        resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
         
         FindObjectOfType<planetGenerator>().destroyPlanet(this);
     }
@@ -63,7 +63,7 @@ public class Planet : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().health = collision.gameObject.GetComponent<Player>().health - 10;
+            collision.gameObject.GetComponent<Player>().loseHealth();
             collision.gameObject.GetComponent<PlayerController>().bounceBack();
         }
     }

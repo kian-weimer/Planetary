@@ -8,6 +8,7 @@ TagManager:
   - Planet
   - resource
   - Popup
+  - HomeCircle
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public GameObject gasBar;
     public GameObject gasBarEnd;
 
+    public GameObject healthBar;
+    public GameObject healthBarEnd;
+
     [HideInInspector]
     public int health; // player's health
     [HideInInspector]
@@ -50,8 +53,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Debug.Log(direction);
-
         if (Input.GetKey(KeyCode.Mouse0))
         {
             float rotation = (rb.rotation + 90);
@@ -60,7 +61,6 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.tag == "resource" && resourceInShip == null)
         {
             resourceInShip = collision.gameObject;
@@ -72,8 +72,6 @@ public class Player : MonoBehaviour
             {
                 collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(true);
             }
-
-
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -110,7 +108,24 @@ public class Player : MonoBehaviour
             gasBar.transform.localScale = new Vector3(0, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
             gasBarEnd.transform.localScale = new Vector3(-1, gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
             return false;
+        }
+    }
+    public void loseHealth()
+    {
+        if (health > 0.5)
+        {
+            healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
+            if (health <= maxGas * .1f)
+            {
+                healthBarEnd.transform.localScale = new Vector3(-1 * (maxHealth * .1f - health) / (maxHealth * .1f), healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
+            }
+        }
+        else
+        {
+            health = 0;
+            healthBar.transform.localScale = new Vector3(0, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            healthBarEnd.transform.localScale = new Vector3(-1, healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
         }
     }
 }
