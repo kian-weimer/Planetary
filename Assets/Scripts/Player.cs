@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public GameObject healthBarEnd;
 
     [HideInInspector]
-    public int health; // player's health
+    public float health; // player's health
     [HideInInspector]
     public float gas; // player's health
 
@@ -110,13 +110,14 @@ public class Player : MonoBehaviour
             return false;
         }
     }
-    public void loseHealth()
+    public void loseHealth(float healthLoss)
     {
+        health -= healthLoss;
         if (health > 0.5)
         {
             healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
-            if (health <= maxGas * .1f)
+            if (health <= maxHealth * .1f)
             {
                 healthBarEnd.transform.localScale = new Vector3(-1 * (maxHealth * .1f - health) / (maxHealth * .1f), healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
             }

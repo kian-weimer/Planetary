@@ -9,12 +9,12 @@ public class PlayerInfo
 {
     public float[] position; // two element array of x and y coords
     public int maxHealth; // player's max health
-    public int health; // player's health
+    public float health; // player's health
 
     public float maxGas;
     public float gas;
 
-    public PlayerInfo(float xpos, float ypos, int maxHealth, int health, float maxGas, float gas)
+    public PlayerInfo(float xpos, float ypos, int maxHealth, float health, float maxGas, float gas)
     {
         position = new float[2];
         position[0] = xpos;
