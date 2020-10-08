@@ -1764,11 +1764,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     position: []
-    maxHealth: 0
+    maxHealth: 100
     health: 0
     maxGas: 0
     gas: 0
-  maxHealth: 0
+  maxHealth: 100
   maxGas: 200
   gasBar: {fileID: 1499567271}
   gasBarEnd: {fileID: 601551226}
