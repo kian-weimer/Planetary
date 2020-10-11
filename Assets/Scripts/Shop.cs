@@ -24,9 +24,17 @@ public class Shop : MonoBehaviour
             GameObject item = Instantiate(shopItem);
             item.name = "Item " + i;
             item.transform.SetParent(transform);
-            item.transform.position -= new Vector3(-1545, -400 + i * itemDistance , 0); // not sure why negative numbers there are needed...
+            item.transform.position -= new Vector3(-1545, -500 + i * itemDistance , 0); // not sure why negative numbers there are needed...
 
-
+            if (items[i].sellItem)
+            {
+                item.GetComponent<SellShopItem>().Generate(items[i]);
+            }
+            else
+            {
+                item.GetComponent<ShopItem>().Generate(items[i]);
+            }
+            /*
             item.GetComponent<ShopItem>().name = items[i].name; 
             item.GetComponent<ShopItem>().cost = items[i].cost;
 
@@ -40,7 +48,7 @@ public class Shop : MonoBehaviour
 
             buy.onClick.AddListener(delegate () { ItemPurchased(item.GetComponent<ShopItem>()); });
 
-            /*
+            
             GameObject textEntry = Instantiate(text);
             textEntry.name = "Item " + i;
             textEntry.transform.SetParent(transform);
@@ -69,5 +77,10 @@ public class Shop : MonoBehaviour
     public void ItemPurchased(ShopItem item)
     {
         Debug.Log(item.name + " " +  item.cost);
+    }
+
+    public void ItemSold(SellShopItem item)
+    {
+        Debug.Log(item.name + " " + item.cost + " " + item.quantity);
     }
 }
