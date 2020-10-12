@@ -8,7 +8,7 @@
 public class PlanetInfo
 {
     public float[] position; // two element array of x and y coords
-    public int rarity; // the rarity of the planet
+    public int rarity; // the rarity of the planet // used as planet identifier in home system
     public int health; // planet's health
     public int type; // the type of planet (used to create image)
     public bool discovered; // true is the planet has been seen

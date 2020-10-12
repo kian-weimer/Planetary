@@ -24,7 +24,7 @@ public class Shop : MonoBehaviour
             GameObject item = Instantiate(shopItem);
             item.name = "Item " + i;
             item.transform.SetParent(transform);
-            item.transform.position -= new Vector3(-1545, -500 + i * itemDistance , 0); // not sure why negative numbers there are needed...
+            item.transform.position -= new Vector3(-1545, -475 + i * itemDistance , 0); // not sure why negative numbers there are needed...
 
             if (items[i].sellItem)
             {

@@ -173,31 +173,6 @@ public class planetGenerator : MonoBehaviour
         int gridResolution = FindObjectOfType<GameManager>().gridResolution;
         return new Vector2((float)Math.Floor(pos.x / gridResolution), (float)Math.Floor(pos.y / gridResolution));
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown("x"))
-        {
-            DestroyAllPlanets();
-        }
-        if (Input.GetKeyDown("v"))
-        {
-            InstantiateAllPlanets();
-        }
-        if (Input.GetKeyDown("c"))
-        {
-            Regenerate();
-        }
-        if (Input.GetKeyDown("q"))
-        {
-            DestroyGrid(new Vector2(UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1)));
-        }
-        if (Input.GetKeyDown("z"))
-        {
-            InstantiateGrid(new Vector2(UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1)));
-        }
-
-    }
 
     public Vector2 PositionGenerator(int ringNumber)
     {
@@ -239,6 +214,7 @@ public class planetGenerator : MonoBehaviour
         return 0;
     }
 
+    // SHOULD NEVER BE USED!!!!
     void InstantiateAllPlanets()
     {
         foreach (KeyValuePair<Vector2, ArrayList> gridPosition in planetInfoList)

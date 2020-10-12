@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
 {
     public PlayerInfo info;
 
+    public Camera main;
+    public Camera planetView;
+
     public int maxHealth;
     public float maxGas;
     public GameObject gasBar;
@@ -53,12 +56,39 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0) && main.gameObject.activeSelf)
         {
             float rotation = (rb.rotation + 90);
             weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));//new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
         }
+        
+
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B) && nearHomePlanet)
+        {
+            if (nearHomePlanet && main.gameObject.activeSelf)
+            {
+                main.gameObject.SetActive(false);
+                planetView.gameObject.SetActive(true);
+                FindObjectOfType<Home>().GetComponent<Home>().ChangePlanetView(closestHomePlanet.rarity);
+                //planetView.transform.position = new Vector3(closestHomePlanet.transform.position.x, closestHomePlanet.transform.position.y, -10);
+                popUpText.SetActive(false);
+            }
+            else if (nearHomePlanet && planetView.gameObject.activeSelf)
+            {
+                planetView.gameObject.SetActive(false);
+                main.gameObject.SetActive(true);
+                popUpText.SetActive(true);
+            }
+        }
+    }
+
+    public bool nearHomePlanet = false;
+    public Planet closestHomePlanet;
+    public GameObject popUpText;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "resource" && resourceInShip == null)
@@ -71,6 +101,9 @@ public class Player : MonoBehaviour
             if (collision.gameObject.transform.parent.GetComponent<Planet>().inHomeSystem == true)
             {
                 collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(true);
+                nearHomePlanet = true;
+                closestHomePlanet = collision.transform.parent.GetComponent<Planet>();
+                popUpText = collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject;
             }
         }
     }
@@ -83,6 +116,9 @@ public class Player : MonoBehaviour
                 if (collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.activeSelf)
                 {
                     collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(false);
+                    nearHomePlanet = true;
+                    closestHomePlanet = null;
+                    popUpText = null;
                 }
             }
         }
