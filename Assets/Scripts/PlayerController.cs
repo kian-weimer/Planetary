@@ -63,12 +63,12 @@ public class PlayerController : MonoBehaviour
             }
         }
         bool hasGas = false;
-        if (Input.GetKey("w") && speed < maxSpeed || Input.GetKey("s"))
+        if ((Input.GetKey("w") && speed < maxSpeed || Input.GetKey("s")) && !gameObject.GetComponent<Player>().isHome)
         {
             hasGas = transform.GetComponent<Player>().ConsumeGas();
         }
     
-        if (Input.GetKey("w") && speed < maxSpeed && hasGas)
+        if (Input.GetKey("w") && speed < maxSpeed && (hasGas || gameObject.GetComponent<Player>().isHome))
         {
 
             speed += thrust;

@@ -19,9 +19,9 @@ public class Player : MonoBehaviour
     public GameObject healthBar;
     public GameObject healthBarEnd;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float health; // player's health
-    [HideInInspector]
+    //[HideInInspector]
     public float gas; // player's health
 
     public float fuelConsumption;
@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     public GameObject resourceInShip;
 
     public bool isHome = true;
+
+    public float regenRate;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +63,8 @@ public class Player : MonoBehaviour
             float rotation = (rb.rotation + 90);
             weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));//new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
         }
+
+        
         
 
     }
@@ -84,6 +88,11 @@ public class Player : MonoBehaviour
                 popUpText.SetActive(true);
             }
         }
+
+        if (isHome)
+        {
+            regen();
+        }
     }
 
     public bool nearHomePlanet = false;
@@ -106,6 +115,11 @@ public class Player : MonoBehaviour
                 popUpText = collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject;
             }
         }
+
+        if (collision.gameObject.tag == "HomeCircle")
+        {
+            isHome = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -122,15 +136,19 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        if(collision.gameObject.tag == "HomeCircle")
+        {
+            isHome = false;
+        }
     }
 
     public bool ConsumeGas()
     {
         gas -= fuelConsumption;
-        //gasBar.transform.localScale =  new Vector3(gasBar.transform.localScale.x * gas/maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+        
         if (gas > 0.5)
         {
-            gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / maxGas, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+            gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / (maxGas - maxGas * .1f), gasBar.transform.localScale.y, gasBar.transform.localScale.z);
           
             if (gas <= maxGas*.1f)
             {
@@ -151,7 +169,7 @@ public class Player : MonoBehaviour
         health -= healthLoss;
         if (health > 0.5)
         {
-            healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) /( maxHealth - maxHealth * .1f), healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
             if (health <= maxHealth * .1f)
             {
@@ -163,6 +181,33 @@ public class Player : MonoBehaviour
             health = 0;
             healthBar.transform.localScale = new Vector3(0, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
             healthBarEnd.transform.localScale = new Vector3(-1, healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
+        }
+    }
+
+    public void regen()
+    {
+        if(gas < maxGas)
+        {
+            gas += regenRate;
+
+            gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / (maxGas - maxGas * .1f), gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+
+            if (gas <= maxGas * .1f)
+            {
+                gasBarEnd.transform.localScale = new Vector3(-1 * (maxGas * .1f - gas) / (maxGas * .1f), gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
+            }
+        }
+        
+        if(health < maxHealth)
+        {
+            health += regenRate;
+            
+            healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) / (maxHealth - maxHealth * .1f), healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+
+            if (health <= maxHealth * .1f)
+            {
+                healthBarEnd.transform.localScale = new Vector3(-1 * (maxHealth * .1f - health) / (maxHealth * .1f), healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
+            }
         }
     }
 }
