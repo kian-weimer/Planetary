@@ -9,6 +9,7 @@ public class Planet : MonoBehaviour
 {
     public PlanetInfo info; // a Serializable list of the planet's properties
     public int rarity; // the rarity of the planet
+    public int maxHealth;
     public int health; // planet's health
     public Vector3 position;
     //public int type; // the type of planet (used to create image)
@@ -37,10 +38,18 @@ public class Planet : MonoBehaviour
         health = info.health;
         rarity = info.rarity;
         discovered = info.discovered;
-
+        maxHealth = info.maxHealth;
     }
     public void destroy()
     {
+        if (inHomeSystem)
+        {
+            // do something to show everything that it is gone (messes up the UI) 
+            FindObjectOfType<Player>().HomePlanetDestroyed(this);
+            FindObjectOfType<Home>().homePlanets[FindObjectOfType<Home>().homePlanets.IndexOf(this)] = null;
+            //FindObjectOfType<Home>().numberOfStartingHomePlanets = FindObjectOfType<Home>().numberOfStartingHomePlanets - 1;
+        }
+
         GameObject exp = Instantiate(planetExplosion);
         exp.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         
@@ -58,6 +67,8 @@ public class Planet : MonoBehaviour
         resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
         
         FindObjectOfType<planetGenerator>().destroyPlanet(this);
+
+        
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

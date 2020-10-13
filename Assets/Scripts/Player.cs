@@ -98,6 +98,17 @@ public class Player : MonoBehaviour
     public bool nearHomePlanet = false;
     public Planet closestHomePlanet;
     public GameObject popUpText;
+
+    public void HomePlanetDestroyed(Planet planet)
+    {
+        Debug.Log(planet == closestHomePlanet);
+        // fixes UI
+        if (planet == closestHomePlanet)
+        {
+            closestHomePlanet = null;
+            nearHomePlanet = false;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "resource" && resourceInShip == null)
@@ -130,7 +141,7 @@ public class Player : MonoBehaviour
                 if (collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.activeSelf)
                 {
                     collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.SetActive(false);
-                    nearHomePlanet = true;
+                    nearHomePlanet = false;
                     closestHomePlanet = null;
                     popUpText = null;
                 }

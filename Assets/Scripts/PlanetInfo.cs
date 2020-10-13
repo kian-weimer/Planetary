@@ -9,18 +9,20 @@ public class PlanetInfo
 {
     public float[] position; // two element array of x and y coords
     public int rarity; // the rarity of the planet // used as planet identifier in home system
+    public int maxHealth;
     public int health; // planet's health
     public int type; // the type of planet (used to create image)
     public bool discovered; // true is the planet has been seen
     public bool inHomeSystem;
 
-    public PlanetInfo(float xpos, float ypos , int rarity, int health, int type, bool inHomeSystem)
+    public PlanetInfo(float xpos, float ypos , int rarity, int maxHealth, int type, bool inHomeSystem)
     {
         position = new float[2];
         position[0] = xpos;
         position[1] = ypos;
         this.rarity = rarity;
-        this.health = health;
+        this.maxHealth = maxHealth;
+        health = maxHealth; // may need to be changed when loading in a planet with less than max health
         this.type = type;
         discovered = false;
         this.inHomeSystem = inHomeSystem;

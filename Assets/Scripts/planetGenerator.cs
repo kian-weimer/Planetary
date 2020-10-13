@@ -69,7 +69,10 @@ public class planetGenerator : MonoBehaviour
                 int planet = UnityEngine.Random.Range(0, planetTypes[rarity].planets.Count);
                 Vector2 pos = (i * spacialResolution + homeOffset)* PositionGenerator(i);
                 Vector2 gridPosition = GetGridPosition(pos); // calculate the grid position that this planet falls in
-                PlanetInfo info = new PlanetInfo(pos.x, pos.y, rarity, 100, planet, false);
+
+                // max health must be manually entered into planet prefab
+                PlanetInfo info = new PlanetInfo(pos.x, pos.y, rarity, planetTypes[rarity].planets[planet].maxHealth, planet, false);
+                
 
                 // A planet already exists in this grid position
                 if (planetInfoList.ContainsKey(gridPosition))

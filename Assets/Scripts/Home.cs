@@ -32,14 +32,13 @@ public class Home : MonoBehaviour
 
             Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
             // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
-            PlanetInfo info = new PlanetInfo(pos.x, pos.y, i, 100, 0, true);
+            PlanetInfo info = new PlanetInfo(pos.x, pos.y, i, rockPlanet.maxHealth, 0, true);
 
             Planet planet = Instantiate(rockPlanet);
             planet.inHomeSystem = true;
             planet.Initialize(info);
             planet.gameObject.AddComponent<HomePlanet>();
             planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
-            Debug.Log("PLANET" + i + "---------------------" + planet.gameObject.GetComponent<HomePlanet>().name);
             planet.transform.parent = gameObject.transform;
             homePlanets.Add(planet);
         }
@@ -54,6 +53,19 @@ public class Home : MonoBehaviour
         }
         
         currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfStartingHomePlanets;
+
+        while (homePlanets[currentViewingPlanet] == null)
+        {
+            if (changeValue > 0)
+            {
+                changeValue++;
+            }
+            else
+            {
+                changeValue--;
+            }
+            currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfStartingHomePlanets;
+        }
         Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);
 
@@ -81,6 +93,13 @@ public class Home : MonoBehaviour
         // changeName don't question it, due to listener on input...
         HUD.Find("PlanetName").GetComponent<InputField>().text = homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name;
         homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name = HUD.Find("PlanetName").GetComponent<InputField>().text;
+
+        // change health bar
+        HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale =
+            new Vector3(homePlanets[currentViewingPlanet].health / (float) homePlanets[currentViewingPlanet].maxHealth,
+            HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale.y,
+            HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale.z);
+        
 
 
 
