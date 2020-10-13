@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Home : MonoBehaviour
 {
@@ -37,6 +38,9 @@ public class Home : MonoBehaviour
             planet.inHomeSystem = true;
             planet.Initialize(info);
             planet.gameObject.AddComponent<HomePlanet>();
+            planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
+            Debug.Log("PLANET" + i + "---------------------" + planet.gameObject.GetComponent<HomePlanet>().name);
+            planet.transform.parent = gameObject.transform;
             homePlanets.Add(planet);
         }
 }
@@ -50,21 +54,35 @@ public class Home : MonoBehaviour
         }
         
         currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfStartingHomePlanets;
-        Planet neighborPlanet = homePlanets[(planet.GetComponent<Planet>().rarity + changeValue) % numberOfStartingHomePlanets];
+        Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);
+
+        UpdatePlanetHud();
     }
 
     public void ChangePlanetView(int index)
     {
         currentViewingPlanet = index;
-        Planet neighborPlanet = homePlanets[index];
+        Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);
+        UpdatePlanetHud();
+    }
+
+    public void ChangePlanetName(Text text)
+    {
+        homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name = text.text;
     }
    
 
-    // Update is called once per frame
-    void UpdatePlanetHud()
+    public void UpdatePlanetHud()
     {
-        
+        Transform HUD = planetView.transform.Find("PlanetHUD");
+
+        // changeName don't question it, due to listener on input...
+        HUD.Find("PlanetName").GetComponent<InputField>().text = homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name;
+        homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name = HUD.Find("PlanetName").GetComponent<InputField>().text;
+
+
+
     }
 }
