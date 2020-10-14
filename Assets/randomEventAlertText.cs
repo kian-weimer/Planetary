@@ -18,7 +18,7 @@ public class randomEventAlertText : MonoBehaviour
         canvas mainCanvas = FindObjectOfType<canvas>();
         totalTime = timeBetweenFlash + timeToShow;
         transform.parent = mainCanvas.transform;
-        transform.position = new Vector3(mainCanvas.GetComponent<RectTransform>().rect.width / 2, mainCanvas.GetComponent<RectTransform>().rect.height/2, 0);
+        transform.position = new Vector3(mainCanvas.GetComponent<RectTransform>().rect.width / 2, 3 * mainCanvas.GetComponent<RectTransform>().rect.height/5, 0);
     }
 
     // Update is called once per frame

@@ -20,9 +20,6 @@ public class MeteorSpawner : MonoBehaviour
     private int numberOfWavesOccured = 0;
     private float degree;
 
-    [HideInInspector]
-    public string alertText = "Incomming Asteroid";
-
     void Awake()
     {
         isSpawningMeteors = false;
