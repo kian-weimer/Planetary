@@ -344,7 +344,7 @@ MonoBehaviour:
   distanceAway: 100
   timeBetweenWaves: 5
   timeForMeteorWave: 0
-  meteor: {fileID: 3523180913944797077, guid: a9cff129e2f5dc4409b85954fbacad68, type: 3}
+  meteor: {fileID: 6583664476263446577, guid: f1df791f2b1d32847b8dfd7e09c3f614, type: 3}
   isSpawningMeteors: 0
   numberOfWaves: 5
 --- !u!114 &107209276
@@ -2789,7 +2789,7 @@ MonoBehaviour:
   rb: {fileID: 949674679}
   resourceInShip: {fileID: 0}
   isHome: 1
-  regenRate: 0
+  regenRate: 0.1
   inventory: {fileID: 752310339}
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}

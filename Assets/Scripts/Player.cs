@@ -199,8 +199,9 @@ public class Player : MonoBehaviour
     }
 
     public void regen()
-    {
-        if(gas < maxGas)
+    { 
+
+        if (gas < maxGas)
         {
             gas += regenRate;
 
@@ -210,6 +211,10 @@ public class Player : MonoBehaviour
             {
                 gasBarEnd.transform.localScale = new Vector3(-1 * (maxGas * .1f - gas) / (maxGas * .1f), gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
             }
+        }
+        else
+        {
+            gas = maxGas;
         }
         
         if(health < maxHealth)
@@ -222,6 +227,10 @@ public class Player : MonoBehaviour
             {
                 healthBarEnd.transform.localScale = new Vector3(-1 * (maxHealth * .1f - health) / (maxHealth * .1f), healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
             }
+        }
+        else
+        {
+            health = maxHealth;
         }
     }
 }
