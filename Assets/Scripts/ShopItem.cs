@@ -23,4 +23,3 @@ public class ShopItem : MonoBehaviour
         buy.onClick.AddListener(delegate () { FindObjectOfType<Shop>().ItemPurchased(this); });
     }
 }
-    

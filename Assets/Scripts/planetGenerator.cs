@@ -41,6 +41,7 @@ public class planetGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        FindObjectOfType<MeteorSpawner>().meteorShower();
         /*
         var go1 = new GameObject { name = "HomeCircle" };
         go1.transform.position = new Vector2(0, 0);
