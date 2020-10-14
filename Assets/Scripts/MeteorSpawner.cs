@@ -20,10 +20,25 @@ public class MeteorSpawner : MonoBehaviour
     private int numberOfWavesOccured = 0;
     private float degree;
 
+    [HideInInspector]
+    public string alertText = "Incomming Asteroid";
+
     void Awake()
     {
         isSpawningMeteors = false;
-        timeForMeteorWave = timeBetweenWaves;
+       // timeForMeteorWave = timeBetweenWaves;
+
+        rt = GetComponent<RectTransform>();
+        degree = Random.Range(0, 360);
+
+        float x = Mathf.Cos(degree * Mathf.PI / 180) * distanceAway;
+        float y = Mathf.Sin(degree * Mathf.PI / 180) * distanceAway;
+
+        rt.transform.position = new Vector2(x, y) + FindObjectOfType<Player>().GetComponent<Rigidbody2D>().position;
+
+        //instantiate your dot in the bounds of that recttransform
+
+        rt.rotation = Quaternion.Euler(new Vector3(0, 0, degree + 90 - 180)); //Random.Range(0, 360) - 90 the other angle
     }
     private void Update()
     {
@@ -41,20 +56,11 @@ public class MeteorSpawner : MonoBehaviour
             }
             rt.rotation = Quaternion.Euler(new Vector3(0, 0, degree + 90 - 180)); //Random.Range(0, 360) - 90 the other angle
         }
-    }
 
-    public void meteorShower()
-    {
-        rt = GetComponent<RectTransform>();
-        degree = Random.Range(0, 360);
-
-        float x = Mathf.Cos(degree * Mathf.PI / 180) * distanceAway;
-        float y = Mathf.Sin(degree * Mathf.PI / 180) * distanceAway;
-
-        rt.transform.position = new Vector2(x, y) + FindObjectOfType<Player>().GetComponent<Rigidbody2D>().position;
-
-        //instantiate your dot in the bounds of that recttransform
-        
-        rt.rotation = Quaternion.Euler(new Vector3(0, 0, degree + 90 - 180)); //Random.Range(0, 360) - 90 the other angle
+        //Todo Fix it so it waits to destroy
+        if(numberOfWavesOccured == numberOfWaves)
+        {
+            Destroy(gameObject);
+        }
     }
 }
