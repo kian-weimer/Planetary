@@ -21,6 +21,8 @@ public class Home : MonoBehaviour
     public Camera main;
     public Camera planetView;
     public int currentViewingPlanet;
+
+    public GameObject planetHUD;
     // Start is called before the first frame update
     void Awake()
     {
@@ -88,7 +90,7 @@ public class Home : MonoBehaviour
 
     public void UpdatePlanetHud()
     {
-        Transform HUD = planetView.transform.Find("PlanetHUD");
+        Transform HUD = FindObjectOfType<canvas>().transform.Find("PlanetHUD");
 
         // changeName don't question it, due to listener on input...
         HUD.Find("PlanetName").GetComponent<InputField>().text = homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name;
@@ -99,8 +101,11 @@ public class Home : MonoBehaviour
             new Vector3(homePlanets[currentViewingPlanet].health / (float) homePlanets[currentViewingPlanet].maxHealth,
             HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale.y,
             HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale.z);
-        
 
+        // change health number
+        HUD.Find("Health Bar").Find("NumeratedHealth").GetComponent<Text>().text = homePlanets[currentViewingPlanet].health + "/" + homePlanets[currentViewingPlanet].maxHealth;
+
+        homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().UpdateUI();
 
 
     }

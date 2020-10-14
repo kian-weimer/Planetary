@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
             {
                 main.gameObject.SetActive(false);
                 planetView.gameObject.SetActive(true);
+                FindObjectOfType<canvas>().transform.Find("PlanetHUD").gameObject.SetActive(true);
                 FindObjectOfType<Home>().GetComponent<Home>().ChangePlanetView(closestHomePlanet.rarity);
                 //planetView.transform.position = new Vector3(closestHomePlanet.transform.position.x, closestHomePlanet.transform.position.y, -10);
                 popUpText.SetActive(false);
@@ -85,6 +86,7 @@ public class Player : MonoBehaviour
             else if (nearHomePlanet && planetView.gameObject.activeSelf)
             {
                 planetView.gameObject.SetActive(false);
+                FindObjectOfType<canvas>().transform.Find("PlanetHUD").gameObject.SetActive(false);
                 main.gameObject.SetActive(true);
                 popUpText.SetActive(true);
             }

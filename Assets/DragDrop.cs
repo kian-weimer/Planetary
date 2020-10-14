@@ -21,18 +21,18 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0.6f;
         transform.parent.SetAsLastSibling(); // keps icon on top
+        transform.parent.parent.SetAsLastSibling(); // keps icon more on top
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta/canvas.scaleFactor;
+        rectTransform.anchoredPosition += eventData.delta/transform.parent.localScale;
 
     }
 
-        public void OnEndDrag(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         if (moved)
