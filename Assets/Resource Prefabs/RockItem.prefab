@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7693011075733171847}
   - component: {fileID: 5597725384705265942}
   m_Layer: 0
-  m_Name: Nature_props_17
+  m_Name: RockItem
   m_TagString: resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,3 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72c9cd2561d1264a940a4652cdd8dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIElement: 0
+  icon: {fileID: 2165065784793631877, guid: 08b604baadfde3c479408a07dcc3d60c, type: 3}

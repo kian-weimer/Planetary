@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public bool isHome = true;
 
     public float regenRate;
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -111,11 +112,13 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "resource" && resourceInShip == null)
+        if (collision.gameObject.tag == "resource" && !inventory.isFull)
         {
             resourceInShip = collision.gameObject;
+            inventory.StoreItem(collision.gameObject);
             collision.gameObject.GetComponent<rsrce>().Pickedup();
         }
+
         if (collision.gameObject.tag == "Popup")
         {
             if (collision.gameObject.transform.parent.GetComponent<Planet>().inHomeSystem == true)
