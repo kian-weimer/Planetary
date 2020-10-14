@@ -156,9 +156,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public bool ConsumeGas()
+    public bool ConsumeGas(bool isBackwards)
     {
-        gas -= fuelConsumption;
+        gas -= isBackwards ? fuelConsumption/4 : fuelConsumption;
         
         if (gas > 0.5)
         {

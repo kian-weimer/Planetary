@@ -2789,7 +2789,7 @@ MonoBehaviour:
   rb: {fileID: 949674679}
   resourceInShip: {fileID: 0}
   isHome: 1
-  regenRate: 0.1
+  regenRate: 0.15
   inventory: {fileID: 752310339}
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}

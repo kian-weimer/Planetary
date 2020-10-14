@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         bool hasGas = false;
         if ((Input.GetKey("w") && speed < maxSpeed || Input.GetKey("s")) && !gameObject.GetComponent<Player>().isHome)
         {
-            hasGas = transform.GetComponent<Player>().ConsumeGas();
+            hasGas = transform.GetComponent<Player>().ConsumeGas(Input.GetKey("s"));
         }
     
         if (Input.GetKey("w") && speed < maxSpeed && (hasGas || gameObject.GetComponent<Player>().isHome))
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity *= bbVel;
 
         }
-        else if (Input.GetKey("s") && hasGas)
+        else if (Input.GetKey("s") && (hasGas || gameObject.GetComponent<Player>().isHome))
         {
 
             Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
