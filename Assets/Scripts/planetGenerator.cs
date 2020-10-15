@@ -48,9 +48,6 @@ public class planetGenerator : MonoBehaviour
         go1.DrawCircle(70, .25f);//radius, thickness
         */
 
-        FindObjectOfType<Money>().addMoney(25);
-        FindObjectOfType<Money>().removeMoney(24);
-
         // Randomly generate all outside planets
         int numberOfRings = FindObjectOfType<GameManager>().numberOfRings;
         planetInfoList = new Dictionary<Vector2, ArrayList>();
