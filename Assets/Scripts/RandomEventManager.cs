@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RandomEventManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class RandomEventManager : MonoBehaviour
     public float randomEventTimeVariance;
 
     public GameObject[] listOfEvents = new GameObject[1];
+    public string[] listOfAlertTexts = new string[1];
 
     private float timeBeforeNextEvent;
     public bool eventIsHappening = false;
@@ -28,9 +30,11 @@ public class RandomEventManager : MonoBehaviour
         {
             eventIsHappening = true;
             int indexOfEvent = Random.Range(0, listOfEvents.Length);
-            Instantiate(listOfEvents[indexOfEvent]);
-            Instantiate(alertText);
-            
+            GameObject randomEvent = Instantiate(listOfEvents[indexOfEvent]);
+            GameObject alert = Instantiate(alertText);
+            alert.GetComponent<Text>().text = listOfAlertTexts[indexOfEvent];
+
+
         }
         else
         {

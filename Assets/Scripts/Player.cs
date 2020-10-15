@@ -197,6 +197,11 @@ public class Player : MonoBehaviour
             healthBar.transform.localScale = new Vector3(0, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
             healthBarEnd.transform.localScale = new Vector3(-1, healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
         }
+
+        if(health == 0)
+        {
+            GetComponent<Respawn>().playerRespawn();
+        }
     }
 
     public void regen()

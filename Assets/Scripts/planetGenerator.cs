@@ -41,7 +41,7 @@ public class planetGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        /*
+        /* creates a home circle
         var go1 = new GameObject { name = "HomeCircle" };
         go1.transform.position = new Vector2(0, 0);
         go1.transform.Rotate(90f, 0, 0);
