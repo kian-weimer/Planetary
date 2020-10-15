@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (Time.time >= spawnTime + despawnTime)
         {
             Destroy(gameObject);
@@ -33,7 +33,11 @@ public class Bullet : MonoBehaviour
 
             if (collision.gameObject.GetComponent<Planet>().health <= 0)
             {
-                collision.gameObject.GetComponent<Planet>().destroy();
+                if (!collision.gameObject.GetComponent<Planet>().destroyed)
+                {
+                    collision.gameObject.GetComponent<Planet>().destroyed = true;
+                    collision.gameObject.GetComponent<Planet>().destroy();
+                }
             }
         }
 

@@ -65,8 +65,8 @@ public class Player : MonoBehaviour
             weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));//new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
         }
 
-        
-        
+
+
 
     }
 
@@ -104,7 +104,6 @@ public class Player : MonoBehaviour
 
     public void HomePlanetDestroyed(Planet planet)
     {
-        Debug.Log(planet == closestHomePlanet);
         // fixes UI
         if (planet == closestHomePlanet)
         {
@@ -139,9 +138,9 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Popup")
+        if (collision.gameObject.tag == "Popup")
         {
-            if(collision.gameObject.transform.parent.GetComponent<Planet>().inHomeSystem == true)
+            if (collision.gameObject.transform.parent.GetComponent<Planet>().inHomeSystem == true)
             {
                 if (collision.gameObject.transform.Find("Canvas").transform.Find("PopupText").gameObject.activeSelf)
                 {
@@ -152,7 +151,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        if(collision.gameObject.tag == "HomeCircle")
+        if (collision.gameObject.tag == "HomeCircle")
         {
             isHome = false;
         }
@@ -160,13 +159,13 @@ public class Player : MonoBehaviour
 
     public bool ConsumeGas(bool isBackwards)
     {
-        gas -= isBackwards ? fuelConsumption/4 : fuelConsumption;
-        
+        gas -= isBackwards ? fuelConsumption / 4 : fuelConsumption;
+
         if (gas > 0.5)
         {
             gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / (maxGas - maxGas * .1f), gasBar.transform.localScale.y, gasBar.transform.localScale.z);
-          
-            if (gas <= maxGas*.1f)
+
+            if (gas <= maxGas * .1f)
             {
                 gasBarEnd.transform.localScale = new Vector3(-1 * (maxGas * .1f - gas) / (maxGas * .1f), gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
             }
@@ -185,7 +184,7 @@ public class Player : MonoBehaviour
         health -= healthLoss;
         if (health > 0.5)
         {
-            healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) /( maxHealth - maxHealth * .1f), healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) / (maxHealth - maxHealth * .1f), healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
             if (health <= maxHealth * .1f)
             {
@@ -199,14 +198,14 @@ public class Player : MonoBehaviour
             healthBarEnd.transform.localScale = new Vector3(-1, healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
         }
 
-        if(health == 0)
+        if (health == 0)
         {
             GetComponent<Respawn>().playerRespawn();
         }
     }
 
     public void regen()
-    { 
+    {
 
         if (gas < maxGas)
         {
@@ -223,11 +222,11 @@ public class Player : MonoBehaviour
         {
             gas = maxGas;
         }
-        
-        if(health < maxHealth)
+
+        if (health < maxHealth)
         {
             health += regenRate;
-            
+
             healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) / (maxHealth - maxHealth * .1f), healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
             if (health <= maxHealth * .1f)

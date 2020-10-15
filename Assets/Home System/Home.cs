@@ -11,7 +11,7 @@ public class Home : MonoBehaviour
     public int planetRingSeperation = 10;
     public int sunOffset = 20;
     public List<Planet> homePlanets;
-    public HomePlanet homePlanet; 
+    public HomePlanet homePlanet;
     public planetGenerator PG;
 
     public Planet rockPlanet;
@@ -30,7 +30,7 @@ public class Home : MonoBehaviour
         // Randomly generate home planets
         for (int i = 0; i < numberOfStartingHomePlanets; i++)
         {
-            int numberOfHomeRings = (int) Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
+            int numberOfHomeRings = (int)Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
 
             Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
             // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
@@ -44,16 +44,16 @@ public class Home : MonoBehaviour
             planet.transform.parent = gameObject.transform;
             homePlanets.Add(planet);
         }
-}
+    }
     public void IncreasePlanetView(int changeValue)
     {
         Planet planet = homePlanets[currentViewingPlanet];
 
-        if (changeValue < -planet.GetComponent<Planet>().rarity)
+        if (changeValue < 0 && currentViewingPlanet == 0)
         {
-            changeValue = numberOfStartingHomePlanets + changeValue - planet.GetComponent<Planet>().rarity;
+            changeValue = numberOfStartingHomePlanets - 1;
         }
-        
+
         currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfStartingHomePlanets;
 
         while (homePlanets[currentViewingPlanet] == null)
@@ -68,6 +68,7 @@ public class Home : MonoBehaviour
             }
             currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfStartingHomePlanets;
         }
+        Debug.Log(currentViewingPlanet);
         Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);
 
@@ -82,11 +83,16 @@ public class Home : MonoBehaviour
         UpdatePlanetHud();
     }
 
+    public GameObject getCurrentViewingPlanet()
+    {
+        return homePlanets[currentViewingPlanet].gameObject;
+    }
+
     public void ChangePlanetName(Text text)
     {
         homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name = text.text;
     }
-   
+
 
     public void UpdatePlanetHud()
     {
@@ -98,7 +104,7 @@ public class Home : MonoBehaviour
 
         // change health bar
         HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale =
-            new Vector3(homePlanets[currentViewingPlanet].health / (float) homePlanets[currentViewingPlanet].maxHealth,
+            new Vector3(homePlanets[currentViewingPlanet].health / (float)homePlanets[currentViewingPlanet].maxHealth,
             HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale.y,
             HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale.z);
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
@@ -34,7 +34,21 @@ public class HomePlanet : MonoBehaviour
         for (int item = 0; item < numberOfItemSlots; item++)
         {
             planetHUD.transform.Find("Item" + (item + 1)).Find("Quantity").gameObject.GetComponent<Text>().text = "X" + (items[item].Item2 + "").PadLeft(2, '0');
-        }   
+            foreach (Transform child in planetHUD.transform.Find("Item" + (item + 1)).transform)
+            {
+                if (child.name != "Quantity")
+                {
+                    Debug.Log(child.name);
+                    GameObject.Destroy(child.gameObject);
+                }
+            }
+            planetHUD.transform.Find("Item" + (item + 1)).GetComponent<PlanetInventorySlot>().RemoveItem();
+            if (items[item].Item1 != null)
+            {
+                planetHUD.transform.Find("Item" + (item + 1)).GetComponent<PlanetInventorySlot>().AddItem(items[item].Item1);
+            }
+
+        }
     }
 
     // add a quantity of an item to a specified item slot
@@ -86,6 +100,6 @@ public class HomePlanet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

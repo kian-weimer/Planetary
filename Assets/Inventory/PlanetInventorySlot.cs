@@ -5,18 +5,25 @@ using UnityEngine.EventSystems;
 
 public class PlanetInventorySlot : MonoBehaviour
 {
+    public int itemSlot;
     public GameObject item; // resource
     public GameObject icon;
+    public GameObject home;
+    public void Start()
+    {
+        home = FindObjectOfType<Home>().gameObject;
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         if (eventData.pointerDrag != null)
         {
-            Debug.Log("ITEMDROPPEDONPLANETSLOT");
             GameObject tempItem = eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item;
             eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().RemoveItem();
             AddItemFromOldSlot(tempItem, eventData.pointerDrag);
 
+            GameObject planet = home.GetComponent<Home>().getCurrentViewingPlanet();
+            planet.GetComponent<HomePlanet>().addItem(tempItem, 1, itemSlot);
         }
     }
 

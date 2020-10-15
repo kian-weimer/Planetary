@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b8ddc320207a74c8e56f49dd2bda6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSlot: 0
+  itemSlot: 2
   item: {fileID: 0}
   icon: {fileID: 0}
   home: {fileID: 0}
@@ -1815,8 +1815,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6645348837973443172, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
 --- !u!1 &664717224
 GameObject:
@@ -2165,7 +2164,7 @@ PrefabInstance:
       value: Item2
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6645348837973443172, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
 --- !u!1 &731712354
 GameObject:
@@ -6928,7 +6927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b8ddc320207a74c8e56f49dd2bda6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSlot: 0
+  itemSlot: 1
   item: {fileID: 0}
   icon: {fileID: 0}
   home: {fileID: 0}
@@ -7354,7 +7353,7 @@ PrefabInstance:
       value: Item3
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6645348837973443172, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
 --- !u!1 &1159672787
 GameObject:
@@ -7666,6 +7665,8 @@ MonoBehaviour:
   randomEventTimeVariance: 0
   listOfEvents:
   - {fileID: 2541413529298459909, guid: f004d06982446b140b27e073b5e87f1a, type: 3}
+  listOfAlertTexts:
+  - 
   eventIsHappening: 0
   alertText: {fileID: 3243644419479592566, guid: e4bf9fe4d4d28cf42a9e333cd1401601,
     type: 3}
