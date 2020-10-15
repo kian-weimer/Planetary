@@ -124,6 +124,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &23388393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7767129172053350334, guid: e5e2695a3a055e14ebed734624389a9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1141697202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &23388394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23388393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b8ddc320207a74c8e56f49dd2bda6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlot: 0
+  item: {fileID: 0}
+  icon: {fileID: 0}
+  home: {fileID: 0}
 --- !u!1 &70429629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,6 +1496,7 @@ MonoBehaviour:
   planetExplosion: {fileID: 0}
   planetResource: {fileID: 0}
   inHomeSystem: 0
+  destroyed: 0
 --- !u!1 &527026057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,7 +1815,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6645348837973443172, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
 --- !u!1 &664717224
 GameObject:
@@ -2140,7 +2164,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6645348837973443172, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
 --- !u!1 &731712354
 GameObject:
@@ -2157,7 +2182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &731712358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6885,6 +6910,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc2a7ddb5d7d39f48bfd9bf016335832, type: 3}
+--- !u!1 &1064453193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7767129172053350334, guid: e5e2695a3a055e14ebed734624389a9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 715250722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1064453194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064453193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b8ddc320207a74c8e56f49dd2bda6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlot: 0
+  item: {fileID: 0}
+  icon: {fileID: 0}
+  home: {fileID: 0}
 --- !u!1 &1065613025
 GameObject:
   m_ObjectHideFlags: 0
@@ -7146,6 +7193,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097347053}
   m_CullTransparentMesh: 0
+--- !u!1 &1137516226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7767129172053350334, guid: e5e2695a3a055e14ebed734624389a9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 636317883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1137516227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137516226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b8ddc320207a74c8e56f49dd2bda6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlot: 0
+  item: {fileID: 0}
+  icon: {fileID: 0}
+  home: {fileID: 0}
 --- !u!1001 &1141697202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7284,7 +7353,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6645348837973443172, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
 --- !u!1 &1159672787
 GameObject:

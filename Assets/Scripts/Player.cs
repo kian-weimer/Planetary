@@ -104,7 +104,6 @@ public class Player : MonoBehaviour
 
     public void HomePlanetDestroyed(Planet planet)
     {
-        Debug.Log(planet == closestHomePlanet);
         // fixes UI
         if (planet == closestHomePlanet)
         {

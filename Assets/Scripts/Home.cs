@@ -49,9 +49,9 @@ public class Home : MonoBehaviour
     {
         Planet planet = homePlanets[currentViewingPlanet];
 
-        if (changeValue < -planet.GetComponent<Planet>().rarity)
+        if (changeValue < 0 && currentViewingPlanet == 0)
         {
-            changeValue = numberOfStartingHomePlanets + changeValue - planet.GetComponent<Planet>().rarity;
+            changeValue = numberOfStartingHomePlanets - 1;
         }
         
         currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfStartingHomePlanets;
@@ -68,6 +68,7 @@ public class Home : MonoBehaviour
             }
             currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfStartingHomePlanets;
         }
+        Debug.Log(currentViewingPlanet);
         Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);
 
@@ -80,6 +81,11 @@ public class Home : MonoBehaviour
         Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);
         UpdatePlanetHud();
+    }
+
+    public GameObject getCurrentViewingPlanet()
+    {
+        return homePlanets[currentViewingPlanet].gameObject;
     }
 
     public void ChangePlanetName(Text text)

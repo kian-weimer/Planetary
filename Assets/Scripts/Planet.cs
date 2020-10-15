@@ -17,6 +17,7 @@ public class Planet : MonoBehaviour
     public GameObject planetExplosion; // holds the prefab of the explosionm animation used when the planet is destroyed
     public GameObject planetResource; // holds the item resource that the planet pops out when destroyed
     public bool inHomeSystem = false; // is true when its in the home solar system
+    public bool destroyed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,10 +45,11 @@ public class Planet : MonoBehaviour
     {
         if (inHomeSystem)
         {
+
             // do something to show everything that it is gone (messes up the UI) 
             FindObjectOfType<Player>().HomePlanetDestroyed(this);
+            Debug.Log(FindObjectOfType<Home>().homePlanets.IndexOf(this));
             FindObjectOfType<Home>().homePlanets[FindObjectOfType<Home>().homePlanets.IndexOf(this)] = null;
-            //FindObjectOfType<Home>().numberOfStartingHomePlanets = FindObjectOfType<Home>().numberOfStartingHomePlanets - 1;
         }
 
         GameObject exp = Instantiate(planetExplosion);
