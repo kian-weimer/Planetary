@@ -36,11 +36,7 @@ public class HomePlanet : MonoBehaviour
             planetHUD.transform.Find("Item" + (item + 1)).Find("Quantity").gameObject.GetComponent<Text>().text = "X" + (items[item].Item2 + "").PadLeft(2, '0');
             foreach (Transform child in planetHUD.transform.Find("Item" + (item + 1)).transform)
             {
-                if (child.name != "Quantity")
-                {
-                    Debug.Log(child.name);
-                    GameObject.Destroy(child.gameObject);
-                }
+                GameObject.Destroy(child.gameObject);
             }
             planetHUD.transform.Find("Item" + (item + 1)).GetComponent<PlanetInventorySlot>().RemoveItem();
             if (items[item].Item1 != null)
