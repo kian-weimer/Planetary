@@ -68,6 +68,17 @@ public class Shop : MonoBehaviour
 
     }
 
+    public void changePrice(string name, int newPrice)
+    {
+        foreach(ShopItemInfo item in items)
+        {
+            if (item.name == name)
+            {
+                item.cost = newPrice;
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

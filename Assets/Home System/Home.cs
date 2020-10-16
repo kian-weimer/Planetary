@@ -41,6 +41,7 @@ public class Home : MonoBehaviour
             planet.Initialize(info);
             planet.gameObject.AddComponent<HomePlanet>();
             planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
+            planet.gameObject.name = "PLANET" + i;
             planet.transform.parent = gameObject.transform;
             homePlanets.Add(planet);
         }

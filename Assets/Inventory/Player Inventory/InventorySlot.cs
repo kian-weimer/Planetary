@@ -9,12 +9,27 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     public GameObject icon;
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("HERE");
         if (eventData.pointerDrag != null)
         {
-            GameObject tempItem = eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item;
-            eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().RemoveItem();
-            AddItemFromOldSlot(tempItem, eventData.pointerDrag);
+            if (eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>() != null)
+            {
+                GameObject tempItem = eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item;
+                eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().RemoveItem();
+                AddItemFromOldSlot(tempItem, eventData.pointerDrag);
+            }
+            else
+            {
+                GameObject tempItem = eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().item;
+
+                eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().home.GetComponent<Home>().
+                    homePlanets[eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().home.GetComponent<Home>()
+                    .currentViewingPlanet].GetComponent<HomePlanet>().removeItem(eventData.pointerDrag.transform.parent.
+                    GetComponent<PlanetInventorySlot>().itemSlot);
+
+                eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().RemoveItem();
+                AddItemFromOldSlot(tempItem, eventData.pointerDrag);
+            }
+            
         }
     }
 

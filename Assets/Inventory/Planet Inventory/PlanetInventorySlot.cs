@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlanetInventorySlot : MonoBehaviour
+public class PlanetInventorySlot : MonoBehaviour, IDropHandler
 {
+
     public int itemSlot;
     public GameObject item; // resource
     public GameObject icon;
@@ -18,12 +20,24 @@ public class PlanetInventorySlot : MonoBehaviour
     {
         if (eventData.pointerDrag != null)
         {
-            GameObject tempItem = eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item;
-            eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().RemoveItem();
+            GameObject tempItem;
+
+            // dont allow switching in planet inventory slots
+            if (eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>() != null)
+            {
+                return;
+            }
+            else
+            {
+                tempItem = eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item;
+                eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().RemoveItem();
+            }
+            
             AddItemFromOldSlot(tempItem, eventData.pointerDrag);
 
             GameObject planet = home.GetComponent<Home>().getCurrentViewingPlanet();
             planet.GetComponent<HomePlanet>().addItem(tempItem, 1, itemSlot);
+            planet.GetComponent<HomePlanet>().UpdateUI(itemSlot);
         }
     }
 
