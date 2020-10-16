@@ -32,7 +32,7 @@ public class Meteor : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().loseHealth(10);
+            collision.gameObject.GetComponent<Player>().loseHealth(25);
             Destroy(gameObject);
         }
     }

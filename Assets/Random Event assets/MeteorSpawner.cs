@@ -19,6 +19,7 @@ public class MeteorSpawner : MonoBehaviour
     public int numberOfWaves;
     private int numberOfWavesOccured = 0;
     private float degree;
+    public float detonationTime;
 
     void Awake()
     {
@@ -57,7 +58,11 @@ public class MeteorSpawner : MonoBehaviour
         //Todo Fix it so it waits to destroy
         if(numberOfWavesOccured == numberOfWaves)
         {
-            Destroy(gameObject);
+            detonationTime -= Time.deltaTime;
+            if(detonationTime <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

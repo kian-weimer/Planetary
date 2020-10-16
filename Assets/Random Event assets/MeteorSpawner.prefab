@@ -118,4 +118,4 @@ MonoBehaviour:
   meteor: {fileID: 6583664476263446577, guid: f1df791f2b1d32847b8dfd7e09c3f614, type: 3}
   isSpawningMeteors: 0
   numberOfWaves: 5
-  alertText: Incomming Asteroid
+  detonationTime: 45

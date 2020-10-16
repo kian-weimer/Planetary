@@ -76,7 +76,7 @@ public class Planet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().loseHealth(10);
+            collision.gameObject.GetComponent<Player>().loseHealth(40);
             collision.gameObject.GetComponent<PlayerController>().bounceBack();
         }
     }
