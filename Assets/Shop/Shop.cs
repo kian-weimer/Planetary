@@ -13,9 +13,12 @@ public class Shop : MonoBehaviour
     public GameObject text;
     public GameObject shopItem;
     RectTransform rT;
+    public GameObject Money;
+    public GameObject ShopManager;
     // Start is called before the first frame update
     void Start()
     {
+        
         rT = GetComponent<RectTransform>();
         // rT.sizeDelta = new Vector2(rT.sizeDelta.x, items.Count * itemDistance);
         for (int i = 0; i < items.Count; i++)
@@ -24,7 +27,7 @@ public class Shop : MonoBehaviour
             GameObject item = Instantiate(shopItem);
             item.name = "Item " + i;
             item.transform.SetParent(transform);
-            item.transform.position -= new Vector3(-1545, -475 + i * itemDistance , 0); // not sure why negative numbers there are needed...
+            item.transform.position -= new Vector3(-1545, -375 + i * itemDistance , 0); // not sure why negative numbers there are needed...
 
             if (items[i].sellItem)
             {
@@ -79,19 +82,17 @@ public class Shop : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ItemPurchased(ShopItem item)
     {
-        Debug.Log(item.name + " " +  item.cost);
+        if (Money.GetComponent<Money>().removeMoney(item.cost))
+        {
+            ShopManager.GetComponent<ShopManager>().buyShopResultOf(item.name);
+        }
     }
 
     public void ItemSold(SellShopItem item)
     {
         Debug.Log(item.name + " " + item.cost + " " + item.quantity);
+        ShopManager.GetComponent<ShopManager>().sellShopResultOf(item);
     }
 }

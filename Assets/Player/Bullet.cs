@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float despawnTime = 3;
 
     private float spawnTime;
+    public float bulletDamage = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Planet")
         {
-            collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - 10;
+            Debug.Log(bulletDamage);
+            collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - (int)bulletDamage;
 
             if (collision.gameObject.GetComponent<Planet>().health <= 0)
             {

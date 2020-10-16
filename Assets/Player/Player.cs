@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         gas = maxGas;
         info = new PlayerInfo(0, 0, maxHealth, health, maxGas, gas);
         weapon.lastShotTime = 0;
+        weapon.bullet.bulletDamage = 5;
     }
 
     public void LoadFromInfo(PlayerInfo info)
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && main.gameObject.activeSelf)
         {
             float rotation = (rb.rotation + 90);
-            weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));//new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
+            weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)), gameObject.GetComponent<Rigidbody2D>().velocity);//new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
         }
 
 

@@ -8,15 +8,17 @@ public class Weapon : MonoBehaviour
     public float firerate; // bullets per second
     public float bulletSpeed;
     public float lastShotTime;
+    public bool isInGUI = true;
 
-    public void Shoot(Vector2 position, Vector2 direction)
+    public void Shoot(Vector2 position, Vector2 direction, Vector2 playerSpeed)
     {
-        if (Time.time > lastShotTime + 1/firerate)
+        
+        if (Time.time > lastShotTime + 1/firerate && !isInGUI)
         {
             lastShotTime = Time.time;
             Bullet tempBullet = Instantiate(bullet);
             tempBullet.transform.position = position;
-            tempBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
+            tempBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerSpeed;
         }
     }
 }

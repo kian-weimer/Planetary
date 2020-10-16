@@ -18,7 +18,7 @@ public class Money : MonoBehaviour
         int currentMoney = int.Parse(GetComponent<Text>().text);
         int potentialMoney = currentMoney -= moneyToRemove;
 
-        if (potentialMoney > 0)
+        if (potentialMoney >= 0)
         {
             GetComponent<Text>().text = potentialMoney.ToString();
             return true;

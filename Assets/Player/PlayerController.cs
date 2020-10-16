@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 0f;
     public float turnSpeed = 1;
     public float maxSpeed = 70f;
+    public bool hasWarpSpeed = false;
   
     [Range(0, 3f)]
     public float landingSpeed = 1f;
