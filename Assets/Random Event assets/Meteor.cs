@@ -6,6 +6,10 @@ public class Meteor : MonoBehaviour
 {
     public float maxLifeTime = 20;
     private float timeLeftTillDestroy;
+    public GameObject explosion;
+    public float maxTimetoDeath;
+    public float minTimeToDeath;
+    private float deathVariation;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,8 @@ public class Meteor : MonoBehaviour
         }
         if(timeLeftTillDestroy <= 0)
         {
-            Destroy(gameObject);
+            deathVariation = Random.Range(minTimeToDeath, maxTimetoDeath) + Time.deltaTime;
+            destroy();
         }
     }
 
@@ -32,13 +37,25 @@ public class Meteor : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            deathVariation = Random.Range(minTimeToDeath, maxTimetoDeath) + Time.deltaTime;
             collision.gameObject.GetComponent<Player>().loseHealth(25);
-            Destroy(gameObject);
+            destroy();
         }
     }
 
     public void move()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, -Random.Range(5, 30));
+    }
+
+    public void destroy()
+    {
+        while(deathVariation > 0)
+        {
+            deathVariation -= Time.deltaTime;
+        }
+        GameObject exp = Instantiate(explosion);
+        exp.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        Destroy(gameObject);
     }
 }

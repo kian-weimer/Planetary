@@ -119,3 +119,4 @@ MonoBehaviour:
   isSpawningMeteors: 0
   numberOfWaves: 5
   detonationTime: 45
+  timeBeforeMeteors: 15

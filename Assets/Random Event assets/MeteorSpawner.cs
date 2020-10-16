@@ -20,6 +20,7 @@ public class MeteorSpawner : MonoBehaviour
     private int numberOfWavesOccured = 0;
     private float degree;
     public float detonationTime;
+    public float timeBeforeMeteors;
 
     void Awake()
     {
@@ -40,20 +41,24 @@ public class MeteorSpawner : MonoBehaviour
     }
     private void Update()
     {
-        timeForMeteorWave -= Time.deltaTime;
-
-        if (timeForMeteorWave <= 0.0f && numberOfWaves - numberOfWavesOccured != 0)
+        timeBeforeMeteors -= Time.deltaTime;
+        if(timeBeforeMeteors <= 0)
         {
-            rt.rotation = Quaternion.Euler(new Vector3(0, 0, 0)); //Random.Range(0, 360) - 90 the other angle
-            timeForMeteorWave = timeBetweenWaves;
-            numberOfWavesOccured++;
-            for (int i = 0; i < numberOfAsteroids; i++)
+            timeForMeteorWave -= Time.deltaTime;
+            if (timeForMeteorWave <= 0.0f && numberOfWaves - numberOfWavesOccured != 0)
             {
-                Instantiate(meteor, new Vector3(Random.Range(rt.rect.x, rt.rect.x + rt.rect.width),
-                      Random.Range(rt.rect.y, rt.rect.y + rt.rect.height), 0) + rt.transform.position, Quaternion.identity).transform.parent = gameObject.transform;
+                rt.rotation = Quaternion.Euler(new Vector3(0, 0, 0)); //Random.Range(0, 360) - 90 the other angle
+                timeForMeteorWave = timeBetweenWaves;
+                numberOfWavesOccured++;
+                for (int i = 0; i < numberOfAsteroids; i++)
+                {
+                    Instantiate(meteor, new Vector3(Random.Range(rt.rect.x, rt.rect.x + rt.rect.width),
+                            Random.Range(rt.rect.y, rt.rect.y + rt.rect.height), 0) + rt.transform.position, Quaternion.identity).transform.parent = gameObject.transform;
+                }
+                rt.rotation = Quaternion.Euler(new Vector3(0, 0, degree + 90 - 180)); //Random.Range(0, 360) - 90 the other angle
             }
-            rt.rotation = Quaternion.Euler(new Vector3(0, 0, degree + 90 - 180)); //Random.Range(0, 360) - 90 the other angle
         }
+        
 
         //Todo Fix it so it waits to destroy
         if(numberOfWavesOccured == numberOfWaves)
