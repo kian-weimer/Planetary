@@ -19,6 +19,14 @@ public class Inventory : MonoBehaviour
         InitializeInventory();
     }
 
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.P))
+        {
+            addInventorySlot();
+        }
+    }
+
     public void InitializeInventory()
     {
         for (int s = 0; s < numberOfInventorySlots; s++)
@@ -49,7 +57,11 @@ public class Inventory : MonoBehaviour
 
     public void addInventorySlot()
     {
-
+        numberOfInventorySlots++;
+        GameObject slot = Instantiate(IS);
+        slot.transform.parent = transform;
+        slot.GetComponent<RectTransform>().anchoredPosition = origin + new Vector3((numberOfInventorySlots - 1) * spacing, 0, 0);
+        slots.Add(slot);
     }
 
     // Update is called once per frame
