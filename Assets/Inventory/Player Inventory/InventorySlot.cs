@@ -56,6 +56,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     {
         icon = null;
         item = null;
+        transform.parent.gameObject.GetComponent<Inventory>().isFull = false;
     }
 
 }

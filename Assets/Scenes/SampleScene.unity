@@ -2469,7 +2469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &731712358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2515,7 +2515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &733954150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9168,6 +9168,9 @@ MonoBehaviour:
   - rarityLevel: 1000
     planets:
     - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
+    - {fileID: 7067810450145918220, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
+    - {fileID: 1733198026275215389, guid: 16f7683d03097164c9139671b06528e7, type: 3}
+    - {fileID: 7927689426480080227, guid: 7d11f554198a49b4d9f089c09b9fbe7d, type: 3}
   - rarityLevel: 250
     planets:
     - {fileID: 7954755680354533115, guid: a23588a8d84dfc744a6e1ca6ade4e336, type: 3}
