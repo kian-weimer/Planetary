@@ -29,9 +29,13 @@ public class PlayerController : MonoBehaviour
     public Vector2 gridPosition;
     public Vector2 gridsInView;
     public Vector2 bbVel = new Vector2(1,1);
+
+    [HideInInspector]
+    public bool canMove;
     // Start is called before the first frame update
     void Start()
     {
+        canMove = true;
         gridPosition = PG.GetGridPosition(transform.position);
         ArrayList l = getGridsInView();
         for (int i = 0; i < 9; i++)
@@ -64,7 +68,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         bool hasGas = false;
-        if ((Input.GetKey("w") && speed < maxSpeed || Input.GetKey("s")) && !gameObject.GetComponent<Player>().isHome)
+        if ((Input.GetKey("w") && speed < maxSpeed || Input.GetKey("s")) && !gameObject.GetComponent<Player>().isHome && canMove)
         {
             hasGas = transform.GetComponent<Player>().ConsumeGas(Input.GetKey("s"));
         }
@@ -81,7 +85,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity *= bbVel;
 
         }
-        else if (Input.GetKey("s") && (hasGas || gameObject.GetComponent<Player>().isHome))
+        else if (Input.GetKey("s") && (hasGas || gameObject.GetComponent<Player>().isHome) && canMove)
         {
 
             Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
@@ -115,11 +119,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") && canMove)
         {
             rb.angularVelocity += turnSpeed;
         }
-        else if (Input.GetKey("d"))
+        else if (Input.GetKey("d") && canMove)
         {
             rb.angularVelocity -= turnSpeed;
         }

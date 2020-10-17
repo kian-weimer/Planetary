@@ -203,9 +203,10 @@ public class Player : MonoBehaviour
             healthBarEnd.transform.localScale = new Vector3(-1, healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
         }
 
-        if (health == 0)
+        if (health <= 0)
         {
             GetComponent<Respawn>().playerRespawn();
+            //GetComponent<PlayerController>().canMove = false;
         }
     }
 

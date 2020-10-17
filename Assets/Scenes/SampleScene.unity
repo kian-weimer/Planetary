@@ -3127,6 +3127,7 @@ MonoBehaviour:
   gridPosition: {x: 0, y: 0}
   gridsInView: {x: 0, y: 0}
   bbVel: {x: 1, y: 1}
+  canMove: 0
 --- !u!4 &949674681
 Transform:
   m_ObjectHideFlags: 0
@@ -9000,12 +9001,12 @@ GameObject:
   - component: {fileID: 1641715479}
   - component: {fileID: 1641715480}
   m_Layer: 9
-  m_Name: GameObject
+  m_Name: PlayerTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1641715479
 Transform:
   m_ObjectHideFlags: 0

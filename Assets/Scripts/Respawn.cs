@@ -9,7 +9,9 @@ public class Respawn : MonoBehaviour
     // Start is called before the first frame update
     public void playerRespawn()
     {
+        transform.Find("PlayerTrail").gameObject.SetActive(false);
         StartCoroutine(wait());
+        
     }
 
     IEnumerator wait()
@@ -17,5 +19,7 @@ public class Respawn : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         GetComponent<Player>().health = 1;
         GetComponent<Player>().transform.position = spawnLocation.transform.position;
+        GetComponent<PlayerController>().canMove = true;
+        transform.Find("PlayerTrail").gameObject.SetActive(true);
     }
 }

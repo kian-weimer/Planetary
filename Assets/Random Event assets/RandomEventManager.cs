@@ -36,16 +36,9 @@ public class RandomEventManager : MonoBehaviour
 
 
         }
-        else
+        else if(FindObjectOfType<Player>().isHome == false)
         {
             timeBeforeNextEvent -= Time.deltaTime;
         }
-
-        /*
-        if (!eventIsHappening && timeBeforeNextEvent <= 0)
-        {
-            timeBeforeNextEvent = timeBetweenEvents;
-        }
-        */
     }
 }
