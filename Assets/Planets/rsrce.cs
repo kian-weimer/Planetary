@@ -8,6 +8,7 @@ public class rsrce : MonoBehaviour
 {
     public bool UIElement = false;
     public GameObject icon;
+    public string nameOfResource;
     // Start is called before the first frame update
     void Start()
     {

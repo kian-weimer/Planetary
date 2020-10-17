@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElement: 0
   icon: {fileID: 1138482248670436817, guid: 0a7df2bd91cb0224fadf385871f8de77, type: 3}
+  nameOfResource: Water

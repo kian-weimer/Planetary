@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElement: 0
   icon: {fileID: 2165065784793631877, guid: 08b604baadfde3c479408a07dcc3d60c, type: 3}
+  nameOfResource: Rock

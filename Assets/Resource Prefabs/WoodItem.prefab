@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElement: 0
   icon: {fileID: 4584239764220903972, guid: 9460ec592cad5034a9f1af8016ed9945, type: 3}
+  nameOfResource: Wood
