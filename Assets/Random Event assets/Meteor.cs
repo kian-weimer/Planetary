@@ -18,6 +18,7 @@ public class Meteor : MonoBehaviour
         //float angle = (transform.rotation.z * Mathf.PI) / 180;
         GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle))* Random.Range(5f, 10f); //new Vector2(0, -Random.Range(5, 30));
         GetComponent<Rigidbody2D>().angularVelocity = 720;
+        deathVariation = Random.Range(minTimeToDeath, maxTimetoDeath) + Time.deltaTime;
     }
 
     void Update()
@@ -28,8 +29,11 @@ public class Meteor : MonoBehaviour
         }
         if(timeLeftTillDestroy <= 0)
         {
-            deathVariation = Random.Range(minTimeToDeath, maxTimetoDeath) + Time.deltaTime;
-            destroy();
+            deathVariation -= Time.deltaTime;
+            if(deathVariation <= 0)
+            {
+                destroy();
+            }
         }
     }
 
@@ -37,7 +41,6 @@ public class Meteor : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            deathVariation = Random.Range(minTimeToDeath, maxTimetoDeath) + Time.deltaTime;
             collision.gameObject.GetComponent<Player>().loseHealth(25);
             destroy();
         }
@@ -48,12 +51,8 @@ public class Meteor : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, -Random.Range(5, 30));
     }
 
-    public void destroy()
+    private void destroy()
     {
-        while(deathVariation > 0)
-        {
-            deathVariation -= Time.deltaTime;
-        }
         GameObject exp = Instantiate(explosion);
         exp.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         Destroy(gameObject);

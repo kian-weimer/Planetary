@@ -3152,7 +3152,7 @@ MonoBehaviour:
   main: {fileID: 519420031}
   planetView: {fileID: 1238475320}
   maxHealth: 200
-  maxGas: 200
+  maxGas: 400
   gasBar: {fileID: 1499567271}
   gasBarEnd: {fileID: 601551226}
   healthBar: {fileID: 2077049724}
@@ -3167,6 +3167,7 @@ MonoBehaviour:
   isHome: 1
   regenRate: 0.15
   inventory: {fileID: 752310339}
+  canvas: {fileID: 684055474}
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}
   popUpText: {fileID: 0}
@@ -8011,7 +8012,7 @@ MonoBehaviour:
   listOfEvents:
   - {fileID: 2541413529298459909, guid: f004d06982446b140b27e073b5e87f1a, type: 3}
   listOfAlertTexts:
-  - 
+  - Incomming Asteroids
   eventIsHappening: 0
   alertText: {fileID: 3243644419479592566, guid: e4bf9fe4d4d28cf42a9e333cd1401601,
     type: 3}

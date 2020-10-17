@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     public float regenRate;
     public Inventory inventory;
 
+    public GameObject canvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -135,6 +137,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "HomeCircle")
         {
             isHome = true;
+            canvas.transform.Find("ShopButton").gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -155,6 +158,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "HomeCircle")
         {
             isHome = false;
+            canvas.transform.Find("ShopButton").gameObject.SetActive(false);
         }
     }
 

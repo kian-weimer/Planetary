@@ -99,8 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLifeTime: 40
   explosion: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
-  maxTimetoDeath: 2.5
-  minTimeToDeath: 0
+  maxTimetoDeath: 5
+  minTimeToDeath: 0.2
 --- !u!50 &6583664476263446578
 Rigidbody2D:
   serializedVersion: 4

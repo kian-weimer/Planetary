@@ -30,7 +30,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Planet")
         {
-            Debug.Log(bulletDamage);
             collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - (int)bulletDamage;
 
             if (collision.gameObject.GetComponent<Planet>().health <= 0)
