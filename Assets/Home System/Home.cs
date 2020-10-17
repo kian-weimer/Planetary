@@ -23,6 +23,7 @@ public class Home : MonoBehaviour
     public int currentViewingPlanet;
 
     public GameObject planetHUD;
+    public PlanetComboList comboList;
     // Start is called before the first frame update
     void Awake()
     {
@@ -113,7 +114,16 @@ public class Home : MonoBehaviour
         HUD.Find("Health Bar").Find("NumeratedHealth").GetComponent<Text>().text = homePlanets[currentViewingPlanet].health + "/" + homePlanets[currentViewingPlanet].maxHealth;
 
         homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().UpdateUI();
+    }
 
-
+    public void Combo()
+    {
+        GameObject comboPlanet = homePlanets[currentViewingPlanet].gameObject;
+        HomePlanet comboHomeInfo = comboPlanet.GetComponent<HomePlanet>();
+        PlanetCombo combo = comboList.Combo(comboHomeInfo.items[0], comboHomeInfo.items[1], comboHomeInfo.items[2]);
+        if (combo != null)
+        {
+            comboPlanet.GetComponent<SpriteRenderer>().sprite = combo.planet.GetComponent<SpriteRenderer>().sprite;
+        }
     }
 }

@@ -17,6 +17,7 @@ public class HomePlanet : MonoBehaviour
     // (item, amount produced, frequency (seconds))
     public List<ProductionItem> productionItems;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -112,6 +113,6 @@ public class HomePlanet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
