@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
     private Canvas canvas;
     RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     public bool moved;
+
+    public GameObject tempUI; 
     private void Awake()
     {
         canvas = FindObjectOfType<canvas>().GetComponent<Canvas>();
@@ -17,7 +19,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0.6f;
         transform.parent.SetAsLastSibling(); // keps icon on top
@@ -26,7 +27,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
         rectTransform.anchoredPosition += eventData.delta/transform.parent.localScale;
 
     }
@@ -47,11 +47,68 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("ONPointerDown");
+        if (transform.parent.GetComponent<PlanetInventorySlot>() != null)
+        {
+            GameObject planet = FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet();
+            Debug.Log(planet.GetComponent<HomePlanet>().items[transform.parent.GetComponent<PlanetInventorySlot>().itemSlot].quantity);
+            if (planet.GetComponent<HomePlanet>().items[transform.parent.GetComponent<PlanetInventorySlot>().itemSlot].quantity > 1)
+            {
+                tempUI = Instantiate(transform.parent.GetComponent<PlanetInventorySlot>().icon);
+                tempUI.transform.parent = transform.parent;
+                tempUI.GetComponent<RectTransform>().localScale = gameObject.GetComponent<RectTransform>().localScale;
+                tempUI.GetComponent<RectTransform>().position = transform.position;
+            }
+        }
+        
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        // stackable if on the planet inventory
+        // 
+        if (eventData.pointerDrag != null && transform.parent.GetComponent<PlanetInventorySlot>() != null && transform.parent.GetComponent<InventorySlot>() == null)
+        {
+            GameObject tempItem;
+
+            // dont allow switching in planet inventory slots
+            Debug.Log(eventData.pointerDrag.name.Replace("(Clone)", "") + transform.name.Replace("(Clone)", ""));
+
+            if (eventData.pointerDrag.name.Replace("(Clone)", "") == transform.name.Replace("(Clone)", ""))
+            {
+                GameObject planet = FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet();
+                tempItem = transform.parent.GetComponent<PlanetInventorySlot>().item;
+                planet.GetComponent<HomePlanet>().addItem(tempItem, 1, transform.parent.GetComponent<PlanetInventorySlot>().itemSlot);
+                planet.GetComponent<HomePlanet>().UpdateUI();
+                Destroy(eventData.pointerDrag);
+            }
+        }
+        return;
+        // stackable if on the planet inventory
+        // 
+        if (eventData.pointerDrag != null && transform.parent.GetComponent<PlanetInventorySlot>() != null && transform.parent.GetComponent<InventorySlot>() == null)
+        {
+            GameObject tempItem;
+            GameObject planet = FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet();
+
+            // dont allow switching in planet inventory slots
+            if (eventData.pointerDrag.name.Replace("(Clone)", "") == transform.name.Replace("(Clone)", ""))
+            {
+                tempItem = transform.parent.GetComponent<PlanetInventorySlot>().item;
+                planet.GetComponent<HomePlanet>().addItem(tempItem, 1, transform.parent.GetComponent<PlanetInventorySlot>().itemSlot);
+                Destroy(eventData.pointerDrag);
+            }
+
+            planet.GetComponent<HomePlanet>().UpdateUI();
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        return;
+        //FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet().GetComponent<HomePlanet>().UpdateUI();
+        if (tempUI != null)
+        {
+            Destroy(tempUI);
+        }
     }
 }

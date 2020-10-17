@@ -106,7 +106,15 @@ public class HomePlanet : MonoBehaviour
     // returns true if successful, false otherwise
     public void removeItem(int itemSlot)
     {
-        items[itemSlot].Set(null, 0);
+        if (items[itemSlot].quantity > 1)
+        {
+            items[itemSlot].quantity -= 1;
+        }
+        else
+        {
+            items[itemSlot].Set(null, 0);
+        }
+        
         UpdateUI(itemSlot);
     }
 

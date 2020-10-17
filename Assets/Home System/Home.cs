@@ -120,10 +120,16 @@ public class Home : MonoBehaviour
     {
         GameObject comboPlanet = homePlanets[currentViewingPlanet].gameObject;
         HomePlanet comboHomeInfo = comboPlanet.GetComponent<HomePlanet>();
-        PlanetCombo combo = comboList.Combo(comboHomeInfo.items[0], comboHomeInfo.items[1], comboHomeInfo.items[2]);
-        if (combo != null)
+        PlanetCombo combo;
+        if (comboList.Combo(comboHomeInfo.items[0], comboHomeInfo.items[1], comboHomeInfo.items[2]) != null)
         {
+            combo = comboList.Combo(comboHomeInfo.items[0], comboHomeInfo.items[1], comboHomeInfo.items[2]);
             comboPlanet.GetComponent<SpriteRenderer>().sprite = combo.planet.GetComponent<SpriteRenderer>().sprite;
+            comboPlanet.GetComponent<HomePlanet>().productionItems = combo.productionItems;
+            getCurrentViewingPlanet().GetComponent<HomePlanet>().removeItem(0);
+            getCurrentViewingPlanet().GetComponent<HomePlanet>().removeItem(1);
+            getCurrentViewingPlanet().GetComponent<HomePlanet>().removeItem(2);
+            getCurrentViewingPlanet().GetComponent<HomePlanet>().UpdateUI();
         }
     }
 }

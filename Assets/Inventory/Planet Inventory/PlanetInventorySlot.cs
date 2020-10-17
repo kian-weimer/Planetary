@@ -61,8 +61,19 @@ public class PlanetInventorySlot : MonoBehaviour, IDropHandler
 
     public void RemoveItem()
     {
-        icon = null;
-        item = null;
+        try
+        {
+            if (home.GetComponent<Home>().getCurrentViewingPlanet().GetComponent<HomePlanet>().items[itemSlot].quantity == 0)
+            {
+                icon = null;
+                item = null;
+            }
+        }
+        catch (Exception e)
+        {
+            icon = null;
+            item = null;
+        }
     }
 
 }
