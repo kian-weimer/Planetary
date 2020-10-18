@@ -2444,7 +2444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &733954150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9851,6 +9851,93 @@ MonoBehaviour:
         type: 3}
       amountProduced: 2
       frequency: 10
+  - planet: {fileID: 4947203564870176798, guid: 16f7683d03097164c9139671b06528e7,
+      type: 3}
+    item1: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    productionItems:
+    - resource: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    productionItems:
+    - resource: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      amountProduced: 1
+      frequency: 30
+    - resource: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8,
+        type: 3}
+      amountProduced: 1
+      frequency: 25
+  - planet: {fileID: 6255797090224648366, guid: b2ab03805c5499e4aae2ac07a7fad4ca,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems:
+    - resource: {fileID: 1011930184407368264, guid: 010a9d1e405ad144c828ba20498178fd,
+        type: 3}
+      amountProduced: 2
+      frequency: 90
+  - planet: {fileID: 2725874488225651500, guid: 11875b1b186faac4b9c6933a19869cab,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    item3: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
+    productionItems:
+    - resource: {fileID: 8840840732891779579, guid: f0b4514fd2a4feb4cbb3a63df01438a1,
+        type: 3}
+      amountProduced: 3
+      frequency: 300
+  - planet: {fileID: 6465369783208651374, guid: fc055d08ceaf4584a9263e73b1e5639e,
+      type: 3}
+    item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    item3: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
+    productionItems:
+    - resource: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 4300934066779167416, guid: 91869df111172c64d8153e5baedf983b,
+      type: 3}
+    item1: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    item2: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
+    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    productionItems:
+    - resource: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd,
+        type: 3}
+      amountProduced: 1
+      frequency: 20
+  - planet: {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c,
+      type: 3}
+    item1: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
+    item2: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
+    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    productionItems:
+    - resource: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+    - resource: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 627526308858120103, guid: 740f2fc348d26404da8a3748f8a5f856, type: 3}
+    item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    item2: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    item3: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    productionItems:
+    - resource: {fileID: 3990822057962096019, guid: 76104483fe23cf545a0a149a8e84f898,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
 --- !u!4 &1856876830
 Transform:
   m_ObjectHideFlags: 0
