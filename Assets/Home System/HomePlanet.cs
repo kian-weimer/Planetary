@@ -17,12 +17,14 @@ public class HomePlanet : MonoBehaviour
     // (item, amount produced, frequency (seconds))
     public List<ProductionItem> productionItems;
     public bool[] hasProducedItem;
+    public ResourceInventory resourceInventory;
 
 
     // Start is called before the first frame update
     void Start()
     {
         productionItems = new List<ProductionItem>();
+        resourceInventory = FindObjectOfType<ResourceInventory>();
         hasProducedItem = new bool[5];
         planetHUD = transform.parent.GetComponent<Home>().planetHUD;
         items = new List<PlanetResource>();
@@ -176,9 +178,13 @@ public class HomePlanet : MonoBehaviour
                 {
                     Debug.LogWarning("PLANET FULL, CANNOT PRODUCE RESOURCES!!");
                 }
+                else
+                {
+                    resourceInventory.addItem(prodItem.resource.GetComponent<rsrce>().nameOfResource, prodItem.amountProduced);
+                }
                 UpdateUI();
             }
-            else
+            else if ((int)Time.time % prodItem.frequency != 0)
             {
                 hasProducedItem[i] = false;
             }

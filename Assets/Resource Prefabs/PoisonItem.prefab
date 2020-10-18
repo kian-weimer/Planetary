@@ -136,6 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElement: 0
   icon: {fileID: 2044823974679572270, guid: c0a67142f3f06b34fb8eb2f3936de811, type: 3}
-  nameOfResource: Wood
+  nameOfResource: Poison Gas
   isInAnInventory: 0
   timeBeforeDeletion: 30
