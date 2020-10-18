@@ -1,0 +1,5 @@
+Sound:  Laser_Shoot.wav (270536__littlerobotsoundfactory__laser-09) (April 15th, 2015); Created by: LittleRobotSoundFactory(mortenfrafremtiden@gmail.com). This work is licensed under the Attribution License.
+https://freesound.org/people/LittleRobotSoundFactory/sounds/270536/
+
+Sound:  Thrust.wav (158894__primeval-polypod__rocket-launch) (June 19th, 2012); Created by: primeval_polypod. This work is licensed under the Attribution License.
+https://freesound.org/people/primeval_polypod/sounds/158894/

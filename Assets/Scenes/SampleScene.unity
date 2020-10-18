@@ -3206,6 +3206,7 @@ MonoBehaviour:
   gridsInView: {x: 0, y: 0}
   bbVel: {x: 1, y: 1}
   canMove: 0
+  audioManager: {fileID: 2129333493}
 --- !u!4 &949674681
 Transform:
   m_ObjectHideFlags: 0
@@ -3255,6 +3256,7 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   rb: {fileID: 949674679}
   resourceInShip: {fileID: 0}
+  audioManager: {fileID: 2129333493}
   isHome: 1
   regenRate: 0.15
   inventory: {fileID: 752310339}
@@ -10862,7 +10864,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566eb703b98f3c14ca45336b74acf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: LazerShoot
+    clip: {fileID: 8300000, guid: 14fbf3ee3d5ec4d4092283a736def558, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Thrust
+    clip: {fileID: 8300000, guid: 893f3a6fdd818794d98637f54c22af0a, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &2129333494
 Transform:
   m_ObjectHideFlags: 0

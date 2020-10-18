@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     public float lastShotTime;
     public bool isInGUI = true;
 
-    public void Shoot(Vector2 position, Vector2 direction, Vector2 playerSpeed)
+    public bool Shoot(Vector2 position, Vector2 direction, Vector2 playerSpeed)
     {
         
         if (Time.time > lastShotTime + 1/firerate && !isInGUI)
@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour
             Bullet tempBullet = Instantiate(bullet);
             tempBullet.transform.position = position;
             tempBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerSpeed;
+            return true;
         }
+        return false;
     }
 }

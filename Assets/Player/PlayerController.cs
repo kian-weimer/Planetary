@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public bool canMove;
+
+    public AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +50,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKeyUp("w"))
+        {
+            audioManager.Stop("Thrust");
+        }
         if (PG.GetGridPosition(transform.position) != gridPosition)
         {
             ArrayList oldGrids = getGridsInView();
@@ -77,6 +84,7 @@ public class PlayerController : MonoBehaviour
         {
 
             speed += thrust;
+            audioManager.PlayIfNotPlaying("Thrust");
             //rb.velocity += new Vector2(0, thrust);
             Vector2 direction = new Vector2(Mathf.Cos(((rb.rotation + 90) * Mathf.PI) / 180), Mathf.Sin(((rb.rotation + 90) * Mathf.PI) / 180));
 

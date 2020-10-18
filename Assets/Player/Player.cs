@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject resourceInShip;
 
+    public AudioManager audioManager;
+
     public bool isHome = true;
 
     public float regenRate;
@@ -66,7 +68,9 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && main.gameObject.activeSelf)
         {
             float rotation = (rb.rotation + 90);
-            weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)), gameObject.GetComponent<Rigidbody2D>().velocity);//new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)));
+            if (weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)), gameObject.GetComponent<Rigidbody2D>().velocity)) {
+                audioManager.Play("LazerShoot");
+            }
         }
 
 
