@@ -25,7 +25,11 @@ public class ShopManager : MonoBehaviour
         resourceCost.Add("Wood", 15);
         resourceCost.Add("Satellite", 150);
         resourceCost.Add("Dark Matter", 200);
-        resourceCost.Add("ahhh", 15);
+        resourceCost.Add("Food", 15);
+        resourceCost.Add("Gold", 15);
+        resourceCost.Add("Poison Gas", 15);
+        resourceCost.Add("Bullet", 15);
+        resourceCost.Add("Steel", 15);
     }
     public void buyShopResultOf(string shopItemName)
     {
@@ -71,7 +75,8 @@ public class ShopManager : MonoBehaviour
         }
     }
     public void sellShopResultOf(SellShopItem item)
-    {    
+    {
+        Debug.Log(FindObjectOfType<ResourceInventory>().resourceList[item.name]);
         switch (item.name)
         {
             case "Rock":
@@ -85,6 +90,104 @@ public class ShopManager : MonoBehaviour
                 if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Water", item.quantity))
                 {
                     findAndSellShopItem(item, "Water");
+                }
+                break;
+            case "Coal":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Coal", item.quantity))
+                {
+                    findAndSellShopItem(item, "Coal");
+                }
+                break;
+            case "Dark Matter":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Dark Matter", item.quantity))
+                {
+                    findAndSellShopItem(item, "Dark Matter");
+                }
+                break;
+
+            case "Diamond":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Diamond", item.quantity))
+                {
+                    findAndSellShopItem(item, "Diamond");
+                }
+                break;
+            case "Iron":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Iron", item.quantity))
+                {
+                    findAndSellShopItem(item, "Iron");
+                }
+                break;
+            case "Lava":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Lava", item.quantity))
+                {
+                    findAndSellShopItem(item, "Lava");
+                }
+                break;
+            case "Lead":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Lead", item.quantity))
+                {
+                    findAndSellShopItem(item, "Lead");
+                }
+                break;
+            case "Mercury":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Mercury", item.quantity))
+                {
+                    findAndSellShopItem(item, "Mercury");
+                }
+                break;
+            case "Obsidian":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Obsidian", item.quantity))
+                {
+                    findAndSellShopItem(item, "Obsidian");
+                }
+                break;
+            case "Oxygen":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Oxygen", item.quantity))
+                {
+                    findAndSellShopItem(item, "Oxygen");
+                }
+                break;
+            case "Satellite":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Satellite", item.quantity))
+                {
+                    findAndSellShopItem(item, "Satellite");
+                }
+                break;
+            case "Wood":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Wood", item.quantity))
+                {
+                    findAndSellShopItem(item, "Wood");
+                }
+                break;
+
+            case "Food":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Food", item.quantity))
+                {
+                    findAndSellShopItem(item, "Food");
+                }
+                break;
+            case "Gold":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Gold", item.quantity))
+                {
+                    findAndSellShopItem(item, "Gold");
+                }
+                break;
+            case "Steel":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Steel", item.quantity))
+                {
+                    findAndSellShopItem(item, "Steel");
+                }
+                break;
+            case "Poison Gas":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Poison Gas", item.quantity))
+                {
+                    findAndSellShopItem(item, "Poison Gas");
+                }
+                break;
+            case "Bullet":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Bullet", item.quantity))
+                {
+                    findAndSellShopItem(item, "Bullet");
                 }
                 break;
         }

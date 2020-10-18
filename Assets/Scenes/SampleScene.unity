@@ -211,9 +211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
   items: []
-  itemDistance: 50
+  itemDistance: 100
   text: {fileID: 5769981167951546075, guid: b00c4abec867dc242b1a16866adb0191, type: 3}
-  shopItem: {fileID: 3618127468445487554, guid: 70e51e0e5c38f5b4e819cd2ed969d18d,
+  shopItem: {fileID: 9118011953744124851, guid: 70e51e0e5c38f5b4e819cd2ed969d18d,
     type: 3}
   Money: {fileID: 2068677631}
   ShopManager: {fileID: 1960612299}

@@ -76,6 +76,7 @@ public class Shop : MonoBehaviour
 
     public void ItemSold(SellShopItem item)
     {
+        Debug.Log(item.name);
         ShopManager.GetComponent<ShopManager>().sellShopResultOf(item);
     }
 
