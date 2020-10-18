@@ -85,7 +85,6 @@ public class Shop : MonoBehaviour
         itemShop.transform.SetParent(transform);
         itemShop.transform.position -= new Vector3(-1545, -275 + items.Count * itemDistance, 0); // not sure why negative numbers there are needed...
 
-        Debug.Log("FUCK");
         if (item.sellItem)
         {
             itemShop.GetComponent<SellShopItem>().Generate(item);

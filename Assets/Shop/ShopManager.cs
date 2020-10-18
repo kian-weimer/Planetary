@@ -8,6 +8,25 @@ public class ShopManager : MonoBehaviour
     public GameObject player;
     public Weapon lazerGun;
     public GameObject money;
+    public Dictionary<string, int> resourceCost = new Dictionary<string, int>();
+
+    void Start()
+    {
+        resourceCost.Add("Rock", 10);
+        resourceCost.Add("Water", 15);
+        resourceCost.Add("Coal", 15);
+        resourceCost.Add("Diamond", 100);
+        resourceCost.Add("Iron", 20);
+        resourceCost.Add("Lava", 25);
+        resourceCost.Add("Lead", 20);
+        resourceCost.Add("Mercury", 25);
+        resourceCost.Add("Obsidian", 30);
+        resourceCost.Add("Oxygen", 15);
+        resourceCost.Add("Wood", 15);
+        resourceCost.Add("Satellite", 150);
+        resourceCost.Add("Dark Matter", 200);
+        resourceCost.Add("ahhh", 15);
+    }
     public void buyShopResultOf(string shopItemName)
     {
         switch (shopItemName)
@@ -87,7 +106,6 @@ public class ShopManager : MonoBehaviour
                     Destroy(playerItem.GetComponent<InventorySlot>().item);
                     Destroy(playerItem.GetComponent<InventorySlot>().icon);
                     numberDeleted++;
-                    Debug.Log("Went in bad");
                     if (numberDeleted == item.quantity)
                     {
                         return;

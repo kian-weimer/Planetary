@@ -26,7 +26,7 @@ public class ResourceInventory : MonoBehaviour
                 ShopItemInfo sellItem = new ShopItemInfo();
                 sellItem.name = nameOfResource;
                 sellItem.sellItem = true;
-                sellItem.cost = 10;
+                sellItem.cost = FindObjectOfType<ShopManager>().resourceCost[nameOfResource];
 
                 sellMenu.GetComponent<Shop>().addShopItem(sellItem);
             }
