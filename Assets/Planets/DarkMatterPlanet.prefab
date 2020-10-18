@@ -98,5 +98,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6f57aaad0cddfae4eb5cafee551f33bc,
         type: 3}
+    - target: {fileID: 5258033714036245555, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+        type: 3}
+      propertyPath: planetResource
+      value: 
+      objectReference: {fileID: 1840391992676916451, guid: e9b9deec056326b42947906e9937b49c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f36ca44adaf894e468f6afb4bb18c8ea, type: 3}

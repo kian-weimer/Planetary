@@ -13,12 +13,13 @@ public class PlanetComboList : MonoBehaviour
         foreach (PlanetCombo combo in planetComboList)
         {
             // covers all possible orders
-            planetComboDict.Add((combo.item1.name, combo.item2.name, combo.item3.name), combo);
-            planetComboDict.Add((combo.item1.name, combo.item3.name, combo.item2.name), combo);
-            planetComboDict.Add((combo.item2.name, combo.item1.name, combo.item3.name), combo);
-            planetComboDict.Add((combo.item2.name, combo.item3.name, combo.item1.name), combo);
-            planetComboDict.Add((combo.item3.name, combo.item1.name, combo.item2.name), combo);
-            planetComboDict.Add((combo.item3.name, combo.item2.name, combo.item1.name), combo);
+            
+            planetComboDict[(combo.item1.name, combo.item2.name, combo.item3.name)] = combo;
+            planetComboDict[(combo.item1.name, combo.item3.name, combo.item2.name)] = combo;
+            planetComboDict[(combo.item2.name, combo.item1.name, combo.item3.name)] = combo;
+            planetComboDict[(combo.item2.name, combo.item3.name, combo.item1.name)] = combo;
+            planetComboDict[(combo.item3.name, combo.item1.name, combo.item2.name)] = combo;
+            planetComboDict[(combo.item3.name, combo.item2.name, combo.item1.name)] = combo;
         }
     }
 

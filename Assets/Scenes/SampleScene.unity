@@ -8169,7 +8169,7 @@ MonoBehaviour:
   planetView: {fileID: 1238475320}
   currentViewingPlanet: 0
   planetHUD: {fileID: 731712354}
-  comboList: {fileID: 0}
+  comboList: {fileID: 1856876829}
 --- !u!4 &1286308403
 Transform:
   m_ObjectHideFlags: 0
@@ -9747,6 +9747,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetComboList:
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems: []
   - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
       type: 3}
     item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}

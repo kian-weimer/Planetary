@@ -113,7 +113,7 @@ MonoBehaviour:
   discovered: 0
   planetExplosion: {fileID: 6964601313405217548, guid: c1abf32938cf5954f8c71ea5641176c8,
     type: 3}
-  planetResource: {fileID: 6502448202980844329, guid: ff265f72120f25e4d970863e991b7d11,
+  planetResource: {fileID: 1130035494589597368, guid: 3ac4cd50e70a28d40997746986afba1e,
     type: 3}
   inHomeSystem: 0
   destroyed: 0
