@@ -3259,6 +3259,7 @@ MonoBehaviour:
   regenRate: 0.15
   inventory: {fileID: 752310339}
   canvas: {fileID: 684055474}
+  shop: {fileID: 978194614}
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}
   popUpText: {fileID: 0}
