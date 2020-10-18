@@ -39,7 +39,6 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         icon = Instantiate(item.GetComponent<rsrce>().icon);
         icon.transform.parent = transform;
         icon.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0); // GetComponent<RectTransform>().anchoredPosition;
-        Debug.Log("Item Added");
     }
 
     public void AddItemFromOldSlot(GameObject item, GameObject icon) 

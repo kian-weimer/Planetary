@@ -63,5 +63,6 @@ public class Inventory : MonoBehaviour
         slot.transform.parent = transform;
         slot.GetComponent<RectTransform>().anchoredPosition = origin + new Vector3((numberOfInventorySlots - 1) * spacing, 0, 0);
         slots.Add(slot);
+        isFull = false;
     }
 }

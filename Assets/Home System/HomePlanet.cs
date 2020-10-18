@@ -134,7 +134,6 @@ public class HomePlanet : MonoBehaviour
         return false;
     }
 
-    // returns true if successful, false otherwise
     public void removeItem(int itemSlot, int quantity)
     {
         if (items[itemSlot].quantity > quantity)
@@ -149,7 +148,6 @@ public class HomePlanet : MonoBehaviour
         UpdateUI(itemSlot);
     }
 
-    // returns true if successful, false otherwise
     public void removeItem(int itemSlot)
     {
         if (items[itemSlot].quantity > 1)
@@ -172,7 +170,7 @@ public class HomePlanet : MonoBehaviour
         { 
             if ((int)Time.time % prodItem.frequency == 0 && !hasProducedItem[i])
             {
-
+                hasProducedItem[i] = true;
                 if (!addItem(prodItem.resource.gameObject, prodItem.amountProduced))
                 {
                     Debug.LogWarning("PLANET FULL, CANNOT PRODUCE RESOURCES!!");

@@ -42,6 +42,20 @@ public class Bullet : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.tag == "Satellite")
+        {
+            collision.gameObject.GetComponent<Satellite>().health = collision.gameObject.GetComponent<Satellite>().health - (int)bulletDamage;
+
+            if (collision.gameObject.GetComponent<Satellite>().health <= 0)
+            {
+                if (!collision.gameObject.GetComponent<Satellite>().destroyed)
+                {
+                    collision.gameObject.GetComponent<Satellite>().destroyed = true;
+                    collision.gameObject.GetComponent<Satellite>().destroy();
+                }
+            }
+        }
+
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle")
         {
             GameObject exp = Instantiate(explosion);
