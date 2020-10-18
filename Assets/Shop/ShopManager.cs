@@ -52,58 +52,70 @@ public class ShopManager : MonoBehaviour
     }
     public void sellShopResultOf(SellShopItem item)
     {    
-        int numberDeleted = 0;
         switch (item.name)
         {
             case "Rock":
                 if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Rock", item.quantity))
                 {
-                    List <GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
-                    foreach(GameObject playerItem in playerInventory)
+                    findAndSellShopItem(item, "Rock");
+                }
+                break;
+
+            case "Water":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Water", item.quantity))
+                {
+                    findAndSellShopItem(item, "Water");
+                }
+                break;
+        }
+    }
+
+    private void findAndSellShopItem(SellShopItem item, string Name)
+    {
+        int numberDeleted = 0;
+        List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
+        foreach (GameObject playerItem in playerInventory)
+        {
+            if (playerItem.GetComponent<InventorySlot>().item != null)
+            {
+                if (playerItem.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource == Name)
+                {
+                    Destroy(playerItem.GetComponent<InventorySlot>().item);
+                    Destroy(playerItem.GetComponent<InventorySlot>().icon);
+                    numberDeleted++;
+                    if (numberDeleted == item.quantity)
                     {
-                        if (playerItem.GetComponent<InventorySlot>().item != null)
+                        return;
+                    }
+                }
+            }
+        }
+
+        List<Planet> homePlanets = FindObjectOfType<Home>().homePlanets;
+
+        foreach (Planet planet in homePlanets)
+        {
+            if (planet != null)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+
+                    if (planet.GetComponent<HomePlanet>().items[i].resource != null)
+                    {
+                        if (planet.GetComponent<HomePlanet>().items[i].resource.GetComponent<rsrce>().nameOfResource == Name)
                         {
-                            if (playerItem.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource == "Rock")
+                            planet.GetComponent<HomePlanet>().removeItem(i);
+                            planet.GetComponent<HomePlanet>().UpdateUI();
+                            numberDeleted++;
+                            if (numberDeleted == item.quantity)
                             {
-                                Destroy(playerItem.GetComponent<InventorySlot>().item);
-                                Destroy(playerItem.GetComponent<InventorySlot>().icon);
-                                numberDeleted++;
-                                if (numberDeleted == item.quantity)
-                                { 
-                                    return;
-                                }
+                                return;
                             }
                         }
                     }
 
-                    List<Planet> homePlanets = FindObjectOfType<Home>().homePlanets;
-           
-                    foreach(Planet planet in homePlanets)
-                    {
-                        if(planet != null)
-                        {
-                            for (int i = 0; i < 3; i++)
-                            {
-
-                                if (planet.GetComponent<HomePlanet>().items[i].resource != null)
-                                {
-                                    if (planet.GetComponent<HomePlanet>().items[i].resource.GetComponent<rsrce>().nameOfResource == "Rock")
-                                    {
-                                        planet.GetComponent<HomePlanet>().removeItem(i);
-                                        planet.GetComponent<HomePlanet>().UpdateUI();
-                                        numberDeleted++;
-                                        if (numberDeleted == item.quantity)
-                                        {
-                                            return;
-                                        }
-                                    }
-                                }
-
-                            }
-                        }
-                    } 
-                }    
-                break;
+                }
+            }
         }
     }
 }
