@@ -37,35 +37,17 @@ public class Shop : MonoBehaviour
             {
                 item.GetComponent<ShopItem>().Generate(items[i]);
             }
-            /*
-            item.GetComponent<ShopItem>().name = items[i].name; 
-            item.GetComponent<ShopItem>().cost = items[i].cost;
-
-
-            Text itemName = item.transform.Find("Name").GetComponent<Text>();
-            itemName.text = items[i].name;
-            Text itemCost = item.transform.Find("Cost").GetComponent<Text>();
-            itemCost.text = items[i].cost + "";
-
-            Button buy= item.transform.Find("Buy").GetComponent<Button>();
-
-            buy.onClick.AddListener(delegate () { ItemPurchased(item.GetComponent<ShopItem>()); });
-
-            
-            GameObject textEntry = Instantiate(text);
-            textEntry.name = "Item " + i;
-            textEntry.transform.SetParent(transform);
-            textEntry.transform.position -= new Vector3(-1545, -400 + i * itemDistance, 0); // not sure why negative numbers there are needed...
-            //textEntry.RectT = new Vector2(1, 0);
-            //textEntry.transform.anchorMax = new Vector2(0, 1);
-            //textEntry.transform.pivot = new Vector2(0.5f, 0.5f);
-
-
-            Text myText = textEntry.GetComponent<Text>();
-            myText.text = items[i];
-            */
         }
 
+        if (gameObject.name == "SellItemList")
+        {
+            ShopItemInfo SII = new ShopItemInfo();
+            SII.cost = 100;
+            SII.name = "Potato";
+            SII.sellItem = true;
+
+            addShopItem(SII);
+        }
         // FIX THIS _------------------
         //FindObjectOfType<Scrollbar>().gameObject.GetComponent<Scrollbar>().SetValueWithoutNotify(1);
 
@@ -94,5 +76,24 @@ public class Shop : MonoBehaviour
     {
         Debug.Log(item.name + " " + item.cost + " " + item.quantity);
         ShopManager.GetComponent<ShopManager>().sellShopResultOf(item);
+    }
+
+    public void addShopItem(ShopItemInfo item)
+    {
+        items.Add(item);
+        GameObject itemShop = Instantiate(shopItem);
+        itemShop.name = "Item " + items.Count;
+        itemShop.transform.SetParent(transform);
+        itemShop.transform.position -= new Vector3(-1545, -275 + items.Count * itemDistance, 0); // not sure why negative numbers there are needed...
+
+        Debug.Log("FUCK");
+        if (item.sellItem)
+        {
+            itemShop.GetComponent<SellShopItem>().Generate(item);
+        }
+        else
+        {
+            itemShop.GetComponent<ShopItem>().Generate(item);
+        }
     }
 }
