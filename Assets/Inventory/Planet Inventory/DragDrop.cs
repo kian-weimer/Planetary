@@ -50,7 +50,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         if (transform.parent.GetComponent<PlanetInventorySlot>() != null)
         {
             GameObject planet = FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet();
-            Debug.Log(planet.GetComponent<HomePlanet>().items[transform.parent.GetComponent<PlanetInventorySlot>().itemSlot].quantity);
+
             if (planet.GetComponent<HomePlanet>().items[transform.parent.GetComponent<PlanetInventorySlot>().itemSlot].quantity > 1)
             {
                 tempUI = Instantiate(transform.parent.GetComponent<PlanetInventorySlot>().icon);

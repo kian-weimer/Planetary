@@ -137,3 +137,5 @@ MonoBehaviour:
   UIElement: 0
   icon: {fileID: 3064850924037058417, guid: 603f1f8a2e21db049ade8b4304e5b230, type: 3}
   nameOfResource: Diamond
+  isInAnInventory: 0
+  timeBeforeDeletion: 30

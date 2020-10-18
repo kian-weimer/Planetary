@@ -137,3 +137,5 @@ MonoBehaviour:
   UIElement: 0
   icon: {fileID: 1516038882502082879, guid: 8bb6872ab6147274ab31eb4f3882d789, type: 3}
   nameOfResource: Lava
+  isInAnInventory: 0
+  timeBeforeDeletion: 30

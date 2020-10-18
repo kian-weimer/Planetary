@@ -232,7 +232,6 @@ public class ShopManager : MonoBehaviour
                         {
                             if (planet.GetComponent<HomePlanet>().items[i].quantity > (item.quantity - numberDeleted))
                             {
-                                Debug.Log(item.quantity - numberDeleted);
                                 planet.GetComponent<HomePlanet>().removeItem(i, item.quantity - numberDeleted);
                                 planet.GetComponent<HomePlanet>().UpdateUI();
                                 numberDeleted += item.quantity;

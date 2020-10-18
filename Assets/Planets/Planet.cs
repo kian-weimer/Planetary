@@ -48,7 +48,6 @@ public class Planet : MonoBehaviour
 
             // do something to show everything that it is gone (messes up the UI) 
             FindObjectOfType<Player>().HomePlanetDestroyed(this);
-            Debug.Log(FindObjectOfType<Home>().homePlanets.IndexOf(this));
             FindObjectOfType<Home>().homePlanets[FindObjectOfType<Home>().homePlanets.IndexOf(this)] = null;
         }
 

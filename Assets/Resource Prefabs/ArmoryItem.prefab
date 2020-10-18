@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8066454081265452540}
   - component: {fileID: 3990822057962096019}
   m_Layer: 0
-  m_Name: BulletItem
+  m_Name: ArmoryItem
   m_TagString: resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,5 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIElement: 0
-  icon: {fileID: 0}
-  nameOfResource: Wood
+  icon: {fileID: 1190112637897220715, guid: a0bfa066c168c77458b221c5b48d9fe6, type: 3}
+  nameOfResource: Bullet
+  isInAnInventory: 0
+  timeBeforeDeletion: 30

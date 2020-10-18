@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     public Inventory inventory;
 
     public GameObject canvas;
+    public GameObject shop;
 
     // Start is called before the first frame update
     void Start()
@@ -159,6 +160,7 @@ public class Player : MonoBehaviour
         {
             isHome = false;
             canvas.transform.Find("ShopButton").gameObject.SetActive(false);
+            shop.gameObject.SetActive(false);
         }
     }
 

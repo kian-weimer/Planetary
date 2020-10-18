@@ -137,3 +137,5 @@ MonoBehaviour:
   UIElement: 0
   icon: {fileID: 2305578845433448860, guid: d7ea60f870b6cb2458a5b1ee859f9e46, type: 3}
   nameOfResource: Iron
+  isInAnInventory: 0
+  timeBeforeDeletion: 30

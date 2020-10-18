@@ -135,5 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIElement: 0
-  icon: {fileID: 0}
-  nameOfResource: Wood
+  icon: {fileID: 8939388120067358829, guid: fb1e331315fbe5e47b1b3d05d93d1375, type: 3}
+  nameOfResource: Food
+  isInAnInventory: 0
+  timeBeforeDeletion: 30

@@ -137,3 +137,5 @@ MonoBehaviour:
   UIElement: 0
   icon: {fileID: 7765428997644905153, guid: ba1011e22b4cdbf4fb2151417eeced3a, type: 3}
   nameOfResource: Obsidian
+  isInAnInventory: 0
+  timeBeforeDeletion: 30
