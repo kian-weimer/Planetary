@@ -16,11 +16,13 @@ public class HomePlanet : MonoBehaviour
     // a list of the items that the planet is producing
     // (item, amount produced, frequency (seconds))
     public List<ProductionItem> productionItems;
-
+    public bool[] hasProducedItem;
 
     // Start is called before the first frame update
     void Start()
     {
+        productionItems = new List<ProductionItem>();
+        hasProducedItem = new bool[5];
         planetHUD = transform.parent.GetComponent<Home>().planetHUD;
         items = new List<PlanetResource>();
         for (int item = 0; item < numberOfItemSlots; item++)
@@ -66,7 +68,7 @@ public class HomePlanet : MonoBehaviour
             items[itemSlot].Set(item, quantity);
             return true;
         }
-        else if (items[itemSlot].resource == item)
+        else if (items[itemSlot].resource.name.Replace("(Clone)", "") == item.name.Replace("(Clone)", "") == item)
         {
             items[itemSlot].Set(item, items[itemSlot].quantity + quantity);
             return true;
@@ -82,7 +84,8 @@ public class HomePlanet : MonoBehaviour
         // loop through, check for item, add quantity if found
         for (int itemSlot = 0; itemSlot < numberOfItemSlots; itemSlot++)
         {
-            if (items[itemSlot].resource == item)
+            if (items[itemSlot].resource==null) { continue; }
+            if (items[itemSlot].resource.name.Replace("(Clone)", "") == item.name.Replace("(Clone)", ""))
             {
                 items[itemSlot].Set(item, items[itemSlot].quantity + quantity);
                 return true;
@@ -103,6 +106,49 @@ public class HomePlanet : MonoBehaviour
         return false;
     }
 
+    
+    public bool addItem(rsrce item, int quantity)
+    {
+        // loop through, check for item, add quantity if found
+        for (int itemSlot = 0; itemSlot < numberOfItemSlots; itemSlot++)
+        {
+            if (items[itemSlot].resource == null) { continue; }
+            if (items[itemSlot].resource.name.Replace("(Clone)", "") == item.name.Replace("(Clone)", ""))
+            {
+                items[itemSlot].Set(items[itemSlot].resource, items[itemSlot].quantity + quantity);
+                return true;
+            }
+        }
+
+        // loop through, find first null slot, add item and quantity if successful
+        for (int itemSlot = 0; itemSlot < numberOfItemSlots; itemSlot++)
+        {
+            if (items[itemSlot].resource == null)
+            {
+                items[itemSlot].Set(Instantiate(item).gameObject, quantity);
+                return true;
+            }
+        }
+
+        // no item slots available
+        return false;
+    }
+
+    // returns true if successful, false otherwise
+    public void removeItem(int itemSlot, int quantity)
+    {
+        if (items[itemSlot].quantity > quantity)
+        {
+            items[itemSlot].quantity -= 1;
+        }
+        else if (items[itemSlot].quantity == quantity)
+        {
+            items[itemSlot].Set(null, 0);
+        }
+
+        UpdateUI(itemSlot);
+    }
+
     // returns true if successful, false otherwise
     public void removeItem(int itemSlot)
     {
@@ -119,8 +165,25 @@ public class HomePlanet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        int i = 0;
+        foreach(ProductionItem prodItem in productionItems) 
+        { 
+            if ((int)Time.time % prodItem.frequency == 0 && !hasProducedItem[i])
+            {
+
+                if (!addItem(prodItem.resource.gameObject, prodItem.amountProduced))
+                {
+                    Debug.LogWarning("PLANET FULL, CANNOT PRODUCE RESOURCES!!");
+                }
+                UpdateUI();
+            }
+            else
+            {
+                hasProducedItem[i] = false;
+            }
+            i++;
+        }
     }
 }
