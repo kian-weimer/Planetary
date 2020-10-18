@@ -12,11 +12,11 @@ public class ResourceInventory : MonoBehaviour
 
     public GameObject sellMenu;
 
-    public void addItem(string nameOfResource)
+    public void addItem(string nameOfResource, int quantity = 1)
     {
         if (resourceList.ContainsKey(nameOfResource))
         {
-            resourceList[nameOfResource] = resourceList[nameOfResource] + 1;
+            resourceList[nameOfResource] = resourceList[nameOfResource] + quantity;
         }
         else
         {
@@ -30,7 +30,7 @@ public class ResourceInventory : MonoBehaviour
 
                 sellMenu.GetComponent<Shop>().addShopItem(sellItem);
             }
-            resourceList.Add(nameOfResource, 1);
+            resourceList.Add(nameOfResource, quantity);
         }
     }
 
