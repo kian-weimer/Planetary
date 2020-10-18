@@ -230,8 +230,8 @@ MonoBehaviour:
   text: {fileID: 5769981167951546075, guid: b00c4abec867dc242b1a16866adb0191, type: 3}
   shopItem: {fileID: 3618127468445487554, guid: 70e51e0e5c38f5b4e819cd2ed969d18d,
     type: 3}
-  Money: {fileID: 0}
-  ShopManager: {fileID: 0}
+  Money: {fileID: 2068677631}
+  ShopManager: {fileID: 1960612299}
 --- !u!114 &106098673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 463305619}
   - component: {fileID: 463305618}
   m_Layer: 5
-  m_Name: Image
+  m_Name: MoneyLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10139,6 +10139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1960612300}
   - component: {fileID: 1960612301}
+  - component: {fileID: 1960612302}
   m_Layer: 0
   m_Name: ShopManager
   m_TagString: Untagged
@@ -10175,6 +10176,18 @@ MonoBehaviour:
   player: {fileID: 949674676}
   lazerGun: {fileID: 0}
   money: {fileID: 2068677631}
+--- !u!114 &1960612302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960612299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f38e92a7db81d479ac1004e170fa22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1981019789
 GameObject:
   m_ObjectHideFlags: 0

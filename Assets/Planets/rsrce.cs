@@ -27,9 +27,6 @@ public class rsrce : MonoBehaviour
 
     public void Pickedup()
     {
-
-        //FindObjectOfType<canvas>().transform.Find("ItemImage").GetComponent<Image>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-        //FindObjectOfType<canvas>().transform.Find("ItemImage").GetComponent<CanvasGroup>().alpha = 1;
         transform.position = new Vector3(0, 0, 1);
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }

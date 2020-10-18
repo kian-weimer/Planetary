@@ -45,6 +45,7 @@ public class Inventory : MonoBehaviour
             if (slots[s].GetComponent<InventorySlot>().item == null)
             {
                 slots[s].GetComponent<InventorySlot>().AddItem(resource);
+                FindObjectOfType<ResourceInventory>().addItem(resource.GetComponent<rsrce>().nameOfResource);
                 if (s == numberOfInventorySlots - 1)
                 {
                     isFull = true;
@@ -62,11 +63,5 @@ public class Inventory : MonoBehaviour
         slot.transform.parent = transform;
         slot.GetComponent<RectTransform>().anchoredPosition = origin + new Vector3((numberOfInventorySlots - 1) * spacing, 0, 0);
         slots.Add(slot);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

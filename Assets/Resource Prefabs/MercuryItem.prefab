@@ -136,4 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElement: 0
   icon: {fileID: 2007720872970065015, guid: fc5169d8aa632c346accc58d0733fe7d, type: 3}
-  nameOfResource: Oxygen
+  nameOfResource: Mercury
