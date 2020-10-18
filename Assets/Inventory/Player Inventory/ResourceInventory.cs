@@ -21,7 +21,7 @@ public class ResourceInventory : MonoBehaviour
     }
 
     public bool checkForItemAndRemove(string nameOfResource, int numberOfItems = 1)
-    {
+    { 
         if (!resourceList.ContainsKey(nameOfResource))
         {
             return false;

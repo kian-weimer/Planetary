@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -76,13 +77,16 @@ public class ShopManager : MonoBehaviour
         List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
         foreach (GameObject playerItem in playerInventory)
         {
+           
             if (playerItem.GetComponent<InventorySlot>().item != null)
             {
+
                 if (playerItem.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource == Name)
                 {
                     Destroy(playerItem.GetComponent<InventorySlot>().item);
                     Destroy(playerItem.GetComponent<InventorySlot>().icon);
                     numberDeleted++;
+                    Debug.Log("Went in bad");
                     if (numberDeleted == item.quantity)
                     {
                         return;
@@ -92,21 +96,32 @@ public class ShopManager : MonoBehaviour
         }
 
         List<Planet> homePlanets = FindObjectOfType<Home>().homePlanets;
-
+        
         foreach (Planet planet in homePlanets)
         {
             if (planet != null)
             {
                 for (int i = 0; i < 3; i++)
                 {
-
+                    Debug.Log(i);
                     if (planet.GetComponent<HomePlanet>().items[i].resource != null)
                     {
                         if (planet.GetComponent<HomePlanet>().items[i].resource.GetComponent<rsrce>().nameOfResource == Name)
                         {
-                            planet.GetComponent<HomePlanet>().removeItem(i);
-                            planet.GetComponent<HomePlanet>().UpdateUI();
-                            numberDeleted++;
+                            if (planet.GetComponent<HomePlanet>().items[i].quantity > item.quantity)
+                            {
+                                Debug.Log(i + "  " + item.quantity);
+                                planet.GetComponent<HomePlanet>().removeItem(i, item.quantity);
+                                planet.GetComponent<HomePlanet>().UpdateUI();
+                                numberDeleted = item.quantity;
+                            }
+                            else
+                            {
+                                planet.GetComponent<HomePlanet>().removeItem(i, planet.GetComponent<HomePlanet>().items[i].quantity);
+                                planet.GetComponent<HomePlanet>().UpdateUI();
+                                numberDeleted += planet.GetComponent<HomePlanet>().items[i].quantity;
+                            }
+
                             if (numberDeleted == item.quantity)
                             {
                                 return;
