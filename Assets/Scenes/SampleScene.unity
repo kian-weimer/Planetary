@@ -230,8 +230,8 @@ MonoBehaviour:
   text: {fileID: 5769981167951546075, guid: b00c4abec867dc242b1a16866adb0191, type: 3}
   shopItem: {fileID: 3618127468445487554, guid: 70e51e0e5c38f5b4e819cd2ed969d18d,
     type: 3}
-  Money: {fileID: 0}
-  ShopManager: {fileID: 0}
+  Money: {fileID: 2068677631}
+  ShopManager: {fileID: 1960612299}
 --- !u!114 &106098673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 466166481}
   - component: {fileID: 466166480}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8297,7 +8297,7 @@ GameObject:
   - component: {fileID: 1322638999}
   - component: {fileID: 1322639001}
   m_Layer: 5
-  m_Name: Text
+  m_Name: buttonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10192,7 +10192,7 @@ GameObject:
   - component: {fileID: 1957604555}
   - component: {fileID: 1957604554}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: shopButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10314,6 +10314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f38e92a7db81d479ac1004e170fa22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourcesSeen: []
+  sellMenu: {fileID: 0}
 --- !u!1 &1981019789
 GameObject:
   m_ObjectHideFlags: 0
