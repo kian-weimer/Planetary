@@ -26,8 +26,10 @@ public class Shop : MonoBehaviour
            
             GameObject item = Instantiate(shopItem);
             item.name = "Item " + i;
-            item.transform.SetParent(transform);
-            item.transform.position -= new Vector3(-1545, -375 + i * itemDistance , 0); // not sure why negative numbers there are needed...
+            item.transform.parent = (transform);
+            item.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -1*i * itemDistance, 0); // not sure why negative numbers there are needed...
+
+            //item.GetComponent<RectTransform>().position = new Vector3(0, 0 + i * itemDistance , 0); // not sure why negative numbers there are needed...
 
             if (items[i].sellItem)
             {
@@ -81,9 +83,9 @@ public class Shop : MonoBehaviour
     {
         items.Add(item);
         GameObject itemShop = Instantiate(shopItem);
-        itemShop.name = "Item " + items.Count;
-        itemShop.transform.SetParent(transform);
-        itemShop.transform.position -= new Vector3(-1545, -275 + items.Count * itemDistance, 0); // not sure why negative numbers there are needed...
+        itemShop.name = "Item " + (items.Count - 1);
+        itemShop.transform.parent = transform;
+        itemShop.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -1 * (items.Count - 1) * itemDistance, 0); // not sure why negative numbers there are needed...
 
         if (item.sellItem)
         {

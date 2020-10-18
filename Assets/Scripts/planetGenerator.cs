@@ -37,6 +37,8 @@ public class planetGenerator : MonoBehaviour
 
     public int rarityRingDistanceLimit = 20;
 
+    // public float planetSizeVariance = 0.2f;
+
 
     // Start is called before the first frame update
     void Awake()
