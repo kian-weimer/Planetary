@@ -230,8 +230,8 @@ MonoBehaviour:
   text: {fileID: 5769981167951546075, guid: b00c4abec867dc242b1a16866adb0191, type: 3}
   shopItem: {fileID: 3618127468445487554, guid: 70e51e0e5c38f5b4e819cd2ed969d18d,
     type: 3}
-  Money: {fileID: 2068677631}
-  ShopManager: {fileID: 1960612299}
+  Money: {fileID: 0}
+  ShopManager: {fileID: 0}
 --- !u!114 &106098673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 463305619}
   - component: {fileID: 463305618}
   m_Layer: 5
-  m_Name: MoneyLogo
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10835,5 +10835,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Satellite
       objectReference: {fileID: 0}
+    - target: {fileID: 2597617602733753763, guid: ab93908d1c30b6f4daa5ff9bbc550269,
+        type: 3}
+      propertyPath: m_TagString
+      value: Satellite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab93908d1c30b6f4daa5ff9bbc550269, type: 3}
+--- !u!1 &3494643992070467010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2597617602733753763, guid: ab93908d1c30b6f4daa5ff9bbc550269,
+    type: 3}
+  m_PrefabInstance: {fileID: 1473784563031304289}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3494643992070467011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494643992070467010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34749f19e7ffd04b9610b9e9f36b6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 70
+  health: 0
+  spawnDistance: 50
+  damage: 0
+  numberToSpawn: 5
+  explosion: {fileID: 4012301571998338200, guid: 298fd7ee555bda147a72206542ab4e88,
+    type: 3}
+  resourceSpawn: {fileID: 7096846163233868484, guid: d462a8b814751be418ef06f4445d80ef,
+    type: 3}
+  destroyed: 0

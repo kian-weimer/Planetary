@@ -79,6 +79,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 tempItem = transform.parent.GetComponent<PlanetInventorySlot>().item;
                 planet.GetComponent<HomePlanet>().addItem(tempItem, 1, transform.parent.GetComponent<PlanetInventorySlot>().itemSlot);
                 planet.GetComponent<HomePlanet>().UpdateUI();
+                eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().RemoveItem();
                 Destroy(eventData.pointerDrag);
             }
         }

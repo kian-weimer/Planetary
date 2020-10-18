@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1465685610855951669}
   - component: {fileID: 6434803536069475348}
   - component: {fileID: 4569104257924521852}
+  - component: {fileID: 3191636671014522812}
   m_Layer: 0
   m_Name: Satellite
-  m_TagString: Planet
+  m_TagString: Satellite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,3 +122,25 @@ CircleCollider2D:
   m_Offset: {x: -0.0013272762, y: 0}
   serializedVersion: 2
   m_Radius: 0.12889719
+--- !u!114 &3191636671014522812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597617602733753763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34749f19e7ffd04b9610b9e9f36b6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  health: 0
+  spawnDistance: 50
+  damage: 150
+  numberToSpawn: 5
+  explosion: {fileID: 4012301571998338200, guid: 298fd7ee555bda147a72206542ab4e88,
+    type: 3}
+  resourceSpawn: {fileID: 7096846163233868484, guid: d462a8b814751be418ef06f4445d80ef,
+    type: 3}
+  destroyed: 0

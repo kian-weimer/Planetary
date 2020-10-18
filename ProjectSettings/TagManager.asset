@@ -10,6 +10,7 @@ TagManager:
   - Popup
   - HomeCircle
   - Meteor
+  - Satellite
   layers:
   - Default
   - TransparentFX

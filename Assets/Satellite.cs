@@ -6,12 +6,23 @@ public class Satellite : MonoBehaviour
 {
     public int maxHealth;
     public int health;
+    public int spawnDistance;
+    public int damage;
 
     public int numberToSpawn;
 
     public GameObject explosion; // holds the prefab of the explosionm animation used when the planet is destroyed
     public GameObject resourceSpawn; // holds the item resource that the planet pops out when destroyed
     public bool destroyed = false;
+
+    public void Start()
+    {
+        Vector3 position;
+        health = maxHealth;
+        int degree = (int)(Random.Range(0, 360) * Mathf.PI) / 180;
+        position = (new Vector3(Mathf.Cos(degree), Mathf.Sin(degree), 0)) * spawnDistance + FindObjectOfType<Player>().transform.position;
+        transform.position = position;
+    }
 
     // Start is called before the first frame update
     public void destroy()
@@ -34,14 +45,15 @@ public class Satellite : MonoBehaviour
             resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;
             resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
         }
-       
+        Destroy(gameObject);
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().loseHealth(80);
+            collision.gameObject.GetComponent<Player>().loseHealth(damage);
             collision.gameObject.GetComponent<PlayerController>().bounceBack();
         }
     }
