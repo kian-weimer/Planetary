@@ -10,13 +10,16 @@ public class Meteor : MonoBehaviour
     public float maxTimetoDeath;
     public float minTimeToDeath;
     private float deathVariation;
+
+    public float maxSpeed;
+    public float minSpeed;
     // Start is called before the first frame update
     void Start()
     {
         timeLeftTillDestroy = maxLifeTime;
         float angle = ((transform.parent.eulerAngles.z-90) * Mathf.PI) / 180;// - ( 45 * Mathf.PI) / 180;
         //float angle = (transform.rotation.z * Mathf.PI) / 180;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle))* Random.Range(5f, 10f); //new Vector2(0, -Random.Range(5, 30));
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle))* Random.Range(minSpeed, maxSpeed); //new Vector2(0, -Random.Range(5, 30));
         GetComponent<Rigidbody2D>().angularVelocity = 720;
         deathVariation = Random.Range(minTimeToDeath, maxTimetoDeath) + Time.deltaTime;
     }

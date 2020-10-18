@@ -8099,12 +8099,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ba5513060f866459385e22f24960e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenEvents: 20
+  timeBetweenEvents: 180
   randomEventTimeVariance: 0
   listOfEvents:
   - {fileID: 2541413529298459909, guid: f004d06982446b140b27e073b5e87f1a, type: 3}
+  - {fileID: 2597617602733753763, guid: ab93908d1c30b6f4daa5ff9bbc550269, type: 3}
   listOfAlertTexts:
   - Incomming Asteroids
+  - Satellite Nearby
+  timeBeforeNextEvent: 0
   eventIsHappening: 0
   alertText: {fileID: 3243644419479592566, guid: e4bf9fe4d4d28cf42a9e333cd1401601,
     type: 3}

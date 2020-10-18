@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenFlash: 1
   timeToShow: 2
-  maxNumberOfFlashes: 6
+  maxNumberOfFlashes: 3
 --- !u!225 &-2323285671584450117
 CanvasGroup:
   m_ObjectHideFlags: 0

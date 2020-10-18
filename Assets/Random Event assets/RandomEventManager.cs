@@ -12,8 +12,7 @@ public class RandomEventManager : MonoBehaviour
     public GameObject[] listOfEvents = new GameObject[1];
     public string[] listOfAlertTexts = new string[1];
 
-    private float timeBeforeNextEvent;
-    public bool eventIsHappening = false;
+    public float timeBeforeNextEvent;
 
     public GameObject alertText;
 
@@ -26,16 +25,16 @@ public class RandomEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeBeforeNextEvent <= 0 && !eventIsHappening)
+        if(timeBeforeNextEvent <= 0)
         {
-            eventIsHappening = true;
             int indexOfEvent = Random.Range(0, listOfEvents.Length);
             GameObject randomEvent = Instantiate(listOfEvents[indexOfEvent]);
             GameObject alert = Instantiate(alertText);
             alert.GetComponent<Text>().text = listOfAlertTexts[indexOfEvent];
-
-
+            timeBeforeNextEvent = timeBetweenEvents;
         }
+
+
         else if(FindObjectOfType<Player>().isHome == false)
         {
             timeBeforeNextEvent -= Time.deltaTime;
