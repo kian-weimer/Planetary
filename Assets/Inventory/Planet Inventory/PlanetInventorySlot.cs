@@ -43,6 +43,7 @@ public class PlanetInventorySlot : MonoBehaviour, IDropHandler
 
     public void AddItem(GameObject item)
     {
+        if (item.name.Contains("EndGame")) { return; }
         this.item = item;
         icon = Instantiate(item.GetComponent<rsrce>().icon);
         icon.transform.parent = transform;

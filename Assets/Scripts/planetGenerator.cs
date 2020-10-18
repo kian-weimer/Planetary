@@ -244,6 +244,7 @@ public class planetGenerator : MonoBehaviour
 
     public void InstantiateGrid(Vector2 gridPosition)
     {
+        if (!planetInfoList.ContainsKey(gridPosition)) { return; }
         foreach (PlanetInfo planetInfo in planetInfoList[gridPosition])
         {
             Planet planet = Instantiate(planetTypes[planetInfo.rarity].planets[planetInfo.type]);

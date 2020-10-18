@@ -18,6 +18,7 @@ public class HomePlanet : MonoBehaviour
     public List<ProductionItem> productionItems;
     public bool[] hasProducedItem;
 
+
     // Start is called before the first frame update
     void Start()
     {
