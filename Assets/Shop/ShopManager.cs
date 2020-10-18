@@ -76,7 +76,6 @@ public class ShopManager : MonoBehaviour
     }
     public void sellShopResultOf(SellShopItem item)
     {
-        Debug.Log(FindObjectOfType<ResourceInventory>().resourceList[item.name]);
         switch (item.name)
         {
             case "Rock":
@@ -208,6 +207,8 @@ public class ShopManager : MonoBehaviour
                 {
                     Destroy(playerItem.GetComponent<InventorySlot>().item);
                     Destroy(playerItem.GetComponent<InventorySlot>().icon);
+                    FindObjectOfType<Inventory>().isFull = false;
+
                     numberDeleted++;
                     if (numberDeleted == item.quantity)
                     {
@@ -225,17 +226,16 @@ public class ShopManager : MonoBehaviour
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    Debug.Log(i);
                     if (planet.GetComponent<HomePlanet>().items[i].resource != null)
                     {
                         if (planet.GetComponent<HomePlanet>().items[i].resource.GetComponent<rsrce>().nameOfResource == Name)
                         {
-                            if (planet.GetComponent<HomePlanet>().items[i].quantity > item.quantity)
+                            if (planet.GetComponent<HomePlanet>().items[i].quantity > (item.quantity - numberDeleted))
                             {
-                                Debug.Log(i + "  " + item.quantity);
-                                planet.GetComponent<HomePlanet>().removeItem(i, item.quantity);
+                                Debug.Log(item.quantity - numberDeleted);
+                                planet.GetComponent<HomePlanet>().removeItem(i, item.quantity - numberDeleted);
                                 planet.GetComponent<HomePlanet>().UpdateUI();
-                                numberDeleted = item.quantity;
+                                numberDeleted += item.quantity;
                             }
                             else
                             {

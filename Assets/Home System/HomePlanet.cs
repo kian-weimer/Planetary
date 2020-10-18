@@ -138,7 +138,7 @@ public class HomePlanet : MonoBehaviour
     {
         if (items[itemSlot].quantity > quantity)
         {
-            items[itemSlot].quantity -= 1;
+            items[itemSlot].quantity -= quantity;
         }
         else if (items[itemSlot].quantity == quantity)
         {
