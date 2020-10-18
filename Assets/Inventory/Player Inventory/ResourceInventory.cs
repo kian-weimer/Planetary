@@ -8,6 +8,10 @@ public class ResourceInventory : MonoBehaviour
 {
     public Dictionary<string, int> resourceList = new Dictionary<string, int>();
 
+    public List<string> resourcesSeen = new List<string>();
+
+    public GameObject sellMenu;
+
     public void addItem(string nameOfResource)
     {
         if (resourceList.ContainsKey(nameOfResource))
@@ -16,6 +20,16 @@ public class ResourceInventory : MonoBehaviour
         }
         else
         {
+            if (!resourcesSeen.Contains(nameOfResource))
+            {
+                resourcesSeen.Add(nameOfResource);
+                ShopItemInfo sellItem = new ShopItemInfo();
+                sellItem.name = nameOfResource;
+                sellItem.sellItem = true;
+                sellItem.cost = 10;
+
+                sellMenu.GetComponent<Shop>().addShopItem(sellItem);
+            }
             resourceList.Add(nameOfResource, 1);
         }
     }

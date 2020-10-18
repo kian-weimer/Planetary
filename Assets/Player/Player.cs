@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) && nearHomePlanet)
+        if ((Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Escape))  && nearHomePlanet)
         {
             if (nearHomePlanet && main.gameObject.activeSelf)
             {

@@ -12,7 +12,7 @@ public class Shop : MonoBehaviour
     public int itemDistance = 1;
     public GameObject text;
     public GameObject shopItem;
-    RectTransform rT;
+    private RectTransform rT;
     public GameObject Money;
     public GameObject ShopManager;
     // Start is called before the first frame update
@@ -38,7 +38,7 @@ public class Shop : MonoBehaviour
                 item.GetComponent<ShopItem>().Generate(items[i]);
             }
         }
-
+        /*
         if (gameObject.name == "SellItemList")
         {
             ShopItemInfo SII = new ShopItemInfo();
@@ -50,7 +50,7 @@ public class Shop : MonoBehaviour
         }
         // FIX THIS _------------------
         //FindObjectOfType<Scrollbar>().gameObject.GetComponent<Scrollbar>().SetValueWithoutNotify(1);
-
+        */
     }
 
     public void changePrice(string name, int newPrice)

@@ -73,6 +73,7 @@ public class ShopManager : MonoBehaviour
 
     private void findAndSellShopItem(SellShopItem item, string Name)
     {
+        money.GetComponent<Money>().addMoney(item.cost * item.quantity);
         int numberDeleted = 0;
         List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
         foreach (GameObject playerItem in playerInventory)
