@@ -41,7 +41,7 @@ public class HomePlanet : MonoBehaviour
             {
                 if (child.name != "Quantity")
                 {
-                    Debug.Log(child.name);
+                    //Debug.Log(child.name);
                     GameObject.Destroy(child.gameObject);
                 }
             }

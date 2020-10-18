@@ -71,7 +71,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             GameObject tempItem;
 
             // dont allow switching in planet inventory slots
-            Debug.Log(eventData.pointerDrag.name.Replace("(Clone)", "") + transform.name.Replace("(Clone)", ""));
+            //Debug.Log(eventData.pointerDrag.name.Replace("(Clone)", "") + transform.name.Replace("(Clone)", ""));
 
             if (eventData.pointerDrag.name.Replace("(Clone)", "") == transform.name.Replace("(Clone)", ""))
             {
