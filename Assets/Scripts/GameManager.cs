@@ -9,4 +9,11 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public int gridResolution = 100; // whaT DOES THIS DO
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
+
+
