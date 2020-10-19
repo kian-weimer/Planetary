@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300034, guid: 4b00c4fcb1be91245b2dab5149c61c5d, type: 3}
-  m_Color: {r: 1, g: 0.45709428, b: 0, a: 0}
+  m_Color: {r: 0.5412934, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -138,6 +138,8 @@ MonoBehaviour:
   UIElement: 0
   icon: {fileID: 3691409113459044251, guid: 1753d14a50b7b5b4692437ba37c12950, type: 3}
   nameOfResource: EndGame
+  isInAnInventory: 0
+  timeBeforeDeletion: 0
 --- !u!114 &2569621530736043467
 MonoBehaviour:
   m_ObjectHideFlags: 0
