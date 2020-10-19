@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -87,7 +88,7 @@ public class ShopManager : MonoBehaviour
                 player.GetComponent<BoxCollider2D>().size = new Vector2(.7f, 1.25f);
                 if(whichShipLevel == 2)
                 {
-                    //delete the upgrade from the store;
+                    buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
                 }
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;

@@ -26,7 +26,6 @@ public class Shop : MonoBehaviour
         // rT.sizeDelta = new Vector2(rT.sizeDelta.x, items.Count * itemDistance);
         for (int i = 0; i < items.Count; i++)
         {
-            Debug.Log(i);
             GameObject item = Instantiate(shopItem);
             item.name = "Item " + i;
             item.transform.parent = (transform);
@@ -50,10 +49,8 @@ public class Shop : MonoBehaviour
     public void changePrice(string name, int newPrice)
     {
         int i = 0;
-        Debug.Log(items.Count);
         foreach (ShopItemInfo item in items)
         {
-            Debug.Log(item.name + " - " + name);
             if (item.name == name)
             {
                 item.cost = newPrice;
@@ -74,14 +71,13 @@ public class Shop : MonoBehaviour
     public void RemoveItem(string name)
     {
         int i = 0;
+        int correctI = 0;
         bool shift = false;
         foreach (ShopItemInfo item in items)
         {
             if (item.name == name)
             {
-                items.RemoveAt(i);
-                itemsHudObjects.RemoveAt(i);
-                shopItems.RemoveAt(i);
+                correctI = i;
                 shift = true;
             }
             else if (shift)
@@ -90,6 +86,11 @@ public class Shop : MonoBehaviour
             }
             i++;
         }
+        Destroy(itemsHudObjects[correctI]);
+        items.RemoveAt(correctI);
+        itemsHudObjects.RemoveAt(correctI);
+        shopItems.RemoveAt(correctI);
+
     }
 
     public void ItemPurchased(ShopItem item)

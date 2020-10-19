@@ -303,6 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
   items: []
+  shopItems: []
   itemsHudObjects: []
   itemDistance: 100
   text: {fileID: 5769981167951546075, guid: b00c4abec867dc242b1a16866adb0191, type: 3}
@@ -1046,6 +1047,10 @@ MonoBehaviour:
   - name: More Inventory
     cost: 5000
     sellItem: 0
+  - name: Upgrade Ship
+    cost: 5
+    sellItem: 0
+  shopItems: []
   itemsHudObjects: []
   itemDistance: 100
   text: {fileID: 5769981167951546075, guid: b00c4abec867dc242b1a16866adb0191, type: 3}
@@ -10446,8 +10451,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 345e6c7238324044b9af50d4ce6e32f8, type: 3}
   - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
   - {fileID: 21300000, guid: 0dd4982f975e10f48beab53e5da565d1, type: 3}
-  sellShop: {fileID: 106098671}
-  upgradeAmount: 0
+  buyShop: {fileID: 293007886}
+  upgradeAmount: 1.5
 --- !u!114 &1960612302
 MonoBehaviour:
   m_ObjectHideFlags: 0
