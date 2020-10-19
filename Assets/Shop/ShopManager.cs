@@ -17,6 +17,7 @@ public class ShopManager : MonoBehaviour
     private int whichShipLevel = 0;
     public GameObject buyShop;
     public float upgradeAmount;
+    public GameObject boostBar;
 
     void Start()
     {
@@ -66,6 +67,7 @@ public class ShopManager : MonoBehaviour
 
             case "Warp Speed":
                 player.GetComponent<PlayerController>().hasWarpSpeed = true;
+                boostBar.SetActive(true);
                 buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
                 break;
 

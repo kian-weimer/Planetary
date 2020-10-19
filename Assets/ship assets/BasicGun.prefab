@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 8831723018921607978, guid: 73be40ee2cb46064c85cd867edd965fe, type: 3}
-  firerate: 3
-  bulletSpeed: 10
-  lastShotTime: 40.059998
+  firerate: 5
+  bulletSpeed: 15
+  lastShotTime: 18.699999
   isInGUI: 0
