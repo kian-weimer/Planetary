@@ -66,7 +66,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         // stackable if on the planet inventory
         // 
-        if (eventData.pointerDrag != null && transform.parent.GetComponent<PlanetInventorySlot>() != null && transform.parent.GetComponent<InventorySlot>() == null)
+        if (eventData.pointerDrag != null && eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>() == null && transform.parent.GetComponent<PlanetInventorySlot>() != null && transform.parent.GetComponent<InventorySlot>() == null)
         {
             GameObject tempItem;
 

@@ -10685,7 +10685,7 @@ MonoBehaviour:
   player: {fileID: 949674676}
   lazerGun: {fileID: 0}
   money: {fileID: 2068677631}
-  home: {fileID: 0}
+  home: {fileID: 1286308401}
   playerSprites:
   - {fileID: 21300000, guid: 18e99bb16f965b941b4adba84dbba23a, type: 3}
   - {fileID: 21300000, guid: 08370922b75af0d4db1922f6bf44a4ac, type: 3}
