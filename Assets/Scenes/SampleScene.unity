@@ -8087,7 +8087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b982bf354d535b6489752ac90a51e476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfRings: 1200
+  numberOfRings: 150
   gridResolution: 100
 --- !u!4 &1159672789
 Transform:
