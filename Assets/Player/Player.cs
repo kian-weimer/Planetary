@@ -192,6 +192,12 @@ public class Player : MonoBehaviour
             gas = 0;
             gasBar.transform.localScale = new Vector3(0, gasBar.transform.localScale.y, gasBar.transform.localScale.z);
             gasBarEnd.transform.localScale = new Vector3(-1, gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
+
+            if(GetComponent<PlayerController>().hasRespawned == false)
+            {
+                GetComponent<Respawn>().playerRespawn();
+                GetComponent<PlayerController>().hasRespawned = true;
+            }
             return false;
         }
     }
@@ -217,7 +223,7 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             GetComponent<Respawn>().playerRespawn();
-            //GetComponent<PlayerController>().canMove = false;
+            GetComponent<PlayerController>().canMove = false;
         }
     }
 

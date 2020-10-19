@@ -3392,6 +3392,7 @@ MonoBehaviour:
   bbVel: {x: 1, y: 1}
   canMove: 0
   audioManager: {fileID: 2129333493}
+  hasRespawned: 0
 --- !u!4 &949674681
 Transform:
   m_ObjectHideFlags: 0
@@ -3429,7 +3430,7 @@ MonoBehaviour:
   main: {fileID: 519420031}
   planetView: {fileID: 1238475320}
   maxHealth: 200
-  maxGas: 400
+  maxGas: 200
   gasBar: {fileID: 1499567271}
   gasBarEnd: {fileID: 601551226}
   healthBar: {fileID: 2077049724}
@@ -3463,7 +3464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1b0f3f5aa61be4bb844884468ca4e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 1
+  waitTime: 2
   spawnLocation: {fileID: 1082668131}
 --- !u!1 &952796143
 GameObject:

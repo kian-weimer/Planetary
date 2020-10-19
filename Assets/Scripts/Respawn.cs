@@ -18,8 +18,20 @@ public class Respawn : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         GetComponent<Player>().health = 1;
+        GetComponent<Player>().gas = GetComponent<Player>().maxGas/12;
         GetComponent<Player>().transform.position = spawnLocation.transform.position;
         GetComponent<PlayerController>().canMove = true;
+        GetComponent<PlayerController>().hasRespawned = false;
+        List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
+        foreach (GameObject playerItem in playerInventory)
+        {
+            if (playerItem.GetComponent<InventorySlot>().item != null)
+            {
+                Destroy(playerItem.GetComponent<InventorySlot>().item);
+                Destroy(playerItem.GetComponent<InventorySlot>().icon);
+            }
+        }
+        FindObjectOfType<Inventory>().isFull = false;
         transform.Find("PlayerTrail").gameObject.SetActive(true);
     }
 }

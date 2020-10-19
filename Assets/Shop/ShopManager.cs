@@ -21,24 +21,24 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
-        resourceCost.Add("Rock", 10);
+        resourceCost.Add("Rock", 1);
         resourceCost.Add("Water", 15);
-        resourceCost.Add("Coal", 15);
+        resourceCost.Add("Coal", 20);
         resourceCost.Add("Diamond", 100);
-        resourceCost.Add("Iron", 20);
+        resourceCost.Add("Iron", 25);
         resourceCost.Add("Lava", 25);
-        resourceCost.Add("Lead", 20);
+        resourceCost.Add("Lead", 25);
         resourceCost.Add("Mercury", 25);
-        resourceCost.Add("Obsidian", 30);
-        resourceCost.Add("Oxygen", 15);
+        resourceCost.Add("Obsidian", 40);
+        resourceCost.Add("Oxygen", 10);
         resourceCost.Add("Wood", 15);
         resourceCost.Add("Satellite", 150);
-        resourceCost.Add("Dark Matter", 200);
-        resourceCost.Add("Food", 15);
-        resourceCost.Add("Gold", 15);
-        resourceCost.Add("Poison Gas", 15);
-        resourceCost.Add("Bullet", 15);
-        resourceCost.Add("Steel", 15);
+        resourceCost.Add("Dark Matter", 750);
+        resourceCost.Add("Food", 25);
+        resourceCost.Add("Gold", 75);
+        resourceCost.Add("Poison Gas", 5);
+        resourceCost.Add("Bullet", 20);
+        resourceCost.Add("Steel", 30);
     }
     public void buyShopResultOf(ShopItem shopItem)
     {
@@ -80,6 +80,7 @@ public class ShopManager : MonoBehaviour
             case "Upgrade Ship":
                 player.GetComponent<Player>().maxHealth += 100;
                 player.GetComponent<Player>().maxGas += 100;
+                player.GetComponent<PlayerController>().maxSpeed += 2;
                 player.GetComponent<PlayerController>().thrust += .3f;
                 player.GetComponent<Player>().weapon.firerate += 2;
                 player.GetComponent<Player>().weapon.bulletSpeed += 5;

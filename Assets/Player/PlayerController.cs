@@ -45,8 +45,9 @@ public class PlayerController : MonoBehaviour
     public bool canMove;
 
     public AudioManager audioManager;
+    private bool hasGas;
+    public bool hasRespawned = false;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -119,10 +120,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        bool hasGas = false;
+        hasGas = false;
         if ((Input.GetKey("w") && speed < maxSpeed || Input.GetKey("s")) && !gameObject.GetComponent<Player>().isHome && canMove)
         {
-            hasGas = transform.GetComponent<Player>().ConsumeGas(Input.GetKey("s"));
+            hasGas = transform.GetComponent<Player>().ConsumeGas(Input.GetKey("s")); 
         }
     
         if (Input.GetKey("w") && speed < maxSpeed && (hasGas || gameObject.GetComponent<Player>().isHome) && canMove)
