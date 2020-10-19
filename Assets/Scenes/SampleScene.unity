@@ -11170,7 +11170,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Thrust
-    clip: {fileID: 8300000, guid: 893f3a6fdd818794d98637f54c22af0a, type: 3}
+    clip: {fileID: 8300000, guid: abfdcb3f609defa46b7d8acb19f91f15, type: 3}
     volume: 0.025
     pitch: 1
     loop: 1
