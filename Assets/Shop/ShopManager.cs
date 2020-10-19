@@ -205,7 +205,7 @@ public class ShopManager : MonoBehaviour
 
                 if (playerItem.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource == Name)
                 {
-                    Destroy(playerItem.GetComponent<InventorySlot>().item);
+                    Destroy(playerItem.GetComponent<InventorySlot>().item); // BUG!!! when SELLING "DESTROYING ASSETS IS NOT PERMITTED TO AVOID DATA LOSS"
                     Destroy(playerItem.GetComponent<InventorySlot>().icon);
                     FindObjectOfType<Inventory>().isFull = false;
 

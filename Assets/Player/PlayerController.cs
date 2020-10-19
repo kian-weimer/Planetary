@@ -50,10 +50,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyUp("w"))
-        {
-            audioManager.Stop("Thrust");
-        }
         if (PG.GetGridPosition(transform.position) != gridPosition)
         {
             ArrayList oldGrids = getGridsInView();
@@ -125,6 +121,11 @@ public class PlayerController : MonoBehaviour
                 speed = 0;
                 rb.velocity = new Vector2(0,0);
             }
+            if (!Input.GetKey("w"))
+            {
+                audioManager.Stop("Thrust");
+            }
+            
         }
 
         if (Input.GetKey("a") && canMove)
@@ -139,6 +140,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.angularVelocity -= rb.angularVelocity * angularDrag;
         }
+
     }
 
     ArrayList getGridsInView()

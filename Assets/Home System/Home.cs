@@ -24,6 +24,8 @@ public class Home : MonoBehaviour
 
     public GameObject planetHUD;
     public PlanetComboList comboList;
+
+    public ResourceInventory resourceInventory;
     // Start is called before the first frame update
     void Awake()
     {
@@ -126,6 +128,10 @@ public class Home : MonoBehaviour
             combo = comboList.Combo(comboHomeInfo.items[0], comboHomeInfo.items[1], comboHomeInfo.items[2]);
             comboPlanet.GetComponent<SpriteRenderer>().sprite = combo.planet.GetComponent<SpriteRenderer>().sprite;
             comboPlanet.GetComponent<HomePlanet>().productionItems = combo.productionItems;
+            resourceInventory.checkForItemAndRemove(getCurrentViewingPlanet().GetComponent<HomePlanet>().items[0].resource.GetComponent<rsrce>().nameOfResource, 1);
+            resourceInventory.checkForItemAndRemove(getCurrentViewingPlanet().GetComponent<HomePlanet>().items[1].resource.GetComponent<rsrce>().nameOfResource, 1);
+            resourceInventory.checkForItemAndRemove(getCurrentViewingPlanet().GetComponent<HomePlanet>().items[2].resource.GetComponent<rsrce>().nameOfResource, 1);
+
             getCurrentViewingPlanet().GetComponent<HomePlanet>().removeItem(0);
             getCurrentViewingPlanet().GetComponent<HomePlanet>().removeItem(1);
             getCurrentViewingPlanet().GetComponent<HomePlanet>().removeItem(2);

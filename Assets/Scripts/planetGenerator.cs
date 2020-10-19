@@ -260,6 +260,7 @@ public class planetGenerator : MonoBehaviour
         ArrayList planetsObjectsInGameArrayTemp = new ArrayList();
         planetsObjectsInGameArrayTemp.AddRange(planetsObjectsInGameTemp);
 
+        if (!planetInfoList.ContainsKey(gridPosition)) { return; }
         foreach (GameObject planet in planetsObjectsInGame)
         {
             if (planetInfoList[gridPosition].Contains(planet.GetComponent<Planet>().info)) // INEFFICIENT

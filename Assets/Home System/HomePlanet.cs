@@ -182,7 +182,7 @@ public class HomePlanet : MonoBehaviour
                 {
                     resourceInventory.addItem(prodItem.resource.GetComponent<rsrce>().nameOfResource, prodItem.amountProduced);
                 }
-                UpdateUI();
+                transform.parent.GetComponent<Home>().UpdatePlanetHud();
             }
             else if ((int)Time.time % prodItem.frequency != 0)
             {
