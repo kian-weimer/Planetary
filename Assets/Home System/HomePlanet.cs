@@ -1,7 +1,4 @@
-﻿﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,7 +41,6 @@ public class HomePlanet : MonoBehaviour
             {
                 if (child.name != "Quantity")
                 {
-                    //Debug.Log(child.name);
                     GameObject.Destroy(child.gameObject);
                 }
             }
@@ -162,7 +158,7 @@ public class HomePlanet : MonoBehaviour
             items[itemSlot].Set(null, 0);
         }
         
-        transform.parent.GetComponent<Home>().UpdatePlanetHud();
+        UpdateUI(itemSlot);
     }
 
     // Update is called once per frame

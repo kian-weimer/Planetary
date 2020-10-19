@@ -20,7 +20,6 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             else
             {
                 GameObject tempItem = eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().item;
-
                 eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().home.GetComponent<Home>().
                     homePlanets[eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().home.GetComponent<Home>()
                     .currentViewingPlanet].GetComponent<HomePlanet>().removeItem(eventData.pointerDrag.transform.parent.
@@ -28,6 +27,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
                 eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().RemoveItem();
                 AddItemFromOldSlot(tempItem, eventData.pointerDrag);
+                Debug.Log(tempItem);
             }
             
         }
