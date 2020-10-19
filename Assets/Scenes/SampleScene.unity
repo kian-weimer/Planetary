@@ -1047,9 +1047,6 @@ MonoBehaviour:
     cost: 5000
     sellItem: 0
   itemsHudObjects: []
-  - name: Upgrade Ship
-    cost: 5000
-    sellItem: 0
   itemDistance: 100
   text: {fileID: 5769981167951546075, guid: b00c4abec867dc242b1a16866adb0191, type: 3}
   shopItem: {fileID: 4878180486325626977, guid: 9fa40f3304ebff946bdc6e79c9c88a94,
@@ -8260,7 +8257,6 @@ MonoBehaviour:
   planetHUD: {fileID: 731712354}
   comboList: {fileID: 1856876829}
   resourceInventory: {fileID: 1960612302}
-  resourceInventory: {fileID: 0}
 --- !u!4 &1286308403
 Transform:
   m_ObjectHideFlags: 0
@@ -10450,7 +10446,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 345e6c7238324044b9af50d4ce6e32f8, type: 3}
   - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
   - {fileID: 21300000, guid: 0dd4982f975e10f48beab53e5da565d1, type: 3}
-  sellShop: {fileID: 0}
+  sellShop: {fileID: 106098671}
   upgradeAmount: 0
 --- !u!114 &1960612302
 MonoBehaviour:

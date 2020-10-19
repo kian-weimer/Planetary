@@ -26,7 +26,7 @@ public class Shop : MonoBehaviour
         // rT.sizeDelta = new Vector2(rT.sizeDelta.x, items.Count * itemDistance);
         for (int i = 0; i < items.Count; i++)
         {
-           
+            Debug.Log(i);
             GameObject item = Instantiate(shopItem);
             item.name = "Item " + i;
             item.transform.parent = (transform);
@@ -50,19 +50,21 @@ public class Shop : MonoBehaviour
     public void changePrice(string name, int newPrice)
     {
         int i = 0;
-        foreach(ShopItemInfo item in items)
+        Debug.Log(items.Count);
+        foreach (ShopItemInfo item in items)
         {
+            Debug.Log(item.name + " - " + name);
             if (item.name == name)
             {
                 item.cost = newPrice;
                 shopItems[i].cost = newPrice;
                 if (item.sellItem)
                 {
-                    itemsHudObjects[i].transform.Find("Value").GetComponent<Text>().text = "$" + newPrice;
+                    itemsHudObjects[i].transform.Find("Value").GetComponent<Text>().text = "" + newPrice;
                 }
                 else
                 {
-                    itemsHudObjects[i].transform.Find("Cost").GetComponent<Text>().text = "$" + newPrice;
+                    itemsHudObjects[i].transform.Find("Cost").GetComponent<Text>().text = "" + newPrice;
                 }
             }
             i++;
@@ -120,6 +122,6 @@ public class Shop : MonoBehaviour
             itemShop.GetComponent<ShopItem>().Generate(item);
         }
         itemsHudObjects.Add(itemShop);
-        shopItems.Add(item.GetComponent<ShopItem>());
+        shopItems.Add(itemShop.GetComponent<ShopItem>());
     }
 }

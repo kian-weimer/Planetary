@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
     public List<Sprite> playerSprites;
     private int whichShipColorBase = 0;
     private int whichShipLevel = 0;
-    public GameObject sellShop;
+    public GameObject buyShop;
     public float upgradeAmount;
 
     void Start()
@@ -43,35 +43,36 @@ public class ShopManager : MonoBehaviour
         switch (shopItem.name)
         {
             case "Armor Up":
+                Debug.Log("Fuck u");
                 player.GetComponent<Player>().maxHealth += 50;
-                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             //set up lazer gun image
             case "Lazers":
                 player.GetComponent<Player>().weapon = lazerGun;
-                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             case "Bigger Tank":
                 player.GetComponent<Player>().maxGas += 50;
-                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             case "Better Thrusters":
                 player.GetComponent<PlayerController>().maxSpeed += 5;
-                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             case "Warp Speed":
                 player.GetComponent<PlayerController>().hasWarpSpeed = true;
-                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             //update to addInventory Slot
             case "More Inventory":
                 FindObjectOfType<Inventory>().addInventorySlot();
-                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             case "Upgrade Ship":
@@ -88,7 +89,7 @@ public class ShopManager : MonoBehaviour
                 {
                     //delete the upgrade from the store;
                 }
-                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             //cases for different colors
