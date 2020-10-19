@@ -275,8 +275,11 @@ public class planetGenerator : MonoBehaviour
     }
     public void destroyPlanet(Planet planet)
     {
-        planetInfoList[GetGridPosition(planet.position)].Remove(planet.info);
-        planetsObjectsInGame.Remove(planet.gameObject);
+        if(planet.gameObject.GetComponent<HomePlanet>() == null)
+        {
+            planetInfoList[GetGridPosition(planet.position)].Remove(planet.info);
+            planetsObjectsInGame.Remove(planet.gameObject);
+        }
         Destroy(planet.gameObject);
     }
 }

@@ -112,4 +112,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             Destroy(tempUI);
         }
     }
+
+    public void destroy()
+    {
+        Destroy(gameObject);
+    }
 }

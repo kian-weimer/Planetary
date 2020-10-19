@@ -243,17 +243,17 @@ public class ShopManager : MonoBehaviour
         money.GetComponent<Money>().addMoney(item.cost * item.quantity);
         int numberDeleted = 0;
         List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
-        foreach (GameObject playerItem in playerInventory)
+        foreach (GameObject playerInventorySlot in playerInventory)
         {
            
-            if (playerItem.GetComponent<InventorySlot>().item != null)
+            if (playerInventorySlot.GetComponent<InventorySlot>().item != null)
             {
 
-                if (playerItem.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource == Name)
+                if (playerInventorySlot.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource == Name)
                 {
-                    Destroy(playerItem.GetComponent<InventorySlot>().item); // BUG!!! when SELLING "DESTROYING ASSETS IS NOT PERMITTED TO AVOID DATA LOSS"
-                    Destroy(playerItem.GetComponent<InventorySlot>().icon);
-                    FindObjectOfType<Inventory>().isFull = false;
+                    var child = playerInventorySlot.transform.GetChild(0);
+                    child.GetComponent<DragDrop>().destroy();
+                    playerInventorySlot.GetComponent<InventorySlot>().RemoveItem();
 
                     numberDeleted++;
                     if (numberDeleted == item.quantity)
