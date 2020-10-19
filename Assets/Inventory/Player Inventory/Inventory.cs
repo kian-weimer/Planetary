@@ -19,14 +19,6 @@ public class Inventory : MonoBehaviour
         InitializeInventory();
     }
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.P))
-        {
-            addInventorySlot();
-        }
-    }
-
     public void InitializeInventory()
     {
         for (int s = 0; s < numberOfInventorySlots; s++)
