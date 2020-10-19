@@ -90,7 +90,7 @@ public class Shop : MonoBehaviour
     {
         if (Money.GetComponent<Money>().removeMoney(item.cost))
         {
-            ShopManager.GetComponent<ShopManager>().buyShopResultOf(item.name);
+            ShopManager.GetComponent<ShopManager>().buyShopResultOf(item);
         }
     }
 

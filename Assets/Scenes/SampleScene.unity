@@ -1047,6 +1047,9 @@ MonoBehaviour:
     cost: 5000
     sellItem: 0
   itemsHudObjects: []
+  - name: Upgrade Ship
+    cost: 5000
+    sellItem: 0
   itemDistance: 100
   text: {fileID: 5769981167951546075, guid: b00c4abec867dc242b1a16866adb0191, type: 3}
   shopItem: {fileID: 4878180486325626977, guid: 9fa40f3304ebff946bdc6e79c9c88a94,
@@ -8257,6 +8260,7 @@ MonoBehaviour:
   planetHUD: {fileID: 731712354}
   comboList: {fileID: 1856876829}
   resourceInventory: {fileID: 1960612302}
+  resourceInventory: {fileID: 0}
 --- !u!4 &1286308403
 Transform:
   m_ObjectHideFlags: 0
@@ -10427,6 +10431,27 @@ MonoBehaviour:
   lazerGun: {fileID: 0}
   money: {fileID: 2068677631}
   home: {fileID: 0}
+  playerSprites:
+  - {fileID: 21300000, guid: 18e99bb16f965b941b4adba84dbba23a, type: 3}
+  - {fileID: 21300000, guid: 08370922b75af0d4db1922f6bf44a4ac, type: 3}
+  - {fileID: 21300000, guid: 18ff164747a334a44b479397e1782dbc, type: 3}
+  - {fileID: 21300000, guid: faf7f4369beedcd49b766a52854bebb6, type: 3}
+  - {fileID: 21300000, guid: b74e8b24bc61cfa469e9afb6a36a5550, type: 3}
+  - {fileID: 21300000, guid: 88e01dc962583c74b85895ca1205d896, type: 3}
+  - {fileID: 21300000, guid: 0908f734e8afb444893984a66bb08eaa, type: 3}
+  - {fileID: 21300000, guid: ea4bd62ab13274e4388b10819967d527, type: 3}
+  - {fileID: 21300000, guid: df608ce3de43f4643a72334b220a10ad, type: 3}
+  - {fileID: 21300000, guid: d1c16e35347144046ba6b966055127fe, type: 3}
+  - {fileID: 21300000, guid: fef09eaed41dec94f9aa16f71fe3bef3, type: 3}
+  - {fileID: 21300000, guid: bb45a3a0139e4024b9d453017b1a4506, type: 3}
+  - {fileID: 21300000, guid: 6a704805387d9054285e70ec14527188, type: 3}
+  - {fileID: 21300000, guid: adce247a0714df046ad3056f6c66cb64, type: 3}
+  - {fileID: 21300000, guid: 9af4e61659d283b4383dd325bd93266a, type: 3}
+  - {fileID: 21300000, guid: 345e6c7238324044b9af50d4ce6e32f8, type: 3}
+  - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
+  - {fileID: 21300000, guid: 0dd4982f975e10f48beab53e5da565d1, type: 3}
+  sellShop: {fileID: 0}
+  upgradeAmount: 0
 --- !u!114 &1960612302
 MonoBehaviour:
   m_ObjectHideFlags: 0
