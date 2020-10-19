@@ -55,11 +55,11 @@ public class Shop : MonoBehaviour
                 item.cost = newPrice;
                 if (item.sellItem)
                 {
-                    itemsHudObjects[i].GetComponent<SellShopItem>().cost = newPrice;
+                    itemsHudObjects[i].transform.Find("Value").GetComponent<Text>().text = "$" + newPrice;
                 }
                 else
                 {
-                    itemsHudObjects[i].GetComponent<ShopItem>().cost = newPrice;
+                    itemsHudObjects[i].transform.Find("Cost").GetComponent<Text>().text = "$" + newPrice;
                 }
             }
             i++;
