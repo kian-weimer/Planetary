@@ -66,7 +66,7 @@ public class ShopManager : MonoBehaviour
 
             case "Warp Speed":
                 player.GetComponent<PlayerController>().hasWarpSpeed = true;
-                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
                 break;
 
             //update to addInventory Slot
@@ -110,8 +110,6 @@ public class ShopManager : MonoBehaviour
                 }
 
                 break;
-            //cases for different colors
-
         }
     }
     public void sellShopResultOf(SellShopItem item)
