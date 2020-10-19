@@ -9,6 +9,7 @@ public class ShopManager : MonoBehaviour
     public Weapon lazerGun;
     public GameObject money;
     public Dictionary<string, int> resourceCost = new Dictionary<string, int>();
+    public GameObject home;
 
     void Start()
     {
@@ -233,13 +234,11 @@ public class ShopManager : MonoBehaviour
                             if (planet.GetComponent<HomePlanet>().items[i].quantity > (item.quantity - numberDeleted))
                             {
                                 planet.GetComponent<HomePlanet>().removeItem(i, item.quantity - numberDeleted);
-                                planet.GetComponent<HomePlanet>().UpdateUI();
                                 numberDeleted += item.quantity;
                             }
                             else
                             {
                                 planet.GetComponent<HomePlanet>().removeItem(i, planet.GetComponent<HomePlanet>().items[i].quantity);
-                                planet.GetComponent<HomePlanet>().UpdateUI();
                                 numberDeleted += planet.GetComponent<HomePlanet>().items[i].quantity;
                             }
 
@@ -247,6 +246,7 @@ public class ShopManager : MonoBehaviour
                             {
                                 return;
                             }
+                            home.GetComponent<Home>().UpdatePlanetHud();
                         }
                     }
 
