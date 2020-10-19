@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioManager audioManager;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +51,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        /*
+        if(hasWarpSpeed && Input.GetKey("space"))
+        {
+            thrust = thrust * 1.5f;
+            maxSpeed = maxSpeed * 1.5f;
+        }
+        */
         if (PG.GetGridPosition(transform.position) != gridPosition)
         {
             ArrayList oldGrids = getGridsInView();

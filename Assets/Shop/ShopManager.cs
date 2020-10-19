@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Remoting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class ShopManager : MonoBehaviour
     public GameObject money;
     public Dictionary<string, int> resourceCost = new Dictionary<string, int>();
     public GameObject home;
+    public List<Sprite> playerSprites;
+    private int whichShipColorBase = 0;
+    private int whichShipLevel = 0;
+    public GameObject sellShop;
+    public float upgradeAmount;
 
     void Start()
     {
@@ -32,34 +38,40 @@ public class ShopManager : MonoBehaviour
         resourceCost.Add("Bullet", 15);
         resourceCost.Add("Steel", 15);
     }
-    public void buyShopResultOf(string shopItemName)
+    public void buyShopResultOf(ShopItem shopItem)
     {
-        switch (shopItemName)
+        switch (shopItem.name)
         {
             case "Armor Up":
                 player.GetComponent<Player>().maxHealth += 50;
+                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             //set up lazer gun image
             case "Lazers":
                 player.GetComponent<Player>().weapon = lazerGun;
+                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             case "Bigger Tank":
                 player.GetComponent<Player>().maxGas += 50;
+                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             case "Better Thrusters":
-                player.GetComponent<PlayerController>().maxSpeed += 15;
+                player.GetComponent<PlayerController>().maxSpeed += 5;
+                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             case "Warp Speed":
                 player.GetComponent<PlayerController>().hasWarpSpeed = true;
+                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             //update to addInventory Slot
             case "More Inventory":
                 FindObjectOfType<Inventory>().addInventorySlot();
+                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
             case "Upgrade Ship":
@@ -68,10 +80,18 @@ public class ShopManager : MonoBehaviour
                 player.GetComponent<PlayerController>().thrust += .3f;
                 player.GetComponent<Player>().weapon.firerate += 2;
                 player.GetComponent<Player>().weapon.bulletSpeed += 5;
-                player.GetComponent<Player>().weapon.bullet.bulletDamage += 2;
-                //update player icon to different ship
-                //update bullet Damage
+                player.GetComponent<Player>().weapon.bullet.bulletDamage += 3;
+                player.GetComponent<SpriteRenderer>().sprite = playerSprites[whichShipColorBase + whichShipLevel + 1];
+                whichShipLevel += 1;
+                player.GetComponent<BoxCollider2D>().size = new Vector2(.7f, 1.25f);
+                if(whichShipLevel == 2)
+                {
+                    //delete the upgrade from the store;
+                }
+                sellShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
+
+            //cases for different colors
 
         }
     }
