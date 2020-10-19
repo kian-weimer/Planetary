@@ -148,7 +148,7 @@ public class HomePlanet : MonoBehaviour
             items[itemSlot].Set(null, 0);
         }
 
-        UpdateUI(itemSlot);
+        transform.parent.GetComponent<Home>().UpdatePlanetHud();
     }
 
     public void removeItem(int itemSlot)
@@ -162,7 +162,7 @@ public class HomePlanet : MonoBehaviour
             items[itemSlot].Set(null, 0);
         }
         
-        UpdateUI(itemSlot);
+        transform.parent.GetComponent<Home>().UpdatePlanetHud();
     }
 
     // Update is called once per frame
