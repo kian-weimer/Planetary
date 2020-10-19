@@ -34,6 +34,11 @@ public class PlanetComboList : MonoBehaviour
         planetComboDict.TryGetValue((resource1.resource.name.Replace("(Clone)", ""), 
             resource2.resource.name.Replace("(Clone)", ""), 
             resource3.resource.name.Replace("(Clone)", "")), out comboResult);
+
+        if (comboResult.planet.name.Contains("EndGame"))
+        {
+            FindObjectOfType<canvas>().transform.Find("EndGamePrompt").gameObject.SetActive(true);
+        }
         return comboResult;
     }
 }

@@ -138,4 +138,4 @@ MonoBehaviour:
   icon: {fileID: 8834089538667980177, guid: dc98eb95885d6e547a963add248a0287, type: 3}
   nameOfResource: Satellite
   isInAnInventory: 0
-  timeBeforeDeletion: 30
+  timeBeforeDeletion: 40

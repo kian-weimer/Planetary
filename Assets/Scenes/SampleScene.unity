@@ -2789,7 +2789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &733954150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8517,7 +8517,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10598,16 +10598,16 @@ MonoBehaviour:
         type: 3}
       amountProduced: 1
       frequency: 45
-  - planet: {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5,
+  - planet: {fileID: 4849600916687672688, guid: 69060e6f800d4064e971bd94f5ab7b22,
       type: 3}
     item1: {fileID: 7135516776879974215, guid: 5489e015fe23f774882937a98828005c, type: 3}
     item2: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
     item3: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
     productionItems:
-    - resource: {fileID: 7970960479318978901, guid: 1e1c303022e665b42a8127eb0556eeea,
+    - resource: {fileID: 3006148808787116880, guid: 1e1c303022e665b42a8127eb0556eeea,
         type: 3}
       amountProduced: 1
-      frequency: 1
+      frequency: 60
 --- !u!4 &1856876830
 Transform:
   m_ObjectHideFlags: 0

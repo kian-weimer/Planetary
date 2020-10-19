@@ -6,19 +6,12 @@ public class EndGameItem : MonoBehaviour
 {
     static bool EndGameReached = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (!EndGameReached)
         {
             FindObjectOfType<canvas>().transform.Find("EndGamePrompt").gameObject.SetActive(true);
             EndGameReached = true;
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

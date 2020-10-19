@@ -18,6 +18,7 @@ public class EndGame : MonoBehaviour
         if (startTime > 0 && Time.time - startTime > despawnTime )
         {
             gameObject.SetActive(false);
+            Application.Quit();
         }
     }
 }

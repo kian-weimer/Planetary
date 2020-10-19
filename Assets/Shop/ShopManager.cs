@@ -39,7 +39,7 @@ public class ShopManager : MonoBehaviour
         resourceCost.Add("Poison Gas", 5);
         resourceCost.Add("Bullet", 20);
         resourceCost.Add("Steel", 30);
-        resourceCost.Add("EndGame", 1000000000);
+        resourceCost.Add("EndGame", 10000);
     }
     public void buyShopResultOf(ShopItem shopItem)
     {
@@ -229,6 +229,12 @@ public class ShopManager : MonoBehaviour
                 if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Bullet", item.quantity))
                 {
                     findAndSellShopItem(item, "Bullet");
+                }
+                break;
+            case "EndGame":
+                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("EndGame", item.quantity))
+                {
+                    findAndSellShopItem(item, "EndGame");
                 }
                 break;
         }
