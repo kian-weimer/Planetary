@@ -1039,16 +1039,16 @@ MonoBehaviour:
     cost: 50
     sellItem: 0
   - name: Better Thrusters
-    cost: 999
+    cost: 750
     sellItem: 0
   - name: Warp Speed
-    cost: 2500
+    cost: 2000
     sellItem: 0
   - name: More Inventory
-    cost: 5000
+    cost: 1000
     sellItem: 0
   - name: Upgrade Ship
-    cost: 5
+    cost: 2500
     sellItem: 0
   - name: Switch Color
     cost: 100
