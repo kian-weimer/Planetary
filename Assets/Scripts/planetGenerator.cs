@@ -244,7 +244,7 @@ public class planetGenerator : MonoBehaviour
 
     public void InstantiateGrid(Vector2 gridPosition)
     {
-        if (!planetInfoList.ContainsKey(gridPosition)) { return; }
+        if (!planetInfoList.ContainsKey(gridPosition)) { Debug.LogWarning("PlanetGenError"); return; }
         foreach (PlanetInfo planetInfo in planetInfoList[gridPosition])
         {
             Planet planet = Instantiate(planetTypes[planetInfo.rarity].planets[planetInfo.type]);
@@ -260,7 +260,7 @@ public class planetGenerator : MonoBehaviour
         ArrayList planetsObjectsInGameArrayTemp = new ArrayList();
         planetsObjectsInGameArrayTemp.AddRange(planetsObjectsInGameTemp);
 
-        if (!planetInfoList.ContainsKey(gridPosition)) { return; }
+        if (!planetInfoList.ContainsKey(gridPosition)) { Debug.LogWarning("PlanetGenError"); return; }
         foreach (GameObject planet in planetsObjectsInGame)
         {
             if (planetInfoList[gridPosition].Contains(planet.GetComponent<Planet>().info)) // INEFFICIENT

@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public AudioManager audioManager;
 
     public bool isHome = true;
+    public bool canShoot = true;
 
     public float regenRate;
     public Inventory inventory;
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && main.gameObject.activeSelf)
+        if (Input.GetKey(KeyCode.Mouse0) && main.gameObject.activeSelf && canShoot)
         {
             float rotation = (rb.rotation + 90);
             if (weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)), gameObject.GetComponent<Rigidbody2D>().velocity)) {
@@ -90,6 +91,8 @@ public class Player : MonoBehaviour
                 FindObjectOfType<Home>().GetComponent<Home>().ChangePlanetView(closestHomePlanet.rarity);
                 //planetView.transform.position = new Vector3(closestHomePlanet.transform.position.x, closestHomePlanet.transform.position.y, -10);
                 popUpText.SetActive(false);
+                canShoot = false;
+                gameObject.GetComponent<PlayerController>().canMove = false;
             }
             else if (nearHomePlanet && planetView.gameObject.activeSelf)
             {
@@ -97,6 +100,8 @@ public class Player : MonoBehaviour
                 FindObjectOfType<canvas>().transform.Find("PlanetHUD").gameObject.SetActive(false);
                 main.gameObject.SetActive(true);
                 popUpText.SetActive(true);
+                canShoot = true;
+                gameObject.GetComponent<PlayerController>().canMove = true;
             }
         }
 
@@ -250,5 +255,10 @@ public class Player : MonoBehaviour
         {
             health = maxHealth;
         }
+    }
+
+    public void ToggleShooting()
+    {
+        canShoot = !canShoot;
     }
 }

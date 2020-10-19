@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     public Font font;
-    public List<ShopItemInfo> items; // first is name second is cost third is function call
+    public List<ShopItemInfo> items; // first is name second is cost third is function 
+    public List<GameObject> itemsHudObjects; // first is name second is cost third is function 
+
     public int itemDistance = 1;
     public GameObject text;
     public GameObject shopItem;
@@ -39,30 +41,28 @@ public class Shop : MonoBehaviour
             {
                 item.GetComponent<ShopItem>().Generate(items[i]);
             }
+            itemsHudObjects.Add(item);
         }
-        /*
-        if (gameObject.name == "SellItemList")
-        {
-            ShopItemInfo SII = new ShopItemInfo();
-            SII.cost = 100;
-            SII.name = "Potato";
-            SII.sellItem = true;
-
-            addShopItem(SII);
-        }
-        // FIX THIS _------------------
-        //FindObjectOfType<Scrollbar>().gameObject.GetComponent<Scrollbar>().SetValueWithoutNotify(1);
-        */
     }
 
     public void changePrice(string name, int newPrice)
     {
+        int i = 0;
         foreach(ShopItemInfo item in items)
         {
             if (item.name == name)
             {
                 item.cost = newPrice;
+                if (item.sellItem)
+                {
+                    itemsHudObjects[i].GetComponent<SellShopItem>().cost = newPrice;
+                }
+                else
+                {
+                    itemsHudObjects[i].GetComponent<ShopItem>().cost = newPrice;
+                }
             }
+            i++;
         }
     }
 
@@ -95,5 +95,6 @@ public class Shop : MonoBehaviour
         {
             itemShop.GetComponent<ShopItem>().Generate(item);
         }
+        itemsHudObjects.Add(itemShop);
     }
 }

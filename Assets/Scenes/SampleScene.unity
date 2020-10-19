@@ -3258,6 +3258,7 @@ MonoBehaviour:
   resourceInShip: {fileID: 0}
   audioManager: {fileID: 2129333493}
   isHome: 1
+  canShoot: 1
   regenRate: 0.15
   inventory: {fileID: 752310339}
   canvas: {fileID: 684055474}
@@ -8110,7 +8111,6 @@ MonoBehaviour:
   - Incomming Asteroids
   - Satellite Nearby
   timeBeforeNextEvent: 0
-  eventIsHappening: 0
   alertText: {fileID: 3243644419479592566, guid: e4bf9fe4d4d28cf42a9e333cd1401601,
     type: 3}
 --- !u!4 &1233642941
@@ -8254,6 +8254,7 @@ MonoBehaviour:
   currentViewingPlanet: 0
   planetHUD: {fileID: 731712354}
   comboList: {fileID: 1856876829}
+  resourceInventory: {fileID: 1960612302}
 --- !u!4 &1286308403
 Transform:
   m_ObjectHideFlags: 0
@@ -8413,6 +8414,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 949674682}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: ToggleShooting
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10411,6 +10424,7 @@ MonoBehaviour:
   player: {fileID: 949674676}
   lazerGun: {fileID: 0}
   money: {fileID: 2068677631}
+  home: {fileID: 0}
 --- !u!114 &1960612302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10737,7 +10751,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 120000
+  m_Text: '0
+
+'
 --- !u!222 &2068677635
 CanvasRenderer:
   m_ObjectHideFlags: 0
