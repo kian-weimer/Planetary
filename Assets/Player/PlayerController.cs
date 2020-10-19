@@ -10,8 +10,19 @@ public class PlayerController : MonoBehaviour
     public float speed = 0f;
     public float turnSpeed = 1;
     public float maxSpeed = 70f;
+
     public bool hasWarpSpeed = false;
-  
+    public float warpSpeedModifier = 1.5f;
+    public float maxWarpSpeed = 100;
+    public float warpSpeed;
+    public float warpConsumption = 1;
+    public float warpRegenRate = 0.1f;
+    public float warpFuelModifier = 3f;
+    public float warpResumeThreshold = 0.5f;
+    private bool canWarp = true;
+    public bool boosting = false;
+    public GameObject warpSpeedBar;
+
     [Range(0, 3f)]
     public float landingSpeed = 1f;
     [Range(0, 1f)]
@@ -39,6 +50,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        warpSpeed = maxWarpSpeed;
         canMove = true;
         gridPosition = PG.GetGridPosition(transform.position);
         ArrayList l = getGridsInView();
@@ -51,13 +63,42 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        /*
-        if(hasWarpSpeed && Input.GetKey("space"))
+        
+        if(hasWarpSpeed && Input.GetKey("space") && canWarp && warpSpeed > 0)
         {
-            thrust = thrust * 1.5f;
-            maxSpeed = maxSpeed * 1.5f;
+            if (boosting == false)
+            {
+                thrust = thrust * warpSpeedModifier;
+                maxSpeed = maxSpeed * warpSpeedModifier;
+                transform.GetComponent<Player>().fuelConsumption = transform.GetComponent<Player>().fuelConsumption * warpFuelModifier;
+            }
+            
+            warpSpeed -= warpConsumption;
+            warpSpeedBar.GetComponent<RectTransform>().localScale = new Vector3(warpSpeed / maxWarpSpeed,
+                warpSpeedBar.GetComponent<RectTransform>().localScale.y,
+                warpSpeedBar.GetComponent<RectTransform>().localScale.z);
+            boosting = true;
         }
-        */
+        else if (hasWarpSpeed && boosting)
+        {
+            canWarp = false;
+            boosting = false;
+            thrust = thrust / warpSpeedModifier;
+            maxSpeed = maxSpeed / warpSpeedModifier;
+            transform.GetComponent<Player>().fuelConsumption = transform.GetComponent<Player>().fuelConsumption / warpFuelModifier;
+        }
+        else if (hasWarpSpeed && warpSpeed < maxWarpSpeed)
+        {
+            warpSpeed += warpRegenRate;
+            warpSpeedBar.GetComponent<RectTransform>().localScale = new Vector3(warpSpeed / maxWarpSpeed,
+                warpSpeedBar.GetComponent<RectTransform>().localScale.y,
+                warpSpeedBar.GetComponent<RectTransform>().localScale.z);
+        }
+        else if (hasWarpSpeed && warpSpeed >= warpResumeThreshold * maxWarpSpeed)
+        {
+            canWarp = true;
+        }
+        
         if (PG.GetGridPosition(transform.position) != gridPosition)
         {
             ArrayList oldGrids = getGridsInView();
