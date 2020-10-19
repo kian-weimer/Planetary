@@ -66,6 +66,26 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void RemoveItem(string name)
+    {
+        int i = 0;
+        bool shift = false;
+        foreach (ShopItemInfo item in items)
+        {
+            if (item.name == name)
+            {
+                items.RemoveAt(i);
+                itemsHudObjects.RemoveAt(i);
+                shift = true;
+            }
+            else if (shift)
+            {
+                itemsHudObjects[i].transform.position += new Vector3(0, itemDistance, 0);
+            }
+            i++;
+        }
+    }
+
     public void ItemPurchased(ShopItem item)
     {
         if (Money.GetComponent<Money>().removeMoney(item.cost))
