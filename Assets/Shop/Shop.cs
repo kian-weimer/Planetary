@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
 {
     public Font font;
     public List<ShopItemInfo> items; // first is name second is cost third is function 
+    public List<ShopItem> shopItems; // first is name second is cost third is function 
     public List<GameObject> itemsHudObjects; // first is name second is cost third is function 
 
     public int itemDistance = 1;
@@ -42,6 +43,7 @@ public class Shop : MonoBehaviour
                 item.GetComponent<ShopItem>().Generate(items[i]);
             }
             itemsHudObjects.Add(item);
+            shopItems.Add(item.GetComponent<ShopItem>());
         }
     }
 
@@ -53,6 +55,7 @@ public class Shop : MonoBehaviour
             if (item.name == name)
             {
                 item.cost = newPrice;
+                shopItems[i].cost = newPrice;
                 if (item.sellItem)
                 {
                     itemsHudObjects[i].transform.Find("Value").GetComponent<Text>().text = "$" + newPrice;
@@ -76,6 +79,7 @@ public class Shop : MonoBehaviour
             {
                 items.RemoveAt(i);
                 itemsHudObjects.RemoveAt(i);
+                shopItems.RemoveAt(i);
                 shift = true;
             }
             else if (shift)
@@ -116,5 +120,6 @@ public class Shop : MonoBehaviour
             itemShop.GetComponent<ShopItem>().Generate(item);
         }
         itemsHudObjects.Add(itemShop);
+        shopItems.Add(item.GetComponent<ShopItem>());
     }
 }
