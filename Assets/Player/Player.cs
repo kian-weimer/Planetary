@@ -170,6 +170,7 @@ public class Player : MonoBehaviour
             isHome = false;
             canvas.transform.Find("ShopButton").gameObject.SetActive(false);
             shop.gameObject.SetActive(false);
+            canShoot = true;
         }
     }
 
