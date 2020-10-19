@@ -3444,7 +3444,7 @@ MonoBehaviour:
   audioManager: {fileID: 2129333493}
   isHome: 1
   canShoot: 1
-  regenRate: 0.15
+  regenRate: 0.0015
   inventory: {fileID: 752310339}
   canvas: {fileID: 684055474}
   shop: {fileID: 978194614}

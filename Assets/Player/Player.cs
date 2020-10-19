@@ -226,7 +226,7 @@ public class Player : MonoBehaviour
 
         if (gas < maxGas)
         {
-            gas += regenRate;
+            gas += regenRate*maxGas;
 
             gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / (maxGas - maxGas * .1f), gasBar.transform.localScale.y, gasBar.transform.localScale.z);
 
@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
 
         if (health < maxHealth)
         {
-            health += regenRate;
+            health += regenRate * maxHealth;
 
             healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) / (maxHealth - maxHealth * .1f), healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
