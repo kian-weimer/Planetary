@@ -44,7 +44,6 @@ public class ShopManager : MonoBehaviour
         switch (shopItem.name)
         {
             case "Armor Up":
-                Debug.Log("Fuck u");
                 player.GetComponent<Player>().maxHealth += 50;
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
@@ -85,14 +84,32 @@ public class ShopManager : MonoBehaviour
                 player.GetComponent<Player>().weapon.bullet.bulletDamage += 3;
                 player.GetComponent<SpriteRenderer>().sprite = playerSprites[whichShipColorBase + whichShipLevel + 1];
                 whichShipLevel += 1;
-                player.GetComponent<BoxCollider2D>().size = new Vector2(.7f, 1.25f);
+                if(whichShipLevel == 1)
+                {
+                    player.GetComponent<BoxCollider2D>().size = new Vector2(.7f, 1f);
+                }
+                
                 if(whichShipLevel == 2)
                 {
                     buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
+                    player.GetComponent<BoxCollider2D>().size = new Vector2(.7f, 1.25f);
                 }
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
+            case "Switch Color":
+                if(whichShipColorBase == playerSprites.Count - 3)
+                {
+                    player.GetComponent<SpriteRenderer>().sprite = playerSprites[whichShipLevel];
+                    whichShipColorBase = 0;
+                }
+                else 
+                {
+                    player.GetComponent<SpriteRenderer>().sprite = playerSprites[whichShipColorBase + 3 + whichShipLevel];
+                    whichShipColorBase += 3;
+                }
+
+                break;
             //cases for different colors
 
         }

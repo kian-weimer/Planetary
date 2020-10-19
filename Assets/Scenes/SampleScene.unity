@@ -1050,6 +1050,9 @@ MonoBehaviour:
   - name: Upgrade Ship
     cost: 5
     sellItem: 0
+  - name: Switch Color
+    cost: 100
+    sellItem: 0
   shopItems: []
   itemsHudObjects: []
   itemDistance: 100
@@ -10437,20 +10440,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 08370922b75af0d4db1922f6bf44a4ac, type: 3}
   - {fileID: 21300000, guid: 18ff164747a334a44b479397e1782dbc, type: 3}
   - {fileID: 21300000, guid: faf7f4369beedcd49b766a52854bebb6, type: 3}
-  - {fileID: 21300000, guid: b74e8b24bc61cfa469e9afb6a36a5550, type: 3}
   - {fileID: 21300000, guid: 88e01dc962583c74b85895ca1205d896, type: 3}
+  - {fileID: 21300000, guid: b74e8b24bc61cfa469e9afb6a36a5550, type: 3}
   - {fileID: 21300000, guid: 0908f734e8afb444893984a66bb08eaa, type: 3}
-  - {fileID: 21300000, guid: ea4bd62ab13274e4388b10819967d527, type: 3}
   - {fileID: 21300000, guid: df608ce3de43f4643a72334b220a10ad, type: 3}
+  - {fileID: 21300000, guid: ea4bd62ab13274e4388b10819967d527, type: 3}
   - {fileID: 21300000, guid: d1c16e35347144046ba6b966055127fe, type: 3}
-  - {fileID: 21300000, guid: fef09eaed41dec94f9aa16f71fe3bef3, type: 3}
   - {fileID: 21300000, guid: bb45a3a0139e4024b9d453017b1a4506, type: 3}
+  - {fileID: 21300000, guid: fef09eaed41dec94f9aa16f71fe3bef3, type: 3}
   - {fileID: 21300000, guid: 6a704805387d9054285e70ec14527188, type: 3}
-  - {fileID: 21300000, guid: adce247a0714df046ad3056f6c66cb64, type: 3}
   - {fileID: 21300000, guid: 9af4e61659d283b4383dd325bd93266a, type: 3}
+  - {fileID: 21300000, guid: adce247a0714df046ad3056f6c66cb64, type: 3}
   - {fileID: 21300000, guid: 345e6c7238324044b9af50d4ce6e32f8, type: 3}
-  - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
   - {fileID: 21300000, guid: 0dd4982f975e10f48beab53e5da565d1, type: 3}
+  - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
   buyShop: {fileID: 293007886}
   upgradeAmount: 1.5
 --- !u!114 &1960612302
@@ -10779,9 +10782,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '0
-
-'
+  m_Text: 200
 --- !u!222 &2068677635
 CanvasRenderer:
   m_ObjectHideFlags: 0
