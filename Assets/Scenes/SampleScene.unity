@@ -2737,6 +2737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 731712358}
+  - component: {fileID: 731712355}
   m_Layer: 0
   m_Name: PlanetHUD
   m_TagString: Untagged
@@ -2744,6 +2745,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &731712355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731712354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8e9ef310cc3d547a0db6df06cb7f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 949674680}
+  audioManager: {fileID: 2129333493}
 --- !u!224 &731712358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8087,7 +8102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b982bf354d535b6489752ac90a51e476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfRings: 150
+  numberOfRings: 200
   gridResolution: 100
 --- !u!4 &1159672789
 Transform:
