@@ -1501,7 +1501,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 113.3, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &463305618
 MonoBehaviour:
@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3822a18a40980ce45ad58d19dc2fb333, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7bc97f1699b33044fa7d5daaaff0181d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2845,8 +2845,8 @@ SpriteRenderer:
   m_SortingLayerID: 628022153
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 03e0a2c9af27e7948bfc9a1f39b96efa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b994e569dfd0b3d4f9f8f0eef477dd6d, type: 3}
+  m_Color: {r: 1, g: 0.9064234, b: 0.24056602, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2865,7 +2865,7 @@ Transform:
   m_GameObject: {fileID: 733954149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 1286308403}
   m_RootOrder: 0
@@ -2878,7 +2878,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733954149}
-  m_BodyType: 1
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2906,7 +2906,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 0.5
 --- !u!1 &744417194
 GameObject:
   m_ObjectHideFlags: 0
@@ -9713,7 +9713,7 @@ MonoBehaviour:
   - rarityLevel: 500
     planets:
     - {fileID: 1680856869468078910, guid: 7329880ae26255f41a96a595e231fe88, type: 3}
-    - {fileID: 7424519610826462541, guid: 85136233b4e5b6348bef706bafcda557, type: 3}
+    - {fileID: 1120403152165817852, guid: 85136233b4e5b6348bef706bafcda557, type: 3}
     - {fileID: 696755485912486588, guid: 6d4267d1868aa1949b00b6e1c51ee73b, type: 3}
   homeOffset: 75
   degreeResolution: 0.1
@@ -10427,8 +10427,7 @@ MonoBehaviour:
         type: 3}
       amountProduced: 5
       frequency: 120
-  - planet: {fileID: 7154337356150099400, guid: 6d4267d1868aa1949b00b6e1c51ee73b,
-      type: 3}
+  - planet: {fileID: 696755485912486588, guid: 6d4267d1868aa1949b00b6e1c51ee73b, type: 3}
     item1: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
     item2: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
     item3: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
@@ -10477,7 +10476,7 @@ MonoBehaviour:
         type: 3}
       amountProduced: 2
       frequency: 180
-  - planet: {fileID: 7471530637632598979, guid: 4e3a486e8ea2fe4449906612dc57fa8c,
+  - planet: {fileID: 4614436770829047631, guid: 4e3a486e8ea2fe4449906612dc57fa8c,
       type: 3}
     item1: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
     item2: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
@@ -10487,7 +10486,7 @@ MonoBehaviour:
         type: 3}
       amountProduced: 1
       frequency: 90
-  - planet: {fileID: 7424519610826462541, guid: 85136233b4e5b6348bef706bafcda557,
+  - planet: {fileID: 1120403152165817852, guid: 85136233b4e5b6348bef706bafcda557,
       type: 3}
     item1: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
     item2: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
@@ -10497,7 +10496,7 @@ MonoBehaviour:
         type: 3}
       amountProduced: 5
       frequency: 600
-  - planet: {fileID: 1389385756252678152, guid: 7d11f554198a49b4d9f089c09b9fbe7d,
+  - planet: {fileID: 4424518751619165468, guid: 7d11f554198a49b4d9f089c09b9fbe7d,
       type: 3}
     item1: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
     item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
