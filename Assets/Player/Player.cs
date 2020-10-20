@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
                 FindObjectOfType<Home>().GetComponent<Home>().ChangePlanetView(closestHomePlanet.rarity);
                 //planetView.transform.position = new Vector3(closestHomePlanet.transform.position.x, closestHomePlanet.transform.position.y, -10);
                 popUpText.SetActive(false);
-                canShoot = false;
+                ToggleShooting();
                 gameObject.GetComponent<PlayerController>().canMove = false;
             }
             else if (nearHomePlanet && planetView.gameObject.activeSelf)
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
                 FindObjectOfType<canvas>().transform.Find("PlanetHUD").gameObject.SetActive(false);
                 main.gameObject.SetActive(true);
                 popUpText.SetActive(true);
-                canShoot = true;
+                ToggleShooting();
                 gameObject.GetComponent<PlayerController>().canMove = true;
             }
         }
