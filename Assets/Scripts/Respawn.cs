@@ -27,6 +27,7 @@ public class Respawn : MonoBehaviour
         {
             if (playerItem.GetComponent<InventorySlot>().item != null)
             {
+                FindObjectOfType<ResourceInventory>().checkForItemAndRemove(playerItem.GetComponent<InventorySlot>().item.gameObject.GetComponent<rsrce>().nameOfResource);
                 Destroy(playerItem.GetComponent<InventorySlot>().item);
                 Destroy(playerItem.GetComponent<InventorySlot>().icon);
             }
