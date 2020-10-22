@@ -16,6 +16,8 @@ public class RandomEventManager : MonoBehaviour
 
     public GameObject alertText;
 
+    public bool running = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +37,7 @@ public class RandomEventManager : MonoBehaviour
         }
 
 
-        else if(FindObjectOfType<Player>().isHome == false)
+        else if(FindObjectOfType<Player>().isHome == false && running)
         {
             timeBeforeNextEvent -= Time.deltaTime;
         }

@@ -1,11 +1,15 @@
-﻿using System.Collections;
+﻿using Microsoft.Unity.VisualStudio.Editor;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlanetComboList : MonoBehaviour
 {
     public List<PlanetCombo> planetComboList;
     public Dictionary<(string, string, string), PlanetCombo> planetComboDict;
+    public Alminac alminac;
 
     private void Start()
     {
@@ -35,10 +39,18 @@ public class PlanetComboList : MonoBehaviour
             resource2.resource.name.Replace("(Clone)", ""), 
             resource3.resource.name.Replace("(Clone)", "")), out comboResult);
 
-        if (comboResult.planet.name.Contains("EndGame"))
+        
+        if (comboResult != null)
         {
-            FindObjectOfType<canvas>().transform.Find("EndGamePrompt").gameObject.SetActive(true);
+            alminac.AddEntry(comboResult.planet.GetComponent<SpriteRenderer>().sprite, resource1.resource.name.Replace("(Clone)", ""),
+                resource2.resource.name.Replace("(Clone)", ""), resource3.resource.name.Replace("(Clone)", ""));
+
+            if (comboResult.planet.name.Contains("EndGame"))
+            {
+                FindObjectOfType<canvas>().transform.Find("EndGamePrompt").gameObject.SetActive(true);
+            }
         }
+
         return comboResult;
     }
 }
