@@ -4724,10 +4724,12 @@ MonoBehaviour:
   audioManager: {fileID: 2129333493}
   isHome: 1
   canShoot: 1
+  disabled: 0
   regenRate: 0.0015
   inventory: {fileID: 752310339}
   canvas: {fileID: 684055474}
   shop: {fileID: 978194614}
+  menuButton: {fileID: 2018151613}
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}
   popUpText: {fileID: 0}

@@ -36,12 +36,14 @@ public class Player : MonoBehaviour
 
     public bool isHome = true;
     public bool canShoot = true;
+    public bool disabled = false;
 
     public float regenRate;
     public Inventory inventory;
 
     public GameObject canvas;
     public GameObject shop;
+    public GameObject menuButton;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +83,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Escape))  && nearHomePlanet)
+        if ((Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Escape))  && nearHomePlanet && !disabled)
         {
             if (nearHomePlanet && main.gameObject.activeSelf)
             {
@@ -93,7 +95,9 @@ public class Player : MonoBehaviour
                 popUpText.SetActive(false);
                 ToggleShooting();
                 gameObject.GetComponent<PlayerController>().canMove = false;
+                menuButton.gameObject.SetActive(false);
             }
+
             else if (nearHomePlanet && planetView.gameObject.activeSelf)
             {
                 planetView.gameObject.SetActive(false);
@@ -102,6 +106,7 @@ public class Player : MonoBehaviour
                 popUpText.SetActive(true);
                 ToggleShooting();
                 gameObject.GetComponent<PlayerController>().canMove = true;
+                menuButton.gameObject.SetActive(true);
             }
         }
 

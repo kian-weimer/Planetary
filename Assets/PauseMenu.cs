@@ -28,9 +28,7 @@ public class PauseMenu : MonoBehaviour
                 }
             }
             isBackButton = false;
-            state = (state + 1) % 2;
             button.GetComponent<Text>().text = states[state];
-            pauseMenu.SetActive(!pauseMenu.activeSelf);
         }
 
         else
@@ -45,5 +43,14 @@ public class PauseMenu : MonoBehaviour
     public void toggleBackButton()
     {
         isBackButton = !isBackButton;
+        if (isBackButton)
+        {
+            button.GetComponent<Text>().text = "Back";
+        }
+        else
+        {
+            button.GetComponent<Text>().text = states[state];
+        }
+        
     }
 }

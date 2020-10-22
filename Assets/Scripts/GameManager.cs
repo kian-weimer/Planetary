@@ -22,7 +22,9 @@ public class GameManager : MonoBehaviour
 
     public void togglePause()
     {
+        player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         player.canShoot = !player.canShoot;
+        player.disabled = !player.disabled;
         playerController.canMove = !playerController.canMove;
         REM.running = !REM.running;
     }
