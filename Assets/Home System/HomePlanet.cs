@@ -16,6 +16,8 @@ public class HomePlanet : MonoBehaviour
     public bool[] hasProducedItem;
     public ResourceInventory resourceInventory;
 
+    public int maxSlotSize = 99;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,12 @@ public class HomePlanet : MonoBehaviour
     // returns true if successful, false otherwise
     public bool addItem(GameObject item, int quantity, int itemSlot)
     {
+        if (items[itemSlot].quantity + quantity > maxSlotSize)
+        {
+            items[itemSlot].quantity = maxSlotSize;
+            return false;
+        }
+
         if (items[itemSlot].resource == null)
         {
             items[itemSlot].Set(item, quantity);
@@ -86,6 +94,10 @@ public class HomePlanet : MonoBehaviour
             if (items[itemSlot].resource==null) { continue; }
             if (items[itemSlot].resource.name.Replace("(Clone)", "") == item.name.Replace("(Clone)", ""))
             {
+                if (items[itemSlot].quantity + quantity > maxSlotSize) {
+                    items[itemSlot].quantity = maxSlotSize;
+                    continue;
+                }
                 items[itemSlot].Set(item, items[itemSlot].quantity + quantity);
                 return true;
             }
@@ -114,6 +126,10 @@ public class HomePlanet : MonoBehaviour
             if (items[itemSlot].resource == null) { continue; }
             if (items[itemSlot].resource.name.Replace("(Clone)", "") == item.name.Replace("(Clone)", ""))
             {
+                if (items[itemSlot].quantity + quantity > maxSlotSize) {
+                    items[itemSlot].quantity = maxSlotSize;
+                    continue;
+                }
                 items[itemSlot].Set(items[itemSlot].resource, items[itemSlot].quantity + quantity);
                 return true;
             }
@@ -169,6 +185,7 @@ public class HomePlanet : MonoBehaviour
         { 
             if ((int)Time.time % prodItem.frequency == 0 && !hasProducedItem[i])
             {
+                Debug.Log("PRODUCING");
                 hasProducedItem[i] = true;
                 if (!addItem(prodItem.resource.gameObject, prodItem.amountProduced))
                 {
