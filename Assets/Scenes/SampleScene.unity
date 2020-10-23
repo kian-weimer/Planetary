@@ -1173,6 +1173,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 294436491}
   gameManager: {fileID: 1159672788}
   button: {fileID: 317569250}
+  shopButton: {fileID: 0}
   isBackButton: 0
 --- !u!114 &294436494
 MonoBehaviour:
@@ -4313,6 +4314,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 928111914}
   gameManager: {fileID: 1159672788}
   button: {fileID: 317569250}
+  shopButton: {fileID: 1163377216}
   isBackButton: 0
 --- !u!114 &928111916
 MonoBehaviour:
@@ -10725,6 +10727,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1429573931}
   gameManager: {fileID: 1159672788}
   button: {fileID: 317569250}
+  shopButton: {fileID: 0}
   isBackButton: 0
 --- !u!114 &1429573934
 MonoBehaviour:

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int gridResolution = 100; // whaT DOES THIS DO
 
+
     public void Quit()
     {
         Application.Quit();
@@ -22,11 +23,28 @@ public class GameManager : MonoBehaviour
 
     public void togglePause()
     {
-        player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        player.gameObject.GetComponent<PlayerController>().speed = 0;
         player.canShoot = !player.canShoot;
         player.disabled = !player.disabled;
         playerController.canMove = !playerController.canMove;
         REM.running = !REM.running;
+    }
+
+    public void pause()
+    {
+        player.gameObject.GetComponent<PlayerController>().speed = 0;
+        player.canShoot = false;
+        player.disabled = true;
+        playerController.canMove = false;
+        REM.running = false;
+    }
+
+    public void unpause()
+    {
+        player.canShoot = true;
+        player.disabled = false;
+        playerController.canMove = true;
+        REM.running = true;
     }
 
     public void EnterGame()

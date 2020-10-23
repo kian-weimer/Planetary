@@ -173,9 +173,13 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "HomeCircle")
         {
             isHome = false;
-            canvas.transform.Find("ShopButton").gameObject.SetActive(false);
-            shop.gameObject.SetActive(false);
-            canShoot = true;
+            if (canvas.transform.Find("ShopButton").gameObject.activeSelf)
+            {
+                canvas.transform.Find("ShopButton").gameObject.SetActive(false);
+                shop.gameObject.SetActive(false);
+                canShoot = true;
+            }
+          
         }
     }
 
