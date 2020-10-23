@@ -12736,8 +12736,8 @@ MonoBehaviour:
     productionItems:
     - resource: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0,
         type: 3}
-      amountProduced: 2
-      frequency: 10
+      amountProduced: 4
+      frequency: 2
   - planet: {fileID: 4947203564870176798, guid: 16f7683d03097164c9139671b06528e7,
       type: 3}
     item1: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
