@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Home : MonoBehaviour
@@ -29,24 +30,26 @@ public class Home : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
-        // Randomly generate home planets
-        for (int i = 0; i < numberOfStartingHomePlanets; i++)
+        if(SceneManager.GetActiveScene().name == "SampleScene")
         {
-            int numberOfHomeRings = (int)Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
+            // Randomly generate home planets
+            for (int i = 0; i < numberOfStartingHomePlanets; i++)
+            {
+                int numberOfHomeRings = (int)Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
 
-            Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
-            // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
-            PlanetInfo info = new PlanetInfo(pos.x, pos.y, i, rockPlanet.maxHealth, 0, true);
+                Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
+                // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
+                PlanetInfo info = new PlanetInfo(pos.x, pos.y, i, rockPlanet.maxHealth, 0, true);
 
-            Planet planet = Instantiate(rockPlanet);
-            planet.inHomeSystem = true;
-            planet.Initialize(info);
-            planet.gameObject.AddComponent<HomePlanet>();
-            planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
-            planet.gameObject.name = "PLANET" + i;
-            planet.transform.parent = gameObject.transform;
-            homePlanets.Add(planet);
+                Planet planet = Instantiate(rockPlanet);
+                planet.inHomeSystem = true;
+                planet.Initialize(info);
+                planet.gameObject.AddComponent<HomePlanet>();
+                planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
+                planet.gameObject.name = "PLANET" + i;
+                planet.transform.parent = gameObject.transform;
+                homePlanets.Add(planet);
+            }
         }
     }
     public void IncreasePlanetView(int changeValue)

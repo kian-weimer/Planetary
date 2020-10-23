@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -53,11 +54,14 @@ public class PlayerController : MonoBehaviour
     {
         warpSpeed = maxWarpSpeed;
         canMove = true;
-        gridPosition = PG.GetGridPosition(transform.position);
-        ArrayList l = getGridsInView();
-        for (int i = 0; i < 9; i++)
+        if(SceneManager.GetActiveScene().name == "SampleScene")
         {
-            PG.InstantiateGrid((Vector2)l[i]);
+            gridPosition = PG.GetGridPosition(transform.position);
+            ArrayList l = getGridsInView();
+            for (int i = 0; i < 9; i++)
+            {
+                PG.InstantiateGrid((Vector2)l[i]);
+            }
         }
     }
 

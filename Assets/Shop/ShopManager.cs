@@ -283,8 +283,8 @@ public class ShopManager : MonoBehaviour
                             }
                             else
                             {
-                                planet.GetComponent<HomePlanet>().removeItem(i, planet.GetComponent<HomePlanet>().items[i].quantity);
                                 numberDeleted += planet.GetComponent<HomePlanet>().items[i].quantity;
+                                planet.GetComponent<HomePlanet>().removeItem(i, planet.GetComponent<HomePlanet>().items[i].quantity);
                             }
 
                             if (numberDeleted == item.quantity)
