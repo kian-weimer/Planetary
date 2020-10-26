@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Planet : MonoBehaviour
@@ -15,18 +15,6 @@ public class Planet : MonoBehaviour
     public GameObject planetResource; // holds the item resource that the planet pops out when destroyed
     public bool inHomeSystem = false; // is true when its in the home solar system
     public bool destroyed = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Initialize(PlanetInfo info)
     {
@@ -64,9 +52,15 @@ public class Planet : MonoBehaviour
         resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;
         resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
 
-        FindObjectOfType<planetGenerator>().destroyPlanet(this);
-
-
+        if(SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            FindObjectOfType<planetGenerator>().destroyPlanet(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

@@ -185,7 +185,6 @@ public class HomePlanet : MonoBehaviour
         { 
             if ((int)Time.time % prodItem.frequency == 0 && !hasProducedItem[i])
             {
-                Debug.Log("PRODUCING");
                 hasProducedItem[i] = true;
                 if (!addItem(prodItem.resource.gameObject, prodItem.amountProduced))
                 {

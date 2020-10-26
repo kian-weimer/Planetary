@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Y GRID POSITION REPORTS 1 VALUES GREATER THAN ACTUAL...
 public class planetGenerator : MonoBehaviour
@@ -49,7 +50,6 @@ public class planetGenerator : MonoBehaviour
         go1.transform.Rotate(90f, 0, 0);
         go1.DrawCircle(70, .25f);//radius, thickness
         */
-
         // Randomly generate all outside planets
         int numberOfRings = FindObjectOfType<GameManager>().numberOfRings;
         planetInfoList = new Dictionary<Vector2, ArrayList>();

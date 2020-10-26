@@ -14,4 +14,25 @@ public class tutorialGameManager : MonoBehaviour
         playerCamera.gameObject.SetActive(false);
         tutorialCamera.gameObject.SetActive(true);
     }
+
+    private void FixedUpdate()
+    {
+        if(tutorialCamera.orthographicSize <= 60)
+        {
+            tutorialCamera.orthographicSize += Time.deltaTime*3;
+        }
+        else if(tutorialCamera.gameObject.activeSelf)
+        {
+            if(messageText.activeSelf == false)
+            {
+                messageText.SetActive(true);
+            }
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                tutorialCamera.gameObject.SetActive(false);
+                playerCamera.gameObject.SetActive(true);
+                messageText.SetActive(false);
+            }
+        }
+    }
 }
