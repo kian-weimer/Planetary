@@ -2,17 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class tutorialGameManager : MonoBehaviour
 {
-    public GameObject messageText;
+    public GameObject upperMessageText;
+    public GameObject lowerMessageText;
     public Camera playerCamera;
     public Camera tutorialCamera;
+    public TutorialMovement tutMove;
     // Start is called before the first frame update
     void Start()
     {
         playerCamera.gameObject.SetActive(false);
         tutorialCamera.gameObject.SetActive(true);
+        updateMessageText("This is your home system", "click the mouse to begin");
+        upperMessageText.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -21,18 +26,30 @@ public class tutorialGameManager : MonoBehaviour
         {
             tutorialCamera.orthographicSize += Time.deltaTime*3;
         }
-        else if(tutorialCamera.gameObject.activeSelf)
+        else
         {
-            if(messageText.activeSelf == false)
+            if (lowerMessageText.activeSelf == false)
             {
-                messageText.SetActive(true);
+                lowerMessageText.SetActive(true);
             }
+        }
+
+        if(tutorialCamera.gameObject.activeSelf)
+        {
+            
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 tutorialCamera.gameObject.SetActive(false);
                 playerCamera.gameObject.SetActive(true);
-                messageText.SetActive(false);
+                updateMessageText("Use A and D to rotate");
+                tutMove.canBegin = true;
+                lowerMessageText.SetActive(true);
             }
         }
+    }
+    public void updateMessageText(string message1 = "", string message2 = "")
+    {
+        upperMessageText.GetComponent<Text>().text = message1;
+        lowerMessageText.GetComponent<Text>().text = message2;
     }
 }

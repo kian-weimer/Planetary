@@ -53,15 +53,18 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         warpSpeed = maxWarpSpeed;
-        canMove = true;
-        if(SceneManager.GetActiveScene().name == "SampleScene")
+
+        if (SceneManager.GetActiveScene().name == "SampleScene") 
         {
-            gridPosition = PG.GetGridPosition(transform.position);
-            ArrayList l = getGridsInView();
-            for (int i = 0; i < 9; i++)
-            {
-                PG.InstantiateGrid((Vector2)l[i]);
-            }
+            canMove = true;
+        }
+        
+
+        gridPosition = PG.GetGridPosition(transform.position);
+        ArrayList l = getGridsInView();
+        for (int i = 0; i < 9; i++)
+        {
+            PG.InstantiateGrid((Vector2)l[i]);
         }
     }
 
@@ -143,6 +146,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity *= bbVel;
 
         }
+
         else if (Input.GetKey("s") && (hasGas || gameObject.GetComponent<Player>().isHome) && canMove)
         {
 
@@ -194,7 +198,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.angularVelocity -= rb.angularVelocity * angularDrag;
         }
-
     }
 
     ArrayList getGridsInView()
