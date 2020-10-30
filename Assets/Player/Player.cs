@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     public float fuelConsumption;
 
-    public Weapon weapon;
+    public GameObject weapon;
 
     public Vector3 position;
     public Rigidbody2D rb;
@@ -45,6 +45,11 @@ public class Player : MonoBehaviour
     public GameObject shop;
     public GameObject menuButton;
 
+    public int experiencePoints = 0;
+    public int level = 1;
+    public int pointsToNextLevel = 100;
+    public GameObject ExpBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,8 +57,10 @@ public class Player : MonoBehaviour
         health = maxHealth;
         gas = maxGas;
         info = new PlayerInfo(0, 0, maxHealth, health, maxGas, gas);
-        weapon.lastShotTime = 0;
-        weapon.bullet.bulletDamage = 5;
+        weapon = Instantiate(weapon).gameObject;
+        weapon.transform.parent = transform;
+        weapon.GetComponent<Weapon>().lastShotTime = 0;
+        weapon.GetComponent<Weapon>().bullet.GetComponent<Bullet>().bulletDamage = 5;
     }
 
     public void LoadFromInfo(PlayerInfo info)
@@ -71,7 +78,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && main.gameObject.activeSelf && canShoot)
         {
             float rotation = (rb.rotation + 90);
-            if (weapon.Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)), gameObject.GetComponent<Rigidbody2D>().velocity)) {
+            if (weapon.GetComponent<Weapon>().Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)), gameObject.GetComponent<Rigidbody2D>().velocity)) {
                 audioManager.Play("LazerShoot");
             }
         }
@@ -276,5 +283,21 @@ public class Player : MonoBehaviour
     public void ToggleShooting()
     {
         canShoot = !canShoot;
+    }
+
+    public void addExpPoints(int points)
+    {
+        experiencePoints += points;
+        ExpBar.transform.Find("BarBG").Find("ExpBar").localScale = new Vector3((float)experiencePoints / pointsToNextLevel, 1, 1);
+        ExpBar.transform.Find("NumeratedExp").GetComponent<Text>().text = experiencePoints + "/" + pointsToNextLevel;
+        if (experiencePoints >= pointsToNextLevel)
+        {
+            levelUp();
+        }
+    }
+
+    public void levelUp()
+    {
+        level++;
     }
 }

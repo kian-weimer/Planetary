@@ -157,8 +157,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                speed = speed * (1 - breakEffectiveness);
-                rb.velocity = direction * speed + rb.velocity * driftPercentage;
+                speed = 0;
+                rb.velocity = new Vector2(0, 0);
+               // speed = speed * (1 - breakEffectiveness);
+                //rb.velocity = direction * speed + rb.velocity * driftPercentage;
                 // rb.velocity = rb.velocity * (1 - breakEffectiveness);
             }
             rb.velocity *= bbVel;

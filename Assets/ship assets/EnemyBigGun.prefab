@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8496034787399369579
+--- !u!1 &1646633381652851825
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2956982566700461169}
-  - component: {fileID: 958401187738869844}
+  - component: {fileID: 5347093324132959083}
+  - component: {fileID: 7958162063191576398}
   m_Layer: 0
-  m_Name: BasicGun
+  m_Name: EnemyBigGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2956982566700461169
+--- !u!4 &5347093324132959083
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496034787399369579}
+  m_GameObject: {fileID: 1646633381652851825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 858.9043, y: 220.08522, z: -37.618286}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,22 +31,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &958401187738869844
+--- !u!114 &7958162063191576398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496034787399369579}
+  m_GameObject: {fileID: 1646633381652851825}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ac0153c747e4ad4abd856b6addee133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6971196175410838583, guid: 73be40ee2cb46064c85cd867edd965fe, type: 3}
-  firerate: 5
-  bulletSpeed: 15
-  bulletDamage: 5
-  lastShotTime: 33.5
+  bullet: {fileID: 3877186611006854269, guid: 74aca1a9b6f4d054a97b750dd0f4e81c, type: 3}
+  firerate: 1
+  bulletSpeed: 35
+  lastShotTime: 40.68
   isInGUI: 0
   weaponSelect: 1

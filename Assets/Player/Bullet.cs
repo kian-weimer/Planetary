@@ -55,8 +55,13 @@ public class Bullet : MonoBehaviour
                 }
             }
         }
-
-        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle" && collision.gameObject.tag != "resource")
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyController>().damage(bulletDamage);
+        }
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle" 
+            && collision.gameObject.tag != "resource" && collision.gameObject.tag != "enemyRangeCollider"
+            && collision.gameObject.tag != "playerRange")
         {
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);

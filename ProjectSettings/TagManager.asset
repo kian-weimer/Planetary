@@ -11,6 +11,9 @@ TagManager:
   - HomeCircle
   - Meteor
   - Satellite
+  - Enemy
+  - enemyRangeCollider
+  - playerRange
   layers:
   - Default
   - TransparentFX

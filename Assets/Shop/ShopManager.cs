@@ -50,7 +50,7 @@ public class ShopManager : MonoBehaviour
 
             //set up lazer gun image
             case "Lazers":
-                player.GetComponent<Player>().weapon = lazerGun;
+                player.GetComponent<Player>().weapon = lazerGun.gameObject;
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 
@@ -81,9 +81,9 @@ public class ShopManager : MonoBehaviour
                 player.GetComponent<Player>().maxGas += 100;
                 player.GetComponent<PlayerController>().maxSpeed += 2;
                 player.GetComponent<PlayerController>().thrust += .3f;
-                player.GetComponent<Player>().weapon.firerate += 2;
-                player.GetComponent<Player>().weapon.bulletSpeed += 5;
-                player.GetComponent<Player>().weapon.bullet.bulletDamage += 3;
+                player.GetComponent<Player>().weapon.GetComponent<Weapon>().firerate += 2;
+                player.GetComponent<Player>().weapon.GetComponent<Weapon>().bulletSpeed += 5;
+                player.GetComponent<Player>().weapon.GetComponent<Weapon>().bullet.GetComponent<Bullet>().bulletDamage += 3;
                 player.GetComponent<SpriteRenderer>().sprite = playerSprites[whichShipColorBase + whichShipLevel + 1];
                 whichShipLevel += 1;
                 if(whichShipLevel == 1)
