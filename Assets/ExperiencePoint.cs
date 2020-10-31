@@ -7,6 +7,7 @@ public class ExperiencePoint : MonoBehaviour
     Rigidbody2D rb;
     GameObject player;
     bool mobile = false;
+    public int value = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class ExperiencePoint : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().addExpPoints(1);
+            collision.gameObject.GetComponent<Player>().addExpPoints(value);
             Destroy(gameObject);
         }
         if (collision.transform.CompareTag("playerRange"))

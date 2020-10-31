@@ -42,6 +42,24 @@ public class Weapon : MonoBehaviour
                     return true;
                 }
                 break;
+            case 3:
+                if (Time.time > lastShotTime + 1 / firerate && !isInGUI)
+                {
+                    lastShotTime = Time.time;
+                    GameObject tempBullet = Instantiate(bullet).gameObject;
+                    tempBullet.transform.position = position;
+                    tempBullet.transform.localScale *= 3;
+                    tempBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerSpeed;
+                    lastShotTime = Time.time;
+                    GameObject tempBullet1 = Instantiate(bullet).gameObject;
+                    tempBullet1.transform.position = transform.parent.Find("Barrel1").position;
+                    tempBullet1.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerSpeed;
+                    GameObject tempBullet2 = Instantiate(bullet).gameObject;
+                    tempBullet2.transform.position = transform.parent.Find("Barrel2").position;
+                    tempBullet2.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerSpeed;
+                    return true;
+                }
+                break;
         }
         if (Time.time > lastShotTime + 1/firerate && !isInGUI)
         {

@@ -19,9 +19,12 @@ public class Satellite : MonoBehaviour
     {
         Vector3 position;
         health = maxHealth;
-        int degree = (int)(Random.Range(0, 360) * Mathf.PI) / 180;
-        position = (new Vector3(Mathf.Cos(degree), Mathf.Sin(degree), 0)) * spawnDistance + FindObjectOfType<Player>().transform.position;
-        transform.position = position;
+        if (spawnDistance != 0)
+        {
+            int degree = (int)(Random.Range(0, 360) * Mathf.PI) / 180;
+            position = (new Vector3(Mathf.Cos(degree), Mathf.Sin(degree), 0)) * spawnDistance + FindObjectOfType<Player>().transform.position;
+            transform.position = position;
+        }
     }
 
     // Start is called before the first frame update

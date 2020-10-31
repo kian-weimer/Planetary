@@ -10,10 +10,23 @@ public class EnemyBullet : MonoBehaviour
 
     private float spawnTime;
     public float bulletDamage = 5;
+
+    public bool trackingBullet = false;
+    public bool targeting = false;
+    public float trackingIntensity = 10f;
+
+
+    Rigidbody2D rb;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         spawnTime = Time.time;
+        if (trackingBullet)
+        {
+            rb = GetComponent<Rigidbody2D>();
+            player = FindObjectOfType<Player>().gameObject;
+        }
     }
 
     // Update is called once per frame
@@ -22,7 +35,19 @@ public class EnemyBullet : MonoBehaviour
 
         if (Time.time >= spawnTime + despawnTime)
         {
+            GameObject exp = Instantiate(explosion);
+            exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Destroy(gameObject);
+        }
+    }
+
+    private int trackCount = 0;
+    private void FixedUpdate()
+    {
+        if (targeting && trackingBullet && trackCount < trackingIntensity)
+        {
+            Vector3 playerRelativePosition = player.transform.position - transform.position;
+            rb.velocity = (Vector2)playerRelativePosition.normalized * trackingIntensity;
         }
     }
 
@@ -61,6 +86,16 @@ public class EnemyBullet : MonoBehaviour
             collision.gameObject.GetComponent<Player>().loseHealth(bulletDamage);
         }
 
+        if (collision.transform.CompareTag("playerRange"))
+        {
+            targeting = true;
+        }
+        if (targeting && trackingBullet)
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * 0.50f;
+        }
+
+
         if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle"
             && collision.gameObject.tag != "resource" && collision.gameObject.tag != "enemyRangeCollider"
              && collision.gameObject.tag != "playerRange")
@@ -69,6 +104,15 @@ public class EnemyBullet : MonoBehaviour
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
             Destroy(gameObject);
+        }
+
+    
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("playerRange"))
+        {
+            targeting = false;
         }
     }
 }

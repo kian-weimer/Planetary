@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     public float fuelConsumption;
 
     public GameObject weapon;
+    public List<GameObject> weapons;
 
     public Vector3 position;
     public Rigidbody2D rb;
@@ -50,6 +52,8 @@ public class Player : MonoBehaviour
     public int pointsToNextLevel = 100;
     public GameObject ExpBar;
 
+    public GameObject tempWeapon2; // dont create the weapons in player, this is just for testing.
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,9 +62,30 @@ public class Player : MonoBehaviour
         gas = maxGas;
         info = new PlayerInfo(0, 0, maxHealth, health, maxGas, gas);
         weapon = Instantiate(weapon).gameObject;
+        weapons.Add(weapon);
         weapon.transform.parent = transform;
         weapon.GetComponent<Weapon>().lastShotTime = 0;
         weapon.GetComponent<Weapon>().bullet.GetComponent<Bullet>().bulletDamage = 5;
+        AddWeapon(Instantiate(tempWeapon2)); // just used for testing. Add weapon should not be called by the player
+    }
+
+    void SwitchWeapon()
+    {
+        if (weapons.IndexOf(weapon) < weapons.Count - 1)
+        {
+            weapon = weapons[weapons.IndexOf(weapon) + 1];
+        }
+        else
+        {
+            weapon = weapons[0];
+        }
+    }
+
+    void AddWeapon(GameObject weapon)
+    {
+        weapon.transform.parent = transform;
+        weapons.Add(weapon);
+        this.weapon = weapon;
     }
 
     public void LoadFromInfo(PlayerInfo info)
@@ -90,6 +115,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if ((Input.GetKeyDown(KeyCode.Mouse1)))
+        {
+            Debug.Log("WeaponSwitched");
+            SwitchWeapon();
+        }
         if ((Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Escape))  && nearHomePlanet && !disabled)
         {
             if (nearHomePlanet && main.gameObject.activeSelf)

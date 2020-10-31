@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
     public void damage(float hitPoints)
     {
         health -= hitPoints;
+        inTargetingRange = true;
         if (health <= 0)
         {
             GameObject exp = Instantiate(deathExplosion);
@@ -56,11 +57,11 @@ public class EnemyController : MonoBehaviour
         {
             GameObject exp = Instantiate(expPoint);
             exp.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            Vector2 velocityDirection = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
 
             while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
             {
-                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+                velocityDirection = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
             }
 
             exp.GetComponent<Rigidbody2D>().velocity = velocityDirection;
