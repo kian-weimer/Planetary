@@ -67,7 +67,7 @@ public class TutorialMovement : MonoBehaviour
             }
             if(Input.GetAxis("Mouse ScrollWheel") != 0 && movementPercent == 4)
             {
-                tutGameManager.updateMessageText();
+                tutGameManager.updateMessageText("You can collect resources from", "planets outside your solar system");
             }
         }
     }

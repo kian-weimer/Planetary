@@ -30,25 +30,27 @@ public class Home : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        // Randomly generate home planets
-        for (int i = 0; i < numberOfStartingHomePlanets; i++)
+        if(SceneManager.GetActiveScene().name != "Tutorial")
         {
-            int numberOfHomeRings = (int)Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
+            // Randomly generate home planets
+            for (int i = 0; i < numberOfStartingHomePlanets; i++)
+            {
+                int numberOfHomeRings = (int)Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
 
-            Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
-            // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
-            PlanetInfo info = new PlanetInfo(pos.x, pos.y, i, rockPlanet.maxHealth, 0, true);
+                Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
+                // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
+                PlanetInfo info = new PlanetInfo(pos.x, pos.y, i, rockPlanet.maxHealth, 0, true);
 
-            Planet planet = Instantiate(rockPlanet);
-            planet.inHomeSystem = true;
-            planet.Initialize(info);
-            planet.gameObject.AddComponent<HomePlanet>();
-            planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
-            planet.gameObject.name = "PLANET" + i;
-            planet.transform.parent = gameObject.transform;
-            homePlanets.Add(planet);
-        }
-        
+                Planet planet = Instantiate(rockPlanet);
+                planet.inHomeSystem = true;
+                planet.Initialize(info);
+                planet.gameObject.AddComponent<HomePlanet>();
+                planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
+                planet.gameObject.name = "PLANET" + i;
+                planet.transform.parent = gameObject.transform;
+                homePlanets.Add(planet);
+            }
+        }  
     }
     public void IncreasePlanetView(int changeValue)
     {
@@ -82,6 +84,7 @@ public class Home : MonoBehaviour
 
     public void ChangePlanetView(int index)
     {
+        Debug.Log(index);
         currentViewingPlanet = index;
         Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);
@@ -103,8 +106,15 @@ public class Home : MonoBehaviour
         Transform HUD = FindObjectOfType<canvas>().transform.Find("PlanetHUD");
 
         // changeName don't question it, due to listener on input...
-        HUD.Find("PlanetName").GetComponent<InputField>().text = homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name;
-        homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name = HUD.Find("PlanetName").GetComponent<InputField>().text;
+        try
+        {
+            HUD.Find("PlanetName").GetComponent<InputField>().text = homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name;
+            homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name = HUD.Find("PlanetName").GetComponent<InputField>().text;
+            Debug.Log(HUD.Find("PlanetName").GetComponent<InputField>().text.GetType());
+            Debug.Log(homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name.GetType());
+        }
+        //for tutorial
+        catch(Exception e){ Debug.Log("Fuck you"); }
 
         // change health bar
         HUD.Find("Health Bar").Find("BarBG").Find("HealthBar").GetComponent<RectTransform>().localScale =
