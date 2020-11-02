@@ -12,7 +12,15 @@ public class SellShopItem : MonoBehaviour
 
     public void QuantityChanged(InputField valueText)
     {
-        quantity = int.Parse(valueText.text);
+        try
+        {
+            quantity = int.Parse(valueText.text);
+        }
+        catch
+        {
+            quantity = 0;
+        }
+        
     }
 
     public void Generate(ShopItemInfo info)
