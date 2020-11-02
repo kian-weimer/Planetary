@@ -28,7 +28,7 @@ public class MeteorSpawner : MonoBehaviour
        // timeForMeteorWave = timeBetweenWaves;
 
         rt = GetComponent<RectTransform>();
-        degree = Random.Range(0, 360);
+        degree = Random.Range(0f, 360f);
 
         float x = Mathf.Cos(degree * Mathf.PI / 180) * distanceAway;
         float y = Mathf.Sin(degree * Mathf.PI / 180) * distanceAway;

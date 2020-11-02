@@ -43,6 +43,10 @@ public class EnemySpawner : MonoBehaviour
 
     public void generateEnemy(int rarityLevel)
     {
+        float degree = Random.Range(0f, 360f);
+        float xOffset = Mathf.Cos(degree * Mathf.PI / 180) * enemyDistanceAway;
+        float yOffset = Mathf.Sin(degree * Mathf.PI / 180) * enemyDistanceAway;
+
         List<GameObject> listOfEnemiesToChooseFrom = new List<GameObject>();
         foreach(EnemyRarity enemy in enemies)
         {
@@ -56,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
         }
         int randomIndex = Random.Range(0, listOfEnemiesToChooseFrom.Count);
         GameObject badGuy = Instantiate(listOfEnemiesToChooseFrom[randomIndex]);
-        badGuy.transform.position = new Vector2(player.transform.position.x + enemyDistanceAway, player.transform.position.y);
+        badGuy.transform.position = new Vector2(player.transform.position.x + xOffset, player.transform.position.y + yOffset);
         Debug.Log(badGuy.transform.position);
     }
 }
