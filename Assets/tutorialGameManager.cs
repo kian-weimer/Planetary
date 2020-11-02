@@ -11,6 +11,8 @@ public class tutorialGameManager : MonoBehaviour
     public Camera playerCamera;
     public Camera tutorialCamera;
     public TutorialMovement tutMove;
+    public List<Sprite> listOfPlanetImages;
+    public GameObject imageHolder;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,5 +53,18 @@ public class tutorialGameManager : MonoBehaviour
     {
         upperMessageText.GetComponent<Text>().text = message1;
         lowerMessageText.GetComponent<Text>().text = message2;
+    }
+
+    public void enablePlanetImage(int index)
+    {
+        if(index == -1)
+        {
+            imageHolder.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        }
+        else
+        {
+            imageHolder.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            imageHolder.GetComponent<Image>().sprite = listOfPlanetImages[index];
+        }
     }
 }
