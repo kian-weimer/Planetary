@@ -10978,9 +10978,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - rarityOfEnemy: 1
+  - rarityOfEnemy: 3
     Enemy: {fileID: 3826538837520844418, guid: 406601a657cf1f64c83d992fc9949f51, type: 3}
     rarityLevel: 1
+  - rarityOfEnemy: 2
+    Enemy: {fileID: 4694847554696425531, guid: 03488c01909359040ba3ab86890d057a, type: 3}
+    rarityLevel: 1
+  - rarityOfEnemy: 1
+    Enemy: {fileID: 6765118490058621527, guid: a4cd23e56bf6de14dbe9a68f0f82d582, type: 3}
+    rarityLevel: 1
+  - rarityOfEnemy: 2
+    Enemy: {fileID: 7750895742295530552, guid: 4292cf938a5eb3a4b8773cec9cdc1787, type: 3}
+    rarityLevel: 1
+  - rarityOfEnemy: 2
+    Enemy: {fileID: 2355340726299722169, guid: 42bbdde1f3a08ef4eae2a862d08e9ab2, type: 3}
+    rarityLevel: 1
+  - rarityOfEnemy: 3
+    Enemy: {fileID: 1775593339267888685, guid: 86ffb55d1cda1d74294ed56fa95d7f98, type: 3}
+    rarityLevel: 2
+  - rarityOfEnemy: 1
+    Enemy: {fileID: 1553656582580976754, guid: 53506ff32dde17743a67438f343ecfc1, type: 3}
+    rarityLevel: 2
+  - rarityOfEnemy: 2
+    Enemy: {fileID: 7750018738408433696, guid: d26ed7240e2258c499a6bc333768f7f3, type: 3}
+    rarityLevel: 2
+  - rarityOfEnemy: 1
+    Enemy: {fileID: 9007579373482871026, guid: decb523e103da354c95951c393ea5cc4, type: 3}
+    rarityLevel: 2
+  - rarityOfEnemy: 1
+    Enemy: {fileID: 3204305769349506489, guid: 2a6a5b47496c53d429e415f2c9e5dde7, type: 3}
+    rarityLevel: 3
+  - rarityOfEnemy: 1
+    Enemy: {fileID: 1223745756746422730, guid: e78e9ce7934546748a7b35e228945010, type: 3}
+    rarityLevel: 3
   player: {fileID: 949674676}
   distanceToSecondLvlEnemy: 400
   distanceToThirdLvlEnemy: 1000
@@ -49984,6 +50014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223745756746422730, guid: e78e9ce7934546748a7b35e228945010,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1335292365300680280, guid: e78e9ce7934546748a7b35e228945010,
         type: 3}
