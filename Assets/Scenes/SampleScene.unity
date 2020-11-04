@@ -14157,34 +14157,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetTypes:
+  - rarityLevel: 2500
+    planets:
+    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
+    - {fileID: 4424518751619165468, guid: 7d11f554198a49b4d9f089c09b9fbe7d, type: 3}
+    - {fileID: 3492839163673525715, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
   - rarityLevel: 1000
     planets:
-    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
-    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
-    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
-    - {fileID: 3492839163673525715, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
-    - {fileID: 3492839163673525715, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
-    - {fileID: 4424518751619165468, guid: 7d11f554198a49b4d9f089c09b9fbe7d, type: 3}
-    - {fileID: 4424518751619165468, guid: 7d11f554198a49b4d9f089c09b9fbe7d, type: 3}
+    - {fileID: 3890935795835789479, guid: 05d0a1d49db08ef48a86cb0f8320491f, type: 3}
+    - {fileID: 4300934066779167416, guid: 91869df111172c64d8153e5baedf983b, type: 3}
+    - {fileID: 1808918174209902007, guid: 4ed5e6604c12be14db9e88dbe79d5924, type: 3}
+    - {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3, type: 3}
+    - {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336, type: 3}
+  - rarityLevel: 100
+    planets:
+    - {fileID: 2725874488225651500, guid: 11875b1b186faac4b9c6933a19869cab, type: 3}
     - {fileID: 4947203564870176798, guid: 16f7683d03097164c9139671b06528e7, type: 3}
-  - rarityLevel: 2000
-    planets:
-    - {fileID: 3890935795835789479, guid: 05d0a1d49db08ef48a86cb0f8320491f, type: 3}
-    - {fileID: 3890935795835789479, guid: 05d0a1d49db08ef48a86cb0f8320491f, type: 3}
-    - {fileID: 1808918174209902007, guid: 4ed5e6604c12be14db9e88dbe79d5924, type: 3}
-    - {fileID: 1808918174209902007, guid: 4ed5e6604c12be14db9e88dbe79d5924, type: 3}
-    - {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3, type: 3}
-    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
-    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
-    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
-  - rarityLevel: 3000
-    planets:
     - {fileID: 5258033714036245555, guid: f36ca44adaf894e468f6afb4bb18c8ea, type: 3}
-    - {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3, type: 3}
-    - {fileID: 4614436770829047631, guid: 4e3a486e8ea2fe4449906612dc57fa8c, type: 3}
-    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
-    - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
-  - rarityLevel: 500
+  - rarityLevel: 10
     planets:
     - {fileID: 1680856869468078910, guid: 7329880ae26255f41a96a595e231fe88, type: 3}
     - {fileID: 1120403152165817852, guid: 85136233b4e5b6348bef706bafcda557, type: 3}
