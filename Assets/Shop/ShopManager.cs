@@ -11,8 +11,10 @@ public class ShopManager : MonoBehaviour
     public Dictionary<string, int> resourceCost = new Dictionary<string, int>();
     public GameObject home;
     public List<Sprite> playerSprites;
-    private int whichShipColorBase = 0;
-    private int whichShipLevel = 0;
+    [HideInInspector]
+    public int whichShipColorBase = 0;
+    public int whichShipLevel = 0;
+
     public GameObject buyShop;
     public float upgradeAmount;
     public GameObject boostBar;
@@ -73,29 +75,6 @@ public class ShopManager : MonoBehaviour
             //update to addInventory Slot
             case "More Inventory":
                 FindObjectOfType<Inventory>().addInventorySlot();
-                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
-                break;
-
-            case "Upgrade Ship":
-                player.GetComponent<Player>().maxHealth += 100;
-                player.GetComponent<Player>().maxGas += 100;
-                player.GetComponent<PlayerController>().maxSpeed += 2;
-                player.GetComponent<PlayerController>().thrust += .3f;
-                player.GetComponent<Player>().weapon.GetComponent<Weapon>().firerate += 2;
-                player.GetComponent<Player>().weapon.GetComponent<Weapon>().bulletSpeed += 5;
-                player.GetComponent<Player>().weapon.GetComponent<Weapon>().bullet.GetComponent<Bullet>().bulletDamage += 3;
-                player.GetComponent<SpriteRenderer>().sprite = playerSprites[whichShipColorBase + whichShipLevel + 1];
-                whichShipLevel += 1;
-                if(whichShipLevel == 1)
-                {
-                    player.GetComponent<BoxCollider2D>().size = new Vector2(.7f, 1f);
-                }
-                
-                if(whichShipLevel == 2)
-                {
-                    buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
-                    player.GetComponent<BoxCollider2D>().size = new Vector2(.7f, 1.25f);
-                }
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
                 break;
 

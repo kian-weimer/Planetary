@@ -52,7 +52,7 @@ public class LevelTree : MonoBehaviour
 
     private void processPurchase(string action)
     {
-        Debug.Log(action);
+        FindObjectOfType<LevelUpManager>().levelUp(action);
     }
 
 

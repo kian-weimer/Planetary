@@ -2545,7 +2545,7 @@ GameObject:
   - component: {fileID: 428158185}
   - component: {fileID: 428158184}
   m_Layer: 5
-  m_Name: L1S3
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2564,7 +2564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
-  action: level1
+  action: Money
   repeatable: 1
 --- !u!224 &428158185
 RectTransform:
@@ -13429,6 +13429,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581668763}
   m_CullTransparentMesh: 0
+--- !u!1 &1585595052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585595054}
+  - component: {fileID: 1585595053}
+  m_Layer: 0
+  m_Name: LevelUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1585595053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585595052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525c80008ff3fa449864c5fc5bb2541b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerSprites:
+  - {fileID: 21300000, guid: 18e99bb16f965b941b4adba84dbba23a, type: 3}
+  - {fileID: 21300000, guid: 08370922b75af0d4db1922f6bf44a4ac, type: 3}
+  - {fileID: 21300000, guid: 18ff164747a334a44b479397e1782dbc, type: 3}
+  - {fileID: 21300000, guid: faf7f4369beedcd49b766a52854bebb6, type: 3}
+  - {fileID: 21300000, guid: 88e01dc962583c74b85895ca1205d896, type: 3}
+  - {fileID: 21300000, guid: b74e8b24bc61cfa469e9afb6a36a5550, type: 3}
+  - {fileID: 21300000, guid: 0908f734e8afb444893984a66bb08eaa, type: 3}
+  - {fileID: 21300000, guid: df608ce3de43f4643a72334b220a10ad, type: 3}
+  - {fileID: 21300000, guid: ea4bd62ab13274e4388b10819967d527, type: 3}
+  - {fileID: 21300000, guid: d1c16e35347144046ba6b966055127fe, type: 3}
+  - {fileID: 21300000, guid: bb45a3a0139e4024b9d453017b1a4506, type: 3}
+  - {fileID: 21300000, guid: fef09eaed41dec94f9aa16f71fe3bef3, type: 3}
+  - {fileID: 21300000, guid: 6a704805387d9054285e70ec14527188, type: 3}
+  - {fileID: 21300000, guid: 9af4e61659d283b4383dd325bd93266a, type: 3}
+  - {fileID: 21300000, guid: adce247a0714df046ad3056f6c66cb64, type: 3}
+  - {fileID: 21300000, guid: 345e6c7238324044b9af50d4ce6e32f8, type: 3}
+  - {fileID: 21300000, guid: 0dd4982f975e10f48beab53e5da565d1, type: 3}
+  - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
+  shopManager: {fileID: 1960612301}
+--- !u!4 &1585595054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585595052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595820772
 GameObject:
   m_ObjectHideFlags: 0
@@ -14012,7 +14076,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Free Money
+  m_Text: Money
 --- !u!222 &1649678207
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16203,6 +16267,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 345e6c7238324044b9af50d4ce6e32f8, type: 3}
   - {fileID: 21300000, guid: 0dd4982f975e10f48beab53e5da565d1, type: 3}
   - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
+  whichShipColorBase: 0
+  whichShipLevel: 0
   buyShop: {fileID: 293007886}
   upgradeAmount: 1.25
   boostBar: {fileID: 1448558933}
@@ -18246,7 +18312,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096552590784227640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
@@ -19293,7 +19359,7 @@ GameObject:
   - component: {fileID: 1096552590864711586}
   - component: {fileID: 1096552590864711597}
   m_Layer: 5
-  m_Name: L4S2
+  m_Name: DoubleDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19312,7 +19378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
-  action: level three item
+  action: DoubleDrop
   repeatable: 0
 --- !u!114 &1096552590866579200
 MonoBehaviour:
@@ -19748,7 +19814,7 @@ GameObject:
   - component: {fileID: 1096552590893522380}
   - component: {fileID: 1096552590893522383}
   m_Layer: 5
-  m_Name: L1S2
+  m_Name: Warp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19770,7 +19836,7 @@ MonoBehaviour:
   - {fileID: 1096552591783604282}
   - {fileID: 1096552590993523499}
   - {fileID: 428158183}
-  action: level1
+  action: Warp
   repeatable: 0
 --- !u!222 &1096552590897795896
 CanvasRenderer:
@@ -19960,7 +20026,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Warp Speed
 --- !u!1 &1096552590926428353
 GameObject:
   m_ObjectHideFlags: 0
@@ -20889,7 +20955,7 @@ GameObject:
   - component: {fileID: 1096552590993523498}
   - component: {fileID: 1096552590993523509}
   m_Layer: 5
-  m_Name: L2S3
+  m_Name: MorePlanetDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20909,7 +20975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children:
   - {fileID: 1096552591995749836}
-  action: level 2 bottom item
+  action: PlanetDamage
   repeatable: 0
 --- !u!224 &1096552591005513170
 RectTransform:
@@ -21499,7 +21565,7 @@ GameObject:
   - component: {fileID: 1096552591061331087}
   - component: {fileID: 1096552591061331086}
   m_Layer: 5
-  m_Name: L4S3
+  m_Name: Mines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21519,7 +21585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children:
   - {fileID: 1096552592662354658}
-  action: level 2 bottom item
+  action: Mine
   repeatable: 0
 --- !u!224 &1096552591061331087
 RectTransform:
@@ -25014,7 +25080,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Sheild
 --- !u!1 &1096552591290036567
 GameObject:
   m_ObjectHideFlags: 0
@@ -25756,7 +25822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children:
   - {fileID: 1096552591061331084}
-  action: level 2 bottom item
+  action: DoubleShot
   repeatable: 0
 --- !u!1 &1096552591349878921
 GameObject:
@@ -25769,7 +25835,7 @@ GameObject:
   - component: {fileID: 1096552591349878923}
   - component: {fileID: 1096552591349878920}
   m_Layer: 5
-  m_Name: L3S3
+  m_Name: Double Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27529,7 +27595,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Double Shot
 --- !u!224 &1096552591534988367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29383,7 +29449,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Double Drop
 --- !u!1 &1096552591639436777
 GameObject:
   m_ObjectHideFlags: 0
@@ -31604,7 +31670,7 @@ GameObject:
   - component: {fileID: 1096552591783604293}
   - component: {fileID: 1096552591783604292}
   m_Layer: 5
-  m_Name: L2S1
+  m_Name: FastCooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31624,7 +31690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children:
   - {fileID: 1096552591995749836}
-  action: level two top item
+  action: FastCooldown
   repeatable: 0
 --- !u!224 &1096552591783604293
 RectTransform:
@@ -31910,7 +31976,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Planet Damage ^
 --- !u!1 &1096552591809759733
 GameObject:
   m_ObjectHideFlags: 0
@@ -34779,7 +34845,7 @@ GameObject:
   - component: {fileID: 1096552591995749838}
   - component: {fileID: 1096552591995749839}
   m_Layer: 5
-  m_Name: L3S2
+  m_Name: UpgradeShip1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34826,7 +34892,7 @@ MonoBehaviour:
   children:
   - {fileID: 1096552592530344666}
   - {fileID: 1096552591349878921}
-  action: level three item
+  action: UpgradeShip
   repeatable: 0
 --- !u!1 &1096552591996101666
 GameObject:
@@ -37179,7 +37245,7 @@ GameObject:
   - component: {fileID: 1096552592183351191}
   - component: {fileID: 1096552592183351190}
   m_Layer: 5
-  m_Name: L4S1
+  m_Name: Cheaper Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37199,7 +37265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children:
   - {fileID: 1096552591995749836}
-  action: level two top item
+  action: CheaperShop
   repeatable: 0
 --- !u!224 &1096552592183351191
 RectTransform:
@@ -38114,7 +38180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Cheaper Shop
 --- !u!1 &1096552592220139127
 GameObject:
   m_ObjectHideFlags: 0
@@ -41388,7 +41454,7 @@ GameObject:
   - component: {fileID: 1096552592422152287}
   - component: {fileID: 1096552592422152286}
   m_Layer: 5
-  m_Name: L6S2
+  m_Name: UpgradeShip2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41407,7 +41473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
-  action: level three item
+  action: UpgradeShip
   repeatable: 0
 --- !u!224 &1096552592422152287
 RectTransform:
@@ -42583,7 +42649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Quicker CoolDown
 --- !u!224 &1096552592493291063
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43614,7 +43680,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Mines
 --- !u!224 &1096552592526769445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43720,7 +43786,7 @@ GameObject:
   - component: {fileID: 1096552592530344676}
   - component: {fileID: 1096552592530344677}
   m_Layer: 5
-  m_Name: L3S1
+  m_Name: Sheild
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43767,7 +43833,7 @@ MonoBehaviour:
   children:
   - {fileID: 1096552592183351188}
   - {fileID: 1096552590864711587}
-  action: level two top item
+  action: Sheild
   repeatable: 0
 --- !u!224 &1096552592530813676
 RectTransform:
@@ -44077,7 +44143,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Gun
+  m_Text: Big Blaster
 --- !u!1 &1096552592550537341
 GameObject:
   m_ObjectHideFlags: 0
@@ -45921,7 +45987,7 @@ GameObject:
   - component: {fileID: 1096552592662354669}
   - component: {fileID: 1096552592662354668}
   m_Layer: 5
-  m_Name: L5S2
+  m_Name: BigGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45941,7 +46007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children:
   - {fileID: 1096552592422152284}
-  action: level three item
+  action: BigGun
   repeatable: 0
 --- !u!224 &1096552592662354669
 RectTransform:
