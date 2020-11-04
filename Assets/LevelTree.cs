@@ -35,9 +35,13 @@ public class LevelTree : MonoBehaviour
     {
         if (availableItems.Contains(item))
         {
-            item.transform.Find("Purchased").gameObject.SetActive(true);
-            availableItems.Remove(item);
-            purchasedItems.Add(item);
+            if (!item.GetComponent<TreeEntry>().repeatable)
+            {
+                item.transform.Find("Purchased").gameObject.SetActive(true);
+                availableItems.Remove(item);
+                purchasedItems.Add(item);
+            }
+
             foreach(GameObject childItem in item.GetComponent<TreeEntry>().children)
             {
                 unlockItem(childItem);
