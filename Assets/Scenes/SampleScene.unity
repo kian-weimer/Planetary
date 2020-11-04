@@ -2563,10 +2563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children:
-  - {fileID: 1096552591783604282}
-  - {fileID: 1096552590993523499}
+  children: []
   action: level1
+  repeatable: 1
 --- !u!224 &428158185
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18247,7 +18246,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096552590784227640}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
@@ -19314,6 +19313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children: []
   action: level three item
+  repeatable: 0
 --- !u!114 &1096552590866579200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19771,6 +19771,7 @@ MonoBehaviour:
   - {fileID: 1096552590993523499}
   - {fileID: 428158183}
   action: level1
+  repeatable: 0
 --- !u!222 &1096552590897795896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20909,6 +20910,7 @@ MonoBehaviour:
   children:
   - {fileID: 1096552591995749836}
   action: level 2 bottom item
+  repeatable: 0
 --- !u!224 &1096552591005513170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21518,6 +21520,7 @@ MonoBehaviour:
   children:
   - {fileID: 1096552592662354658}
   action: level 2 bottom item
+  repeatable: 0
 --- !u!224 &1096552591061331087
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25754,6 +25757,7 @@ MonoBehaviour:
   children:
   - {fileID: 1096552591061331084}
   action: level 2 bottom item
+  repeatable: 0
 --- !u!1 &1096552591349878921
 GameObject:
   m_ObjectHideFlags: 0
@@ -31621,6 +31625,7 @@ MonoBehaviour:
   children:
   - {fileID: 1096552591995749836}
   action: level two top item
+  repeatable: 0
 --- !u!224 &1096552591783604293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33969,7 +33974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1096552591937538878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34822,6 +34827,7 @@ MonoBehaviour:
   - {fileID: 1096552592530344666}
   - {fileID: 1096552591349878921}
   action: level three item
+  repeatable: 0
 --- !u!1 &1096552591996101666
 GameObject:
   m_ObjectHideFlags: 0
@@ -35867,7 +35873,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.19375, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -37194,6 +37200,7 @@ MonoBehaviour:
   children:
   - {fileID: 1096552591995749836}
   action: level two top item
+  repeatable: 0
 --- !u!224 &1096552592183351191
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41401,6 +41408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children: []
   action: level three item
+  repeatable: 0
 --- !u!224 &1096552592422152287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43305,7 +43313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1096552592525499433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43760,6 +43768,7 @@ MonoBehaviour:
   - {fileID: 1096552592183351188}
   - {fileID: 1096552590864711587}
   action: level two top item
+  repeatable: 0
 --- !u!224 &1096552592530813676
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45933,6 +45942,7 @@ MonoBehaviour:
   children:
   - {fileID: 1096552592422152284}
   action: level three item
+  repeatable: 0
 --- !u!224 &1096552592662354669
 RectTransform:
   m_ObjectHideFlags: 0
