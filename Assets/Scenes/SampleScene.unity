@@ -5602,7 +5602,10 @@ MonoBehaviour:
   menuButton: {fileID: 2018151613}
   experiencePoints: 0
   level: 1
-  pointsToNextLevel: 100
+  levelText: {fileID: 1096552591864223958}
+  skillPoints: 0
+  skillPointText: {fileID: 1096552591535878699}
+  pointsToNextLevelList: 320000003c00000046000000500000005a000000640000007800000096000000c80000002c010000
   ExpBar: {fileID: 300765193}
   tempWeapon2: {fileID: 4611576542723647717, guid: 97ff13833e45f1d438d172b61161e2b4,
     type: 3}
@@ -34068,6 +34071,7 @@ MonoBehaviour:
   - {fileID: 1096552592662354658}
   - {fileID: 1096552592422152284}
   - {fileID: 428158183}
+  player: {fileID: 949674682}
 --- !u!224 &1096552591937538879
 RectTransform:
   m_ObjectHideFlags: 0
