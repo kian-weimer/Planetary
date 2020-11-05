@@ -51,9 +51,13 @@ public class Inventory : MonoBehaviour
     public void addInventorySlot()
     {
         int offset = 0;
-        if (numberOfInventorySlots == 4)
+        if (numberOfInventorySlots >= 4)
         {
-            offset = 400;
+            offset = 630;
+        }
+        if (numberOfInventorySlots == 6)
+        {
+            transform.parent.Find("ShopButton").position += new Vector3(0, 125, 0);
         }
         numberOfInventorySlots++;
         GameObject slot = Instantiate(IS);
