@@ -5691,6 +5691,7 @@ MonoBehaviour:
   canMove: 0
   audioManager: {fileID: 2129333493}
   hasRespawned: 0
+  fasterCooldown: 0
 --- !u!4 &949674681
 Transform:
   m_ObjectHideFlags: 0
@@ -5760,8 +5761,6 @@ MonoBehaviour:
   skillPointText: {fileID: 1096552591535878699}
   pointsToNextLevelList: 320000003c00000046000000500000005a000000640000007800000096000000c80000002c010000
   ExpBar: {fileID: 300765193}
-  tempWeapon2: {fileID: 4611576542723647717, guid: 97ff13833e45f1d438d172b61161e2b4,
-    type: 3}
   fasterCooldown: 0
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}
@@ -13668,6 +13667,9 @@ MonoBehaviour:
   shopManager: {fileID: 1960612301}
   boostBar: {fileID: 1448558933}
   money: {fileID: 2068677633}
+  doubleShot: {fileID: 4611576542723647717, guid: 97ff13833e45f1d438d172b61161e2b4,
+    type: 3}
+  bigShot: {fileID: 6078043187006673605, guid: f071af8c8e846b54fbf34dfdea9623c2, type: 3}
 --- !u!4 &1585595054
 Transform:
   m_ObjectHideFlags: 0
@@ -16450,6 +16452,7 @@ MonoBehaviour:
   whichShipLevel: 0
   buyShop: {fileID: 293007886}
   upgradeAmount: 1.25
+  expCheeperShopMultiplier: 1
 --- !u!114 &1960612302
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,8 +56,6 @@ public class Player : MonoBehaviour
     public int[] pointsToNextLevelList;
     public GameObject ExpBar;
 
-    public GameObject tempWeapon2; // dont create the weapons in player, this is just for testing.
-
     public bool fasterCooldown = false;
     public static bool doubleResource = false;
 
@@ -76,7 +74,7 @@ public class Player : MonoBehaviour
         weapon.transform.parent = transform;
         weapon.GetComponent<Weapon>().lastShotTime = 0;
         weapon.GetComponent<Weapon>().bullet.GetComponent<Bullet>().bulletDamage = 5;
-        AddWeapon(Instantiate(tempWeapon2)); // just used for testing. Add weapon should not be called by the player
+        
     }
 
     void SwitchWeapon()
