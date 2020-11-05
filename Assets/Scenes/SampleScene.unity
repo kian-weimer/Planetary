@@ -5606,6 +5606,7 @@ MonoBehaviour:
   ExpBar: {fileID: 300765193}
   tempWeapon2: {fileID: 4611576542723647717, guid: 97ff13833e45f1d438d172b61161e2b4,
     type: 3}
+  fasterCooldown: 0
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}
   popUpText: {fileID: 0}
@@ -13479,6 +13480,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0dd4982f975e10f48beab53e5da565d1, type: 3}
   - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
   shopManager: {fileID: 1960612301}
+  boostBar: {fileID: 1448558933}
+  money: {fileID: 2068677633}
 --- !u!4 &1585595054
 Transform:
   m_ObjectHideFlags: 0
@@ -16271,7 +16274,6 @@ MonoBehaviour:
   whichShipLevel: 0
   buyShop: {fileID: 293007886}
   upgradeAmount: 1.25
-  boostBar: {fileID: 1448558933}
 --- !u!114 &1960612302
 MonoBehaviour:
   m_ObjectHideFlags: 0

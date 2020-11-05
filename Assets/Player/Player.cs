@@ -54,6 +54,9 @@ public class Player : MonoBehaviour
 
     public GameObject tempWeapon2; // dont create the weapons in player, this is just for testing.
 
+    public bool fasterCooldown = false;
+    public static bool doubleResource = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +84,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void AddWeapon(GameObject weapon)
+    public void AddWeapon(GameObject weapon)
     {
         weapon.transform.parent = transform;
         weapons.Add(weapon);
@@ -279,7 +282,14 @@ public class Player : MonoBehaviour
 
         if (gas < maxGas)
         {
-            gas += regenRate*maxGas;
+            if (fasterCooldown)
+            {
+                gas += regenRate * maxGas * 1.5f;
+            }
+            else
+            {
+                gas += regenRate * maxGas;
+            }
 
             gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / (maxGas - maxGas * .1f), gasBar.transform.localScale.y, gasBar.transform.localScale.z);
 

@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     private bool hasGas;
     public bool hasRespawned = false;
 
+    public bool fasterCooldown = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +99,15 @@ public class PlayerController : MonoBehaviour
         }
         else if (hasWarpSpeed && warpSpeed < maxWarpSpeed)
         {
-            warpSpeed += warpRegenRate;
+            if (fasterCooldown)
+            {
+                warpSpeed += warpRegenRate * 1.2f;
+            }
+            else
+            {
+                warpSpeed += warpRegenRate;
+            }
+            
             warpSpeedBar.GetComponent<RectTransform>().localScale = new Vector3(warpSpeed / maxWarpSpeed,
                 warpSpeedBar.GetComponent<RectTransform>().localScale.y,
                 warpSpeedBar.GetComponent<RectTransform>().localScale.z);

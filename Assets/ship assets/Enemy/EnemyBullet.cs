@@ -62,7 +62,7 @@ public class EnemyBullet : MonoBehaviour
                 if (!collision.gameObject.GetComponent<Planet>().destroyed)
                 {
                     collision.gameObject.GetComponent<Planet>().destroyed = true;
-                    collision.gameObject.GetComponent<Planet>().destroy();
+                    collision.gameObject.GetComponent<Planet>().destroy(false);
                 }
             }
         }

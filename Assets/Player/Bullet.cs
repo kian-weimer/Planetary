@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 
     private float spawnTime;
     public float bulletDamage = 5;
+    public bool extraDamageToPlanets = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +33,21 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Planet")
         {
-            collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - (int)bulletDamage;
+            if (extraDamageToPlanets)
+            {
+                collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - bulletDamage * 1.5f;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - bulletDamage;
+            }
 
             if (collision.gameObject.GetComponent<Planet>().health <= 0)
             {
                 if (!collision.gameObject.GetComponent<Planet>().destroyed)
                 {
                     collision.gameObject.GetComponent<Planet>().destroyed = true;
-                    collision.gameObject.GetComponent<Planet>().destroy();
+                    collision.gameObject.GetComponent<Planet>().destroy(Player.doubleResource);
                 }
             }
         }

@@ -17,7 +17,9 @@ public class ShopManager : MonoBehaviour
 
     public GameObject buyShop;
     public float upgradeAmount;
-    public GameObject boostBar;
+    public float expCheeperShopMultiplier = 1;
+
+    public static bool isCheaper = false;
 
     void Start()
     {
@@ -43,39 +45,38 @@ public class ShopManager : MonoBehaviour
     }
     public void buyShopResultOf(ShopItem shopItem)
     {
+        float cheeperMultiplier = 1f;
+        if (isCheaper)
+        {
+            cheeperMultiplier = expCheeperShopMultiplier;
+        }
         switch (shopItem.name)
         {
             case "Armor Up":
                 player.GetComponent<Player>().maxHealth += 50;
-                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
                 break;
 
             //set up lazer gun image
             case "Lazers":
                 player.GetComponent<Player>().weapon = lazerGun.gameObject;
-                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
                 break;
 
             case "Bigger Tank":
                 player.GetComponent<Player>().maxGas += 50;
-                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
                 break;
 
             case "Better Thrusters":
                 player.GetComponent<PlayerController>().maxSpeed += 5;
-                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
-                break;
-
-            case "Warp Speed":
-                player.GetComponent<PlayerController>().hasWarpSpeed = true;
-                boostBar.SetActive(true);
-                buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
                 break;
 
             //update to addInventory Slot
             case "More Inventory":
                 FindObjectOfType<Inventory>().addInventorySlot();
-                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
                 break;
 
             case "Switch Color":

@@ -54,6 +54,7 @@ public class Weapon : MonoBehaviour
                     GameObject tempBullet1 = Instantiate(bullet).gameObject;
                     tempBullet1.transform.position = transform.parent.Find("Barrel1").position;
                     tempBullet1.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerSpeed;
+                    tempBullet1.transform.parent = tempBullet.transform;
                     GameObject tempBullet2 = Instantiate(bullet).gameObject;
                     tempBullet2.transform.position = transform.parent.Find("Barrel2").position;
                     tempBullet2.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerSpeed;

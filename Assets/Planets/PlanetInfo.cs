@@ -9,13 +9,13 @@ public class PlanetInfo
 {
     public float[] position; // two element array of x and y coords
     public int rarity; // the rarity of the planet // used as planet identifier in home system
-    public int maxHealth;
-    public int health; // planet's health
+    public float maxHealth;
+    public float health; // planet's health
     public int type; // the type of planet (used to create image)
     public bool discovered; // true is the planet has been seen
     public bool inHomeSystem;
 
-    public PlanetInfo(float xpos, float ypos , int rarity, int maxHealth, int type, bool inHomeSystem)
+    public PlanetInfo(float xpos, float ypos , int rarity, float maxHealth, int type, bool inHomeSystem)
     {
         position = new float[2];
         position[0] = xpos;

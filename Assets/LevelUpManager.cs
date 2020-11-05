@@ -8,22 +8,41 @@ public class LevelUpManager : MonoBehaviour
     public GameObject player;
     public List<Sprite> playerSprites;
     public ShopManager shopManager;
+    public GameObject boostBar;
     private int whichShipLevel = 0;
+    public Money money;
+    public GameObject doubleShot;
+    public GameObject bigShot;
 
     public void levelUp(string levelUpName)
     {
         switch (levelUpName)
         {
             case "Warp":
+                player.GetComponent<PlayerController>().hasWarpSpeed = true;
+                boostBar.SetActive(true);
                 break;
+
             case "Money":
+                money.addMoney(1000);
                 break;
+
             case "FastCooldown":
+                player.GetComponent<Player>().fasterCooldown = true;
+                player.GetComponent<PlayerController>().fasterCooldown = true;
+                //add sheildBar faster
                 break;
+
             case "PlanetDamage":
+                foreach(GameObject weapon in player.GetComponent<Player>().weapons)
+                {
+                    weapon.GetComponent<Weapon>().bullet.GetComponent<Bullet>().extraDamageToPlanets = true;
+                }
                 break;
+
             case "Sheild":
                 break;
+
             case "UpgradeShip":
                 player.GetComponent<Player>().maxHealth += 100;
                 player.GetComponent<Player>().maxGas += 100;
@@ -48,12 +67,21 @@ public class LevelUpManager : MonoBehaviour
                 
                 break;
             case "DoubleShot":
+                GameObject doubleToadd = Instantiate(doubleShot);
+                doubleToadd.GetComponent<Weapon>().bullet.GetComponent<Bullet>().extraDamageToPlanets = true;
+                player.GetComponent<Player>().AddWeapon(doubleToadd);
                 break;
+
             case "BigGun":
+                GameObject bigShotToAdd = Instantiate(bigShot);
+                bigShotToAdd.GetComponent<Weapon>().bullet.GetComponent<Bullet>().extraDamageToPlanets = true;
+                player.GetComponent<Player>().AddWeapon(bigShotToAdd);
                 break;
             case "DoubleDrop":
+                Player.doubleResource = true;
                 break;
             case "CheaperShop":
+                ShopManager.isCheaper = true;
                 break;
         }
     }
