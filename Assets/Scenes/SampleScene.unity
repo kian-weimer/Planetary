@@ -5872,8 +5872,6 @@ MonoBehaviour:
   skillPointText: {fileID: 1096552591535878699}
   pointsToNextLevelList: 320000003c00000046000000500000005a000000640000007800000096000000c80000002c010000
   ExpBar: {fileID: 300765193}
-  tempWeapon2: {fileID: 4611576542723647717, guid: 97ff13833e45f1d438d172b61161e2b4,
-    type: 3}
   fasterCooldown: 0
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}
@@ -13782,6 +13780,9 @@ MonoBehaviour:
   money: {fileID: 2068677633}
   doubleShot: {fileID: 0}
   bigShot: {fileID: 0}
+  doubleShot: {fileID: 4611576542723647717, guid: 97ff13833e45f1d438d172b61161e2b4,
+    type: 3}
+  bigShot: {fileID: 6078043187006673605, guid: f071af8c8e846b54fbf34dfdea9623c2, type: 3}
 --- !u!4 &1585595054
 Transform:
   m_ObjectHideFlags: 0

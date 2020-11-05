@@ -27,11 +27,17 @@ public class EnemySpawner : MonoBehaviour
         {
             float distanceFromHome = Mathf.Sqrt(Mathf.Pow(player.transform.position.x,2) + Mathf.Pow(player.transform.position.y, 2));
             int rarityLevel = 1;
-
+            Debug.Log(distanceFromHome);
             //make rarity go down
-            rarityLevel = distanceFromHome >= distanceToSecondLvlEnemy ? rarityLevel += 1 : rarityLevel;
-            rarityLevel = distanceFromHome >= distanceToThirdLvlEnemy ? rarityLevel += 1 : rarityLevel;
-
+            if(distanceFromHome >= distanceToSecondLvlEnemy)
+            {
+                rarityLevel = 2;
+            }
+            if(distanceFromHome >= distanceToThirdLvlEnemy)
+            {
+                rarityLevel = 3;
+            }
+            Debug.Log(rarityLevel);
             generateEnemy(rarityLevel);
             timeBeforeNextEnemy = timeBetweenEnemies;
         }
@@ -61,6 +67,5 @@ public class EnemySpawner : MonoBehaviour
         int randomIndex = Random.Range(0, listOfEnemiesToChooseFrom.Count);
         GameObject badGuy = Instantiate(listOfEnemiesToChooseFrom[randomIndex]);
         badGuy.transform.position = new Vector2(player.transform.position.x + xOffset, player.transform.position.y + yOffset);
-        Debug.Log(badGuy.transform.position);
     }
 }
