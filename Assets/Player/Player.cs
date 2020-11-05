@@ -58,6 +58,15 @@ public class Player : MonoBehaviour
 
     public bool fasterCooldown = false;
     public static bool doubleResource = false;
+    public bool hasSheilds = false;
+    public float sheild = 10;
+    public float shieldConsumption = 1;
+    public GameObject sheildBar;
+    public float maxSheild = 100;
+    public float sheildRegenRate = 0.1f;
+    public bool sheilding = false;
+    public bool canSheild = true;
+    public GameObject sheildGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -116,16 +125,62 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (Input.GetKey("f") && hasSheilds && canSheild && sheilding == false)
+        {
+            sheild -= shieldConsumption;
+            sheildBar.GetComponent<RectTransform>().localScale = new Vector3(sheild / maxSheild,
+                sheildBar.GetComponent<RectTransform>().localScale.y,
+                sheildBar.GetComponent<RectTransform>().localScale.z);
+            sheilding = true;
+            canSheild = false;
+            Debug.Log(1);
+            sheildGameObject.SetActive(true);
+        }
+        if(sheilding && hasSheilds && !canSheild)
+        {
+            Debug.Log(2);
+            sheild -= shieldConsumption;
+            sheildBar.GetComponent<RectTransform>().localScale = new Vector3(sheild / maxSheild,
+                sheildBar.GetComponent<RectTransform>().localScale.y,
+                sheildBar.GetComponent<RectTransform>().localScale.z);
+        }
 
+        
+        if(sheild <= 0 && sheilding && hasSheilds)
+        {
+            Debug.Log(3);
+            sheilding = false;
+            sheildGameObject.SetActive(false);
+        }
+        
 
+        if(sheilding == false && canSheild == false && hasSheilds)
+        {
+            Debug.Log(4);
+            if (fasterCooldown)
+            {
+                sheild += sheildRegenRate * 1.2f;
+            }
+            else
+            {
+                sheild += sheildRegenRate;
+            }
+            if(sheild >= maxSheild)
+            {
+                sheild = maxSheild;
+                canSheild = true;
+            }
 
+            sheildBar.GetComponent<RectTransform>().localScale = new Vector3(sheild / maxSheild,
+                sheildBar.GetComponent<RectTransform>().localScale.y,
+                sheildBar.GetComponent<RectTransform>().localScale.z);
+        }
     }
 
     void Update()
     {
         if ((Input.GetKeyDown(KeyCode.Mouse1)))
         {
-            Debug.Log("WeaponSwitched");
             SwitchWeapon();
         }
         if ((Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Escape))  && nearHomePlanet && !disabled)

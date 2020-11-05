@@ -15,6 +15,7 @@ TagManager:
   - enemyRangeCollider
   - playerRange
   - background
+  - Shield
   layers:
   - Default
   - TransparentFX

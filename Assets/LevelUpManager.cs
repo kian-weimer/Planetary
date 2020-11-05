@@ -13,6 +13,7 @@ public class LevelUpManager : MonoBehaviour
     public Money money;
     public GameObject doubleShot;
     public GameObject bigShot;
+    public GameObject shieldBar;
 
     public void levelUp(string levelUpName)
     {
@@ -41,6 +42,9 @@ public class LevelUpManager : MonoBehaviour
                 break;
 
             case "Sheild":
+                shieldBar.SetActive(true);
+                player.GetComponent<Player>().hasSheilds = true;
+                player.GetComponent<Player>().sheilding = false;
                 break;
 
             case "UpgradeShip":
