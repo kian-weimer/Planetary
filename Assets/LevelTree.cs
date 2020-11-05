@@ -8,6 +8,7 @@ public class LevelTree : MonoBehaviour
     public List<GameObject> purchasedItems;
     public List<GameObject> availableItems;
     public List<GameObject> lockedItems;
+    public Player player;
 
     private void Start()
     {
@@ -33,8 +34,9 @@ public class LevelTree : MonoBehaviour
 
     public void purchaseItem(GameObject item)
     {
-        if (availableItems.Contains(item))
+        if (availableItems.Contains(item) && player.skillPoints > 0)
         {
+            player.useSkillPoints(1);
             if (!item.GetComponent<TreeEntry>().repeatable)
             {
                 item.transform.Find("Purchased").gameObject.SetActive(true);

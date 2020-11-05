@@ -17,6 +17,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DarkMatterPlanet
       objectReference: {fileID: 0}
+    - target: {fileID: 2408954538798108895, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2408954538798108895, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2969958826412032605, guid: f36ca44adaf894e468f6afb4bb18c8ea,
         type: 3}
       propertyPath: m_LocalPosition.x

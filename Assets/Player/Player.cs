@@ -49,7 +49,11 @@ public class Player : MonoBehaviour
 
     public int experiencePoints = 0;
     public int level = 1;
-    public int pointsToNextLevel = 100;
+    public Text levelText;
+    public int skillPoints;
+    public Text skillPointText;
+    private int pointsToNextLevel;
+    public int[] pointsToNextLevelList;
     public GameObject ExpBar;
 
     public GameObject tempWeapon2; // dont create the weapons in player, this is just for testing.
@@ -60,6 +64,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pointsToNextLevel = pointsToNextLevelList[0];
+        ExpBar.transform.Find("BarBG").Find("ExpBar").localScale = new Vector3((float)experiencePoints / pointsToNextLevel, 1, 1);
+        ExpBar.transform.Find("NumeratedExp").GetComponent<Text>().text = experiencePoints + "/" + pointsToNextLevel;
         resourceInShip = null;
         health = maxHealth;
         gas = maxGas;
@@ -332,12 +339,28 @@ public class Player : MonoBehaviour
         ExpBar.transform.Find("NumeratedExp").GetComponent<Text>().text = experiencePoints + "/" + pointsToNextLevel;
         if (experiencePoints >= pointsToNextLevel)
         {
-            levelUp();
+            levelUp(experiencePoints - pointsToNextLevel);
         }
     }
 
-    public void levelUp()
+    public void levelUp(int overflowPoints)
     {
         level++;
+        skillPoints++;
+
+        pointsToNextLevel = pointsToNextLevelList[level-1];
+        experiencePoints = overflowPoints;
+
+        levelText.text = "LEVEL " + level;
+        skillPointText.text = skillPoints + " Skill Points";
+
+        ExpBar.transform.Find("BarBG").Find("ExpBar").localScale = new Vector3((float)experiencePoints / pointsToNextLevel, 1, 1);
+        ExpBar.transform.Find("NumeratedExp").GetComponent<Text>().text = experiencePoints + "/" + pointsToNextLevel;
+    }
+
+    public void useSkillPoints(int quantity)
+    {
+        skillPoints -= quantity;
+        skillPointText.text = skillPoints + " Skill Points";
     }
 }
