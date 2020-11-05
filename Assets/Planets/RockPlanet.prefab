@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 324335203870828586}
   - component: {fileID: 8116600715463406612}
   - component: {fileID: 5303674465282865419}
-  - component: {fileID: -5782669788300486045}
+  - component: {fileID: 6033834495708069971}
   m_Layer: 0
   m_Name: RockPlanet
   m_TagString: Planet
@@ -237,7 +237,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-5782669788300486045
+--- !u!58 &6033834495708069971
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,6 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2859418415518215714}
   - component: {fileID: 7715963511511142359}
+  - component: {fileID: 3005915093248117993}
   m_Layer: 0
   m_Name: PopupCollider
   m_TagString: Popup
@@ -311,6 +312,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+--- !u!50 &3005915093248117993
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784193606976330833}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7865585692707968000
 GameObject:
   m_ObjectHideFlags: 0

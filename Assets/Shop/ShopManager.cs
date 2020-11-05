@@ -73,6 +73,11 @@ public class ShopManager : MonoBehaviour
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
                 break;
 
+            case "Add Rock Planet":
+                home.GetComponent<Home>().addRockPlanet();
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
+                break;
+
             //update to addInventory Slot
             case "More Inventory":
                 FindObjectOfType<Inventory>().addInventorySlot();

@@ -50,10 +50,15 @@ public class Inventory : MonoBehaviour
 
     public void addInventorySlot()
     {
+        int offset = 0;
+        if (numberOfInventorySlots == 4)
+        {
+            offset = 400;
+        }
         numberOfInventorySlots++;
         GameObject slot = Instantiate(IS);
         slot.transform.parent = transform;
-        slot.GetComponent<RectTransform>().anchoredPosition = origin + new Vector3((numberOfInventorySlots - 1) * spacing, 0, 0);
+        slot.GetComponent<RectTransform>().anchoredPosition = origin + new Vector3((numberOfInventorySlots - 1) * spacing + offset, 0, 0);
         slots.Add(slot);
         isFull = false;
     }

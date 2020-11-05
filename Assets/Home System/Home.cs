@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Home : MonoBehaviour
 {
     [Range(1, 10)]
-    public int numberOfStartingHomePlanets = 5;
+    public int numberOfStartingHomePlanets = 5; // poorly named, just number of home planets
     public int planetRingSeperation = 10;
     public int sunOffset = 20;
     public List<Planet> homePlanets;
@@ -27,6 +27,7 @@ public class Home : MonoBehaviour
     public PlanetComboList comboList;
 
     public ResourceInventory resourceInventory;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,8 +41,9 @@ public class Home : MonoBehaviour
                 Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
                 // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
                 PlanetInfo info = new PlanetInfo(pos.x, pos.y, i, rockPlanet.maxHealth, 0, true);
-
+                
                 Planet planet = Instantiate(rockPlanet);
+
                 planet.inHomeSystem = true;
                 planet.Initialize(info);
                 planet.gameObject.AddComponent<HomePlanet>();
@@ -50,8 +52,30 @@ public class Home : MonoBehaviour
                 planet.transform.parent = gameObject.transform;
                 homePlanets.Add(planet);
             }
-        }  
+        }
     }
+
+    public void addRockPlanet()
+    {
+        numberOfStartingHomePlanets++;
+        int numberOfHomeRings = (int)Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
+
+        int planetNumber = homePlanets.Count;
+
+        Vector2 pos = (((float)planetNumber % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(planetNumber);
+        PlanetInfo info = new PlanetInfo(pos.x, pos.y, planetNumber, rockPlanet.maxHealth, 0, true);
+
+        Planet planet = Instantiate(rockPlanet);
+        planet.inHomeSystem = true;
+        planet.Initialize(info);
+        planet.gameObject.AddComponent<HomePlanet>();
+        planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + planetNumber;
+        planet.gameObject.name = "PLANET" + planetNumber;
+        planet.transform.parent = gameObject.transform;
+        homePlanets.Add(planet);
+        
+    }
+
     public void IncreasePlanetView(int changeValue)
     {
         Planet planet = homePlanets[currentViewingPlanet];

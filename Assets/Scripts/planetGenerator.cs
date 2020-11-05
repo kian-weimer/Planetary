@@ -83,11 +83,15 @@ public class planetGenerator : MonoBehaviour
                     bool duplicate = false;
                     foreach (PlanetInfo storedInfo in planetInfoList[gridPosition])
                     {
+                        //if (Math.Abs(storedInfo.position[0] - pos.x) < planetDistance && (storedInfo.position[1] - pos.y) < planetDistance)
+                        // protects against exact overlaps
                         if (storedInfo.position[0] == pos.x && storedInfo.position[1] == pos.y)
                         {
                             duplicate = true;
+                            //Debug.Log("PL");
                             break;
                         }
+
                     }
 
                     if (!duplicate)
