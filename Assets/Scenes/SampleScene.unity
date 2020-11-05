@@ -5890,9 +5890,9 @@ MonoBehaviour:
   hasSheilds: 0
   sheild: 100
   shieldConsumption: 0.1
-  sheildBar: {fileID: 451263515}
+  sheildBar: {fileID: 1965816788}
   maxSheild: 100
-  sheildRegenRate: 0.015
+  sheildRegenRate: 0.1
   sheilding: 1
   canSheild: 1
   sheildGameObject: {fileID: 1071618142}
@@ -10540,6 +10540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c656762005a5f247aa422582376b7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldBar: {fileID: 1965816788}
+  damageAmmountFromShip: 20
+  damageAmmountFromBullet: 5
 --- !u!1 &1078411701
 GameObject:
   m_ObjectHideFlags: 0
