@@ -8,6 +8,7 @@ public class LevelTree : MonoBehaviour
     public List<GameObject> purchasedItems;
     public List<GameObject> availableItems;
     public List<GameObject> lockedItems;
+    public List<GameObject> planetLockedItems; // if the planet's parent(s) are purchased, but the planet isnt discovered
     public Player player;
 
     private void Start()
@@ -25,6 +26,21 @@ public class LevelTree : MonoBehaviour
     private void unlockItem(GameObject item)
     {
         if (lockedItems.Contains(item))
+        {
+            if (item.GetComponent<TreeEntry>().lockedByPlanet) {
+                lockedItems.Remove(item);
+                planetLockedItems.Add(item);
+                return;
+            }
+            item.transform.Find("Lock").gameObject.SetActive(false);
+            lockedItems.Remove(item);
+            availableItems.Add(item);
+        }
+    }
+
+    public void unlockPlanetItem(GameObject item)
+    {
+        if (planetLockedItems.Contains(item))
         {
             item.transform.Find("Lock").gameObject.SetActive(false);
             lockedItems.Remove(item);

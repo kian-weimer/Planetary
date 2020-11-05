@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlanetComboList : MonoBehaviour
 {
     public List<PlanetCombo> planetComboList;
+    public GameObject planetTreeLocks;
     public Dictionary<(string, string, string), PlanetCombo> planetComboDict;
     public Alminac alminac;
 
@@ -44,6 +45,14 @@ public class PlanetComboList : MonoBehaviour
         {
             alminac.AddEntry(comboResult.planet.GetComponent<SpriteRenderer>().sprite, resource1.resource.name.Replace("(Clone)", ""),
                 resource2.resource.name.Replace("(Clone)", ""), resource3.resource.name.Replace("(Clone)", ""));
+
+
+            for (int i = 0; i < planetTreeLocks.transform.childCount; i++)
+            {
+                if (comboResult.planet.name.Contains(planetTreeLocks.transform.GetChild(i).GetComponent<TreePlanetLock>().planetName)) {
+                    planetTreeLocks.transform.GetChild(i).GetComponent<TreePlanetLock>().unlock();
+                }
+            }
 
             if (comboResult.planet.name.Contains("EndGame"))
             {
