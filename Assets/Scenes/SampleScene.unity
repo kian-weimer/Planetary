@@ -3217,7 +3217,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 1}
   target: {fileID: 519420032}
   minZoom: 5
-  maxZoom: 15
+  maxZoom: 20
   zoomSpeed: 50
   player: {fileID: 949674676}
 --- !u!20 &519420031
@@ -15782,7 +15782,7 @@ MonoBehaviour:
         type: 3}
       amountProduced: 2
       frequency: 180
-  - planet: {fileID: 4614436770829047631, guid: 4e3a486e8ea2fe4449906612dc57fa8c,
+  - planet: {fileID: 4947203564870176798, guid: 4e3a486e8ea2fe4449906612dc57fa8c,
       type: 3}
     item1: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
     item2: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
