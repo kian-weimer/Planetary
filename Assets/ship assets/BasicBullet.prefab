@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8934928441792135327}
   m_Layer: 0
   m_Name: BasicBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +50,8 @@ MonoBehaviour:
   explosion: {fileID: 2544709206327447535, guid: 31b64d25adf9dc643ad2e8204cb2909e,
     type: 3}
   despawnTime: 3
-  bulletDamage: 5
+  bulletDamage: 8
+  extraDamageToPlanets: 1
 --- !u!212 &9203446941361601900
 SpriteRenderer:
   m_ObjectHideFlags: 0

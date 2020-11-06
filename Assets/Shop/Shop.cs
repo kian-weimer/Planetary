@@ -95,7 +95,11 @@ public class Shop : MonoBehaviour
 
     public void ItemPurchased(ShopItem item)
     {
-        if (Money.GetComponent<Money>().removeMoney(item.cost))
+        if(item.name == "Mine" && MineControler.mineAmount != MineControler.maxMines)
+        {
+            ShopManager.GetComponent<ShopManager>().buyShopResultOf(item);
+        }
+        else if (Money.GetComponent<Money>().removeMoney(item.cost))
         {
             ShopManager.GetComponent<ShopManager>().buyShopResultOf(item);
         }

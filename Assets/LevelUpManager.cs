@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelUpManager : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class LevelUpManager : MonoBehaviour
     public GameObject doubleShot;
     public GameObject bigShot;
     public GameObject shieldBar;
+    public GameObject mineHolder;
+
+    public GameObject buyMenu;
+    public GameObject mineAmountText;
 
     public void levelUp(string levelUpName)
     {
@@ -86,6 +91,15 @@ public class LevelUpManager : MonoBehaviour
                 break;
             case "CheaperShop":
                 ShopManager.isCheaper = true;
+                break;
+            case "Mine":
+                mineHolder.SetActive(true);
+                ShopItemInfo mineBuy = new ShopItemInfo();
+                mineBuy.name = "Buy Mine";
+                mineBuy.sellItem = false;
+                mineBuy.cost = 150;
+                buyMenu.GetComponent<Shop>().addShopItem(mineBuy);
+                mineAmountText.GetComponent<Text>().text = "x" + MineControler.mineAmount;
                 break;
         }
     }

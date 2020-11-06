@@ -17,6 +17,8 @@ TagManager:
   - background
   - Shield
   - enemyBullet
+  - Mine
+  - Bullet
   layers:
   - Default
   - TransparentFX

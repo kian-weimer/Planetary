@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8844338752969529900}
   m_Layer: 0
   m_Name: BigBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
     type: 3}
   despawnTime: 5
   bulletDamage: 12
+  extraDamageToPlanets: 0
 --- !u!212 &9150029198020388831
 SpriteRenderer:
   m_ObjectHideFlags: 0

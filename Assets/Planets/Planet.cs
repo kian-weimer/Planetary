@@ -40,11 +40,9 @@ public class Planet : MonoBehaviour
         exp.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
 
         int doubleChance = Random.Range(0, 100);
-        Debug.Log(doubleChance);
-        Debug.Log(doubleResource);
+
         if (doubleChance >= 50 && doubleResource)
         {
-            Debug.Log(doubleChance);
             GameObject resource = Instantiate(planetResource);
             planetResource.tag = "resource";
             resource.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);

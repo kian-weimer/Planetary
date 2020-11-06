@@ -20,6 +20,7 @@ public class ShopManager : MonoBehaviour
     public float expCheeperShopMultiplier = 1;
 
     public static bool isCheaper = false;
+    public GameObject mineAmountText;
 
     void Start()
     {
@@ -96,6 +97,10 @@ public class ShopManager : MonoBehaviour
                     whichShipColorBase += 3;
                 }
 
+                break;
+            case "Buy Mine":
+                MineControler.mineAmount += 1;
+                mineAmountText.GetComponent<Text>().text = "x" + MineControler.mineAmount;
                 break;
         }
     }

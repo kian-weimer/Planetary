@@ -96,10 +96,15 @@ public class EnemyBullet : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * 0.50f;
         }
 
+        if (collision.gameObject.tag == "Mine")
+        {
+            collision.gameObject.GetComponent<Mine>().damageSurroundings();
+        }
+
 
         if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle"
             && collision.gameObject.tag != "resource" && collision.gameObject.tag != "enemyRangeCollider"
-             && collision.gameObject.tag != "playerRange")
+             && collision.gameObject.tag != "playerRange" && collision.gameObject.tag != "Bullet")
         {
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
