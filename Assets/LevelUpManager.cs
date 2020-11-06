@@ -20,12 +20,15 @@ public class LevelUpManager : MonoBehaviour
     public GameObject buyMenu;
     public GameObject mineAmountText;
 
+    public BroadcastMessage BM;
+
     public void levelUp(string levelUpName)
     {
         switch (levelUpName)
         {
             case "Warp":
                 player.GetComponent<PlayerController>().hasWarpSpeed = true;
+                BM.Broadcast("Press 'space' for warp speed");
                 boostBar.SetActive(true);
                 break;
 
@@ -50,6 +53,7 @@ public class LevelUpManager : MonoBehaviour
                 shieldBar.SetActive(true);
                 player.GetComponent<Player>().hasSheilds = true;
                 player.GetComponent<Player>().sheilding = false;
+                BM.Broadcast("Press 'F' to activate the shield");
                 break;
 
             case "UpgradeShip":
@@ -79,6 +83,7 @@ public class LevelUpManager : MonoBehaviour
                 GameObject doubleToadd = Instantiate(doubleShot);
                 doubleToadd.GetComponent<Weapon>().bullet.GetComponent<Bullet>().extraDamageToPlanets = true;
                 player.GetComponent<Player>().AddWeapon(doubleToadd);
+                BM.Broadcast("Right Click to switch weapons");
                 break;
 
             case "BigGun":
@@ -100,6 +105,7 @@ public class LevelUpManager : MonoBehaviour
                 mineBuy.cost = 150;
                 buyMenu.GetComponent<Shop>().addShopItem(mineBuy);
                 mineAmountText.GetComponent<Text>().text = "x" + MineControler.mineAmount;
+                BM.Broadcast("Press 'M' to deploy a mine");
                 break;
         }
     }

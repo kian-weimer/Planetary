@@ -88,6 +88,11 @@ public class ShopManager : MonoBehaviour
             case "More Inventory":
                 FindObjectOfType<Inventory>().addInventorySlot();
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
+                if (FindObjectOfType<Inventory>().numberOfInventorySlots == 8)
+                {
+                    buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
+                }
+
                 break;
 
             case "Switch Color":
