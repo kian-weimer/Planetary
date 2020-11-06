@@ -22,6 +22,11 @@ public class ShopManager : MonoBehaviour
     public static bool isCheaper = false;
     public GameObject mineAmountText;
 
+    public GameObject commonCrate;
+    public GameObject rareCrate;
+    public GameObject legendaryCrate;
+    public GameObject crateSpawnPoint;
+
     void Start()
     {
         resourceCost.Add("Rock", 1);
@@ -101,6 +106,19 @@ public class ShopManager : MonoBehaviour
             case "Buy Mine":
                 MineControler.mineAmount += 1;
                 mineAmountText.GetComponent<Text>().text = "x" + MineControler.mineAmount;
+                break;
+
+            case "Common Crate":
+                GameObject crate = Instantiate(commonCrate);
+                crate.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
+                break;
+            case "Rare Crate":
+                GameObject crateRare = Instantiate(rareCrate);
+                crateRare.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
+                break;
+            case "Legendary Crate":
+                GameObject crateLegendary = Instantiate(legendaryCrate);
+                crateLegendary.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 break;
         }
     }

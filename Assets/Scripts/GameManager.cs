@@ -51,6 +51,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void Home()
+    {
+        SceneManager.LoadScene("Start Menu");
+    }
 }
 
 
