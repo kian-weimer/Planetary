@@ -3302,6 +3302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetLockedItem: {fileID: 1096552591783604292}
   planetName: Food
+  levelTree: {fileID: 1096552591937538878}
 --- !u!4 &509772512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6803020225154700637, guid: bc2a7ddb5d7d39f48bfd9bf016335832,

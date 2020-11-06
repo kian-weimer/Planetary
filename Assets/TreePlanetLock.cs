@@ -6,12 +6,7 @@ public class TreePlanetLock : MonoBehaviour
 {
     public TreeEntry planetLockedItem;
     public string planetName;
-    private LevelTree levelTree;
-
-    private void Start()
-    {
-        levelTree = FindObjectOfType<LevelTree>();
-    }
+    public LevelTree levelTree;
 
     public void unlock()
     {
