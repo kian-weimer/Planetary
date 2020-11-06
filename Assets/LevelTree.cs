@@ -43,7 +43,7 @@ public class LevelTree : MonoBehaviour
         if (planetLockedItems.Contains(item))
         {
             item.transform.Find("Lock").gameObject.SetActive(false);
-            lockedItems.Remove(item);
+            planetLockedItems.Remove(item);
             availableItems.Add(item);
         }
     }
