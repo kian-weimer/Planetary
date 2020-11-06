@@ -135,6 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxWaitTime: 3
-  blastRadius: 2
-  explosion: {fileID: 6964601313405217548, guid: c1abf32938cf5954f8c71ea5641176c8,
+  blastRadius: 3
+  explosion: {fileID: 5250134841103184014, guid: bcb2cbe368508b5478f3a4ed197a5387,
     type: 3}
