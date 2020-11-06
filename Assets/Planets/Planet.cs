@@ -85,17 +85,9 @@ public class Planet : MonoBehaviour
             resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;
             resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
         }
-        
 
-        if(SceneManager.GetActiveScene().name == "SampleScene")
-        {
-            FindObjectOfType<planetGenerator>().destroyPlanet(this);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        
+        Destroy(gameObject);
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

@@ -18,9 +18,6 @@ public class Alminac : MonoBehaviour
 
     public void AddEntry(Sprite planet, string item1, string item2, string item3)
     {
-        Debug.Log("addingAlminacEntry");
-        Debug.Log(planet);
-        Debug.Log(planet.name);
         if (discoveredList == null)
         {
             discoveredList = new Dictionary<string, bool>();

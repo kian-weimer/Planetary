@@ -137,9 +137,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.014167009, y: 0.01495406}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.09302822
 --- !u!1001 &2753296472920427055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,6 +226,16 @@ PrefabInstance:
         type: 3}
       propertyPath: SizeBySpeedModule.range.y
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300544124770525837, guid: 5096e209e5b5223438f91065afa03eb5,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300544124770525837, guid: 5096e209e5b5223438f91065afa03eb5,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6300544124770525839, guid: 5096e209e5b5223438f91065afa03eb5,
         type: 3}

@@ -69,6 +69,7 @@ public class TutorialMovement : MonoBehaviour
             {
                 tutGameManager.updateMessageText("You can collect resources from", "planets outside your solar system");
                 FindObjectOfType<tutorialGameManager>().gameObject.AddComponent<TutorialResourceCollection>();
+                FindObjectOfType<TutorialResourceCollection>().tutorialEnemy = FindObjectOfType<tutorialGameManager>().enemy;
                 Destroy(gameObject.GetComponent<TutorialMovement>());
             }
         }

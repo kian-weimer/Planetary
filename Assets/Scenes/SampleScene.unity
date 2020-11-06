@@ -27946,7 +27946,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1096552591489418252}
   - component: {fileID: 1096552591489418249}
-  - component: {fileID: 1096552591489418255}
   - component: {fileID: 1096552591489418254}
   m_Layer: 5
   m_Name: backgroundBlue
@@ -27985,23 +27984,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1096552591489418255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096552591489418253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0138a347fef2310448298b44042ee653, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1096552591489418253}
-  gameManager: {fileID: 0}
-  button: {fileID: 0}
-  shopButton: {fileID: 0}
-  isBackButton: 0
 --- !u!1 &1096552591491425346
 GameObject:
   m_ObjectHideFlags: 0
