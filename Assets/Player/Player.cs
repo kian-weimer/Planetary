@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
 
     public bool fasterCooldown = false;
     public static bool doubleResource = false;
+
     public bool hasSheilds = false;
     public float sheild = 10;
     public float shieldConsumption = 1;
@@ -69,12 +70,9 @@ public class Player : MonoBehaviour
     public GameObject sheildGameObject;
 
     public GameObject mine;
-
     public float timeBetweenMines;
     private float timeBeforeNextMine;
     public GameObject mineAmountText;
-
-    public float mineDistance;
 
     // Start is called before the first frame update
     void Start()
