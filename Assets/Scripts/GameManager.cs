@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     public void Home()
     {
         SceneManager.LoadScene("Start Menu");
