@@ -111,7 +111,7 @@ MonoBehaviour:
   weapon: {fileID: 6960151663171144328, guid: 0fd0ba32e01bd6d4784757f3ff4abede, type: 3}
   expPoint: {fileID: 4260342837754297698, guid: b3e3379fe9afa6946a17587de5d4f069,
     type: 3}
-  expPointsDropped: 2
+  expPointsDropped: 6
   thrust: 0.5
   speed: 0
   turnSpeed: 1

@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
         List<GameObject> listOfEnemiesToChooseFrom = new List<GameObject>();
         foreach(EnemyRarity enemy in enemies)
         {
-            if (enemy.rarityLevel >= rarityLevel)
+            if (enemy.rarityLevel <= rarityLevel)
             {
                 for (int j = 0; j < enemy.rarityOfEnemy; j++)
                 {

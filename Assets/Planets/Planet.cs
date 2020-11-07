@@ -86,8 +86,7 @@ public class Planet : MonoBehaviour
             resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
         }
 
-        Destroy(gameObject);
-
+        FindObjectOfType<planetGenerator>().destroyPlanet(this);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

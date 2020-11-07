@@ -340,7 +340,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   audioManager: {fileID: 0}
   weapon: {fileID: 1646633381652851825, guid: b169bb054a079014cb400bcafed86c1f, type: 3}
-  expPoint: {fileID: 4260342837754297698, guid: b3e3379fe9afa6946a17587de5d4f069,
+  expPoint: {fileID: 8586796554563848702, guid: 7396f20dc97346e47b27afb371d8350e,
     type: 3}
   expPointsDropped: 8
   thrust: 0.8
