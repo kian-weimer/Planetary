@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
         if(hasWarpSpeed && Input.GetKey("space") && canWarp && warpSpeed > 0)
         {
             if (boosting == false)
