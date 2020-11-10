@@ -16,7 +16,6 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void Update()
     {
-        
         if (mouseOverObject == null)
         {
             popupManager.movePopup();
@@ -54,12 +53,13 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if(gameObject.tag != "Planet")
         {
+            mouseOverObject = gameObject;
             string nameOfResource = gameObject.name.Replace("UI(Clone)", "");
             popupManager.movePopup(nameOfResource, "Inventory", gameObject);
         }
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        FindObjectOfType<PopupManager>().movePopup();
+        mouseOverObject = null;
     }
 }

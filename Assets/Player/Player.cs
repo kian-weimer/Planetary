@@ -202,6 +202,7 @@ public class Player : MonoBehaviour
         }
         if ((Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Escape))  && nearHomePlanet && !disabled)
         {
+            MouseOver.mouseOverObject = null;
             if (nearHomePlanet && main.gameObject.activeSelf)
             {
                 main.gameObject.SetActive(false);
