@@ -25,10 +25,12 @@ public class EnemyController : MonoBehaviour
     public bool enhancedTargeting = false;
 
     public GameObject deathExplosion;
+    public QuestSystem questSystem;
 
 
     private void Start()
     {
+        questSystem = FindObjectOfType<QuestSystem>();
         player = FindObjectOfType<Player>().gameObject;
         audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
@@ -46,6 +48,7 @@ public class EnemyController : MonoBehaviour
             GameObject exp = Instantiate(deathExplosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             spawnExp();
+            questSystem.updateQuestsEnemy(gameObject.name);
             Destroy(gameObject);
         }
     }

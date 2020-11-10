@@ -47,7 +47,7 @@ public class Home : MonoBehaviour
             planet.Initialize(info);
             planet.gameObject.AddComponent<HomePlanet>();
             planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
-            planet.gameObject.name = "PLANET" + i;
+            //planet.gameObject.name = "PLANET" + i;
             planet.transform.parent = gameObject.transform;
             homePlanets.Add(planet);
             
@@ -69,7 +69,7 @@ public class Home : MonoBehaviour
         planet.Initialize(info);
         planet.gameObject.AddComponent<HomePlanet>();
         planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + planetNumber;
-        planet.gameObject.name = "PLANET" + planetNumber;
+        //planet.gameObject.name = "PLANET" + planetNumber;
         planet.transform.parent = gameObject.transform;
         homePlanets.Add(planet);
         
@@ -160,6 +160,7 @@ public class Home : MonoBehaviour
         if (comboList.Combo(comboHomeInfo.items[0], comboHomeInfo.items[1], comboHomeInfo.items[2]) != null)
         {
             combo = comboList.Combo(comboHomeInfo.items[0], comboHomeInfo.items[1], comboHomeInfo.items[2]);
+            comboPlanet.gameObject.name = combo.planet.name;
             comboPlanet.GetComponent<SpriteRenderer>().sprite = combo.planet.GetComponent<SpriteRenderer>().sprite;
             comboPlanet.GetComponent<HomePlanet>().productionItems = combo.productionItems;
 

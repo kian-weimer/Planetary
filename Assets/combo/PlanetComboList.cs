@@ -12,6 +12,7 @@ public class PlanetComboList : MonoBehaviour
     public GameObject planetTreeLocks;
     public Dictionary<(string, string, string), PlanetCombo> planetComboDict;
     public Alminac alminac;
+    public QuestSystem questSystem;
 
     private void Start()
     {
@@ -43,6 +44,7 @@ public class PlanetComboList : MonoBehaviour
         Debug.Log(comboResult);
         if (comboResult != null)
         {
+            questSystem.updateQuestsPlanet(comboResult.planet.name);
             alminac.AddEntry(comboResult.planet.GetComponent<SpriteRenderer>().sprite, resource1.resource.name.Replace("(Clone)", ""),
                 resource2.resource.name.Replace("(Clone)", ""), resource3.resource.name.Replace("(Clone)", ""));
 
