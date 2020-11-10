@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4139419703190836156}
   - component: {fileID: 8042013713355486545}
   - component: {fileID: 3965712384090420542}
+  - component: {fileID: -1925376070325874998}
   m_Layer: 0
   m_Name: WaterItem
   m_TagString: resource
@@ -139,3 +140,15 @@ MonoBehaviour:
   nameOfResource: Water
   isInAnInventory: 0
   timeBeforeDeletion: 30
+--- !u!114 &-1925376070325874998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505736530839571427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

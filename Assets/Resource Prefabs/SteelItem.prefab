@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9202008339173414187}
   - component: {fileID: 2980482730241029062}
   - component: {fileID: 8200843796745810857}
+  - component: {fileID: -1470386840151027864}
   m_Layer: 0
   m_Name: SteelItem
   m_TagString: resource
@@ -139,3 +140,15 @@ MonoBehaviour:
   nameOfResource: Steel
   isInAnInventory: 0
   timeBeforeDeletion: 30
+--- !u!114 &-1470386840151027864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918652370462035316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

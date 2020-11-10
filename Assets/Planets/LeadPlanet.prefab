@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5258033714036245555}
   - component: {fileID: 8197065095897319724}
   - component: {fileID: 1721616277505534532}
+  - component: {fileID: 4904005153588100835}
   m_Layer: 0
   m_Name: LeadPlanet
   m_TagString: Planet
@@ -154,6 +155,18 @@ CircleCollider2D:
   m_Offset: {x: 0.007950187, y: 0}
   serializedVersion: 2
   m_Radius: 0.4012974
+--- !u!114 &4904005153588100835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900798597032898715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2829814304795811043
 GameObject:
   m_ObjectHideFlags: 0

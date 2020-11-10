@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2867907053259236818}
   - component: {fileID: 8152657519915057983}
   - component: {fileID: 3006148808787116880}
+  - component: {fileID: -2396928972994849460}
   m_Layer: 0
   m_Name: EndGameItem
   m_TagString: resource
@@ -139,3 +140,15 @@ MonoBehaviour:
   nameOfResource: EndGame
   isInAnInventory: 0
   timeBeforeDeletion: 30
+--- !u!114 &-2396928972994849460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746336850765839757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
