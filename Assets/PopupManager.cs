@@ -7,7 +7,7 @@ public class PopupManager : MonoBehaviour
 {
 
     public GameObject textPopup;
-    public void movePopup(string input = "", string whichType = "")
+    public void movePopup(string input = "", string whichType = "", GameObject gameObjectPopup = null)
     {
         if (input == "")
         {
@@ -18,7 +18,6 @@ public class PopupManager : MonoBehaviour
 
         if (whichType == "resource")
         {
-            Debug.Log(position.y);
             if (position.y > 500)
             {
                 position.y -= 75;
@@ -28,6 +27,13 @@ public class PopupManager : MonoBehaviour
                 position.y += 75;
             }
         }
+
+        else if(whichType == "Inventory")
+        {
+            position.x = gameObjectPopup.transform.position.x + gameObjectPopup.GetComponent<RectTransform>().rect.width / 2;
+            position.y = gameObjectPopup.transform.position.y + gameObjectPopup.GetComponent<RectTransform>().rect.height/2 + gameObjectPopup.GetComponent<RectTransform>().rect.height / 2;
+        }
+
         Debug.Log(input);
         position.z = 0;
         textPopup.SetActive(true);

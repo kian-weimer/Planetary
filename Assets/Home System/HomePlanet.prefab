@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3001540951014009786}
   m_Layer: 0
   m_Name: HomePlanet
-  m_TagString: Untagged
+  m_TagString: HomePlanet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

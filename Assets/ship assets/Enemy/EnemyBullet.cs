@@ -53,7 +53,6 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Planet")
         {
             collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - (int)bulletDamage;
@@ -101,7 +100,6 @@ public class EnemyBullet : MonoBehaviour
             collision.gameObject.GetComponent<Mine>().damageSurroundings();
         }
 
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle"
             && collision.gameObject.tag != "resource" && collision.gameObject.tag != "enemyRangeCollider"
              && collision.gameObject.tag != "playerRange" && collision.gameObject.tag != "Bullet")
