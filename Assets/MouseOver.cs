@@ -15,15 +15,17 @@ public class MouseOver : MonoBehaviour
 
     void Update()
     {
+        /*
         if (mouseOverObject == null)
         {
             FindObjectOfType<PopupManager>().movePopup();
         }
+        */
     }
 
     void OnMouseOver()
     {
-
+        /*
         if (gameObject.tag == "resource")
         {
             popupManager.movePopup(gameObject.GetComponent<rsrce>().nameOfResource, "resource");
@@ -36,10 +38,12 @@ public class MouseOver : MonoBehaviour
             mouseOverObject = gameObject;
             Debug.Log(nameOfPlanet);
         }
-
+        */
     }
     private void OnMouseExit()
     {
+        /*
         FindObjectOfType<PopupManager>().movePopup();
+        */
     }
 }

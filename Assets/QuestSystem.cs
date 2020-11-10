@@ -17,8 +17,8 @@ public class QuestSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastQuestCreationTime = Time.time;
-        questEntry1.set(1, quests[0]);
+        lastQuestCreationTime = 0;// Time.time;
+        //questEntry1.set(1, quests[0]);
     }
 
     // Update is called once per frame
