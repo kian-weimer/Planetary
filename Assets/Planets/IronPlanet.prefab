@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 1808918174209902007}
   - component: {fileID: 5045914295184944064}
   - component: {fileID: 1180540850115682420}
+  - component: {fileID: 1819938094159983365}
   m_Layer: 0
   m_Name: IronPlanet
   m_TagString: Planet
@@ -291,6 +292,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1819938094159983365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729115882049499423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8549905415968873831
 GameObject:
   m_ObjectHideFlags: 0

@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 1120403152165817852}
   - component: {fileID: 3942305747664912611}
   - component: {fileID: 5805238415763284875}
+  - component: {fileID: -5752619540114064559}
   m_Layer: 0
   m_Name: ObsidianPlanet
   m_TagString: Planet
@@ -291,6 +292,18 @@ CircleCollider2D:
   m_Offset: {x: 0.0018593073, y: -0.000011126201}
   serializedVersion: 2
   m_Radius: 0.39879894
+--- !u!114 &-5752619540114064559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473130270966823252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6931519664255571244
 GameObject:
   m_ObjectHideFlags: 0

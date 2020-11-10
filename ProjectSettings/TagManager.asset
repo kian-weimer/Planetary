@@ -19,6 +19,7 @@ TagManager:
   - enemyBullet
   - Mine
   - Bullet
+  - MouseOverPlayer
   layers:
   - Default
   - TransparentFX

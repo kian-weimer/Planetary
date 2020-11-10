@@ -37,7 +37,6 @@ public class PauseMenu : MonoBehaviour
             state = (state + 1) % 2;
             button.GetComponent<Text>().text = states[state];
             pauseMenu.SetActive(!pauseMenu.activeSelf);
-            Debug.Log("Pause Toggled!");
             gameManager.togglePause();
             shopButton.SetActive(!shopButton.activeSelf);
         }
