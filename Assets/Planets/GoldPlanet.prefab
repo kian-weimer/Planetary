@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 2725874488225651500}
   - component: {fileID: 8847428431561536859}
   - component: {fileID: 3219175143473512175}
-  - component: {fileID: -2381582642208830855}
   m_Layer: 0
   m_Name: GoldPlanet
   m_TagString: Planet
@@ -391,15 +390,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2381582642208830855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7038086248233512836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

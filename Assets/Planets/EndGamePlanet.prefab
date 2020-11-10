@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 9217871629479806619}
   - component: {fileID: 3917749914643058468}
   - component: {fileID: 8587505494231752283}
-  - component: {fileID: -2432174410912283149}
   m_Layer: 0
   m_Name: EndGamePlanet
   m_TagString: Planet
@@ -265,18 +264,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7aa49d91e6663546b0407c5d4f23fac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-2432174410912283149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759509325657029828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3021263219730080497

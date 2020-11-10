@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 4300934066779167416}
   - component: {fileID: 7256387039173047503}
   - component: {fileID: 3663522596663836539}
-  - component: {fileID: 865107722741389210}
   m_Layer: 0
   m_Name: CopperPlanet
   m_TagString: Planet
@@ -390,15 +389,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &865107722741389210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9212098743275875856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

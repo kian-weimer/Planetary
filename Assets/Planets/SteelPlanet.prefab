@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6465369783208651374}
   - component: {fileID: 478994268906963993}
   - component: {fileID: 5818955606375927725}
-  - component: {fileID: -4717406025673081142}
   m_Layer: 0
   m_Name: SteelPlanet
   m_TagString: Planet
@@ -155,18 +154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4717406025673081142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144159621643394758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3892331927158846142
 GameObject:
   m_ObjectHideFlags: 0

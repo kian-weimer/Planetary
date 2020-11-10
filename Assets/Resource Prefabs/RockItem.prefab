@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -4335774865187817580}
   - component: {fileID: -7693011075733171847}
   - component: {fileID: 5597725384705265942}
-  - component: {fileID: 4818774213494949861}
   m_Layer: 0
   m_Name: RockItem
   m_TagString: resource
@@ -140,15 +139,3 @@ MonoBehaviour:
   nameOfResource: Rock
   isInAnInventory: 0
   timeBeforeDeletion: 30
---- !u!114 &4818774213494949861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7945304767727497163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
