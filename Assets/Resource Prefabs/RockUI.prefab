@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 5611417227747431289}
   - component: {fileID: 3990594408123871778}
   - component: {fileID: -5875476522000506592}
+  - component: {fileID: -1990440998308184557}
+  - component: {fileID: -5173034449721725417}
   m_Layer: 0
   m_Name: RockUI
-  m_TagString: Untagged
+  m_TagString: ResourceUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,6 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d78de91446d734182fcee71eb261b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moved: 0
+  tempUI: {fileID: 0}
 --- !u!225 &-5875476522000506592
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -101,3 +105,31 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-1990440998308184557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165065784793631877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &-5173034449721725417
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165065784793631877}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4

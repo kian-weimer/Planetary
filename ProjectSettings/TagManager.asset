@@ -19,6 +19,7 @@ TagManager:
   - enemyBullet
   - Mine
   - Bullet
+  - ResourceUI
   layers:
   - Default
   - TransparentFX

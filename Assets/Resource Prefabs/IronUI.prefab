@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5488505165342955104}
   - component: {fileID: 3933230281970906939}
   - component: {fileID: 3423520051755377721}
+  - component: {fileID: 7554918558439221579}
   m_Layer: 0
   m_Name: IronUI
-  m_TagString: Untagged
+  m_TagString: ResourceUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,3 +104,15 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7554918558439221579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305578845433448860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

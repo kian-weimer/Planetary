@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 665685347467611816}
   - component: {fileID: 8323301989383139315}
   - component: {fileID: 7680082451604634865}
+  - component: {fileID: -34013547908461795}
   m_Layer: 0
   m_Name: SteelUI
-  m_TagString: Untagged
+  m_TagString: ResourceUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,3 +104,15 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-34013547908461795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6550737081644339540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

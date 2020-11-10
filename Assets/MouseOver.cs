@@ -15,17 +15,17 @@ public class MouseOver : MonoBehaviour
 
     void Update()
     {
-        /*
+        
         if (mouseOverObject == null)
         {
             FindObjectOfType<PopupManager>().movePopup();
         }
-        */
+        
     }
 
     void OnMouseOver()
     {
-        /*
+        
         if (gameObject.tag == "resource")
         {
             popupManager.movePopup(gameObject.GetComponent<rsrce>().nameOfResource, "resource");
@@ -36,14 +36,16 @@ public class MouseOver : MonoBehaviour
             string nameOfPlanet = gameObject.GetComponent<Planet>().name.Replace("(Clone)", "");
             nameOfPlanet = Regex.Replace(nameOfPlanet, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
             mouseOverObject = gameObject;
-            Debug.Log(nameOfPlanet);
+            popupManager.movePopup(nameOfPlanet, "planet");
         }
-        */
+        if(gameObject.tag == "ResourceUI")
+        {
+            Debug.Log("HI");
+        }
+        
     }
     private void OnMouseExit()
     {
-        /*
         FindObjectOfType<PopupManager>().movePopup();
-        */
     }
 }
