@@ -18,6 +18,14 @@ public class QuestEntry : MonoBehaviour
     public string recipeReward;
     public int position;
 
+    public GameObject tracking1;
+    public GameObject tracking2;
+    public GameObject tracking3;
+    private Quest quest;
+
+
+    public bool tracking = false;
+
     void Start()
     {
         requiredCount = 0;
@@ -36,6 +44,7 @@ public class QuestEntry : MonoBehaviour
 
     public void set(int position, Quest quest )
     {
+        this.quest = quest;
         this.position = position;
         transform.Find("QuestText").GetComponent<Text>().text = quest.promptText;
         transform.Find("RewardText").GetComponent<Text>().text = quest.rewardText;
@@ -82,6 +91,73 @@ public class QuestEntry : MonoBehaviour
 
             }
         }
+    }
+
+    public void track()
+    {
+        tracking = true;
+        if (requiredCount >= 1)
+        {
+            tracking1.transform.Find("Image").GetComponent<Image>().sprite = quest.icons[0].GetComponent<SpriteRenderer>().sprite;
+            tracking1.transform.Find("Image").GetComponent<Image>().color = quest.icons[0].GetComponent<SpriteRenderer>().color;
+
+            tracking1.transform.Find("Quantity").GetComponent<Text>().text = 0 + "/" + quest.quantities[0];
+            tracking1.transform.Find("Image").GetComponent<Image>().enabled = true;
+            if (requiredCount >= 2)
+            {
+                tracking2.transform.Find("Image").GetComponent<Image>().sprite = quest.icons[1].GetComponent<SpriteRenderer>().sprite;
+                tracking2.transform.Find("Image").GetComponent<Image>().color = quest.icons[1].GetComponent<SpriteRenderer>().color;
+
+                tracking2.transform.Find("Quantity").GetComponent<Text>().text = 0 + "/" + quest.quantities[1];
+                tracking2.transform.Find("Image").GetComponent<Image>().enabled = true;
+                if (requiredCount >= 3)
+                {
+                    tracking3.transform.Find("Image").GetComponent<Image>().sprite = quest.icons[2].GetComponent<SpriteRenderer>().sprite;
+                    tracking3.transform.Find("Image").GetComponent<Image>().color = quest.icons[2].GetComponent<SpriteRenderer>().color;
+
+                    tracking3.transform.Find("Quantity").GetComponent<Text>().text = 0 + "/" + quest.quantities[2];
+                    tracking3.transform.Find("Image").GetComponent<Image>().enabled = true;
+                }
+            }
+            updateTracking();
+        }
+    }
+
+    public void stopTracking()
+    {
+        if (!tracking) { return; }
+        tracking = false;
+        tracking1.transform.Find("Image").GetComponent<Image>().enabled = false;
+        tracking1.transform.Find("Quantity").GetComponent<Text>().text = "";
+        tracking2.transform.Find("Image").GetComponent<Image>().enabled = false;
+        tracking2.transform.Find("Quantity").GetComponent<Text>().text = "";
+        tracking3.transform.Find("Image").GetComponent<Image>().enabled = false;
+        tracking3.transform.Find("Quantity").GetComponent<Text>().text = "";
+    }
+
+    public void updateTracking()
+    {
+        if (!tracking) { return; }
+        if (quest.requirementCount == 1)
+        {
+            tracking1.transform.Find("Quantity").GetComponent<Text>().text =
+                transform.Find("QuantityWithImage2").Find("Quantity").GetComponent<Text>().text;
+            tracking2.transform.Find("Quantity").GetComponent<Text>().text =
+                transform.Find("QuantityWithImage1").Find("Quantity").GetComponent<Text>().text;
+            tracking3.transform.Find("Quantity").GetComponent<Text>().text =
+                 transform.Find("QuantityWithImage3").Find("Quantity").GetComponent<Text>().text;
+        }
+        else
+        {
+            tracking1.transform.Find("Quantity").GetComponent<Text>().text =
+                transform.Find("QuantityWithImage1").Find("Quantity").GetComponent<Text>().text;
+            tracking2.transform.Find("Quantity").GetComponent<Text>().text =
+                transform.Find("QuantityWithImage2").Find("Quantity").GetComponent<Text>().text;
+            tracking3.transform.Find("Quantity").GetComponent<Text>().text =
+                 transform.Find("QuantityWithImage3").Find("Quantity").GetComponent<Text>().text;
+        }
+
+
     }
 
     public void enemyKilled(string enemyName)
@@ -137,6 +213,7 @@ public class QuestEntry : MonoBehaviour
         if (completionCount == requiredCount)
         {
             questCompleted();
+            stopTracking();
         }
     }
 

@@ -19,6 +19,7 @@ public class QuestSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("Dropped");
         if (select == "resource" &&
             eventData.pointerDrag != null && 
             desiredResource.ToUpper().Contains(eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource.ToUpper())
@@ -61,7 +62,8 @@ public class QuestSlot : MonoBehaviour, IDropHandler
     {
         quantity++;
         transform.parent.Find("Quantity").GetComponent<Text>().text = quantity + "/" + desiredQuantity;
-        if(quantity == desiredQuantity)
+        transform.parent.parent.GetComponent<QuestEntry>().updateTracking();
+        if (quantity == desiredQuantity)
         {
             transform.parent.parent.GetComponent<QuestEntry>().taskComplete();
         }

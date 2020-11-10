@@ -14,11 +14,23 @@ public class QuestSystem : MonoBehaviour
     public QuestEntry questEntry2;
     public QuestEntry questEntry3;
 
+    public GameObject background;
+
     // Start is called before the first frame update
     void Start()
     {
-        lastQuestCreationTime = 0;// Time.time;
+        lastQuestCreationTime = -1 * questFrequency;// Time.time;
         //questEntry1.set(1, quests[0]);
+    }
+
+    public void Dissappear()
+    {
+        background.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+    }
+
+    public void Appear()
+    {
+        background.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
     }
 
     // Update is called once per frame
