@@ -13,7 +13,7 @@ public class Alminac : MonoBehaviour
     public GameObject window;
     int index = 0;
 
-    public void AddEntry(Sprite planet, string item1, string item2, string item3)
+    public bool AddEntry(Sprite planet, string item1, string item2, string item3)
     {
         if (discoveredList == null)
         {
@@ -36,7 +36,9 @@ public class Alminac : MonoBehaviour
             entry.transform.Find("Item1").gameObject.GetComponent<Text>().text = Regex.Replace(item1, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
             entry.transform.Find("Item2").gameObject.GetComponent<Text>().text = Regex.Replace(item2, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
             entry.transform.Find("Item3").gameObject.GetComponent<Text>().text = Regex.Replace(item3, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
+            return true;
         }
+        return false;
     }
 }
 

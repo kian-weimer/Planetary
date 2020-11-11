@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,6 @@ public class QuestEntry : MonoBehaviour
     public Money playerMoney;
     public Player player;
     public string questType;
-
 
     public int moneyReward;
     public int expReward;
@@ -23,6 +23,7 @@ public class QuestEntry : MonoBehaviour
     public GameObject tracking3;
     private Quest quest;
 
+    public BroadcastMessage BM;
 
     public bool tracking = false;
 
@@ -245,15 +246,37 @@ public class QuestEntry : MonoBehaviour
         transform.parent.parent.parent.GetComponent<QuestSystem>().removeQuest(position);
     }
 
-    public void UpgradeReward()
-    {
-
-    }
-
     public void RecipeReward()
     {
+        foreach (QuestAlminacReward entry in transform.parent.parent.parent.GetComponent<QuestSystem>().almanacRewards)
+        {
+            if (entry.name == recipeReward)
+            {
+                if (transform.parent.parent.parent.GetComponent<QuestSystem>().alminac.
+                    AddEntry(entry.combo.planet.GetComponent<SpriteRenderer>().sprite, 
+                    entry.combo.item1.name, entry.combo.item2.name, entry.combo.item3.name))
+                {
+                    BM.Broadcast(Regex.Replace(entry.combo.planet.name, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ") +
+                    " combination unlocked in the almanac!");
+                }
+                else
+                {
+                    BM.Broadcast(Regex.Replace(entry.combo.planet.name, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ") +
+                    " already unlocked adding additional xp instead");
+                    player.addExpPoints(50);
+                }
 
+                break;
+            }
+        }
     }
 
+    public void UpgradeReward()
+    {
+        switch (upgradeReward)
+        {
 
+        }
+
+    }
 }

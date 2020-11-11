@@ -9,12 +9,16 @@ public class QuestSystem : MonoBehaviour
     public int currentQuestCount = 1;
 
     public List<Quest> quests;
+    public List<QuestAlminacReward> almanacRewards;
+
     public int questIndex = 1;
     public QuestEntry questEntry1;
     public QuestEntry questEntry2;
     public QuestEntry questEntry3;
 
     public GameObject background;
+    public Alminac alminac;
+
 
     // Start is called before the first frame update
     void Start()
