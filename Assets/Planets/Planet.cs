@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions.Must;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
@@ -26,6 +28,15 @@ public class Planet : MonoBehaviour
         discovered = info.discovered;
         maxHealth = info.maxHealth;
     }
+
+    void Start()
+    {
+        if (GameManager.lightsOn)
+        {
+            GetComponent<Light2D>().enabled = true;
+        }
+    }
+
     public void destroy(bool doubleResource)
     {
         if (inHomeSystem)

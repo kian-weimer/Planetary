@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.UI;
 
 
@@ -16,6 +17,10 @@ public class rsrce : MonoBehaviour
 
     void Start()
     {
+        if (GameManager.lightsOn)
+        {
+            GetComponent<Light2D>().enabled = true;
+        }
         timeLeft = timeBeforeDeletion;
     }
     // Update is called once per frame

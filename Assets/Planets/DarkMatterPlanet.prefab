@@ -24,6 +24,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DarkMatterPlanet
       objectReference: {fileID: 0}
+    - target: {fileID: 530831926312323230, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 900798597032898715, guid: f36ca44adaf894e468f6afb4bb18c8ea,
         type: 3}
       propertyPath: m_Name
@@ -134,6 +139,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385373211049056269, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 273201793
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385373211049056269, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5258033714036245555, guid: f36ca44adaf894e468f6afb4bb18c8ea,
         type: 3}

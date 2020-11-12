@@ -25,24 +25,21 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void OnMouseOver()
     {
-        
-        if (gameObject.tag == "resource")
+        if (GameManager.popupsOn)
         {
-            popupManager.movePopup(gameObject.GetComponent<rsrce>().nameOfResource, "resource");
-            mouseOverObject = gameObject;
+            if (gameObject.tag == "resource")
+            {
+                popupManager.movePopup(gameObject.GetComponent<rsrce>().nameOfResource, "resource");
+                mouseOverObject = gameObject;
+            }
+            if (gameObject.tag == "Planet" || gameObject.tag == "HomePlanet")
+            {
+                string nameOfPlanet = gameObject.GetComponent<Planet>().name.Replace("(Clone)", "");
+                nameOfPlanet = Regex.Replace(nameOfPlanet, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
+                mouseOverObject = gameObject;
+                popupManager.movePopup(nameOfPlanet, "planet");
+            }
         }
-        if (gameObject.tag == "Planet" || gameObject.tag == "HomePlanet")
-        {
-            string nameOfPlanet = gameObject.GetComponent<Planet>().name.Replace("(Clone)", "");
-            nameOfPlanet = Regex.Replace(nameOfPlanet, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
-            mouseOverObject = gameObject;
-            popupManager.movePopup(nameOfPlanet, "planet");
-        }
-        if(gameObject.tag == "ResourceUI")
-        {
-            Debug.Log("HI");
-        }
-        
     }
     private void OnMouseExit()
     {
@@ -51,12 +48,16 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(gameObject.tag != "Planet")
+        if (GameManager.popupsOn)
         {
-            mouseOverObject = gameObject;
-            string nameOfResource = gameObject.name.Replace("UI(Clone)", "");
-            popupManager.movePopup(nameOfResource, "Inventory", gameObject);
+            if(gameObject.tag != "Planet")
+            {
+                mouseOverObject = gameObject;
+                string nameOfResource = gameObject.name.Replace("UI(Clone)", "");
+                popupManager.movePopup(nameOfResource, "Inventory", gameObject);
+            }
         }
+        
     }
     public void OnPointerExit(PointerEventData eventData)
     {

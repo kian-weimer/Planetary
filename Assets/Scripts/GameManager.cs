@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     public Player player;
     public PlayerController playerController;
     public RandomEventManager REM;
+
+    public static bool lightsOn = false;
+    public static bool popupsOn = false;
 
     [HideInInspector]
     public int gridResolution = 100; // whaT DOES THIS DO
@@ -60,6 +64,42 @@ public class GameManager : MonoBehaviour
     public void Home()
     {
         SceneManager.LoadScene("Start Menu");
+    }
+
+
+    //**************settings buttons********************
+    public void toggleLights()
+    {
+        if (lightsOn)
+        {
+            lightsOn = false;
+            var lights = FindObjectsOfType<Light2D>();
+            foreach(Light2D light in lights)
+            {
+                light.enabled = false;
+            }
+        }
+        else
+        {
+            lightsOn = true;
+            var lights = FindObjectsOfType<Light2D>();
+            foreach (Light2D light in lights)
+            {
+                light.enabled = true;
+            }
+        }
+    }
+
+    public void togglePopups()
+    {
+        if (popupsOn)
+        {
+            popupsOn = false;
+        }
+        else
+        {
+            popupsOn = true;
+        }
     }
 }
 

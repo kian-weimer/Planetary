@@ -57,6 +57,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 2794288161
+    locked: 0
   - name: Sun
     uniqueID: 628022153
+    locked: 0
+  - name: Planets
+    uniqueID: 273201793
+    locked: 0
+  - name: planetUI
+    uniqueID: 1305514477
+    locked: 0
+  - name: Resource
+    uniqueID: 4286866133
     locked: 0
