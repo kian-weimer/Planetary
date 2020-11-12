@@ -2113,7 +2113,7 @@ MonoBehaviour:
     expReward: 10
     upgradeReward: 
     recipeReward: 
-  - promptText: Kill Enemy
+  - promptText: Kill an Enemy
     questType: enemy
     requirementCount: 1
     icons:
@@ -2218,19 +2218,123 @@ MonoBehaviour:
     expReward: 33
     upgradeReward: deleteRegen
     recipeReward: 
-  - promptText: Create Food Planet
+  - promptText: Collect 5 Mercury resources
+    questType: resource
+    requirementCount: 1
+    icons:
+    - {fileID: 1130035494589597368, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
+    itemNames:
+    - Mercury
+    quantities: 05000000
+    rewardText: 'Reward: $1000, 60XP'
+    moneyReward: 1000
+    expReward: 60
+    upgradeReward: 
+    recipeReward: 
+  - promptText: Destroy enemy turrets!
+    questType: enemy
+    requirementCount: 1
+    icons:
+    - {fileID: 792701233140208228, guid: 53941b5f84da0184280195673085a4df, type: 3}
+    itemNames:
+    - Turret
+    quantities: 04000000
+    rewardText: 'Reward: Volcano Planet Recipe, 2XP'
+    moneyReward: 0
+    expReward: 2
+    upgradeReward: 
+    recipeReward: Volcano
+  - promptText: Create a Mercury Planet
     questType: planet
     requirementCount: 1
     icons:
-    - {fileID: 1344606031622915078, guid: b2ab03805c5499e4aae2ac07a7fad4ca, type: 3}
+    - {fileID: 1130035494589597368, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
     itemNames:
-    - FoodPlanet
-    quantities: 01000000
-    rewardText: 'Reward: $200'
-    moneyReward: 200
+    - Mercury
+    quantities: 05000000
+    rewardText: 'Reward: Poison Planet, $500'
+    moneyReward: 500
     expReward: 0
     upgradeReward: 
+    recipeReward: Poison
+  - promptText: Collect 20 Rocks
+    questType: resource
+    requirementCount: 1
+    icons:
+    - {fileID: 3808913990446792892, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
+    itemNames:
+    - Rock
+    quantities: 14000000
+    rewardText: 'Reward: Health Upgrade, 100XP'
+    moneyReward: 0
+    expReward: 100
+    upgradeReward: health
     recipeReward: 
+  - promptText: Kill 10 enemys of any type
+    questType: enemy
+    requirementCount: 1
+    icons:
+    - {fileID: 3826538837520844418, guid: 406601a657cf1f64c83d992fc9949f51, type: 3}
+    itemNames:
+    - Enemy
+    quantities: 0a000000
+    rewardText: 'Reward: Armory Recipe, Gas upgrade'
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: gas
+    recipeReward: Armory
+  - promptText: Create 3 Water Planets
+    questType: planet
+    requirementCount: 1
+    icons:
+    - {fileID: 8358963441820322171, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
+    itemNames:
+    - Water
+    quantities: 03000000
+    rewardText: 'Reward: Steel Planet, Health Upgrade, $2000'
+    moneyReward: 2000
+    expReward: 0
+    upgradeReward: health
+    recipeReward: Steel
+  - promptText: Create an Obsidian Planet
+    questType: planet
+    requirementCount: 1
+    icons:
+    - {fileID: 5473130270966823252, guid: 85136233b4e5b6348bef706bafcda557, type: 3}
+    itemNames:
+    - Obsidian
+    quantities: 01000000
+    rewardText: 'Reward: $4000, 100XP'
+    moneyReward: 4000
+    expReward: 100
+    upgradeReward: 
+    recipeReward: 
+  - promptText: Create a Diamond Planet
+    questType: planet
+    requirementCount: 1
+    icons:
+    - {fileID: 5993046637634910102, guid: 7329880ae26255f41a96a595e231fe88, type: 3}
+    itemNames:
+    - Diamond
+    quantities: 01000000
+    rewardText: 'Reward: Tracking Bullets'
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: trackingWeapon
+    recipeReward: 
+  - promptText: Create a Dark Matter Planet
+    questType: planet
+    requirementCount: 1
+    icons:
+    - {fileID: 5607915213000418836, guid: 6d4267d1868aa1949b00b6e1c51ee73b, type: 3}
+    itemNames:
+    - Dark
+    quantities: 01000000
+    rewardText: 'Reward: How to win the game'
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: 
+    recipeReward: EndGame
   almanacRewards:
   - name: Food
     combo:
@@ -2263,6 +2367,61 @@ MonoBehaviour:
       item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
         type: 3}
       item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      productionItems: []
+  - name: Volcano
+    combo:
+      planet: {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c,
+        type: 3}
+      item1: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f,
+        type: 3}
+      item2: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f,
+        type: 3}
+      item3: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f,
+        type: 3}
+      productionItems: []
+  - name: Poison
+    combo:
+      planet: {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c,
+        type: 3}
+      item1: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e,
+        type: 3}
+      item2: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f,
+        type: 3}
+      item3: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f,
+        type: 3}
+      productionItems: []
+  - name: Armory
+    combo:
+      planet: {fileID: 627526308858120103, guid: 740f2fc348d26404da8a3748f8a5f856,
+        type: 3}
+      item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
+        type: 3}
+      item2: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f,
+        type: 3}
+      item3: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f,
+        type: 3}
+      productionItems: []
+  - name: Steel
+    combo:
+      planet: {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c,
+        type: 3}
+      item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
+        type: 3}
+      item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
+        type: 3}
+      item3: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f,
+        type: 3}
+      productionItems: []
+  - name: EndGame
+    combo:
+      planet: {fileID: 4849600916687672688, guid: 69060e6f800d4064e971bd94f5ab7b22,
+        type: 3}
+      item1: {fileID: 7135516776879974215, guid: 5489e015fe23f774882937a98828005c,
+        type: 3}
+      item2: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c,
+        type: 3}
+      item3: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233,
         type: 3}
       productionItems: []
   questIndex: 0
