@@ -78,11 +78,11 @@ public class QuestSystem : MonoBehaviour
         {
             questEntry1.enemyKilled(name);
         }
-        else if (questEntry2.questType == "enemy")
+        if (questEntry2.questType == "enemy")
         {
             questEntry2.enemyKilled(name);
         }
-        else if (questEntry3.questType == "enemy")
+        if (questEntry3.questType == "enemy")
         {
             questEntry3.enemyKilled(name);
         }
@@ -94,11 +94,11 @@ public class QuestSystem : MonoBehaviour
         {
             questEntry1.planetCreated(name);
         }
-        else if (questEntry2.questType == "planet")
+        if (questEntry2.questType == "planet")
         {
             questEntry2.planetCreated(name);
         }
-        else if (questEntry3.questType == "planet")
+        if (questEntry3.questType == "planet")
         {
             questEntry3.planetCreated(name);
         }

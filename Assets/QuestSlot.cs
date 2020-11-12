@@ -19,10 +19,19 @@ public class QuestSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        string resourceName;
+        if (eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>() != null)
+        {
+            resourceName = eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource.ToUpper();
+        }
+        else
+        {
+            resourceName = eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().item.GetComponent<rsrce>().nameOfResource.ToUpper();
+        }
         Debug.Log("Dropped");
         if (select == "resource" &&
             eventData.pointerDrag != null && 
-            desiredResource.ToUpper().Contains(eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource.ToUpper())
+            desiredResource.ToUpper().Contains(resourceName)
             && quantity < desiredQuantity)
         {
 
