@@ -99,7 +99,6 @@ public class EnemyBullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Mine>().damageSurroundings();
         }
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle"
             && collision.gameObject.tag != "resource" && collision.gameObject.tag != "enemyRangeCollider"
              && collision.gameObject.tag != "playerRange" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "background")

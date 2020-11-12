@@ -37,7 +37,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 rarityLevel = 3;
             }
-            Debug.Log(rarityLevel);
             generateEnemy(rarityLevel);
             timeBeforeNextEnemy = timeBetweenEnemies;
         }

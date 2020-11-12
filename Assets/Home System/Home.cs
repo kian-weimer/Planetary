@@ -133,8 +133,8 @@ public class Home : MonoBehaviour
         {
             HUD.Find("PlanetName").GetComponent<InputField>().text = homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name;
             homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name = HUD.Find("PlanetName").GetComponent<InputField>().text;
-            Debug.Log(HUD.Find("PlanetName").GetComponent<InputField>().text.GetType());
-            Debug.Log(homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name.GetType());
+            //Debug.Log(HUD.Find("PlanetName").GetComponent<InputField>().text.GetType());
+            //Debug.Log(homePlanets[currentViewingPlanet].GetComponent<HomePlanet>().name.GetType());
         }
         //for tutorial
         catch(Exception e){ Debug.Log("Fuck you"); }
