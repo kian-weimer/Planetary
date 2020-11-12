@@ -8399,7 +8399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots: []
-  numberOfInventorySlots: 1
+  numberOfInventorySlots: 2
   origin: {x: 80, y: 80, z: 0}
   spacing: 160
   isFull: 0
