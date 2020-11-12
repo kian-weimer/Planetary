@@ -2091,12 +2091,12 @@ MonoBehaviour:
     itemNames:
     - Rock
     quantities: 01000000
-    rewardText: 'Reward: $100 25XP'
-    moneyReward: 100
-    expReward: 25
+    rewardText: 'Reward: $50, 5XP'
+    moneyReward: 50
+    expReward: 5
     upgradeReward: 
     recipeReward: 
-  - promptText: Get the resources below
+  - promptText: Get a Water, Oxygen, and Wood resource
     questType: resource
     requirementCount: 3
     icons:
@@ -2108,11 +2108,11 @@ MonoBehaviour:
     - Oxygen
     - Wood
     quantities: 010000000100000001000000
-    rewardText: 'Reward: Planet Recipe, 25XP'
-    moneyReward: 0
-    expReward: 25
+    rewardText: 'Reward: $100, 10XP'
+    moneyReward: 100
+    expReward: 10
     upgradeReward: 
-    recipeReward: Food
+    recipeReward: 
   - promptText: Kill Enemy
     questType: enemy
     requirementCount: 1
@@ -2121,9 +2121,9 @@ MonoBehaviour:
     itemNames:
     - Basic
     quantities: 01000000
-    rewardText: 'Reward: $50, 75XP'
+    rewardText: 'Reward: $50, 15XP'
     moneyReward: 50
-    expReward: 75
+    expReward: 15
     upgradeReward: 
     recipeReward: 
   - promptText: Create Food Planet
@@ -2134,8 +2134,100 @@ MonoBehaviour:
     itemNames:
     - FoodPlanet
     quantities: 01000000
-    rewardText: 'Reward: $1000'
-    moneyReward: 1000
+    rewardText: 'Reward: $200'
+    moneyReward: 200
+    expReward: 0
+    upgradeReward: 
+    recipeReward: 
+  - promptText: Kill the enemies blow to protect our solar system
+    questType: enemy
+    requirementCount: 2
+    icons:
+    - {fileID: 3826538837520844418, guid: 406601a657cf1f64c83d992fc9949f51, type: 3}
+    - {fileID: 7750895742295530552, guid: 4292cf938a5eb3a4b8773cec9cdc1787, type: 3}
+    itemNames:
+    - Basic
+    - Double
+    quantities: 0400000001000000
+    rewardText: 'Reward: Rainforest Recipe, 10XP'
+    moneyReward: 0
+    expReward: 10
+    upgradeReward: 
+    recipeReward: River
+  - promptText: Collect 2 water, 1 oxygen, and 5 wood
+    questType: resource
+    requirementCount: 3
+    icons:
+    - {fileID: 1505736530839571427, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    - {fileID: 6502448202980844329, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    - {fileID: 1176631071972580248, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    itemNames:
+    - Water
+    - Oxygen
+    - Wood
+    quantities: 020000000100000005000000
+    rewardText: 'Reward: Gas Upgrade, 20XP'
+    moneyReward: 0
+    expReward: 20
+    upgradeReward: gas
+    recipeReward: 
+  - promptText: Kill More Enemies!
+    questType: enemy
+    requirementCount: 3
+    icons:
+    - {fileID: 3826538837520844418, guid: 406601a657cf1f64c83d992fc9949f51, type: 3}
+    - {fileID: 792701233140208228, guid: 53941b5f84da0184280195673085a4df, type: 3}
+    - {fileID: 1775593339267888685, guid: 86ffb55d1cda1d74294ed56fa95d7f98, type: 3}
+    itemNames:
+    - Basic
+    - Turret
+    - Tracking
+    quantities: 080000000100000001000000
+    rewardText: 'Reward: Gold Planet Recipe, 30XP'
+    moneyReward: 0
+    expReward: 30
+    upgradeReward: 
+    recipeReward: Gold
+  - promptText: Create two Gold Planets
+    questType: planet
+    requirementCount: 1
+    icons:
+    - {fileID: 7038086248233512836, guid: 11875b1b186faac4b9c6933a19869cab, type: 3}
+    itemNames:
+    - Gold
+    quantities: 02000000
+    rewardText: 'Reward: $2000, 11XP'
+    moneyReward: 2000
+    expReward: 11
+    upgradeReward: 
+    recipeReward: 
+  - promptText: Collect 2 Iron, 2 lead, and 2 Lava
+    questType: resource
+    requirementCount: 3
+    icons:
+    - {fileID: 9211185789169040804, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    - {fileID: 8185992990628113467, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    - {fileID: 2608300956671047140, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    itemNames:
+    - Iron
+    - Lead
+    - Lava
+    quantities: 020000000200000002000000
+    rewardText: 'Reward: Resourse2Gas converter upgrade, 33XP'
+    moneyReward: 0
+    expReward: 33
+    upgradeReward: deleteRegen
+    recipeReward: 
+  - promptText: Create Food Planet
+    questType: planet
+    requirementCount: 1
+    icons:
+    - {fileID: 1344606031622915078, guid: b2ab03805c5499e4aae2ac07a7fad4ca, type: 3}
+    itemNames:
+    - FoodPlanet
+    quantities: 01000000
+    rewardText: 'Reward: $200'
+    moneyReward: 200
     expReward: 0
     upgradeReward: 
     recipeReward: 
@@ -2151,12 +2243,36 @@ MonoBehaviour:
       item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11,
         type: 3}
       productionItems: []
+  - name: River
+    combo:
+      planet: {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4,
+        type: 3}
+      item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8,
+        type: 3}
+      item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      productionItems: []
+  - name: Gold
+    combo:
+      planet: {fileID: 2725874488225651500, guid: 11875b1b186faac4b9c6933a19869cab,
+        type: 3}
+      item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8,
+        type: 3}
+      item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
+        type: 3}
+      item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      productionItems: []
   questIndex: 0
   questEntry1: {fileID: 2101497851}
   questEntry2: {fileID: 497163098}
   questEntry3: {fileID: 1083972632}
   background: {fileID: 1828728660}
   alminac: {fileID: 1096552592030131896}
+  trackingWeapon: {fileID: 1274781002387059007, guid: 0c38f06ba3eb48b45a499da2cb9e1540,
+    type: 3}
 --- !u!1 &208510272
 GameObject:
   m_ObjectHideFlags: 0
@@ -9861,6 +9977,8 @@ MonoBehaviour:
   mine: {fileID: 2643686168886142182, guid: 673ac57ef3945af4484446ae704f502a, type: 3}
   timeBetweenMines: 2
   mineAmountText: {fileID: 1490738092}
+  deletionGasRegeneration: 0
+  deletionGasRegenerationAmount: 0.02
   nearHomePlanet: 0
   closestHomePlanet: {fileID: 0}
   popUpText: {fileID: 0}

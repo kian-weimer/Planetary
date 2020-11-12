@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     public GameObject explosion;
+    public GameObject enemy;
+
     // Start is called before the first frame update
     public float despawnTime = 3;
 
     private float spawnTime;
     public float bulletDamage = 5;
     public bool extraDamageToPlanets = false;
+
+    public bool trackingBullet = false;
+    public bool targeting = false;
+    public float trackingIntensity = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +33,24 @@ public class Bullet : MonoBehaviour
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Destroy(gameObject);
+        }
+    }
+
+    private int trackCount = 0;
+    private void FixedUpdate()
+    {
+        if (targeting && trackingBullet && trackCount < trackingIntensity)
+        {
+            try
+            {
+                Vector3 playerRelativePosition = enemy.transform.position - transform.position;
+                GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity*0.99f + (Vector2)playerRelativePosition.normalized * trackingIntensity;
+                trackCount++;
+            }
+            catch
+            {
+                targeting = false;
+            }
         }
     }
 
@@ -51,6 +76,17 @@ public class Bullet : MonoBehaviour
                 }
             }
         }
+        
+        if (collision.transform.CompareTag("enemyRangeCollider") && collision.name == "StoppingRange")
+        {
+            targeting = true;
+            enemy = collision.gameObject;
+        }
+        
+        if (targeting && trackingBullet)
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * 0.75f;
+        }
 
         if (collision.gameObject.tag == "Satellite")
         {
@@ -65,6 +101,7 @@ public class Bullet : MonoBehaviour
                 }
             }
         }
+
         if (collision.gameObject.tag == "Enemy")
         {
             if (collision.gameObject.GetComponent<EnemyController>() != null)
@@ -91,6 +128,13 @@ public class Bullet : MonoBehaviour
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
             Destroy(gameObject);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("enemyRangeCollider") && collision.name == "StoppingRange")
+        {
+            targeting = false;
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -275,7 +273,19 @@ public class QuestEntry : MonoBehaviour
     {
         switch (upgradeReward)
         {
-
+            case "gas":
+                player.maxGas += 50;
+                break;
+            case "health":
+                player.maxHealth += 50;
+                break;
+            case "trackingWeapon":
+                player.AddWeapon(Instantiate(transform.parent.parent.parent.GetComponent<QuestSystem>().trackingWeapon));
+                break;
+            case "deleteRegen":
+                player.deletionGasRegeneration = true;
+                BM.Broadcast("You will now gain gas when deleting resources from your inventory!");
+                break;
         }
 
     }

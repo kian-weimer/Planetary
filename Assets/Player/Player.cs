@@ -74,6 +74,11 @@ public class Player : MonoBehaviour
     private float timeBeforeNextMine;
     public GameObject mineAmountText;
 
+    public bool deletionGasRegeneration = false;
+    [Range(0, 1f)]
+    public float deletionGasRegenerationAmount;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -301,6 +306,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void regenerateFromDeletedItem()
+    {
+        if (deletionGasRegeneration)
+        {
+            regen(deletionGasRegenerationAmount*maxGas);
+        }
+    }
+
     public bool ConsumeGas(bool isBackwards)
     {
         gas -= isBackwards ? fuelConsumption / 4 : fuelConsumption;
@@ -395,6 +408,25 @@ public class Player : MonoBehaviour
         else
         {
             health = maxHealth;
+        }
+    }
+
+    public void regen(float amount)
+    {
+        if (gas + amount < maxGas)
+        {
+            gas += amount;
+
+            gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / (maxGas - maxGas * .1f), gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+
+            if (gas <= maxGas * .1f)
+            {
+                gasBarEnd.transform.localScale = new Vector3(-1 * (maxGas * .1f - gas) / (maxGas * .1f), gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
+            }
+        }
+        else
+        {
+            gas = maxGas;
         }
     }
 

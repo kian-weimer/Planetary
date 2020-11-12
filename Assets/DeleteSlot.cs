@@ -37,17 +37,15 @@ public class DeleteSlot : MonoBehaviour, IDropHandler
         gameObject.SetActive(false);
 
         InventorySlot delInv = transform.GetComponent<InventorySlot>();
-        Debug.Log("indelete");
         if (delInv.item != null)
         {
-            Debug.Log("notnull");
-
             // reduce inventory here
             RI.resourceList[delInv.item.GetComponent<rsrce>().nameOfResource] -= 1;
 
             delInv.icon.GetComponent<DragDrop>().destroy();
             Destroy(delInv.item);
             delInv.RemoveItem();
+            FindObjectOfType<Player>().regenerateFromDeletedItem();
         }
         deleting = false;
     }

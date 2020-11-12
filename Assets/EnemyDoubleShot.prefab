@@ -111,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: adce247a0714df046ad3056f6c66cb64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fef09eaed41dec94f9aa16f71fe3bef3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -153,6 +153,7 @@ MonoBehaviour:
   hitDamage: 50
   enhancedTargeting: 1
   deathExplosion: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
+  questSystem: {fileID: 0}
 --- !u!58 &7750895742295530554
 CircleCollider2D:
   m_ObjectHideFlags: 0

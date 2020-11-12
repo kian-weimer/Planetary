@@ -18,6 +18,7 @@ public class QuestSystem : MonoBehaviour
 
     public GameObject background;
     public Alminac alminac;
+    public GameObject trackingWeapon;
 
 
     // Start is called before the first frame update
