@@ -6,33 +6,57 @@ public class Respawn : MonoBehaviour
 {
     public float waitTime;
     public GameObject spawnLocation;
+    private bool isRespawning = false;
+    public GameObject explosion;
     // Start is called before the first frame update
-    public void playerRespawn()
+    public void playerRespawn(bool isGasDeath)
     {
-        transform.Find("PlayerTrail").gameObject.SetActive(false);
-        StartCoroutine(wait());
-        
+        if (!isRespawning)
+        {
+            transform.Find("PlayerTrail").gameObject.SetActive(false);
+            StartCoroutine(wait(isGasDeath));
+        }
     }
 
-    IEnumerator wait()
+    IEnumerator wait(bool isGas)
     {
-        yield return new WaitForSeconds(waitTime);
-        GetComponent<Player>().health = 1;
-        GetComponent<Player>().gas = GetComponent<Player>().maxGas/12;
-        GetComponent<Player>().transform.position = spawnLocation.transform.position;
-        GetComponent<PlayerController>().canMove = true;
-        GetComponent<PlayerController>().hasRespawned = false;
-        List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
-        foreach (GameObject playerItem in playerInventory)
+        isRespawning = true;
+
+        if (!isGas)
         {
-            if (playerItem.GetComponent<InventorySlot>().item != null)
-            {
-                FindObjectOfType<ResourceInventory>().checkForItemAndRemove(playerItem.GetComponent<InventorySlot>().item.gameObject.GetComponent<rsrce>().nameOfResource);
-                Destroy(playerItem.GetComponent<InventorySlot>().item);
-                Destroy(playerItem.GetComponent<InventorySlot>().icon);
-            }
+            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+            GameObject explosionObject = Instantiate(explosion);
+            explosionObject.transform.position = transform.position;
         }
-        FindObjectOfType<Inventory>().isFull = false;
-        transform.Find("PlayerTrail").gameObject.SetActive(true);
+
+
+        yield return new WaitForSeconds(waitTime);
+        if (GetComponent<Player>().isHome == false)
+        {
+            GetComponent<Player>().health = 1;
+            GetComponent<Player>().gas = GetComponent<Player>().maxGas / 12;
+            GetComponent<Player>().transform.position = spawnLocation.transform.position;
+            GetComponent<PlayerController>().canMove = true;
+            GetComponent<PlayerController>().hasRespawned = false;
+            List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
+            foreach (GameObject playerItem in playerInventory)
+            {
+                if (playerItem.GetComponent<InventorySlot>().item != null)
+                {
+                    FindObjectOfType<ResourceInventory>().checkForItemAndRemove(playerItem.GetComponent<InventorySlot>().item.gameObject.GetComponent<rsrce>().nameOfResource);
+                    Destroy(playerItem.GetComponent<InventorySlot>().item);
+                    Destroy(playerItem.GetComponent<InventorySlot>().icon);
+                }
+            }
+            FindObjectOfType<Inventory>().isFull = false;
+            transform.Find("PlayerTrail").gameObject.SetActive(true);
+            
+        }
+        else
+        {
+            transform.Find("PlayerTrail").gameObject.SetActive(true);
+        }
+        isRespawning = false;
+        GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
     }
 }

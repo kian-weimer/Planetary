@@ -11304,6 +11304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 2
   spawnLocation: {fileID: 1082668131}
+  explosion: {fileID: 6964601313405217548, guid: c1abf32938cf5954f8c71ea5641176c8,
+    type: 3}
 --- !u!1 &952796143
 GameObject:
   m_ObjectHideFlags: 0
