@@ -66,5 +66,11 @@ public class EnemySpawner : MonoBehaviour
         int randomIndex = Random.Range(0, listOfEnemiesToChooseFrom.Count);
         GameObject badGuy = Instantiate(listOfEnemiesToChooseFrom[randomIndex]);
         badGuy.transform.position = new Vector2(player.transform.position.x + xOffset, player.transform.position.y + yOffset);
+        float distanceAway = badGuy.transform.position.magnitude;
+        if(distanceAway < 70)
+        {
+            Destroy(badGuy);
+        }
+
     }
 }

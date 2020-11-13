@@ -336,7 +336,7 @@ public class Player : MonoBehaviour
 
             if(GetComponent<PlayerController>().hasRespawned == false)
             {
-                GetComponent<Respawn>().playerRespawn();
+                GetComponent<Respawn>().playerRespawn(true);
                 GetComponent<PlayerController>().hasRespawned = true;
             }
             return false;
@@ -363,7 +363,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            GetComponent<Respawn>().playerRespawn();
+            GetComponent<Respawn>().playerRespawn(false);
             GetComponent<PlayerController>().canMove = false;
         }
     }
