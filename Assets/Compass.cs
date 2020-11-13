@@ -23,7 +23,6 @@ public class Compass : MonoBehaviour
         //float homeRotation = Mathf.Abs((Quaternion.LookRotation(relativePos, Vector3.up).eulerAngles.x)) % 360;
         float homeRotation = Mathf.Rad2Deg * (Mathf.Atan2(relativePos.x, relativePos.y)) + 180;
 
-        Debug.Log((int)homeRotation%360);
         if (rotation <= 180 && positive)
         {
             transform.GetChild(0).localPosition = new Vector3(rotation * 10, 0, 0);
