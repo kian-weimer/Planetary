@@ -39,7 +39,8 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             Debug.Log("Pause Toggled!");
             gameManager.togglePause();
-            shopButton.SetActive(!shopButton.activeSelf);
+            
+            //shopButton.SetActive(!shopButton.activeSelf);
         }
     }
 
