@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 2005291242700092641}
   - component: {fileID: 4508821450445063657}
   m_Layer: 0
-  m_Name: TreeRiverPlanet
+  m_Name: SulfurPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
