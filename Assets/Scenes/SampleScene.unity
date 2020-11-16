@@ -24978,20 +24978,23 @@ MonoBehaviour:
     - {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5, type: 3}
     - {fileID: 4424518751619165468, guid: 7d11f554198a49b4d9f089c09b9fbe7d, type: 3}
     - {fileID: 3492839163673525715, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
-    - {fileID: 4947203564870176798, guid: 8a1abd5a03bb7bb489e774388847bc14, type: 3}
+    - {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3, type: 3}
+    - {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c, type: 3}
   - rarityLevel: 1000
     planets:
     - {fileID: 3890935795835789479, guid: 05d0a1d49db08ef48a86cb0f8320491f, type: 3}
     - {fileID: 4300934066779167416, guid: 91869df111172c64d8153e5baedf983b, type: 3}
     - {fileID: 1808918174209902007, guid: 4ed5e6604c12be14db9e88dbe79d5924, type: 3}
-    - {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3, type: 3}
+    - {fileID: 4947203564870176798, guid: 8a1abd5a03bb7bb489e774388847bc14, type: 3}
     - {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336, type: 3}
-  - rarityLevel: 100
+    - {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4, type: 3}
+  - rarityLevel: 250
     planets:
     - {fileID: 2725874488225651500, guid: 11875b1b186faac4b9c6933a19869cab, type: 3}
     - {fileID: 4300934066779167416, guid: b55a65c678ba88f42835eb26dea3ce7b, type: 3}
     - {fileID: 5258033714036245555, guid: f36ca44adaf894e468f6afb4bb18c8ea, type: 3}
-    - {fileID: 4947203564870176798, guid: 4e3a486e8ea2fe4449906612dc57fa8c, type: 3}
+    - {fileID: 4947203564870176798, guid: 16f7683d03097164c9139671b06528e7, type: 3}
+    - {fileID: 6465369783208651374, guid: fc055d08ceaf4584a9263e73b1e5639e, type: 3}
   - rarityLevel: 100
     planets:
     - {fileID: 1120403152165817852, guid: 85136233b4e5b6348bef706bafcda557, type: 3}
@@ -27897,6 +27900,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetComboList:
+  - planet: {fileID: 3492839163673525715, guid: f9d613afcb70ca6449a10a9899f32c71,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    productionItems:
+    - resource: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8,
+        type: 3}
+      amountProduced: 1
+      frequency: 30
+  - planet: {fileID: 4424518751619165468, guid: 7d11f554198a49b4d9f089c09b9fbe7d,
+      type: 3}
+    item1: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems:
+    - resource: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      amountProduced: 1
+      frequency: 20
+  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
+      type: 3}
+    item1: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item2: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    productionItems:
+    - resource: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item3: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    productionItems:
+    - resource: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0,
+        type: 3}
+      amountProduced: 1
+      frequency: 5
+  - planet: {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c,
+      type: 3}
+    item1: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277, type: 3}
+    item2: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277, type: 3}
+    item3: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277, type: 3}
+    productionItems:
+    - resource: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c,
+      type: 3}
+    item1: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277, type: 3}
+    item2: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277, type: 3}
+    item3: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    productionItems:
+    - resource: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c,
+      type: 3}
+    item1: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    productionItems:
+    - resource: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277,
+        type: 3}
+      amountProduced: 1
+      frequency: 75
+  - planet: {fileID: 3890935795835789479, guid: 05d0a1d49db08ef48a86cb0f8320491f,
+      type: 3}
+    item1: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item2: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item3: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    productionItems:
+    - resource: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f,
+        type: 3}
+      amountProduced: 1
+      frequency: 75
   - planet: {fileID: 3890935795835789479, guid: 05d0a1d49db08ef48a86cb0f8320491f,
       type: 3}
     item1: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
@@ -27905,8 +27988,258 @@ MonoBehaviour:
     productionItems:
     - resource: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f,
         type: 3}
-      amountProduced: 5
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 1808918174209902007, guid: 4ed5e6604c12be14db9e88dbe79d5924,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    item3: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    productionItems:
+    - resource: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 1808918174209902007, guid: 4ed5e6604c12be14db9e88dbe79d5924,
+      type: 3}
+    item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    item3: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    productionItems:
+    - resource: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems:
+    - resource: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems:
+    - resource: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336,
+      type: 3}
+    item1: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    item2: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    item3: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    productionItems:
+    - resource: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    item3: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    productionItems:
+    - resource: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f,
+        type: 3}
+      amountProduced: 1
+      frequency: 75
+  - planet: {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4,
+      type: 3}
+    item1: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    item2: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    item3: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    productionItems:
+    - resource: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 4947203564870176798, guid: 8a1abd5a03bb7bb489e774388847bc14,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems:
+    - resource: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 4947203564870176798, guid: 8a1abd5a03bb7bb489e774388847bc14,
+      type: 3}
+    item1: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    productionItems:
+    - resource: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 4947203564870176798, guid: 8a1abd5a03bb7bb489e774388847bc14,
+      type: 3}
+    item1: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item3: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    productionItems:
+    - resource: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 4947203564870176798, guid: 8a1abd5a03bb7bb489e774388847bc14,
+      type: 3}
+    item1: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item2: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    item3: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    productionItems:
+    - resource: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
+        type: 3}
+      amountProduced: 1
+      frequency: 75
+  - planet: {fileID: 4300934066779167416, guid: 91869df111172c64d8153e5baedf983b,
+      type: 3}
+    item1: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    item2: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems:
+    - resource: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd,
+        type: 3}
+      amountProduced: 1
+      frequency: 30
+  - planet: {fileID: 4300934066779167416, guid: 91869df111172c64d8153e5baedf983b,
+      type: 3}
+    item1: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems:
+    - resource: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 4300934066779167416, guid: 91869df111172c64d8153e5baedf983b,
+      type: 3}
+    item1: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    item2: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    item3: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    productionItems:
+    - resource: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd,
+        type: 3}
+      amountProduced: 1
+      frequency: 25
+  - planet: {fileID: 4947203564870176798, guid: 16f7683d03097164c9139671b06528e7,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item3: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
+    productionItems:
+    - resource: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e,
+        type: 3}
+      amountProduced: 1
       frequency: 120
+  - planet: {fileID: 4947203564870176798, guid: 16f7683d03097164c9139671b06528e7,
+      type: 3}
+    item1: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
+    item2: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
+    item3: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
+    productionItems:
+    - resource: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e,
+        type: 3}
+      amountProduced: 1
+      frequency: 90
+  - planet: {fileID: 5258033714036245555, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+      type: 3}
+    item1: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item2: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item3: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    productionItems:
+    - resource: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f,
+        type: 3}
+      amountProduced: 1
+      frequency: 120
+  - planet: {fileID: 5258033714036245555, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+      type: 3}
+    item1: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    item2: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    item3: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    productionItems:
+    - resource: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f,
+        type: 3}
+      amountProduced: 1
+      frequency: 90
+  - planet: {fileID: 5258033714036245555, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+      type: 3}
+    item1: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item2: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    item3: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    productionItems:
+    - resource: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f,
+        type: 3}
+      amountProduced: 1
+      frequency: 150
+  - planet: {fileID: 4300934066779167416, guid: b55a65c678ba88f42835eb26dea3ce7b,
+      type: 3}
+    item1: {fileID: 2802919678991202118, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+    item2: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    productionItems:
+    - resource: {fileID: 1303018686466911420, guid: 6fd6c7e6627463d4784c9d9ffc5fc3a2,
+        type: 3}
+      amountProduced: 1
+      frequency: 75
+  - planet: {fileID: 4300934066779167416, guid: b55a65c678ba88f42835eb26dea3ce7b,
+      type: 3}
+    item1: {fileID: 1303018686466911420, guid: 6fd6c7e6627463d4784c9d9ffc5fc3a2, type: 3}
+    item2: {fileID: 1303018686466911420, guid: 6fd6c7e6627463d4784c9d9ffc5fc3a2, type: 3}
+    item3: {fileID: 1303018686466911420, guid: 6fd6c7e6627463d4784c9d9ffc5fc3a2, type: 3}
+    productionItems:
+    - resource: {fileID: 1303018686466911420, guid: 6fd6c7e6627463d4784c9d9ffc5fc3a2,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 2725874488225651500, guid: 11875b1b186faac4b9c6933a19869cab,
+      type: 3}
+    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    item2: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
+    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    productionItems:
+    - resource: {fileID: 8840840732891779579, guid: f0b4514fd2a4feb4cbb3a63df01438a1,
+        type: 3}
+      amountProduced: 1
+      frequency: 150
+  - planet: {fileID: 2725874488225651500, guid: 11875b1b186faac4b9c6933a19869cab,
+      type: 3}
+    item1: {fileID: 8840840732891779579, guid: f0b4514fd2a4feb4cbb3a63df01438a1, type: 3}
+    item2: {fileID: 8840840732891779579, guid: f0b4514fd2a4feb4cbb3a63df01438a1, type: 3}
+    item3: {fileID: 8840840732891779579, guid: f0b4514fd2a4feb4cbb3a63df01438a1, type: 3}
+    productionItems:
+    - resource: {fileID: 8840840732891779579, guid: f0b4514fd2a4feb4cbb3a63df01438a1,
+        type: 3}
+      amountProduced: 1
+      frequency: 90
+  - planet: {fileID: 6465369783208651374, guid: fc055d08ceaf4584a9263e73b1e5639e,
+      type: 3}
+    item1: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4, type: 3}
+    item2: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4, type: 3}
+    item3: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4, type: 3}
+    productionItems:
+    - resource: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4,
+        type: 3}
+      amountProduced: 1
+      frequency: 60
+  - planet: {fileID: 6465369783208651374, guid: fc055d08ceaf4584a9263e73b1e5639e,
+      type: 3}
+    item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    productionItems:
+    - resource: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4,
+        type: 3}
+      amountProduced: 1
+      frequency: 75
   - planet: {fileID: 696755485912486588, guid: 6d4267d1868aa1949b00b6e1c51ee73b, type: 3}
     item1: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
     item2: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
@@ -27926,46 +28259,26 @@ MonoBehaviour:
         type: 3}
       amountProduced: 1
       frequency: 300
-  - planet: {fileID: 1808918174209902007, guid: 4ed5e6604c12be14db9e88dbe79d5924,
-      type: 3}
-    item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
-    item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
-    item3: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
-    productionItems:
-    - resource: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
-        type: 3}
-      amountProduced: 1
-      frequency: 60
-  - planet: {fileID: 2195700100502071623, guid: 3063c3d38f679dc46a5a791f8000d9d3,
-      type: 3}
-    item1: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
-    item2: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
-    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
-    productionItems:
-    - resource: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f,
-        type: 3}
-      amountProduced: 1
-      frequency: 120
-  - planet: {fileID: 5258033714036245555, guid: f36ca44adaf894e468f6afb4bb18c8ea,
+  - planet: {fileID: 1680856869468078910, guid: 7329880ae26255f41a96a595e231fe88,
       type: 3}
     item1: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
     item2: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
-    item3: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
     productionItems:
-    - resource: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f,
-        type: 3}
-      amountProduced: 2
-      frequency: 180
-  - planet: {fileID: 4947203564870176798, guid: 4e3a486e8ea2fe4449906612dc57fa8c,
-      type: 3}
-    item1: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
-    item2: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
-    item3: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
-    productionItems:
-    - resource: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e,
+    - resource: {fileID: 7135516776879974215, guid: 5489e015fe23f774882937a98828005c,
         type: 3}
       amountProduced: 1
-      frequency: 90
+      frequency: 500
+  - planet: {fileID: 1680856869468078910, guid: 7329880ae26255f41a96a595e231fe88,
+      type: 3}
+    item1: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item2: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    item3: {fileID: 7135516776879974215, guid: 5489e015fe23f774882937a98828005c, type: 3}
+    productionItems:
+    - resource: {fileID: 7135516776879974215, guid: 5489e015fe23f774882937a98828005c,
+        type: 3}
+      amountProduced: 1
+      frequency: 400
   - planet: {fileID: 1120403152165817852, guid: 85136233b4e5b6348bef706bafcda557,
       type: 3}
     item1: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
@@ -27974,135 +28287,57 @@ MonoBehaviour:
     productionItems:
     - resource: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233,
         type: 3}
-      amountProduced: 5
-      frequency: 600
-  - planet: {fileID: 4424518751619165468, guid: 7d11f554198a49b4d9f089c09b9fbe7d,
-      type: 3}
-    item1: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
-    item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
-    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
-    productionItems:
-    - resource: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11,
-        type: 3}
-      amountProduced: 2
-      frequency: 60
-  - planet: {fileID: 3492839163673525715, guid: f9d613afcb70ca6449a10a9899f32c71,
-      type: 3}
-    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
-    item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
-    item3: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
-    productionItems:
-    - resource: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8,
-        type: 3}
-      amountProduced: 3
-      frequency: 90
-  - planet: {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5,
-      type: 3}
-    item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
-    item2: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
-    item3: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
-    productionItems:
-    - resource: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0,
-        type: 3}
-      amountProduced: 4
-      frequency: 2
-  - planet: {fileID: 4947203564870176798, guid: 16f7683d03097164c9139671b06528e7,
-      type: 3}
-    item1: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
-    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
-    item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
-    productionItems:
-    - resource: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
-        type: 3}
       amountProduced: 1
-      frequency: 60
-  - planet: {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4,
-      type: 3}
-    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
-    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
-    item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
-    productionItems:
-    - resource: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86,
-        type: 3}
-      amountProduced: 1
-      frequency: 30
-    - resource: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8,
-        type: 3}
-      amountProduced: 1
-      frequency: 25
-  - planet: {fileID: 6255797090224648366, guid: b2ab03805c5499e4aae2ac07a7fad4ca,
-      type: 3}
-    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
-    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
-    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
-    productionItems:
-    - resource: {fileID: 1011930184407368264, guid: 010a9d1e405ad144c828ba20498178fd,
-        type: 3}
-      amountProduced: 2
-      frequency: 90
-  - planet: {fileID: 2725874488225651500, guid: 11875b1b186faac4b9c6933a19869cab,
-      type: 3}
-    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
-    item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
-    item3: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
-    productionItems:
-    - resource: {fileID: 8840840732891779579, guid: f0b4514fd2a4feb4cbb3a63df01438a1,
-        type: 3}
-      amountProduced: 3
       frequency: 300
-  - planet: {fileID: 6465369783208651374, guid: fc055d08ceaf4584a9263e73b1e5639e,
+  - planet: {fileID: 1120403152165817852, guid: 85136233b4e5b6348bef706bafcda557,
       type: 3}
-    item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
-    item2: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
-    item3: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
+    item1: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+    item2: {fileID: 5393583906633940471, guid: 99aecabf7ad198b4fabcf79825c4d277, type: 3}
+    item3: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
     productionItems:
-    - resource: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4,
+    - resource: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233,
         type: 3}
       amountProduced: 1
-      frequency: 60
-  - planet: {fileID: 4300934066779167416, guid: 91869df111172c64d8153e5baedf983b,
-      type: 3}
-    item1: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
-    item2: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
-    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
-    productionItems:
-    - resource: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd,
-        type: 3}
-      amountProduced: 1
-      frequency: 20
-  - planet: {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c,
-      type: 3}
-    item1: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
-    item2: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
-    item3: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
-    productionItems:
-    - resource: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f,
-        type: 3}
-      amountProduced: 1
-      frequency: 60
-    - resource: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
-        type: 3}
-      amountProduced: 1
-      frequency: 45
-  - planet: {fileID: 627526308858120103, guid: 740f2fc348d26404da8a3748f8a5f856, type: 3}
-    item1: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
-    item2: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
-    item3: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
-    productionItems:
-    - resource: {fileID: 3990822057962096019, guid: 76104483fe23cf545a0a149a8e84f898,
-        type: 3}
-      amountProduced: 1
-      frequency: 45
+      frequency: 450
   - planet: {fileID: 4849600916687672688, guid: 69060e6f800d4064e971bd94f5ab7b22,
       type: 3}
-    item1: {fileID: 7135516776879974215, guid: 5489e015fe23f774882937a98828005c, type: 3}
-    item2: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
-    item3: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
+    item1: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
+    item2: {fileID: 7135516776879974215, guid: 5489e015fe23f774882937a98828005c, type: 3}
+    item3: {fileID: 6113454705168169705, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
     productionItems:
     - resource: {fileID: 3006148808787116880, guid: 1e1c303022e665b42a8127eb0556eeea,
         type: 3}
       amountProduced: 1
       frequency: 60
+  - planet: {fileID: 627526308858120103, guid: 740f2fc348d26404da8a3748f8a5f856, type: 3}
+    item1: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4, type: 3}
+    item2: {fileID: 5941941447345296102, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+    item3: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+    productionItems:
+    - resource: {fileID: 3990822057962096019, guid: 76104483fe23cf545a0a149a8e84f898,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 6255797090224648366, guid: b2ab03805c5499e4aae2ac07a7fad4ca,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+    item3: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    productionItems:
+    - resource: {fileID: 1011930184407368264, guid: 010a9d1e405ad144c828ba20498178fd,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
+  - planet: {fileID: 4300934066779167416, guid: 91869df111172c64d8153e5baedf983b,
+      type: 3}
+    item1: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd, type: 3}
+    item2: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd, type: 3}
+    item3: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd, type: 3}
+    productionItems:
+    - resource: {fileID: 7246004080046766129, guid: eeac8a02164464942af530fa198e8abd,
+        type: 3}
+      amountProduced: 1
+      frequency: 20
   planetTreeLocks: {fileID: 211465710}
   alminac: {fileID: 1096552592030131896}
   questSystem: {fileID: 204075745}
