@@ -313,12 +313,12 @@ SpriteRenderer:
   m_SortingLayerID: 273201793
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9b4ef0e661161af49a5a362cde6a79a9, type: 3}
-  m_Color: {r: 1, g: 0.73474693, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: feb86f5d066ca364ba8ef992f657b58d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -351,7 +351,7 @@ MonoBehaviour:
   discovered: 0
   planetExplosion: {fileID: 6964601313405217548, guid: c1abf32938cf5954f8c71ea5641176c8,
     type: 3}
-  planetResource: {fileID: 7945304767727497163, guid: e6f822adfdfe8fe4cb465668bb7cb6c0,
+  planetResource: {fileID: 5143818115458647788, guid: eeac8a02164464942af530fa198e8abd,
     type: 3}
   inHomeSystem: 0
   destroyed: 0
