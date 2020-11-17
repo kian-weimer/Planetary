@@ -115,7 +115,7 @@ MonoBehaviour:
   discovered: 0
   planetExplosion: {fileID: 6964601313405217548, guid: c1abf32938cf5954f8c71ea5641176c8,
     type: 3}
-  planetResource: {fileID: 2608300956671047140, guid: 7a65055eb53261d439554f9c7308763f,
+  planetResource: {fileID: 8185992990628113467, guid: f11cf6db948b1754b80fc0db5eb9034f,
     type: 3}
   inHomeSystem: 0
   destroyed: 0
@@ -128,7 +128,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900798597032898715}
   m_BodyType: 1
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
