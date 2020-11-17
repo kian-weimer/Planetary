@@ -12,7 +12,7 @@ public class Planet : MonoBehaviour
     public float health; // planet's health
     public Vector3 position;
     //public int type; // the type of planet (used to create image)
-    public bool discovered; // true is the planet has been seen
+    public int discovered; // 0 corrresponds to non discovered, 1 means discovered but the rarity is not known to the map, 2 means that rarity is known to the map// true is the planet has been seen
     public GameObject planetExplosion; // holds the prefab of the explosionm animation used when the planet is destroyed
     public GameObject planetResource; // holds the item resource that the planet pops out when destroyed
     public bool inHomeSystem = false; // is true when its in the home solar system
@@ -25,7 +25,7 @@ public class Planet : MonoBehaviour
         gameObject.transform.position = position;
         health = info.health;
         rarity = info.rarity;
-        discovered = info.discovered;
+        discovered = 1;
         maxHealth = info.maxHealth;
     }
 

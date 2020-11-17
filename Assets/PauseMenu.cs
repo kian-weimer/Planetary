@@ -25,6 +25,10 @@ public class PauseMenu : MonoBehaviour
             {
                 if (screens.GetChild(i).gameObject.activeSelf)
                 {
+                    if (screens.GetChild(i).name == "Minimap")
+                    {
+                        screens.GetChild(i).GetComponent<Map>().reset();
+                    }
                     screens.GetChild(i).gameObject.SetActive(false);
                 }
             }

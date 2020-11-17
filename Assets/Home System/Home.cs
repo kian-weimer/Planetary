@@ -28,6 +28,9 @@ public class Home : MonoBehaviour
 
     public ResourceInventory resourceInventory;
 
+    public Map map;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -50,7 +53,8 @@ public class Home : MonoBehaviour
             //planet.gameObject.name = "PLANET" + i;
             planet.transform.parent = gameObject.transform;
             homePlanets.Add(planet);
-            
+            map.addPlanetToMap(planet, true);
+
         }
     }
 
@@ -72,7 +76,8 @@ public class Home : MonoBehaviour
         //planet.gameObject.name = "PLANET" + planetNumber;
         planet.transform.parent = gameObject.transform;
         homePlanets.Add(planet);
-        
+        map.addPlanetToMap(planet, true);
+
     }
 
     public void IncreasePlanetView(int changeValue)

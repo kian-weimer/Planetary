@@ -40,6 +40,8 @@ public class planetGenerator : MonoBehaviour
 
     // public float planetSizeVariance = 0.2f;
 
+    public Map map;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -252,7 +254,19 @@ public class planetGenerator : MonoBehaviour
         foreach (PlanetInfo planetInfo in planetInfoList[gridPosition])
         {
             Planet planet = Instantiate(planetTypes[planetInfo.rarity].planets[planetInfo.type]);
-            planet.Initialize(planetInfo);
+            planet.Initialize(planetInfo); 
+            if (planetInfo.discovered < 2)
+            {
+                if (planetInfo.rarity <= Map.vewableRarityLevel) {
+                    planetInfo.discovered = 2;
+                    map.addPlanetToMap(planet);
+                }
+                if (planetInfo.rarity > Map.vewableRarityLevel)
+                {
+                    planetInfo.discovered = 1;
+                    map.addPlanetToMap(planet, false, Map.vewableRarityLevel);
+                }
+            }
             planetsObjectsInGame.Add(planet.gameObject);
         }
     }

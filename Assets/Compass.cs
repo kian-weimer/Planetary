@@ -6,6 +6,8 @@ public class Compass : MonoBehaviour
 {
     public GameObject player;
     public GameObject home;
+    public GameObject trackingIcon; // to be used to create traking images on the compass
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,4 +50,6 @@ public class Compass : MonoBehaviour
 
         }
     }
+
+
 }

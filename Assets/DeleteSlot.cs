@@ -28,7 +28,6 @@ public class DeleteSlot : MonoBehaviour, IDropHandler
     public void delete()
     {
         StartCoroutine(wait());
-
     }
 
     public void deleteNow()

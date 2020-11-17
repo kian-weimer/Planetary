@@ -12,7 +12,7 @@ public class PlanetInfo
     public float maxHealth;
     public float health; // planet's health
     public int type; // the type of planet (used to create image)
-    public bool discovered; // true is the planet has been seen
+    public int discovered; // 0 corrresponds to non discovered, 1 means discovered but the rarity is not known to the map, 2 means that rarity is known to the map// true is the planet has been seen
     public bool inHomeSystem;
 
     public PlanetInfo(float xpos, float ypos , int rarity, float maxHealth, int type, bool inHomeSystem)
@@ -24,7 +24,7 @@ public class PlanetInfo
         this.maxHealth = maxHealth;
         health = maxHealth; // may need to be changed when loading in a planet with less than max health
         this.type = type;
-        discovered = false;
+        discovered = 0;
         this.inHomeSystem = inHomeSystem;
     }
 }
