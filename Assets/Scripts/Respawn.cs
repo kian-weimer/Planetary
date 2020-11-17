@@ -33,10 +33,10 @@ public class Respawn : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         if (GetComponent<Player>().isHome == false)
         {
-            if (FindObjectOfType<PauseMenu>().gameObject.activeSelf == true)
+            if (FindObjectOfType<PauseMenu>() != null)
             {
                 FindObjectOfType<PauseMenu>().togglePauseMenu();
-                if (FindObjectOfType<PauseMenu>().gameObject.activeSelf == true)
+                if (FindObjectOfType<PauseMenu>() != null)
                 {
                     FindObjectOfType<PauseMenu>().togglePauseMenu();
                 }
