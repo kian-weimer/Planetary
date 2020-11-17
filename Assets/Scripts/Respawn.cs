@@ -33,6 +33,14 @@ public class Respawn : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         if (GetComponent<Player>().isHome == false)
         {
+            if (FindObjectOfType<PauseMenu>().gameObject.activeSelf == true)
+            {
+                FindObjectOfType<PauseMenu>().togglePauseMenu();
+                if (FindObjectOfType<PauseMenu>().gameObject.activeSelf == true)
+                {
+                    FindObjectOfType<PauseMenu>().togglePauseMenu();
+                }
+            }
             GetComponent<Player>().health = 1;
             GetComponent<Player>().gas = GetComponent<Player>().maxGas / 12;
             GetComponent<Player>().transform.position = spawnLocation.transform.position;

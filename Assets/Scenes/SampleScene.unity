@@ -726,7 +726,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76818225
 GameObject:
@@ -29834,7 +29834,7 @@ MonoBehaviour:
         type: 3}
       amountProduced: 1
       frequency: 120
-  - planet: {fileID: 4947203564870176798, guid: 16f7683d03097164c9139671b06528e7,
+  - planet: {fileID: 4947203564870176798, guid: 4e3a486e8ea2fe4449906612dc57fa8c,
       type: 3}
     item1: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
     item2: {fileID: 3189331701042952293, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
@@ -66785,7 +66785,7 @@ PrefabInstance:
     - target: {fileID: 7218054476139693398, guid: e78e9ce7934546748a7b35e228945010,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7218054476139693398, guid: e78e9ce7934546748a7b35e228945010,
         type: 3}
