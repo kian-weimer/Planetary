@@ -31379,6 +31379,7 @@ MonoBehaviour:
   legendaryCrate: {fileID: 6543640816968637207, guid: b6d96e5551cefd5409a52efac812b336,
     type: 3}
   crateSpawnPoint: {fileID: 1169727999}
+  BM: {fileID: 1197296656}
 --- !u!114 &1960612302
 MonoBehaviour:
   m_ObjectHideFlags: 0

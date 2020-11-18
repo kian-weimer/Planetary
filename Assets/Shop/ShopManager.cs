@@ -26,6 +26,7 @@ public class ShopManager : MonoBehaviour
     public GameObject rareCrate;
     public GameObject legendaryCrate;
     public GameObject crateSpawnPoint;
+    public BroadcastMessage BM;
 
     void Start()
     {
@@ -116,14 +117,17 @@ public class ShopManager : MonoBehaviour
             case "Common Crate":
                 GameObject crate = Instantiate(commonCrate);
                 crate.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
+                BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 break;
             case "Rare Crate":
                 GameObject crateRare = Instantiate(rareCrate);
                 crateRare.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
+                BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 break;
             case "Legendary Crate":
                 GameObject crateLegendary = Instantiate(legendaryCrate);
                 crateLegendary.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
+                BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 break;
         }
     }
