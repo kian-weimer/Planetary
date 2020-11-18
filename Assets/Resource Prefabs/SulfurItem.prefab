@@ -67,5 +67,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 3206725854263523410, guid: 364bec15eb573ed4b91784065bc7ca89,
+        type: 3}
+    - target: {fileID: 8200843796745810857, guid: 8d4252ff6accadc4e9814e17fe3475d4,
+        type: 3}
+      propertyPath: nameOfResource
+      value: Sulfur
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d4252ff6accadc4e9814e17fe3475d4, type: 3}

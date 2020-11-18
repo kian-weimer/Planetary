@@ -67,5 +67,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantItem
       objectReference: {fileID: 0}
+    - target: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 2857854581177495184, guid: d8b58cea92af6484eb9c3a4cedf5f2e3,
+        type: 3}
+    - target: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: nameOfResource
+      value: Plants
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
