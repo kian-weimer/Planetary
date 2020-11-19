@@ -87,6 +87,7 @@ public class EnemyController : MonoBehaviour
 
         if (inTargetingRange)
         {
+            if (target == null) { return; }
             Vector3 playerRelativePosition = target.transform.position - transform.position;
             float playerDirection = Mathf.Rad2Deg * Mathf.Atan(playerRelativePosition.y / playerRelativePosition.x);
 

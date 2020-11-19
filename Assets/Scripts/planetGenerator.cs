@@ -255,25 +255,33 @@ public class planetGenerator : MonoBehaviour
         {
             // overlapping planets are simply ignored///////////////////////
             Vector2 pos = new Vector2(planetInfo.position[0], planetInfo.position[1]);
-            Collider2D[] collidersHit = Physics2D.OverlapCircleAll(pos, 5 * planetTypes[planetInfo.rarity].planets[planetInfo.type].transform.localScale.x);
-            if (collidersHit.Length > 1)
+            try // used to stop strange error
             {
-                foreach (Collider2D collider in collidersHit)
+                Collider2D[] collidersHit = Physics2D.OverlapCircleAll(pos, 5 * planetTypes[planetInfo.rarity].planets[planetInfo.type].transform.localScale.x);
+                if (collidersHit.Length > 1)
                 {
-                    if (collider != null)
+                    foreach (Collider2D collider in collidersHit)
                     {
-                        if (collider.gameObject.tag == "Planet" || collider.gameObject.tag == "Player")
+                        if (collider != null)
                         {
-                            Debug.Log("Overlap Detected for planet: PGPLANET LVL" + planetInfo.rarity);
-                            pos = Vector2.zero;
+                            if (collider.gameObject.tag == "Planet" || collider.gameObject.tag == "Player")
+                            {
+                                Debug.Log("Overlap Detected for planet: PGPLANET LVL" + planetInfo.rarity);
+                                pos = Vector2.zero;
+                            }
                         }
                     }
-                }
-                if (pos == Vector2.zero)
-                {
-                    continue;
+                    if (pos == Vector2.zero)
+                    {
+                        continue;
+                    }
                 }
             }
+            catch (MissingReferenceException)
+            {
+                continue;
+            }
+           
             ////////////////////////////////////////////////////////////////
 
             Planet planet = Instantiate(planetTypes[planetInfo.rarity].planets[planetInfo.type]);
@@ -321,7 +329,7 @@ public class planetGenerator : MonoBehaviour
             planetInfoList[GetGridPosition(planet.position)].Remove(planet.info);
             planetsObjectsInGame.Remove(planet.gameObject);
         }
-        map.addPlanetToMap(planet, false, -1);
+        map.addPlanetToMap(planet, false, -2);
         Destroy(planet.gameObject);
     }
 }

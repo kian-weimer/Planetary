@@ -99,7 +99,7 @@ public class Map : MonoBehaviour
         {
             switch (rarity)
             {
-                case -1: // deletion
+                case -2: // deletion
                     texture.DrawCircle(Color.black, (int)(2000 + planet.transform.position.x / scaleFactor),
                         (int)(2000 + planet.transform.position.y / scaleFactor), 3);
                     break;
