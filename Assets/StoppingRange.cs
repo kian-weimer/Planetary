@@ -11,6 +11,13 @@ public class StoppingRange : MonoBehaviour
         {
             EC.inStoppingRange = true;
         }
+        if (EC.target != null)
+        {
+            if (collision.gameObject.tag == EC.target.tag)
+            {
+                EC.inStoppingRange = true;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -18,6 +25,13 @@ public class StoppingRange : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             EC.inStoppingRange = false;
+        }
+        if (EC.target != null)
+        {
+            if (collision.gameObject.tag == EC.target.tag)
+            {
+                EC.inStoppingRange = false;
+            }
         }
     }
 }

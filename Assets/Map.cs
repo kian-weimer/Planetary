@@ -8,6 +8,8 @@ public class Map : MonoBehaviour
 {
     public GameObject displayArea;
     public GameObject planetIcon;
+    public GameObject trackingIcon;
+
     public float scaleFactor = 1;
     public float playerScaleFactor = 1;
 
@@ -42,6 +44,11 @@ public class Map : MonoBehaviour
         {
             displayArea.GetComponent<RectTransform>().anchoredPosition = (-1 * player.transform.position / scaleFactor * playerScaleFactor) 
                 * displayArea.transform.localScale.x;
+
+        }
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            
 
         }
 
@@ -92,6 +99,10 @@ public class Map : MonoBehaviour
         {
             switch (rarity)
             {
+                case -1: // deletion
+                    texture.DrawCircle(Color.black, (int)(2000 + planet.transform.position.x / scaleFactor),
+                        (int)(2000 + planet.transform.position.y / scaleFactor), 3);
+                    break;
                 case 0:
                     texture.DrawCircle(Color.white, (int)(2000 + planet.transform.position.x / scaleFactor),
                         (int)(2000 + planet.transform.position.y / scaleFactor), 3);

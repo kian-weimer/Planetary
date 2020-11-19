@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ public class Home : MonoBehaviour
 
     public ResourceInventory resourceInventory;
 
+    public BroadcastMessage BM;
     public Map map;
 
 
@@ -39,8 +41,37 @@ public class Home : MonoBehaviour
         for (int i = 0; i < numberOfStartingHomePlanets; i++)
         {
             int numberOfHomeRings = (int)Math.Floor((float)(PG.homeOffset - sunOffset) / planetRingSeperation);
+            Vector2 pos;
+            float variance = 1f;
+            do
+            {
+                pos = (((float)i % numberOfHomeRings) * planetRingSeperation * variance + sunOffset) * PG.PositionGenerator(i);
+                Collider2D[] collidersHit = Physics2D.OverlapCircleAll(pos, 5 * rockPlanet.transform.localScale.x);
 
-            Vector2 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
+                if (collidersHit.Length > 1)
+                {
+                    foreach (Collider2D collider in collidersHit)
+                    {
+                        if (collider != null)
+                        {
+                            if (collider.gameObject.tag == "Planet" || collider.gameObject.tag == "Player")
+                            {
+                                Debug.Log("Overlap Detected for planet: PLANET" + i);
+                                pos = Vector2.zero;
+                            }
+                        }
+                    }
+
+                }
+                variance += 0.001f;
+            } while (pos == Vector2.zero && variance < 1.1);
+
+            if (variance > 20)
+            {
+                Debug.LogWarning("OverflowWarning! Planet creation overlapped due to maximum retry threshold.");
+                pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
+            }
+
             // Vector2 gridPosition = PG.GetGridPosition(pos); // calculate the grid position that this planet falls in
             PlanetInfo info = new PlanetInfo(pos.x, pos.y, i, rockPlanet.maxHealth, 0, true);
                 
@@ -48,13 +79,17 @@ public class Home : MonoBehaviour
 
             planet.inHomeSystem = true;
             planet.Initialize(info);
-            planet.gameObject.AddComponent<HomePlanet>();
-            planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
-            //planet.gameObject.name = "PLANET" + i;
-            planet.transform.parent = gameObject.transform;
-            homePlanets.Add(planet);
-            map.addPlanetToMap(planet, true);
 
+            if (planet != null)
+            {
+                planet.gameObject.AddComponent<HomePlanet>();
+                planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
+                //planet.gameObject.name = "PLANET" + i;
+                planet.transform.parent = gameObject.transform;
+
+                homePlanets.Add(planet);
+                map.addPlanetToMap(planet, true);
+            }
         }
     }
 
@@ -65,12 +100,44 @@ public class Home : MonoBehaviour
 
         int planetNumber = homePlanets.Count;
 
-        Vector2 pos = (((float)planetNumber % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(planetNumber);
+        Vector2 pos;
+        float variance = 1f;
+        do
+        {
+            pos = (((float)planetNumber % numberOfHomeRings) * planetRingSeperation * variance + sunOffset) * PG.PositionGenerator(planetNumber);
+            Collider2D[] collidersHit = Physics2D.OverlapCircleAll(pos, 5 * rockPlanet.transform.localScale.x);
+
+            if (collidersHit.Length > 1)
+            {
+                foreach (Collider2D collider in collidersHit)
+                {
+                    if (collider != null)
+                    {
+                        if (collider.gameObject.tag == "Planet" || collider.gameObject.tag == "Player")
+                        {
+                            Debug.Log("Overlap Detected for planet: PLANET" + planetNumber);
+                            pos = Vector2.zero;
+                        }
+                    }
+                }
+
+            }
+            variance += 0.001f;
+        } while (pos == Vector2.zero && variance < 1.1f);
+
+        if (variance >= 1.1f)
+        {
+            Debug.LogWarning("OverflowWarning! Planet creation overlapped due to maximum retry threshold.");
+            pos = (((float)planetNumber % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(planetNumber);
+        }
+
+
         PlanetInfo info = new PlanetInfo(pos.x, pos.y, planetNumber, rockPlanet.maxHealth, 0, true);
 
         Planet planet = Instantiate(rockPlanet);
         planet.inHomeSystem = true;
         planet.Initialize(info);
+
         planet.gameObject.AddComponent<HomePlanet>();
         planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + planetNumber;
         //planet.gameObject.name = "PLANET" + planetNumber;

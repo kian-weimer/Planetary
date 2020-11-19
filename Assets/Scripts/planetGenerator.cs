@@ -253,6 +253,29 @@ public class planetGenerator : MonoBehaviour
         if (!planetInfoList.ContainsKey(gridPosition)) { Debug.LogWarning("PlanetGenError"); return; }
         foreach (PlanetInfo planetInfo in planetInfoList[gridPosition])
         {
+            // overlapping planets are simply ignored///////////////////////
+            Vector2 pos = new Vector2(planetInfo.position[0], planetInfo.position[1]);
+            Collider2D[] collidersHit = Physics2D.OverlapCircleAll(pos, 5 * planetTypes[planetInfo.rarity].planets[planetInfo.type].transform.localScale.x);
+            if (collidersHit.Length > 1)
+            {
+                foreach (Collider2D collider in collidersHit)
+                {
+                    if (collider != null)
+                    {
+                        if (collider.gameObject.tag == "Planet" || collider.gameObject.tag == "Player")
+                        {
+                            Debug.Log("Overlap Detected for planet: PGPLANET LVL" + planetInfo.rarity);
+                            pos = Vector2.zero;
+                        }
+                    }
+                }
+                if (pos == Vector2.zero)
+                {
+                    continue;
+                }
+            }
+            ////////////////////////////////////////////////////////////////
+
             Planet planet = Instantiate(planetTypes[planetInfo.rarity].planets[planetInfo.type]);
             planet.Initialize(planetInfo); 
             if (planetInfo.discovered < 2)
@@ -298,6 +321,7 @@ public class planetGenerator : MonoBehaviour
             planetInfoList[GetGridPosition(planet.position)].Remove(planet.info);
             planetsObjectsInGame.Remove(planet.gameObject);
         }
+        map.addPlanetToMap(planet, false, -1);
         Destroy(planet.gameObject);
     }
 }

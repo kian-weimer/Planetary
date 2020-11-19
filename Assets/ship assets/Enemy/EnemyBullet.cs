@@ -85,6 +85,10 @@ public class EnemyBullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Player>().loseHealth(bulletDamage);
         }
+        if (collision.gameObject.tag == "Friendly") // friendlies are just enemys that cant move
+        {
+            collision.gameObject.GetComponent<EnemyController>().damage(bulletDamage);
+        }
 
         if (collision.transform.CompareTag("playerRange"))
         {

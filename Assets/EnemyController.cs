@@ -27,6 +27,8 @@ public class EnemyController : MonoBehaviour
     public GameObject deathExplosion;
     public QuestSystem questSystem;
 
+    public GameObject target;
+
 
     private void Start()
     {
@@ -85,7 +87,7 @@ public class EnemyController : MonoBehaviour
 
         if (inTargetingRange)
         {
-            Vector3 playerRelativePosition = player.transform.position - transform.position;
+            Vector3 playerRelativePosition = target.transform.position - transform.position;
             float playerDirection = Mathf.Rad2Deg * Mathf.Atan(playerRelativePosition.y / playerRelativePosition.x);
 
             if (playerRelativePosition.x > 0) { playerDirection += 180f; }
@@ -160,6 +162,11 @@ public class EnemyController : MonoBehaviour
         if(collision.transform.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().loseHealth(hitDamage);
+            damage(maxHealth);
+        }
+        if (collision.transform.tag == "Friendly") // friendlies are just enemys in disguise
+        {
+            collision.gameObject.GetComponent<EnemyController>().damage(hitDamage);
             damage(maxHealth);
         }
         if (collision.transform.tag == "Planet")
