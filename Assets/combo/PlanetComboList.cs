@@ -41,33 +41,11 @@ public class PlanetComboList : MonoBehaviour
         planetComboDict.TryGetValue((resource1.resource.name.Replace("(Clone)", ""), 
             resource2.resource.name.Replace("(Clone)", ""), 
             resource3.resource.name.Replace("(Clone)", "")), out comboResult);
-        Debug.Log(comboResult);
         if (comboResult != null)
         {
             questSystem.updateQuestsPlanet(comboResult.planet.name);
             alminac.AddEntry(comboResult.planet.GetComponent<SpriteRenderer>().sprite, resource1.resource.name.Replace("(Clone)", ""),
                 resource2.resource.name.Replace("(Clone)", ""), resource3.resource.name.Replace("(Clone)", ""));
-
-            if (SceneManager.GetActiveScene().name == "Tutorial")
-            {
-                try
-                {
-                    if(FindObjectOfType<TutorialResourceCollection>().isWaitingOnBasePlanet && resource1.resource.GetComponent<rsrce>().nameOfResource == "Oxygen" &&
-                        resource2.resource.GetComponent<rsrce>().nameOfResource == "Oxygen" && resource3.resource.GetComponent<rsrce>().nameOfResource == "Oxygen")
-                    {
-                        FindObjectOfType<TutorialResourceCollection>().createdBasePlanet();
-                    }
-                    Debug.Log(comboResult.planet.name);
-                    if (comboResult.planet.name == "FoodPlanet")
-                    {
-                        FindObjectOfType<TutorialResourceCollection>().createdComboPlanet();
-                    }
-                }
-                catch
-                {
-                    
-                }
-            }
 
             for (int i = 0; i < planetTreeLocks.transform.childCount; i++)
             {

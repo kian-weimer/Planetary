@@ -43,6 +43,7 @@ public class QuestEntry : MonoBehaviour
 
     public void set(int position, Quest quest )
     {
+        
         this.quest = quest;
         this.position = position;
         transform.Find("QuestText").GetComponent<Text>().text = quest.promptText;
@@ -55,6 +56,11 @@ public class QuestEntry : MonoBehaviour
         upgradeReward = quest.upgradeReward;
         recipeReward = quest.recipeReward;
 
+
+        if(quest.requirementCount == 999)
+        {
+            return;
+        }
 
         for (int i = 1; i < 4; i++)
         {
@@ -196,8 +202,7 @@ public class QuestEntry : MonoBehaviour
         {
             for (int i = 1; i < requiredCount + 1; i++)
             {
-                if (planetName.ToUpper().Contains(
-                transform.Find("QuantityWithImage" + i).Find("QuestSlot").GetComponent<QuestSlot>().desiredResource.ToUpper()))
+                if (planetName.ToUpper().Contains(transform.Find("QuantityWithImage" + i).Find("QuestSlot").GetComponent<QuestSlot>().desiredResource.ToUpper()))
                 {
                     transform.Find("QuantityWithImage" + i).Find("QuestSlot").GetComponent<QuestSlot>().increaseCount();
                 }
@@ -208,7 +213,6 @@ public class QuestEntry : MonoBehaviour
     public void taskComplete()
     {
         completionCount++;
-        Debug.Log("taskComplete");
         if (completionCount == requiredCount)
         {
             questCompleted();
@@ -285,6 +289,26 @@ public class QuestEntry : MonoBehaviour
             case "deleteRegen":
                 player.deletionGasRegeneration = true;
                 BM.Broadcast("You will now gain gas when deleting resources from your inventory!");
+                break;
+
+            case "tutorial quest one":
+                FindObjectOfType<TutorialResourceCollection>().waitingOnRock = false;
+                FindObjectOfType<TutorialResourceCollection>().timeBeforeNextText = .1f;
+                break;
+
+            case "tutorial quest two":
+                FindObjectOfType<TutorialResourceCollection>().createdBasePlanet();
+                FindObjectOfType<TutorialResourceCollection>().timeBeforeNextText = .1f;
+                break;
+
+            case "tutorial quest three":
+                FindObjectOfType<TutorialResourceCollection>().createdComboPlanet();
+                FindObjectOfType<TutorialResourceCollection>().timeBeforeNextText = .1f;
+                break;
+
+            case "tutorial quest four":
+                FindObjectOfType<TutorialResourceCollection>().hasKilledEnemy = true;
+                FindObjectOfType<TutorialResourceCollection>().timeBeforeNextText = .1f;
                 break;
         }
 

@@ -56,7 +56,6 @@ public class Home : MonoBehaviour
                         {
                             if (collider.gameObject.tag == "Planet" || collider.gameObject.tag == "Player")
                             {
-                                Debug.Log("Overlap Detected for planet: PLANET" + i);
                                 pos = Vector2.zero;
                             }
                         }
@@ -68,7 +67,6 @@ public class Home : MonoBehaviour
 
             if (variance > 20)
             {
-                Debug.LogWarning("OverflowWarning! Planet creation overlapped due to maximum retry threshold.");
                 pos = (((float)i % numberOfHomeRings) * planetRingSeperation + sunOffset) * PG.PositionGenerator(i);
             }
 
@@ -179,7 +177,6 @@ public class Home : MonoBehaviour
 
     public void ChangePlanetView(int index)
     {
-        Debug.Log(index);
         currentViewingPlanet = index;
         Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);

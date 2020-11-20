@@ -21823,7 +21823,7 @@ GameObject:
   - component: {fileID: 1286308403}
   - component: {fileID: 1286308402}
   - component: {fileID: 1286308404}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Home
   m_TagString: HomeCircle
   m_Icon: {fileID: 0}
