@@ -25,19 +25,17 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void OnMouseOver()
     {
-        Debug.Log("Name:" + gameObject.tag + " ??:" + GameManager.popupsOn);
         if (GameManager.popupsOn)
         {
             Debug.Log(gameObject.tag);
             if (gameObject.tag == "resource")
             {
-                popupManager.movePopup(gameObject.GetComponent<rsrce>().nameOfResource, "resource");
+                popupManager.movePopup(gameObject.GetComponent<rsrce>().nameOfResource.Replace("(Clone)", ""), "resource");
                 mouseOverObject = gameObject;
             }
             if (gameObject.tag == "Planet" || gameObject.tag == "HomePlanet")
             {
                 string nameOfPlanet = gameObject.GetComponent<Planet>().name.Replace("(Clone)", "");
-                Debug.Log("name: " + nameOfPlanet);
                 nameOfPlanet = Regex.Replace(nameOfPlanet, "([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", "$1 ");
                 mouseOverObject = gameObject;
                 popupManager.movePopup(nameOfPlanet, "planet");
@@ -57,6 +55,7 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             {
                 mouseOverObject = gameObject;
                 string nameOfResource = gameObject.name.Replace("UI(Clone)", "");
+                nameOfResource.Replace("(Clone)", "");
                 popupManager.movePopup(nameOfResource, "Inventory", gameObject);
             }
         }

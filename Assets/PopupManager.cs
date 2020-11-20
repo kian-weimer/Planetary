@@ -34,7 +34,8 @@ public class PopupManager : MonoBehaviour
             position.y = gameObjectPopup.transform.position.y + gameObjectPopup.GetComponent<RectTransform>().rect.height/2 + gameObjectPopup.GetComponent<RectTransform>().rect.height / 2;
         }
 
-        Debug.Log(input);
+        input = input.Replace("(Clone)", "");
+
         position.z = 0;
         textPopup.SetActive(true);
         textPopup.transform.Find("Text").GetComponent<Text>().text = input;
