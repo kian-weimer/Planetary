@@ -7,12 +7,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2396721531864931739, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396721531864931739, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6397987496419722807, guid: ff265f72120f25e4d970863e991b7d11,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300034, guid: 4b00c4fcb1be91245b2dab5149c61c5d,
         type: 3}
+    - target: {fileID: 6397987496419722807, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397987496419722807, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397987496419722807, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.07073355
+      objectReference: {fileID: 0}
     - target: {fileID: 6496871902046129913, guid: ff265f72120f25e4d970863e991b7d11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +92,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496871902046129913, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496871902046129913, guid: ff265f72120f25e4d970863e991b7d11,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6502448202980844329, guid: ff265f72120f25e4d970863e991b7d11,
         type: 3}

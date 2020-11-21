@@ -107,8 +107,13 @@ PrefabInstance:
         type: 3}
       propertyPath: icon
       value: 
-      objectReference: {fileID: 2274531746577566724, guid: af91f46a6fd6743408f2f7d086146c1a,
+      objectReference: {fileID: 8562261215486448480, guid: 6d56e587b7f9f6b4eb5fd7508ab535cc,
         type: 3}
+    - target: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c,
+        type: 3}
+      propertyPath: timeBeforeDeletion
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7130862306944164433, guid: e9b9deec056326b42947906e9937b49c,
         type: 3}
       propertyPath: m_Radius
