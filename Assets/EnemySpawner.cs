@@ -27,7 +27,6 @@ public class EnemySpawner : MonoBehaviour
         {
             float distanceFromHome = Mathf.Sqrt(Mathf.Pow(player.transform.position.x,2) + Mathf.Pow(player.transform.position.y, 2));
             int rarityLevel = 1;
-            Debug.Log(distanceFromHome);
             //make rarity go down
             if(distanceFromHome >= distanceToSecondLvlEnemy)
             {

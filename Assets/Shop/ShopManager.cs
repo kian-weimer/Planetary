@@ -47,7 +47,7 @@ public class ShopManager : MonoBehaviour
         resourceCost.Add("Food", 25);
         resourceCost.Add("Gold", 75);
         resourceCost.Add("Poison Gas", 5);
-        resourceCost.Add("Bullet", 20);
+        resourceCost.Add("Armory", 125);
         resourceCost.Add("Steel", 30);
         resourceCost.Add("EndGame", 10000);
 

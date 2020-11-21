@@ -266,7 +266,6 @@ public class planetGenerator : MonoBehaviour
                         {
                             if (collider.gameObject.tag == "Planet" || collider.gameObject.tag == "Player")
                             {
-                                Debug.Log("Overlap Detected for planet: PGPLANET LVL" + planetInfo.rarity);
                                 pos = Vector2.zero;
                             }
                         }

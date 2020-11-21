@@ -13,7 +13,7 @@ public class BroadcastMessage : MonoBehaviour
         gameObject.SetActive(true);
         transform.Find("Text").GetComponent<Text>().text = message;
         startTime = Time.time;
-    } 
+    }
 
     // Update is called once per frame
     void Update()

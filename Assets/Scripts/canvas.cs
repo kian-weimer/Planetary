@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class canvas : MonoBehaviour
 {
+    public BroadcastMessage broadcaster;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,10 @@ public class canvas : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void broadcast(string message)
+    {
+        broadcaster.Broadcast(message);
     }
 }

@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElement: 0
   icon: {fileID: 1190112637897220715, guid: a0bfa066c168c77458b221c5b48d9fe6, type: 3}
-  nameOfResource: Bullet
+  nameOfResource: Armory
   isInAnInventory: 0
   timeBeforeDeletion: 30
 --- !u!114 &5789242934826343239

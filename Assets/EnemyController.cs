@@ -55,9 +55,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void spawnExp()
+    public void spawnExp(int expCount = -1)
     {
-        for (int i = 0; i < expPointsDropped; i++)
+        if (expCount == -1) { expCount = expPointsDropped; }
+        for (int i = 0; i < expCount; i++)
         {
             GameObject exp = Instantiate(expPoint);
             exp.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);

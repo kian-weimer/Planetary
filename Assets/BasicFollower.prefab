@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6a704805387d9054285e70ec14527188, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5235849, g: 1, b: 0.5384582, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   audioManager: {fileID: 0}
   weapon: {fileID: 8045861926426083903, guid: 6cecb4e09b6c89c4e9bb53dbb955ac59, type: 3}
-  expPoint: {fileID: 4260342837754297698, guid: b3e3379fe9afa6946a17587de5d4f069,
+  expPoint: {fileID: 2851631526426794885, guid: dc99cfafc576c854480bd7b17a191e72,
     type: 3}
   expPointsDropped: 0
   thrust: 0.5
@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee13a20328af84439d82e329d1671cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceAwaySpawn: 20
+  isMoving: 0
 --- !u!1 &3341252995959695118
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +185,7 @@ GameObject:
   - component: {fileID: 3341252995959695105}
   - component: {fileID: 3341252995959695107}
   - component: {fileID: 3341252995959695104}
+  - component: {fileID: 1578028779646218638}
   m_Layer: 0
   m_Name: TargetingRange
   m_TagString: enemyRangeCollider
@@ -233,6 +236,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 3341252995592831449}
+--- !u!50 &1578028779646218638
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341252995959695118}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3341252996626116456
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +406,7 @@ GameObject:
   - component: {fileID: 3341252996662353349}
   - component: {fileID: 3341252996662353351}
   - component: {fileID: 3341252996662353348}
+  - component: {fileID: 5098880256782792175}
   m_Layer: 0
   m_Name: StoppingRange
   m_TagString: enemyRangeCollider
@@ -432,6 +457,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 3341252995592831449}
+--- !u!50 &5098880256782792175
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341252996662353346}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3341252997179582768
 GameObject:
   m_ObjectHideFlags: 0
