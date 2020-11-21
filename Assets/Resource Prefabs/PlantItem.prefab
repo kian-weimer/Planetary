@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElement: 0
   icon: {fileID: 2857854581177495184, guid: d8b58cea92af6484eb9c3a4cedf5f2e3, type: 3}
-  nameOfResource: Plants
+  nameOfResource: Plant
   isInAnInventory: 0
   timeBeforeDeletion: 30
 --- !u!114 &4127711937262195205

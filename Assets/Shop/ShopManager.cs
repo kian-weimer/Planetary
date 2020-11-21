@@ -49,6 +49,11 @@ public class ShopManager : MonoBehaviour
         resourceCost.Add("Bullet", 20);
         resourceCost.Add("Steel", 30);
         resourceCost.Add("EndGame", 10000);
+
+        resourceCost.Add("Copper", 50);
+        resourceCost.Add("Ice", 50);
+        resourceCost.Add("Plant", 50);
+        resourceCost.Add("Sulfur", 50);
     }
     public void buyShopResultOf(ShopItem shopItem)
     {
@@ -133,8 +138,14 @@ public class ShopManager : MonoBehaviour
     }
     public void sellShopResultOf(SellShopItem item)
     {
+        if(FindObjectOfType<ResourceInventory>().checkForItemAndRemove(item.name, item.quantity))
+        {
+            findAndSellShopItem(item, item.name);
+        }
+        /*
         switch (item.name)
         {
+            
             case "Rock":
                 if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Rock", item.quantity))
                 {
@@ -253,6 +264,7 @@ public class ShopManager : MonoBehaviour
                 }
                 break;
         }
+        */
     }
 
     private void findAndSellShopItem(SellShopItem item, string Name)
