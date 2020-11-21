@@ -30031,6 +30031,16 @@ MonoBehaviour:
         type: 3}
       amountProduced: 1
       frequency: 5
+  - planet: {fileID: 6255797090224648366, guid: b2ab03805c5499e4aae2ac07a7fad4ca,
+      type: 3}
+    item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    productionItems:
+    - resource: {fileID: 1011930184407368264, guid: 010a9d1e405ad144c828ba20498178fd,
+        type: 3}
+      amountProduced: 1
+      frequency: 45
   planetTreeLocks: {fileID: 211465710}
   alminac: {fileID: 1096552592030131896}
   questSystem: {fileID: 204075745}
