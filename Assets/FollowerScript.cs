@@ -11,6 +11,8 @@ public class FollowerScript : MonoBehaviour
         float degree = Random.Range(0f, 360f);
         float xOffset = Mathf.Cos(degree * Mathf.PI / 180) * distanceAwaySpawn;
         float yOffset = Mathf.Sin(degree * Mathf.PI / 180) * distanceAwaySpawn;
+
+        //gameObject.set
     }
 
     // Update is called once per frame
