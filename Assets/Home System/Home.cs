@@ -222,7 +222,6 @@ public class Home : MonoBehaviour
 
     public void Combo()
     {
-        Debug.Log("in combo");
         GameObject comboPlanet = homePlanets[currentViewingPlanet].gameObject;
         HomePlanet comboHomeInfo = comboPlanet.GetComponent<HomePlanet>();
         PlanetCombo combo;
