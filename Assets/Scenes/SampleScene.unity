@@ -12826,7 +12826,7 @@ MonoBehaviour:
   maxWarpSpeed: 100
   warpSpeed: 0
   warpConsumption: 3
-  warpRegenRate: 0.25
+  warpRegenRate: 0.1
   warpFuelModifier: 1
   warpResumeThreshold: 1
   boosting: 0
