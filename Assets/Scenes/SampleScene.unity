@@ -12912,7 +12912,7 @@ MonoBehaviour:
   experiencePoints: 0
   level: 1
   levelText: {fileID: 1096552591864223958}
-  skillPoints: 100
+  skillPoints: 0
   skillPointText: {fileID: 1096552591535878699}
   pointsToNextLevelList: 320000003c00000046000000500000005a000000640000007800000096000000c80000002c010000
   ExpBar: {fileID: 300765193}
@@ -32791,7 +32791,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100000
+  m_Text: 0
 --- !u!222 &2068677635
 CanvasRenderer:
   m_ObjectHideFlags: 0
