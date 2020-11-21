@@ -14,6 +14,7 @@ public class ShopManager : MonoBehaviour
     [HideInInspector]
     public int whichShipColorBase = 0;
     public int whichShipLevel = 0;
+    public int maxHomePlanets = 20;
 
     public GameObject buyShop;
     public float upgradeAmount;
@@ -88,6 +89,10 @@ public class ShopManager : MonoBehaviour
             case "Add Rock Planet":
                 home.GetComponent<Home>().addRockPlanet();
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
+                if (home.GetComponent<Home>().numberOfStartingHomePlanets >= maxHomePlanets)
+                {
+                    buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
+                }
                 break;
 
             //update to addInventory Slot
@@ -136,6 +141,7 @@ public class ShopManager : MonoBehaviour
                 break;
         }
     }
+
     public void sellShopResultOf(SellShopItem item)
     {
         if(FindObjectOfType<ResourceInventory>().checkForItemAndRemove(item.name, item.quantity))

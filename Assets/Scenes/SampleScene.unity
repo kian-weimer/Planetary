@@ -25779,7 +25779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -31366,6 +31366,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
   whichShipColorBase: 0
   whichShipLevel: 0
+  maxHomePlanets: 20
   buyShop: {fileID: 293007886}
   upgradeAmount: 1.25
   expCheeperShopMultiplier: 1
@@ -32790,7 +32791,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10000
+  m_Text: 100000
 --- !u!222 &2068677635
 CanvasRenderer:
   m_ObjectHideFlags: 0
