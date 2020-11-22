@@ -20151,8 +20151,11 @@ MonoBehaviour:
   distanceToSecondLvlEnemy: 400
   distanceToThirdLvlEnemy: 1000
   timeBetweenEnemies: 40
-  timeBeforeNextEnemy: 0
+  timeBeforeNextEnemy: 5
   enemyDistanceAway: 50
+  maxEnemies: 5
+  listOfEnemies: []
+  playerLocation: {x: 0, y: 0, z: 0}
 --- !u!4 &1177286365
 Transform:
   m_ObjectHideFlags: 0

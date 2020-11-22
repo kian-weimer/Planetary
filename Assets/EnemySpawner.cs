@@ -14,10 +14,15 @@ public class EnemySpawner : MonoBehaviour
     public float timeBetweenEnemies;
     public float timeBeforeNextEnemy;
     public float enemyDistanceAway;
+
+    public int maxEnemies;
+    public List<GameObject> listOfEnemies;
+    private Vector3 playerLocation;
     // Start is called before the first frame update
     void Start()
     {
         timeBeforeNextEnemy = timeBetweenEnemies;
+        playerLocation = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -47,6 +52,19 @@ public class EnemySpawner : MonoBehaviour
 
     public void generateEnemy(int rarityLevel)
     {
+        
+        if (FindObjectOfType<Player>().gameObject.transform.position == playerLocation)
+        {
+            return;
+        }
+
+        if (maxEnemies == listOfEnemies.Count)
+        {
+            GameObject enemyToDelete = listOfEnemies[0];
+            listOfEnemies = listOfEnemies.GetRange(1, listOfEnemies.Count - 1);
+            Destroy(enemyToDelete);
+        }
+
         float degree = Random.Range(0f, 360f);
         float xOffset = Mathf.Cos(degree * Mathf.PI / 180) * enemyDistanceAway;
         float yOffset = Mathf.Sin(degree * Mathf.PI / 180) * enemyDistanceAway;
@@ -69,7 +87,10 @@ public class EnemySpawner : MonoBehaviour
         if(distanceAway < 70)
         {
             Destroy(badGuy);
+            return;
         }
 
+        listOfEnemies.Add(badGuy);
+        playerLocation = FindObjectOfType<Player>().gameObject.transform.position;
     }
 }
