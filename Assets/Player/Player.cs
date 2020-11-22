@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     [Range(0, 1f)]
     public float deletionGasRegenerationAmount;
 
-
+    private float timeToReclick = .25f;
     // Start is called before the first frame update
     void Start()
     {
@@ -138,18 +138,26 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey("f") && hasSheilds && canSheild && sheilding == false)
         {
+            timeToReclick = .25f;
             sheild -= shieldConsumption;
             sheildBar.GetComponent<RectTransform>().localScale = new Vector3(sheild / maxSheild,
                 sheildBar.GetComponent<RectTransform>().localScale.y,
                 sheildBar.GetComponent<RectTransform>().localScale.z);
             sheilding = true;
             canSheild = false;
-            Debug.Log(1);
             sheildGameObject.SetActive(true);
         }
-        if(sheilding && hasSheilds && !canSheild)
+
+        else if (Input.GetKey("f") && hasSheilds && !canSheild && sheilding && timeToReclick <= 0)
         {
-            Debug.Log(2);
+            Debug.Log("turning off");
+            sheilding = false;
+            sheildGameObject.SetActive(false);
+        }
+
+        if (sheilding && hasSheilds && !canSheild)
+        {
+            timeToReclick -= Time.deltaTime;
             sheild -= shieldConsumption;
             sheildBar.GetComponent<RectTransform>().localScale = new Vector3(sheild / maxSheild,
                 sheildBar.GetComponent<RectTransform>().localScale.y,
@@ -159,7 +167,6 @@ public class Player : MonoBehaviour
         
         if(sheild <= 0 && sheilding && hasSheilds)
         {
-            Debug.Log(3);
             sheilding = false;
             sheildGameObject.SetActive(false);
         }
@@ -167,7 +174,6 @@ public class Player : MonoBehaviour
 
         if(sheilding == false && canSheild == false && hasSheilds)
         {
-            Debug.Log(4);
             if (fasterCooldown)
             {
                 sheild += sheildRegenRate * 1.2f;
