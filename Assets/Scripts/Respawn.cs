@@ -29,9 +29,40 @@ public class Respawn : MonoBehaviour
             explosionObject.transform.position = transform.position;
         }
 
-
         yield return new WaitForSeconds(waitTime);
-        if (GetComponent<Player>().isHome == false)
+        if (!isGas && GetComponent<Player>().isHome)
+        {
+            yield return new WaitForSeconds(waitTime);
+            if (FindObjectOfType<PauseMenu>() != null)
+            {
+                FindObjectOfType<PauseMenu>().togglePauseMenu();
+                if (FindObjectOfType<PauseMenu>() != null)
+                {
+                    FindObjectOfType<PauseMenu>().togglePauseMenu();
+                }
+            }
+            GetComponent<Player>().health = 1;
+            GetComponent<Player>().gas = GetComponent<Player>().maxGas / 12;
+            GetComponent<Player>().transform.position = spawnLocation.transform.position;
+            GetComponent<PlayerController>().canMove = true;
+            GetComponent<PlayerController>().hasRespawned = false;
+            List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
+            foreach (GameObject playerItem in playerInventory)
+            {
+                if (playerItem.GetComponent<InventorySlot>().item != null)
+                {
+                    FindObjectOfType<ResourceInventory>().checkForItemAndRemove(playerItem.GetComponent<InventorySlot>().item.gameObject.GetComponent<rsrce>().nameOfResource);
+                    Destroy(playerItem.GetComponent<InventorySlot>().item);
+                    Destroy(playerItem.GetComponent<InventorySlot>().icon);
+                }
+            }
+            FindObjectOfType<Inventory>().isFull = false;
+            transform.Find("PlayerTrail").gameObject.SetActive(true);
+            isRespawning = false;
+            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+            
+        }
+        else if (GetComponent<Player>().isHome == false)
         {
             if (FindObjectOfType<PauseMenu>() != null)
             {
@@ -63,6 +94,7 @@ public class Respawn : MonoBehaviour
         else
         {
             transform.Find("PlayerTrail").gameObject.SetActive(true);
+            GetComponent<PlayerController>().canMove = true;
         }
         isRespawning = false;
         GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);

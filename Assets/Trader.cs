@@ -71,21 +71,18 @@ public class Trader : MonoBehaviour
         sellItem1.cost = (int)(shopManager.resourceCost[listOfResources[indexOfResource1].nameOfResource] * additionalCostMultiplier);
         sellItem1.sellItem = true;
         canvasHolder.friendlySellShop.GetComponent<Shop>().addShopItem(sellItem1);
-        shopManager.listOfResources[0] = listOfResources[indexOfResource1];
 
         ShopItemInfo sellItem2 = new ShopItemInfo();
         sellItem2.name = listOfResources[indexOfResource2].nameOfResource;
         sellItem2.cost = (int)(shopManager.resourceCost[listOfResources[indexOfResource2].nameOfResource] * additionalCostMultiplier);
         sellItem2.sellItem = true;
         canvasHolder.friendlySellShop.GetComponent<Shop>().addShopItem(sellItem2);
-        shopManager.listOfResources[1] = listOfResources[indexOfResource2];
 
         ShopItemInfo sellItem3 = new ShopItemInfo();
         sellItem3.name = listOfResources[indexOfResource3].nameOfResource;
         sellItem3.cost = (int)(shopManager.resourceCost[listOfResources[indexOfResource3].nameOfResource] * additionalCostMultiplier);
         sellItem3.sellItem = true;
         canvasHolder.friendlySellShop.GetComponent<Shop>().addShopItem(sellItem3);
-        shopManager.listOfResources[2] = listOfResources[indexOfResource3];
         
         health = maxHealth;
         timeTillDeletion = maxTimeBeforeDeletion;

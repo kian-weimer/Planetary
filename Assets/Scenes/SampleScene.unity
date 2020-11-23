@@ -29174,6 +29174,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OxygenEventStartToken
       objectReference: {fileID: 0}
+    - target: {fileID: 484900053144896569, guid: 3593cd9e846e93748a605138a50c7ad4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 484900053144896571, guid: 3593cd9e846e93748a605138a50c7ad4,
         type: 3}
       propertyPath: m_LocalPosition.x

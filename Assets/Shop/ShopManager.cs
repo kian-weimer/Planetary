@@ -163,6 +163,11 @@ public class ShopManager : MonoBehaviour
 
             case "Buy Gas":
                 player.GetComponent<Player>().gas += player.GetComponent<Player>().maxGas * .1f;
+                if(player.GetComponent<Player>().gas > player.GetComponent<Player>().maxGas)
+                {
+                    player.GetComponent<Player>().gas = player.GetComponent<Player>().maxGas;
+                }
+
                 player.GetComponent<Player>().gasBar.transform.localScale = new Vector3(0, player.GetComponent<Player>().gasBar.transform.localScale.y, player.GetComponent<Player>().gasBar.transform.localScale.z);
                 player.GetComponent<Player>().gasBarEnd.transform.localScale = new Vector3(-1, player.GetComponent<Player>().gasBarEnd.transform.localScale.y, player.GetComponent<Player>().gasBarEnd.transform.localScale.z);
                 break;
@@ -175,7 +180,7 @@ public class ShopManager : MonoBehaviour
         }
 
         //buying resources
-
+        Debug.Log(shopItem.name + ", " + listOfResources[0].nameOfResource + ", " + listOfResources[1].nameOfResource + ", " + listOfResources[2].nameOfResource);
         if (shopItem.name == listOfResources[0].nameOfResource)
         {
             GameObject resourceSpawn = Instantiate(listOfResources[0].gameObject);
