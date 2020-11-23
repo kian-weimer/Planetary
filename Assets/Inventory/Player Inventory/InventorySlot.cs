@@ -7,15 +7,10 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public GameObject item; // resource
     public GameObject icon;
-    public bool oxygenSlot = false;
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null )
+        if (eventData.pointerDrag != null)
         {
-            if (!eventData.pointerDrag.name.Contains("Oxygen") && oxygenSlot)
-            {
-                return;
-            }
             if (eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>() != null)
             {
                 GameObject tempItem = eventData.pointerDrag.transform.parent.GetComponent<InventorySlot>().item;
