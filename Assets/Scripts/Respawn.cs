@@ -14,6 +14,10 @@ public class Respawn : MonoBehaviour
         if (!isRespawning)
         {
             transform.Find("PlayerTrail").gameObject.SetActive(false);
+            if (FindObjectOfType<OxygenEvent>() != null)
+            {
+                FindObjectOfType<OxygenEvent>().endEvent();
+            }
             StartCoroutine(wait(isGasDeath));
         }
     }
