@@ -28,8 +28,8 @@ public class rsrce : MonoBehaviour
     {
         if (!UIElement)
         {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * .99f;
-            GetComponent<Rigidbody2D>().angularVelocity = GetComponent<Rigidbody2D>().angularVelocity * .99f;
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * .999f;
+            GetComponent<Rigidbody2D>().angularVelocity = GetComponent<Rigidbody2D>().angularVelocity * .9995f;
         }
 
         if(isInAnInventory == false)

@@ -54,7 +54,7 @@ public class Meteor : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, -Random.Range(5, 30));
     }
 
-    private void destroy()
+    public void destroy()
     {
         GameObject exp = Instantiate(explosion);
         exp.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);

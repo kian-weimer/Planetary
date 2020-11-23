@@ -59,11 +59,11 @@ public class Planet : MonoBehaviour
             GameObject resource = Instantiate(planetResource);
             planetResource.tag = "resource";
             resource.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            Vector2 velocityDirection = new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f));
 
             while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
             {
-                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+                velocityDirection = new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f));
             }
 
             resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;

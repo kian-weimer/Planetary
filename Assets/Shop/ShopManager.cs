@@ -28,6 +28,9 @@ public class ShopManager : MonoBehaviour
     public GameObject legendaryCrate;
     public GameObject crateSpawnPoint;
     public BroadcastMessage BM;
+    public List<rsrce> listOfResources;
+    public Alminac alminac;
+    public PlanetComboList comboList;
 
     void Start()
     {
@@ -103,7 +106,6 @@ public class ShopManager : MonoBehaviour
                 {
                     buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
                 }
-
                 break;
 
             case "Switch Color":
@@ -117,8 +119,8 @@ public class ShopManager : MonoBehaviour
                     player.GetComponent<SpriteRenderer>().sprite = playerSprites[whichShipColorBase + 3 + whichShipLevel];
                     whichShipColorBase += 3;
                 }
-
                 break;
+
             case "Buy Mine":
                 MineControler.mineAmount += 1;
                 mineAmountText.GetComponent<Text>().text = "x" + MineControler.mineAmount;
@@ -129,148 +131,138 @@ public class ShopManager : MonoBehaviour
                 crate.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 break;
+
             case "Rare Crate":
                 GameObject crateRare = Instantiate(rareCrate);
                 crateRare.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 break;
+
             case "Legendary Crate":
                 GameObject crateLegendary = Instantiate(legendaryCrate);
                 crateLegendary.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 break;
+
+            //friendly trader shop
+            case "Warp Home Tokens":
+                //do it
+                break;
+
+            case "Buy Gas":
+                player.GetComponent<Player>().gas += player.GetComponent<Player>().maxGas * .1f;
+                player.GetComponent<Player>().gasBar.transform.localScale = new Vector3(0, player.GetComponent<Player>().gasBar.transform.localScale.y, player.GetComponent<Player>().gasBar.transform.localScale.z);
+                player.GetComponent<Player>().gasBarEnd.transform.localScale = new Vector3(-1, player.GetComponent<Player>().gasBarEnd.transform.localScale.y, player.GetComponent<Player>().gasBarEnd.transform.localScale.z);
+                break;
+
+            case "Random Recipe":
+                int randomIndex = Random.Range(0,comboList.planetComboList.Count - 1);
+                PlanetCombo combo = comboList.planetComboList[randomIndex];
+                alminac.AddEntry(combo.planet.gameObject.GetComponent<SpriteRenderer>().sprite, combo.item1.name, combo.item2.name, combo.item3.name);
+                break;
         }
+
+        //buying resources
+
+        if (shopItem.name == listOfResources[0].nameOfResource)
+        {
+            GameObject resourceSpawn = Instantiate(listOfResources[0].gameObject);
+            resourceSpawn.tag = "resource";
+            resourceSpawn.transform.position = new Vector2(player.transform.position.x + Random.Range(-5.5f, 5.5f), player.transform.position.y + Random.Range(-5.5f, 5.5f));
+            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+
+            while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
+            {
+                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            }
+
+            resourceSpawn.GetComponent<Rigidbody2D>().velocity = velocityDirection;
+            resourceSpawn.GetComponent<Rigidbody2D>().angularVelocity = 720;
+        }
+        else if (shopItem.name == listOfResources[1].nameOfResource)
+        {
+            GameObject resourceSpawn = Instantiate(listOfResources[2].gameObject);
+            resourceSpawn.tag = "resource";
+            resourceSpawn.transform.position = new Vector2(player.transform.position.x + Random.Range(-5.5f, 5.5f), player.transform.position.y + Random.Range(-5.5f, 5.5f));
+            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+
+            while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
+            {
+                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            }
+
+            resourceSpawn.GetComponent<Rigidbody2D>().velocity = velocityDirection;
+            resourceSpawn.GetComponent<Rigidbody2D>().angularVelocity = 720;
+
+        }
+        else if (shopItem.name == listOfResources[2].nameOfResource)
+        {
+            GameObject resourceSpawn = Instantiate(listOfResources[2].gameObject);
+            resourceSpawn.tag = "resource";
+            resourceSpawn.transform.position = new Vector2(player.transform.position.x + Random.Range(-5.5f, 5.5f), player.transform.position.y + Random.Range(-5.5f, 5.5f));
+            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+
+            while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
+            {
+                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            }
+
+            resourceSpawn.GetComponent<Rigidbody2D>().velocity = velocityDirection;
+            resourceSpawn.GetComponent<Rigidbody2D>().angularVelocity = 720;
+        }
+
     }
 
-    public void sellShopResultOf(SellShopItem item)
+    public void sellShopResultOf(SellShopItem item, bool isTrader)
     {
-        if(FindObjectOfType<ResourceInventory>().checkForItemAndRemove(item.name, item.quantity))
+        if(FindObjectOfType<ResourceInventory>().checkForItemAndRemove(item.name, item.quantity) && !isTrader)
         {
             findAndSellShopItem(item, item.name);
+            return;
         }
-        /*
-        switch (item.name)
+
+        //if friendly trader
+        List<GameObject> playerInventory = FindObjectOfType<Inventory>().slots;
+        int numberFound = 0;
+        foreach (GameObject playerInventorySlot in playerInventory)
         {
-            
-            case "Rock":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Rock", item.quantity))
-                {
-                    findAndSellShopItem(item, "Rock");
-                }
-                break;
 
-            case "Water":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Water", item.quantity))
-                {
-                    findAndSellShopItem(item, "Water");
-                }
-                break;
-            case "Coal":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Coal", item.quantity))
-                {
-                    findAndSellShopItem(item, "Coal");
-                }
-                break;
-            case "Dark Matter":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Dark Matter", item.quantity))
-                {
-                    findAndSellShopItem(item, "Dark Matter");
-                }
-                break;
+            if (playerInventorySlot.GetComponent<InventorySlot>().item != null)
+            {
 
-            case "Diamond":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Diamond", item.quantity))
+                if (playerInventorySlot.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource == item.name)
                 {
-                    findAndSellShopItem(item, "Diamond");
+                    numberFound++;
                 }
-                break;
-            case "Iron":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Iron", item.quantity))
-                {
-                    findAndSellShopItem(item, "Iron");
-                }
-                break;
-            case "Lava":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Lava", item.quantity))
-                {
-                    findAndSellShopItem(item, "Lava");
-                }
-                break;
-            case "Lead":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Lead", item.quantity))
-                {
-                    findAndSellShopItem(item, "Lead");
-                }
-                break;
-            case "Mercury":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Mercury", item.quantity))
-                {
-                    findAndSellShopItem(item, "Mercury");
-                }
-                break;
-            case "Obsidian":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Obsidian", item.quantity))
-                {
-                    findAndSellShopItem(item, "Obsidian");
-                }
-                break;
-            case "Oxygen":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Oxygen", item.quantity))
-                {
-                    findAndSellShopItem(item, "Oxygen");
-                }
-                break;
-            case "Satellite":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Satellite", item.quantity))
-                {
-                    findAndSellShopItem(item, "Satellite");
-                }
-                break;
-            case "Wood":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Wood", item.quantity))
-                {
-                    findAndSellShopItem(item, "Wood");
-                }
-                break;
-
-            case "Food":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Food", item.quantity))
-                {
-                    findAndSellShopItem(item, "Food");
-                }
-                break;
-            case "Gold":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Gold", item.quantity))
-                {
-                    findAndSellShopItem(item, "Gold");
-                }
-                break;
-            case "Steel":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Steel", item.quantity))
-                {
-                    findAndSellShopItem(item, "Steel");
-                }
-                break;
-            case "Poison Gas":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Poison Gas", item.quantity))
-                {
-                    findAndSellShopItem(item, "Poison Gas");
-                }
-                break;
-            case "Bullet":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("Bullet", item.quantity))
-                {
-                    findAndSellShopItem(item, "Bullet");
-                }
-                break;
-            case "EndGame":
-                if (FindObjectOfType<ResourceInventory>().checkForItemAndRemove("EndGame", item.quantity))
-                {
-                    findAndSellShopItem(item, "EndGame");
-                }
-                break;
+            }
         }
-        */
+
+        if(numberFound >= item.quantity)
+        {
+            int numberDeleted = 0;
+            foreach (GameObject playerInventorySlot in playerInventory)
+            {
+
+                if (playerInventorySlot.GetComponent<InventorySlot>().item != null)
+                {
+
+                    if (playerInventorySlot.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource == item.name)
+                    {
+                        var child = playerInventorySlot.transform.GetChild(0);
+                        child.GetComponent<DragDrop>().destroy();
+                        playerInventorySlot.GetComponent<InventorySlot>().RemoveItem();
+
+                        numberDeleted++;
+                        if (numberDeleted == item.quantity)
+                        {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 
     private void findAndSellShopItem(SellShopItem item, string Name)

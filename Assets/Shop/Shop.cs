@@ -18,6 +18,7 @@ public class Shop : MonoBehaviour
     private RectTransform rT;
     public GameObject Money;
     public GameObject ShopManager;
+    public bool isTrader;
     // Start is called before the first frame update
     void Start()
     {
@@ -107,7 +108,7 @@ public class Shop : MonoBehaviour
 
     public void ItemSold(SellShopItem item)
     {
-        ShopManager.GetComponent<ShopManager>().sellShopResultOf(item);
+        ShopManager.GetComponent<ShopManager>().sellShopResultOf(item, isTrader);
     }
 
     public void addShopItem(ShopItemInfo item)
