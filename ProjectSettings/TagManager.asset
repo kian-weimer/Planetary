@@ -22,6 +22,7 @@ TagManager:
   - ResourceUI
   - HomePlanet
   - Friendly
+  - Trader
   layers:
   - Default
   - TransparentFX

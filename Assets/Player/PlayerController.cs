@@ -208,6 +208,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown("q") && FindObjectOfType<ShopManager>().amountOfWarps > 0)
+        {
+            GetComponent<Respawn>().warpHome();
+            FindObjectOfType<ShopManager>().amountOfWarps = FindObjectOfType<ShopManager>().amountOfWarps - 1;
+            if (FindObjectOfType<ShopManager>().amountOfWarps == 0)
+            {
+                FindObjectOfType<ShopManager>().warpHolder.SetActive(false);
+            }
+            FindObjectOfType<ShopManager>().warpAmount.text = "x" + FindObjectOfType<ShopManager>().amountOfWarps.ToString();
+        }
+    }
+
     ArrayList getGridsInView()
     {
         ArrayList grids = new ArrayList();
@@ -218,9 +232,7 @@ public class PlayerController : MonoBehaviour
                 grids.Add(new Vector2(gridPosition.x + x, gridPosition.y + y));
             }
         }
-       
-        return grids;
-        
+        return grids; 
     }
 
     public void bounceBack()

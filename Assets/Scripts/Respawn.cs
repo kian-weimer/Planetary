@@ -67,4 +67,9 @@ public class Respawn : MonoBehaviour
         isRespawning = false;
         GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
     }
+
+    public void warpHome()
+    {
+        GetComponent<Player>().transform.position = spawnLocation.transform.position;
+    }
 }

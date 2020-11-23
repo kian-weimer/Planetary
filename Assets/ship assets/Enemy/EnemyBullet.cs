@@ -104,7 +104,7 @@ public class EnemyBullet : MonoBehaviour
             collision.gameObject.GetComponent<Mine>().damageSurroundings();
         }
         if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle"
-            && collision.gameObject.tag != "resource" && collision.gameObject.tag != "enemyRangeCollider"
+            && collision.gameObject.tag != "resource" && collision.gameObject.tag != "enemyRangeCollider" && collision.gameObject.tag != "Trader"
              && collision.gameObject.tag != "playerRange" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "background")
         {
             GameObject exp = Instantiate(explosion);

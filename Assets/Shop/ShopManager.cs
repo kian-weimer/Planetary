@@ -31,6 +31,10 @@ public class ShopManager : MonoBehaviour
     public List<rsrce> listOfResources;
     public Alminac alminac;
     public PlanetComboList comboList;
+    public int amountOfWarps;
+
+    public Text warpAmount;
+    public GameObject warpHolder;
 
     void Start()
     {
@@ -146,7 +150,15 @@ public class ShopManager : MonoBehaviour
 
             //friendly trader shop
             case "Warp Home Tokens":
-                //do it
+
+                if(amountOfWarps == 0)
+                {
+                    warpHolder.SetActive(true);
+                    BM.Broadcast("You can press q to be teleported to home");
+                }
+                amountOfWarps += 1;
+                warpAmount.text = "x" + amountOfWarps.ToString();
+
                 break;
 
             case "Buy Gas":

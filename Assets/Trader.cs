@@ -36,7 +36,6 @@ public class Trader : MonoBehaviour
 
         ShopItemInfo buyItem1 = new ShopItemInfo();
         buyItem1.name = listOfResources[indexOfResource1].nameOfResource;
-        Debug.Log(listOfResources[indexOfResource1].nameOfResource);
         buyItem1.cost = (int)(shopManager.resourceCost[listOfResources[indexOfResource1].nameOfResource] * additionalCostMultiplier);
         canvasHolder.friendlyBuyShop.GetComponent<Shop>().addShopItem(buyItem1);
         shopManager.listOfResources[0] = listOfResources[indexOfResource1];
