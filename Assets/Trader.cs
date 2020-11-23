@@ -137,7 +137,7 @@ public class Trader : MonoBehaviour
         rsrce resource = Instantiate(itemsTraderIsSelling[Random.Range(0, itemsTraderIsSelling.Count - 1)]);
         resource.tag = "resource";
         resource.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y );
-        Vector2 velocityDirection = new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5));
+        Vector2 velocityDirection = new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f));
 
         while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
         {
