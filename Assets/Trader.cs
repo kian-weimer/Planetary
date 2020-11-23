@@ -7,7 +7,7 @@ public class Trader : MonoBehaviour
     public float maxHealth;
     public float health;
     public float maxTimeBeforeDeletion;
-    private float timeTillDeletion;
+    public float timeTillDeletion;
     public GameObject explosion;
     private bool toldUserAlmostDone = false;
 
@@ -16,7 +16,8 @@ public class Trader : MonoBehaviour
     private ShopManager shopManager;
     public float additionalCostMultiplier;
 
-    private List<rsrce> itemsTraderIsSelling;
+    public List<GameObject> itemsTraderIsSelling;
+    private bool drivingAway = false;
 
     // Start is called before the first frame update
     void Start()
@@ -73,19 +74,22 @@ public class Trader : MonoBehaviour
         sellItem1.cost = (int)(shopManager.resourceCost[listOfResources[indexOfResource1].nameOfResource] * additionalCostMultiplier);
         sellItem1.sellItem = true;
         canvasHolder.friendlySellShop.GetComponent<Shop>().addShopItem(sellItem1);
+        itemsTraderIsSelling[0] = listOfResources[indexOfResource1].gameObject;
 
         ShopItemInfo sellItem2 = new ShopItemInfo();
         sellItem2.name = listOfResources[indexOfResource2].nameOfResource;
         sellItem2.cost = (int)(shopManager.resourceCost[listOfResources[indexOfResource2].nameOfResource] * additionalCostMultiplier);
         sellItem2.sellItem = true;
         canvasHolder.friendlySellShop.GetComponent<Shop>().addShopItem(sellItem2);
+        itemsTraderIsSelling[1] = listOfResources[indexOfResource2].gameObject;
 
         ShopItemInfo sellItem3 = new ShopItemInfo();
         sellItem3.name = listOfResources[indexOfResource3].nameOfResource;
         sellItem3.cost = (int)(shopManager.resourceCost[listOfResources[indexOfResource3].nameOfResource] * additionalCostMultiplier);
         sellItem3.sellItem = true;
         canvasHolder.friendlySellShop.GetComponent<Shop>().addShopItem(sellItem3);
-        
+        itemsTraderIsSelling[2] = listOfResources[indexOfResource3].gameObject;
+
         health = maxHealth;
         timeTillDeletion = maxTimeBeforeDeletion;
     }
@@ -97,11 +101,25 @@ public class Trader : MonoBehaviour
         if(timeTillDeletion <= 30 && !toldUserAlmostDone)
         {
             FindObjectOfType<canvas>().broadcast("The trader is about to leave");
+            toldUserAlmostDone = true;
         }
 
-        if (timeTillDeletion <= 0)
+        if (timeTillDeletion <= 0 && !drivingAway)
         {
+            canvasHolder.closeTrader();
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(.25f,0);
+            drivingAway = true;
+            FindObjectOfType<canvas>().broadcast("The trader is leaving");
+        }
+        if (drivingAway)
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * 1.001f;
+        }
 
+        if(timeTillDeletion <= -20)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -134,7 +152,7 @@ public class Trader : MonoBehaviour
         explosion.transform.position = gameObject.transform.position;
         canvasHolder.disableFriendlyTraderShopButton();
 
-        rsrce resource = Instantiate(itemsTraderIsSelling[Random.Range(0, itemsTraderIsSelling.Count - 1)]);
+        GameObject resource = Instantiate(itemsTraderIsSelling[Random.Range(0, itemsTraderIsSelling.Count - 1)]);
         resource.tag = "resource";
         resource.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y );
         Vector2 velocityDirection = new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f));
@@ -147,6 +165,7 @@ public class Trader : MonoBehaviour
         resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;
         resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
 
+        canvasHolder.closeTrader();
         Destroy(gameObject);
     }
 }

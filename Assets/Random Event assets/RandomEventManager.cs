@@ -30,6 +30,7 @@ public class RandomEventManager : MonoBehaviour
         if(timeBeforeNextEvent <= 0)
         {
             int indexOfEvent = Random.Range(0, listOfEvents.Length);
+            indexOfEvent = 3;
             GameObject randomEvent = Instantiate(listOfEvents[indexOfEvent]);
             GameObject alert = Instantiate(alertText);
             alert.GetComponent<Text>().text = listOfAlertTexts[indexOfEvent];

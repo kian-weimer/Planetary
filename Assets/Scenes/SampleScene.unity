@@ -9811,6 +9811,7 @@ MonoBehaviour:
   friendlySellShop: {fileID: 258008889}
   friendlyBuyShop: {fileID: 2026982510}
   friendlyShopButton: {fileID: 1994958215}
+  FriendlyShop: {fileID: 1627217585}
 --- !u!1 &688492136
 GameObject:
   m_ObjectHideFlags: 0

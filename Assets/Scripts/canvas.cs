@@ -8,6 +8,7 @@ public class canvas : MonoBehaviour
     public GameObject friendlySellShop;
     public GameObject friendlyBuyShop;
     public GameObject friendlyShopButton;
+    public GameObject FriendlyShop;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +34,13 @@ public class canvas : MonoBehaviour
     public void disableFriendlyTraderShopButton()
     {
         friendlyShopButton.SetActive(false);
+    }
+
+    public void closeTrader()
+    {
+        friendlyShopButton.SetActive(false);
+        friendlySellShop.SetActive(false);
+        friendlyBuyShop.SetActive(true);
+        FriendlyShop.SetActive(false);
     }
 }
