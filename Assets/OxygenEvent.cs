@@ -30,6 +30,7 @@ public class OxygenEvent : MonoBehaviour
     {
         if (eventOcurring)
         {
+            if (player.GetComponent<Player>().isHome) { endEvent();}
             if (transform.localScale.x >= 1)
             {
                 player.GetComponent<Player>().addExpPoints(50);

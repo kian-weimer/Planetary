@@ -117,7 +117,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         {
             transform.parent.parent.Find("DeleteSlot").GetComponent<DeleteSlot>().delete();
         }
-        if (transform.parent.parent.Find("OxygenSlot") != null)
+        if (transform.parent.parent.Find("OxygenSlot") != null )
         {
             transform.parent.parent.Find("OxygenSlot").GetComponent<OxygenSlot>().delete();
         }
