@@ -10,7 +10,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     private CanvasGroup canvasGroup;
     public bool moved;
 
-    public GameObject tempUI; 
+    public GameObject tempUI;
     private void Awake()
     {
         canvas = FindObjectOfType<canvas>().GetComponent<Canvas>();
@@ -27,7 +27,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta/transform.parent.localScale;
+        rectTransform.anchoredPosition += eventData.delta / transform.parent.localScale;
 
     }
 
@@ -51,6 +51,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         {
             transform.parent.parent.Find("DeleteSlot").gameObject.SetActive(true);
         }
+        if (transform.parent.parent.Find("OxygenSlot") != null && transform.parent.parent.Find("OxygenSlot").GetComponent<OxygenSlot>().eventOcurring)
+        {
+            transform.parent.parent.Find("OxygenSlot").gameObject.SetActive(true);
+        }
         if (transform.parent.GetComponent<PlanetInventorySlot>() != null)
         {
             GameObject planet = FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet();
@@ -63,7 +67,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 tempUI.GetComponent<RectTransform>().position = transform.position;
             }
         }
-        
+
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -113,6 +117,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         {
             transform.parent.parent.Find("DeleteSlot").GetComponent<DeleteSlot>().delete();
         }
+        if (transform.parent.parent.Find("OxygenSlot") != null)
+        {
+            transform.parent.parent.Find("OxygenSlot").GetComponent<OxygenSlot>().delete();
+        }
         return;
         //FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet().GetComponent<HomePlanet>().UpdateUI();
         if (tempUI != null)
@@ -126,3 +134,5 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         Destroy(gameObject);
     }
 }
+
+
