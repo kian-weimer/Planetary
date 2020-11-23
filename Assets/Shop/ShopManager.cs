@@ -168,8 +168,13 @@ public class ShopManager : MonoBehaviour
                     player.GetComponent<Player>().gas = player.GetComponent<Player>().maxGas;
                 }
 
-                player.GetComponent<Player>().gasBar.transform.localScale = new Vector3(0, player.GetComponent<Player>().gasBar.transform.localScale.y, player.GetComponent<Player>().gasBar.transform.localScale.z);
-                player.GetComponent<Player>().gasBarEnd.transform.localScale = new Vector3(-1, player.GetComponent<Player>().gasBarEnd.transform.localScale.y, player.GetComponent<Player>().gasBarEnd.transform.localScale.z);
+                player.GetComponent<Player>().gasBar.transform.localScale = new Vector3(1 * (player.GetComponent<Player>().gas - player.GetComponent<Player>().maxGas * .1f) / (player.GetComponent<Player>().maxGas - player.GetComponent<Player>().maxGas * .1f), player.GetComponent<Player>().gasBar.transform.localScale.y, player.GetComponent<Player>().gasBar.transform.localScale.z);
+
+                if (player.GetComponent<Player>().gas <= player.GetComponent<Player>().maxGas * .1f)
+                {
+                    player.GetComponent<Player>().gasBarEnd.transform.localScale = new Vector3(-1 * (player.GetComponent<Player>().maxGas * .1f - player.GetComponent<Player>().gas) / (player.GetComponent<Player>().maxGas * .1f), player.GetComponent<Player>().gasBarEnd.transform.localScale.y, player.GetComponent<Player>().gasBarEnd.transform.localScale.z);
+                }
+
                 break;
 
             case "Random Recipe":
@@ -180,7 +185,6 @@ public class ShopManager : MonoBehaviour
         }
 
         //buying resources
-        Debug.Log(shopItem.name + ", " + listOfResources[0].nameOfResource + ", " + listOfResources[1].nameOfResource + ", " + listOfResources[2].nameOfResource);
         if (shopItem.name == listOfResources[0].nameOfResource)
         {
             GameObject resourceSpawn = Instantiate(listOfResources[0].gameObject);
@@ -198,7 +202,7 @@ public class ShopManager : MonoBehaviour
         }
         else if (shopItem.name == listOfResources[1].nameOfResource)
         {
-            GameObject resourceSpawn = Instantiate(listOfResources[2].gameObject);
+            GameObject resourceSpawn = Instantiate(listOfResources[1].gameObject);
             resourceSpawn.tag = "resource";
             resourceSpawn.transform.position = new Vector2(player.transform.position.x + Random.Range(-5.5f, 5.5f), player.transform.position.y + Random.Range(-5.5f, 5.5f));
             Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));

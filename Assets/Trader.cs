@@ -16,6 +16,8 @@ public class Trader : MonoBehaviour
     private ShopManager shopManager;
     public float additionalCostMultiplier;
 
+    private List<rsrce> itemsTraderIsSelling;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -131,6 +133,20 @@ public class Trader : MonoBehaviour
         GameObject exp = Instantiate(explosion);
         explosion.transform.position = gameObject.transform.position;
         canvasHolder.disableFriendlyTraderShopButton();
+
+        rsrce resource = Instantiate(itemsTraderIsSelling[Random.Range(0, itemsTraderIsSelling.Count - 1)]);
+        resource.tag = "resource";
+        resource.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y );
+        Vector2 velocityDirection = new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5));
+
+        while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
+        {
+            velocityDirection = new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f));
+        }
+
+        resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;
+        resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
+
         Destroy(gameObject);
     }
 }
