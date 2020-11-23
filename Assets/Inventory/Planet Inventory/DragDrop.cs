@@ -51,6 +51,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         {
             transform.parent.parent.Find("DeleteSlot").gameObject.SetActive(true);
         }
+        if (transform.parent.parent.Find("OxygenSlot") != null && transform.parent.parent.Find("OxygenSlot").GetComponent<OxygenSlot>().eventOcurring)
+        {
+            transform.parent.parent.Find("OxygenSlot").gameObject.SetActive(true);
+        }
         if (transform.parent.GetComponent<PlanetInventorySlot>() != null)
         {
             GameObject planet = FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet();
@@ -112,6 +116,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         if (transform.parent.parent.Find("DeleteSlot") != null)
         {
             transform.parent.parent.Find("DeleteSlot").GetComponent<DeleteSlot>().delete();
+        }
+        if (transform.parent.parent.Find("OxygenSlot") != null)
+        {
+            transform.parent.parent.Find("OxygenSlot").GetComponent<OxygenSlot>().delete();
         }
         return;
         //FindObjectOfType<Home>().GetComponent<Home>().getCurrentViewingPlanet().GetComponent<HomePlanet>().UpdateUI();
