@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 150
   health: 0
-  maxTimeBeforeDeletion: 1000000
+  maxTimeBeforeDeletion: 90
   explosion: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
   listOfResources:
   - {fileID: 1303018686466911420, guid: 6fd6c7e6627463d4784c9d9ffc5fc3a2, type: 3}
