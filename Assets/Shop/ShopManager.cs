@@ -198,9 +198,11 @@ public class ShopManager : MonoBehaviour
             case "Random Recipe":
                 int randomIndex = Random.Range(0,comboList.planetComboList.Count - 1);
                 PlanetCombo combo = comboList.planetComboList[randomIndex];
-                while(!alminac.AddEntry(combo.planet.gameObject.GetComponent<SpriteRenderer>().sprite, combo.item1.name, combo.item2.name, combo.item3.name)){
+                int i = 1;
+                while(!alminac.AddEntry(combo.planet.gameObject.GetComponent<SpriteRenderer>().sprite, combo.item1.name, combo.item2.name, combo.item3.name) && i >= 200){
                     randomIndex = Random.Range(0, comboList.planetComboList.Count - 1);
                     combo = comboList.planetComboList[randomIndex];
+                    i++;
                 }
                 break;
         }
@@ -210,12 +212,12 @@ public class ShopManager : MonoBehaviour
         {
             GameObject resourceSpawn = Instantiate(listOfResources[0].gameObject);
             resourceSpawn.tag = "resource";
-            resourceSpawn.transform.position = new Vector2(player.transform.position.x + Random.Range(-5.5f, 5.5f), player.transform.position.y + Random.Range(-5.5f, 5.5f));
-            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            resourceSpawn.transform.position = new Vector2(player.transform.position.x, player.transform.position.y);
+            Vector2 velocityDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
 
             while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
             {
-                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+                velocityDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             }
 
             resourceSpawn.GetComponent<Rigidbody2D>().velocity = velocityDirection;
@@ -225,12 +227,12 @@ public class ShopManager : MonoBehaviour
         {
             GameObject resourceSpawn = Instantiate(listOfResources[1].gameObject);
             resourceSpawn.tag = "resource";
-            resourceSpawn.transform.position = new Vector2(player.transform.position.x + Random.Range(-5.5f, 5.5f), player.transform.position.y + Random.Range(-5.5f, 5.5f));
-            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            resourceSpawn.transform.position = new Vector2(player.transform.position.x, player.transform.position.y);
+            Vector2 velocityDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
 
             while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
             {
-                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+                velocityDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             }
 
             resourceSpawn.GetComponent<Rigidbody2D>().velocity = velocityDirection;
@@ -241,12 +243,12 @@ public class ShopManager : MonoBehaviour
         {
             GameObject resourceSpawn = Instantiate(listOfResources[2].gameObject);
             resourceSpawn.tag = "resource";
-            resourceSpawn.transform.position = new Vector2(player.transform.position.x + Random.Range(-5.5f, 5.5f), player.transform.position.y + Random.Range(-5.5f, 5.5f));
-            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            resourceSpawn.transform.position = new Vector2(player.transform.position.x, player.transform.position.y);
+            Vector2 velocityDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
 
             while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
             {
-                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+                velocityDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             }
 
             resourceSpawn.GetComponent<Rigidbody2D>().velocity = velocityDirection;

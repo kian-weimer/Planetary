@@ -18,10 +18,21 @@ public class Trader : MonoBehaviour
 
     public List<GameObject> itemsTraderIsSelling;
     private bool drivingAway = false;
+    public float distanceAway;
 
     // Start is called before the first frame update
     void Start()
     {
+        Vector2 playerPosition = FindObjectOfType<Player>().transform.position;
+
+        float angle = Random.Range(0f, 360f);
+
+        float xDirection = distanceAway * Mathf.Cos(angle);
+        float yDirection = distanceAway * Mathf.Sin(angle);
+        Vector2 offset = new Vector2(xDirection, yDirection);
+        Debug.Log(offset);
+        transform.position = playerPosition + offset;
+
         canvasHolder = FindObjectOfType<canvas>();
         shopManager = FindObjectOfType<ShopManager>();
         
