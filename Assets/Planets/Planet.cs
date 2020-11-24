@@ -56,10 +56,10 @@ public class Planet : MonoBehaviour
                 ShopItemInfo shopItem = new ShopItemInfo();
                 shopItem.name = "Add Rock Planet";
                 shopItem.cost = (int)MaxItemsManager.priceOfPlanet;
-                FindObjectOfType<canvas>().mainBuySop.addShopItem(shopItem);
+                FindObjectOfType<canvas>().mainBuyShop.addShopItem(shopItem);
             }
-
-            FindObjectOfType<canvas>().mainBuySop.GetComponent<Shop>().changePrice("Add Rock Planet", (int)(MaxItemsManager.priceOfPlanet / FindObjectOfType<ShopManager>().upgradeAmount / .98f / cheeperMultiplier));
+            
+            FindObjectOfType<canvas>().mainBuyShop.GetComponent<Shop>().changePrice("Add Rock Planet", (int)(MaxItemsManager.priceOfPlanet / FindObjectOfType<ShopManager>().upgradeAmount / .98f / cheeperMultiplier));
 
             // TODO update the shop buy planet price
 

@@ -9968,7 +9968,7 @@ MonoBehaviour:
   friendlyBuyShop: {fileID: 2026982510}
   friendlyShopButton: {fileID: 1994958215}
   FriendlyShop: {fileID: 1627217585}
-  mainBuySop: {fileID: 0}
+  mainBuyShop: {fileID: 293007892}
 --- !u!1 &688492136
 GameObject:
   m_ObjectHideFlags: 0
@@ -23082,7 +23082,7 @@ MonoBehaviour:
   - Satellite Nearby
   - Friendly Nearby
   - Trader Nearby
-  - ' '
+  - Leaking Oxygen
   timeBeforeNextEvent: 0
   alertText: {fileID: 3243644419479592566, guid: e4bf9fe4d4d28cf42a9e333cd1401601,
     type: 3}

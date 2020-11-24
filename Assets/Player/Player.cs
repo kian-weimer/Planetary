@@ -150,7 +150,6 @@ public class Player : MonoBehaviour
 
         else if (Input.GetKey("f") && hasSheilds && !canSheild && sheilding && timeToReclick <= 0)
         {
-            Debug.Log("turning off");
             sheilding = false;
             sheildGameObject.SetActive(false);
         }
@@ -283,6 +282,10 @@ public class Player : MonoBehaviour
             isHome = true;
             canvas.transform.Find("ShopButton").gameObject.SetActive(true);
         }
+        if(collision.gameObject.tag == "Shield")
+        {
+            isHome = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -301,6 +304,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "HomeCircle")
         {
+            Debug.Log(sheilding);
             isHome = false;
             if (canvas.transform.Find("ShopButton").gameObject.activeSelf == true)
             {

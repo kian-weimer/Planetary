@@ -9,17 +9,12 @@ public class canvas : MonoBehaviour
     public GameObject friendlyBuyShop;
     public GameObject friendlyShopButton;
     public GameObject FriendlyShop;
-    public Shop mainBuySop;
+    public Shop mainBuyShop;
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        mainBuyShop.transform.parent.parent.parent.gameObject.SetActive(true);
+        mainBuyShop.transform.parent.parent.parent.gameObject.SetActive(false);
     }
 
     public void broadcast(string message)
