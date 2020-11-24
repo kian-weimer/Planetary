@@ -25,6 +25,7 @@ public class LootCrate : MonoBehaviour
             GameObject exp = Instantiate(deathExplosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             spawnExp();
+            MaxItemsManager.destroyLootCrate();
             Destroy(gameObject);
         }
     }

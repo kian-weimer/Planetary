@@ -45,6 +45,22 @@ public class Planet : MonoBehaviour
             // do something to show everything that it is gone (messes up the UI) 
             FindObjectOfType<Player>().HomePlanetDestroyed(this);
             FindObjectOfType<Home>().homePlanets[FindObjectOfType<Home>().homePlanets.IndexOf(this)] = null;
+            float cheeperMultiplier = 1f;
+            if (ShopManager.isCheaper)
+            {
+                cheeperMultiplier = FindObjectOfType<ShopManager>().expCheeperShopMultiplier;
+            }
+
+            if (FindObjectOfType<Home>().numberOfStartingHomePlanets >= ShopManager.maxHomePlanets)
+            {
+                ShopItemInfo shopItem = new ShopItemInfo();
+                shopItem.name = "Add Rock Planet";
+                shopItem.cost = (int)MaxItemsManager.priceOfPlanet;
+                FindObjectOfType<canvas>().mainBuySop.addShopItem(shopItem);
+            }
+
+            FindObjectOfType<canvas>().mainBuySop.GetComponent<Shop>().changePrice("Add Rock Planet", (int)(MaxItemsManager.priceOfPlanet / FindObjectOfType<ShopManager>().upgradeAmount / .98f / cheeperMultiplier));
+
             // TODO update the shop buy planet price
 
         }

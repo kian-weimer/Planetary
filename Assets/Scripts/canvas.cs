@@ -9,6 +9,7 @@ public class canvas : MonoBehaviour
     public GameObject friendlyBuyShop;
     public GameObject friendlyShopButton;
     public GameObject FriendlyShop;
+    public Shop mainBuySop;
     // Start is called before the first frame update
     void Start()
     {

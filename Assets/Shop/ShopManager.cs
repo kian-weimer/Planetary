@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
     [HideInInspector]
     public int whichShipColorBase = 0;
     public int whichShipLevel = 0;
-    public int maxHomePlanets = 20;
+    public static int maxHomePlanets = 20;
 
     public GameObject buyShop;
     public float upgradeAmount;
@@ -89,16 +89,19 @@ public class ShopManager : MonoBehaviour
                 break;
 
             case "Better Thrusters":
-                player.GetComponent<PlayerController>().maxSpeed += 5;
+                player.GetComponent<PlayerController>().maxSpeed += 3;
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
                 break;
 
             case "Add Rock Planet":
                 home.GetComponent<Home>().addRockPlanet();
-                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * cheeperMultiplier));
+                buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * .98f * cheeperMultiplier));
+
+                MaxItemsManager.priceOfPlanet = (int)(shopItem.cost * upgradeAmount * .98f * cheeperMultiplier);
                 if (home.GetComponent<Home>().numberOfStartingHomePlanets >= maxHomePlanets)
                 {
                     buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
+                    MaxItemsManager.priceOfPlanet = shopItem.cost;
                 }
                 break;
 
@@ -126,26 +129,29 @@ public class ShopManager : MonoBehaviour
                 break;
 
             case "Buy Mine":
-                MineControler.mineAmount += 1;
-                mineAmountText.GetComponent<Text>().text = "x" + MineControler.mineAmount;
+                MaxItemsManager.addMine();
+                mineAmountText.GetComponent<Text>().text = "x" + MaxItemsManager.mineAmount;
                 break;
 
             case "Common Crate":
                 GameObject crate = Instantiate(commonCrate);
                 crate.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
+                MaxItemsManager.addLootCrate();
                 break;
 
             case "Rare Crate":
                 GameObject crateRare = Instantiate(rareCrate);
                 crateRare.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
+                MaxItemsManager.addLootCrate();
                 break;
 
             case "Legendary Crate":
                 GameObject crateLegendary = Instantiate(legendaryCrate);
                 crateLegendary.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
+                MaxItemsManager.addLootCrate();
                 break;
 
             //friendly trader shop
@@ -185,7 +191,7 @@ public class ShopManager : MonoBehaviour
         }
 
         //buying resources
-        if (shopItem.name == listOfResources[0].nameOfResource)
+        if (listOfResources[0] != null && shopItem.name == listOfResources[0].nameOfResource)
         {
             GameObject resourceSpawn = Instantiate(listOfResources[0].gameObject);
             resourceSpawn.tag = "resource";
@@ -200,7 +206,7 @@ public class ShopManager : MonoBehaviour
             resourceSpawn.GetComponent<Rigidbody2D>().velocity = velocityDirection;
             resourceSpawn.GetComponent<Rigidbody2D>().angularVelocity = 720;
         }
-        else if (shopItem.name == listOfResources[1].nameOfResource)
+        else if (listOfResources[1] != null && shopItem.name == listOfResources[1].nameOfResource)
         {
             GameObject resourceSpawn = Instantiate(listOfResources[1].gameObject);
             resourceSpawn.tag = "resource";
@@ -216,7 +222,7 @@ public class ShopManager : MonoBehaviour
             resourceSpawn.GetComponent<Rigidbody2D>().angularVelocity = 720;
 
         }
-        else if (shopItem.name == listOfResources[2].nameOfResource)
+        else if (listOfResources[2] != null && shopItem.name == listOfResources[2].nameOfResource)
         {
             GameObject resourceSpawn = Instantiate(listOfResources[2].gameObject);
             resourceSpawn.tag = "resource";

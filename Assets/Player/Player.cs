@@ -193,13 +193,13 @@ public class Player : MonoBehaviour
                 sheildBar.GetComponent<RectTransform>().localScale.z);
         }
 
-        if (Input.GetKey("m") && MineControler.mineAmount > 0 && timeBeforeNextMine <= 0)
+        if (Input.GetKey("m") && MaxItemsManager.mineAmount > 0 && timeBeforeNextMine <= 0)
         {
             GameObject mineObject = Instantiate(mine);
             mineObject.transform.position = transform.Find("MineSpawn").position;
 
-            MineControler.mineAmount = MineControler.mineAmount - 1;
-            mineAmountText.GetComponent<Text>().text = "x" + MineControler.mineAmount;
+            MaxItemsManager.useMine();
+            mineAmountText.GetComponent<Text>().text = "x" + MaxItemsManager.mineAmount;
             timeBeforeNextMine = timeBetweenMines;
         }
         timeBeforeNextMine -= Time.deltaTime;

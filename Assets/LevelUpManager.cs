@@ -104,7 +104,8 @@ public class LevelUpManager : MonoBehaviour
                 mineBuy.sellItem = false;
                 mineBuy.cost = 150;
                 buyMenu.GetComponent<Shop>().addShopItem(mineBuy);
-                mineAmountText.GetComponent<Text>().text = "x" + MineControler.mineAmount;
+                MaxItemsManager.mineAmount = 2;
+                mineAmountText.GetComponent<Text>().text = "x" + MaxItemsManager.mineAmount;
                 BM.Broadcast("Press 'M' to deploy a mine");
                 break;
         }
