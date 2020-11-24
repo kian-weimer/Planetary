@@ -76,14 +76,17 @@ public class Map : MonoBehaviour
     {
         if (bossNumber == 1)
         {
+            bossIcon1.SetActive(true);
             boss1 = boss;
         }
         if (bossNumber == 2)
         {
+            bossIcon2.SetActive(true);
             boss2 = boss;
         }
         if (bossNumber == 3)
         {
+            bossIcon3.SetActive(true);
             boss3 = boss;
         }
     }
