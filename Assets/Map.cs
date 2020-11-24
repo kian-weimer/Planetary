@@ -17,6 +17,13 @@ public class Map : MonoBehaviour
     public GameObject player;
     public GameObject playerIcon;
 
+    public GameObject boss1;
+    public GameObject boss2;
+    public GameObject boss3;
+    public GameObject bossIcon1;
+    public GameObject bossIcon2;
+    public GameObject bossIcon3;
+
     public Texture2D texture = null;
     public RawImage mapImage;
 
@@ -65,6 +72,40 @@ public class Map : MonoBehaviour
         displayArea.transform.localScale = Vector3.one;
     }
 
+    public void addBoss(GameObject boss, int bossNumber)
+    {
+        if (bossNumber == 1)
+        {
+            boss1 = boss;
+        }
+        if (bossNumber == 2)
+        {
+            boss2 = boss;
+        }
+        if (bossNumber == 3)
+        {
+            boss3 = boss;
+        }
+    }
+    public void removeBoss(GameObject boss, int bossNumber)
+    {
+        if (bossNumber == 1)
+        {
+            boss1 = null;
+            Destroy(bossIcon1);
+        }
+        if (bossNumber == 2)
+        {
+            boss2 = null;
+            Destroy(bossIcon2);
+        }
+        if (bossNumber == 3)
+        {
+            boss3 = null;
+            Destroy(bossIcon3);
+        }
+    }
+
     public void open()
     {
         if (texture == null)
@@ -74,6 +115,24 @@ public class Map : MonoBehaviour
         displayArea.GetComponent<RectTransform>().anchoredPosition = -1 * player.transform.position / scaleFactor * playerScaleFactor;
         playerIcon.GetComponent<RectTransform>().anchoredPosition = player.transform.position / scaleFactor * playerScaleFactor;
         playerIcon.GetComponent<RectTransform>().rotation = player.transform.rotation;
+
+        // bosses display
+        if (boss1 != null)
+        {
+            bossIcon1.GetComponent<RectTransform>().anchoredPosition = boss1.transform.position / scaleFactor * playerScaleFactor;
+            bossIcon1.GetComponent<RectTransform>().rotation = boss1.transform.rotation;
+        }
+        if (boss2 != null)
+        {
+            bossIcon2.GetComponent<RectTransform>().anchoredPosition = boss2.transform.position / scaleFactor * playerScaleFactor;
+            bossIcon2.GetComponent<RectTransform>().rotation = boss2.transform.rotation;
+        }
+        if (boss3 != null)
+        {
+            bossIcon3.GetComponent<RectTransform>().anchoredPosition = boss3.transform.position / scaleFactor * playerScaleFactor;
+            bossIcon3.GetComponent<RectTransform>().rotation = boss3.transform.rotation;
+        }
+
         texture.Apply();
     }
     // non-preferred method, takes a long time, low quality images. once made non-taxing on game

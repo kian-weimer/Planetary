@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public PlayerController playerController;
     public RandomEventManager REM;
+    public Map map;
 
     public static bool lightsOn = false;
     public static bool popupsOn = false;

@@ -28,15 +28,18 @@ public class EnemyController : MonoBehaviour
     public QuestSystem questSystem;
 
     public GameObject target;
-    public bool boss = false;
-
-
+    bool boss = false;
+    
     private void Start()
     {
         questSystem = FindObjectOfType<QuestSystem>();
         player = FindObjectOfType<Player>().gameObject;
         audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
+        if (gameObject.GetComponent<Boss>() != null)
+        {
+            boss = true;
+        }
         weapon = Instantiate(weapon);
         weapon.transform.parent = transform;
         health = maxHealth;
@@ -48,6 +51,10 @@ public class EnemyController : MonoBehaviour
         inTargetingRange = true;
         if (health <= 0)
         {
+            if (boss)
+            {
+                GetComponent<Boss>().died();
+            }
             GameObject exp = Instantiate(deathExplosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             spawnExp();
@@ -158,6 +165,10 @@ public class EnemyController : MonoBehaviour
             speed = 0;
             rb.velocity = new Vector2(0, 0);
             rb.angularVelocity = 0;
+            if (boss && health < maxHealth)
+            {
+                health += maxHealth * .1f;
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -181,7 +192,14 @@ public class EnemyController : MonoBehaviour
         }
         if (collision.transform.tag == "Planet")
         {
-            damage(maxHealth);
+            if (!boss)
+            {
+                damage(maxHealth);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<Planet>().destroy(true);
+            }
         }
     }
 }

@@ -32,7 +32,10 @@ public class OxygenSlot : MonoBehaviour, IDropHandler
 
     public void delete()
     {
-        StartCoroutine(wait());
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(wait());
+        }
     }
 
     public void deleteNow()

@@ -5,11 +5,15 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject enemySpawnable;
     public float firerate; // bullets per second
     public float bulletSpeed;
     public float lastShotTime;
     public bool isInGUI = true;
     public int weaponSelect = 1;
+    private int count = 0;
+    private int spawnCount = 0;
+
     private void Start()
     {
         lastShotTime = Time.time;
@@ -83,6 +87,40 @@ public class Weapon : MonoBehaviour
                     return true;
                 }
                 break;
+            case 6: // basic shooting
+                if (Time.time > lastShotTime + 1 / firerate && !isInGUI)
+                {
+                    if (count < 5)
+                    {
+                        count++;
+                        for (int i = 0; i < 3; i++)
+                        {
+                            lastShotTime = Time.time;
+                            GameObject tempBullet = Instantiate(bullet).gameObject;
+                            tempBullet.transform.position = position;
+                            //tempBullet.GetComponent<Rigidbody2D>().velocity = (direction.normalized*(1 - i/50) + new Vector2(2.5f - count, -2.5f + count)) * bulletSpeed + playerSpeed;
+                            float xVariance = Random.Range(-0.01f, 0.01f);
+                            float yVariance = Random.Range(-0.01f, 0.01f);
+                            tempBullet.GetComponent<Rigidbody2D>().velocity = (direction.normalized + new Vector2(xVariance, yVariance)) * bulletSpeed + playerSpeed;
+                        }
+                        
+                        return true;
+                    }
+                    else
+                    {
+                        lastShotTime += 10000 / firerate;
+                        count = 0;
+                        spawnCount++;
+                        if (spawnCount == 5)
+                        {
+                            spawnCount = 0;
+                            GameObject enemy = Instantiate(enemySpawnable);
+                            enemy.transform.position = position;
+                            enemy.GetComponent<EnemyController>().inTargetingRange = true;
+                        }
+                    }
+                }
+                break;
         }
         if (Time.time > lastShotTime + 1/firerate && !isInGUI)
         {
@@ -94,4 +132,5 @@ public class Weapon : MonoBehaviour
         }
         return false;
     }
+
 }
