@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 5250920422080688081}
   - component: {fileID: 5250920422080688083}
   - component: {fileID: 5250920422080688080}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StoppingRange
   m_TagString: enemyRangeCollider
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 5250920422581385607}
   - component: {fileID: 5250920422581385601}
   - component: {fileID: 5250920422581385606}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FiringRange
   m_TagString: enemyRangeCollider
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 5250920423051318549}
   - component: {fileID: 5250920423051318551}
   - component: {fileID: 5250920423051318548}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TargetingRange
   m_TagString: enemyRangeCollider
   m_Icon: {fileID: 0}
@@ -875,6 +875,7 @@ MonoBehaviour:
   deathExplosion: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
   questSystem: {fileID: 0}
   target: {fileID: 0}
+  friendlyThatFollowsPlayer: 0
 --- !u!58 &5250920423125103538
 CircleCollider2D:
   m_ObjectHideFlags: 0

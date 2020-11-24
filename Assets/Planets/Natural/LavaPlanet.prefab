@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2890695385989403540}
   - component: {fileID: 7363093066515225211}
   - component: {fileID: 2222287601114735724}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: PopupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5293406477891662705}
   - component: {fileID: 418798677892059780}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PopupCollider
   m_TagString: Popup
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 4712050214274385712}
   - component: {fileID: -433539675286945820}
   - component: {fileID: -4935261003116271449}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LavaPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 273201793
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d7afa0d8260d02a4d87e445f4233e7f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 5202349269024831197}
   - component: {fileID: 3951975613501026569}
   - component: {fileID: 4447429112419454559}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

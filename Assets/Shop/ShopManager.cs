@@ -59,6 +59,8 @@ public class ShopManager : MonoBehaviour
         resourceCost.Add("Steel", 30);
         resourceCost.Add("EndGame", 10000);
 
+        resourceCost.Add("FriendlySpawn", 0);
+
         resourceCost.Add("Copper", 50);
         resourceCost.Add("Ice", 50);
         resourceCost.Add("Plant", 50);

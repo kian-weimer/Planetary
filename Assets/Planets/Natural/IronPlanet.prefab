@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3422718975722848100}
   - component: {fileID: 7011214859626395275}
   - component: {fileID: 1852393599040374940}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: PopupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5627201280642080641}
   - component: {fileID: 193091596828835444}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PopupCollider
   m_TagString: Popup
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 1180540850115682420}
   - component: {fileID: 2973926279664444107}
   - component: {fileID: -5518408196411905699}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: IronPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 273201793
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2a2a32c80882f6d458285b68d298b219, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 5715162475126348333}
   - component: {fileID: 3583207260010880505}
   - component: {fileID: 4240791968542532271}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1721616277505534532}
   - component: {fileID: 4904005153588100835}
   - component: {fileID: 530831926312323230}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeadPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 273201793
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 48f8c8e0416863048b8d43b6e1a36aee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 2211985735356210089}
   - component: {fileID: 6942515118502812797}
   - component: {fileID: 7726076208527549227}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 9123492903205600992}
   - component: {fileID: 3507757066722195215}
   - component: {fileID: 5212879850346203416}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: PopupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2302761572241792517}
   - component: {fileID: 6003060241463738352}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PopupCollider
   m_TagString: Popup
   m_Icon: {fileID: 0}

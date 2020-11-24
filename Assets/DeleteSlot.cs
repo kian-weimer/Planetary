@@ -40,7 +40,14 @@ public class DeleteSlot : MonoBehaviour, IDropHandler
             // reduce inventory here
             RI.resourceList[delInv.item.GetComponent<rsrce>().nameOfResource] -= 1;
 
-            delInv.icon.GetComponent<DragDrop>().destroy();
+            if (delInv.icon.GetComponent<DragDrop>() != null)
+            {
+                delInv.icon.GetComponent<DragDrop>().destroy();
+            }
+            else
+            {
+                delInv.icon.GetComponent<DragDropSpawnable>().destroy();
+            }
             Destroy(delInv.item);
             delInv.RemoveItem();
             FindObjectOfType<Player>().regenerateFromDeletedItem();

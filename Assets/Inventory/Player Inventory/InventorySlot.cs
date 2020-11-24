@@ -49,7 +49,14 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     {
         this.item = item;
         this.icon = icon;
-        icon.GetComponent<DragDrop>().moved = true;
+        if (icon.GetComponent<DragDrop>() != null)
+        {
+            icon.GetComponent<DragDrop>().moved = true;
+        }
+        else
+        {
+            icon.GetComponent<DragDropSpawnable>().moved = true;
+        }
         icon.transform.parent = transform;
         icon.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0); //GetComponent<RectTransform>().anchoredPosition;
     }

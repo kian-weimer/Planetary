@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5708732118729742437}
   - component: {fileID: 5388889693003969578}
   - component: {fileID: -7887160900408189736}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: IcePlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 273201793
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c8dd50bfb4ff30c42a72558640415e35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 1156079052638396988}
   - component: {fileID: 7989806014034142696}
   - component: {fileID: 7314184358398188222}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 8080745252953425781}
   - component: {fileID: 4474243752809778842}
   - component: {fileID: 5111132654179594381}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: PopupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1246573474786256784}
   - component: {fileID: 6770772746555885157}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PopupCollider
   m_TagString: Popup
   m_Icon: {fileID: 0}

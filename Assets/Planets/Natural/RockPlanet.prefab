@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2803827062482889614}
   - component: {fileID: 6342044790861573210}
   - component: {fileID: 6008705657147593484}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 6033834495708069971}
   - component: {fileID: 4272794931834216782}
   - component: {fileID: 3925241759837270199}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RockPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 273201793
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1b363a546fabb8249bc9d2745c2aa2f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 2859418415518215714}
   - component: {fileID: 7715963511511142359}
   - component: {fileID: 3005915093248117993}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PopupCollider
   m_TagString: Popup
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 5099927318451048135}
   - component: {fileID: 645618807521380136}
   - component: {fileID: 8073936052733442367}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: PopupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject target;
     bool boss = false;
+    public bool friendlyThatFollowsPlayer = false;
     
     private void Start()
     {
@@ -39,6 +40,11 @@ public class EnemyController : MonoBehaviour
         if (gameObject.GetComponent<Boss>() != null)
         {
             boss = true;
+        }
+        if (tag == "Friendly")
+        {
+            target = player;
+            inTargetingRange = true;
         }
         weapon = Instantiate(weapon);
         weapon.transform.parent = transform;

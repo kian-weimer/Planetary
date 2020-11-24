@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2382855175540190550}
   - component: {fileID: 6916354548890528386}
   - component: {fileID: 6096640270416532948}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 9089337652807849743}
   - component: {fileID: 2005291242700092641}
   - component: {fileID: 4508821450445063657}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SulfurPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 273201793
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 901145abb57a67840bcc42b547ddb415, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -318,7 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2330078538172016890}
   - component: {fileID: 7848701152464079119}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PopupCollider
   m_TagString: Popup
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 4701264415133567007}
   - component: {fileID: 1084550647769121264}
   - component: {fileID: 8643755669499428839}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: PopupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

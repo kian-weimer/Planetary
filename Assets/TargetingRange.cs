@@ -8,7 +8,7 @@ public class TargetingRange : MonoBehaviour
     private ArrayList targets = new ArrayList();
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject.tag == "Player" && EC.CompareTag("Enemy") || collision.gameObject.tag == "Enemy" && EC.CompareTag("Friendly")) {
             EC.inTargetingRange = true;
             EC.target = collision.gameObject;
             targets.Add(collision.gameObject);
@@ -17,7 +17,7 @@ public class TargetingRange : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && EC.CompareTag("Enemy") || collision.gameObject.tag == "Enemy" && EC.CompareTag("Friendly"))
         {
             targets.Remove(collision.gameObject);
             if (targets.Count > 0)
@@ -26,8 +26,15 @@ public class TargetingRange : MonoBehaviour
             }
             else
             {
-                EC.inTargetingRange = false;
-                EC.target = null;
+                if (EC.CompareTag("Friendly") && EC.friendlyThatFollowsPlayer)
+                {
+                    EC.target = EC.player;
+                }
+                else
+                {
+                    EC.inTargetingRange = false;
+                    EC.target = null;
+                }
             }
         }
     }
