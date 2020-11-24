@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     public QuestSystem questSystem;
 
     public GameObject target;
+    public bool boss = false;
 
 
     private void Start()
@@ -163,8 +164,15 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.transform.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().loseHealth(hitDamage);
-            damage(maxHealth);
+            if (!boss)
+            {
+                collision.gameObject.GetComponent<Player>().loseHealth(hitDamage);
+                damage(maxHealth);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<Player>().loseHealth(collision.gameObject.GetComponent<Player>().maxHealth);
+            }
         }
         if (collision.transform.tag == "Friendly") // friendlies are just enemys in disguise
         {

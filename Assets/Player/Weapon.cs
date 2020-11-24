@@ -61,6 +61,28 @@ public class Weapon : MonoBehaviour
                     return true;
                 }
                 break;
+            case 5: // basic shooting
+                if (Time.time > lastShotTime + 1 / firerate && !isInGUI)
+                {
+                    //wider bullet
+                    lastShotTime = Time.time;
+                    GameObject tempBullet = Instantiate(bullet).gameObject;
+                    tempBullet.GetComponent<EnemyBullet>().despawnTime = Random.Range(1f, 6f);
+                    tempBullet.transform.position = position;
+                    float xVariance = Random.Range(-0.18f, 0.18f);
+                    float yVariance = Random.Range(-0.18f, 0.18f);
+                    tempBullet.GetComponent<Rigidbody2D>().velocity = (direction.normalized + new Vector2(xVariance, yVariance)) * bulletSpeed + playerSpeed;
+                    //narrower bullet
+                    lastShotTime = Time.time;
+                    GameObject tempBullet2 = Instantiate(bullet).gameObject;
+                    tempBullet2.GetComponent<EnemyBullet>().despawnTime = Random.Range(3f, 9f);
+                    tempBullet2.transform.position = position;
+                    float xVariance2 = Random.Range(-0.08f, 0.08f);
+                    float yVariance2 = Random.Range(-0.08f, 0.08f);
+                    tempBullet2.GetComponent<Rigidbody2D>().velocity = (direction.normalized + new Vector2(xVariance2, yVariance2)) * bulletSpeed + playerSpeed;
+                    return true;
+                }
+                break;
         }
         if (Time.time > lastShotTime + 1/firerate && !isInGUI)
         {
