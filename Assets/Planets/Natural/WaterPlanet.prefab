@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 8026874246414390180}
   - component: {fileID: -891579417539809815}
   - component: {fileID: 8742490148882380780}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: WaterPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

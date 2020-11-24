@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 5805238415763284875}
   - component: {fileID: -2733175997135701233}
   - component: {fileID: -6133625058435874641}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: ObsidianPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

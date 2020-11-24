@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1721616277505534532}
   - component: {fileID: 4904005153588100835}
   - component: {fileID: 530831926312323230}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: LeadPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1998435233404681833}
   - component: {fileID: -6397289496914489608}
   - component: {fileID: 1470502700484071446}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: MercuryPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

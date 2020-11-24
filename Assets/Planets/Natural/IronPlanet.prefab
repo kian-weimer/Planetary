@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 1180540850115682420}
   - component: {fileID: 2973926279664444107}
   - component: {fileID: -5518408196411905699}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: IronPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

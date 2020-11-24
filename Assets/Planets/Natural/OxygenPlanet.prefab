@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 7096315610707477355}
   - component: {fileID: 2838972790654327643}
   - component: {fileID: -7560686762997666959}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: OxygenPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

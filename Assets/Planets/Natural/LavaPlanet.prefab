@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 4712050214274385712}
   - component: {fileID: -433539675286945820}
   - component: {fileID: -4935261003116271449}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: LavaPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5708732118729742437}
   - component: {fileID: 5388889693003969578}
   - component: {fileID: -7887160900408189736}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: IcePlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

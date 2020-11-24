@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1998435233404681833}
   - component: {fileID: -5409379404350166793}
   - component: {fileID: -887863700590309014}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: WoodPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}

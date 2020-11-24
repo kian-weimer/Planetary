@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 6033834495708069971}
   - component: {fileID: 4272794931834216782}
   - component: {fileID: 3925241759837270199}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: RockPlanet
   m_TagString: Planet
   m_Icon: {fileID: 0}
