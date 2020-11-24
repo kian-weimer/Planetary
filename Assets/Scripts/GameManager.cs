@@ -52,6 +52,18 @@ public class GameManager : MonoBehaviour
         REM.running = true;
     }
 
+    public void sandbox()
+    {
+        EnterGame();
+    }
+    public void normal()
+    {
+        EnterGame();
+    }
+    public void hardcore()
+    {
+        EnterGame();
+    }
     public void EnterGame()
     {
         SceneManager.LoadScene("SampleScene");
