@@ -24,6 +24,7 @@ public class QuestEntry : MonoBehaviour
     public BroadcastMessage BM;
 
     public bool tracking = false;
+    public static int bossCounter = 0;
 
     void Start()
     {
@@ -50,6 +51,15 @@ public class QuestEntry : MonoBehaviour
         transform.Find("RewardText").GetComponent<Text>().text = quest.rewardText;
         requiredCount = quest.requirementCount;
         questType = quest.questType;
+
+        if (questType == "boss")
+        {
+            planetGenerator PG = FindObjectOfType<planetGenerator>();
+            bossCounter++;
+            Vector2 pos = ((15*bossCounter + 5) * PG.spacialResolution + PG.homeOffset) * PG.PositionGenerator(10 * bossCounter);
+            GameObject boss = Instantiate(quest.icons[0]);
+            boss.transform.position = pos;
+        }
 
         moneyReward = quest.moneyReward;
         expReward = quest.expReward;

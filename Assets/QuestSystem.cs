@@ -20,7 +20,6 @@ public class QuestSystem : MonoBehaviour
     public Alminac alminac;
     public GameObject trackingWeapon;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -74,15 +73,15 @@ public class QuestSystem : MonoBehaviour
 
     public void updateQuestsEnemy(string name)
     {
-        if (questEntry1.questType == "enemy")
+        if (questEntry1.questType == "enemy" || questEntry1.questType == "boss")
         {
             questEntry1.enemyKilled(name);
         }
-        if (questEntry2.questType == "enemy")
+        if (questEntry2.questType == "enemy" || questEntry2.questType == "boss")
         {
             questEntry2.enemyKilled(name);
         }
-        if (questEntry3.questType == "enemy")
+        if (questEntry3.questType == "enemy" || questEntry3.questType == "boss")
         {
             questEntry3.enemyKilled(name);
         }

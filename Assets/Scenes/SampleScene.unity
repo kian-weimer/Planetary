@@ -2703,6 +2703,19 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: 
     recipeReward: 
+  - promptText: Kill a boss (shown on map)
+    questType: boss
+    requirementCount: 1
+    icons:
+    - {fileID: 2092701216333346601, guid: 15cb844edd121854b953b666cdca47d0, type: 3}
+    itemNames:
+    - BossFlame
+    quantities: 01000000
+    rewardText: 'Reward: $500'
+    moneyReward: 500
+    expReward: 0
+    upgradeReward: 
+    recipeReward: 
   - promptText: Kill the enemies blow to protect our solar system
     questType: enemy
     requirementCount: 2
@@ -2782,6 +2795,19 @@ MonoBehaviour:
     expReward: 33
     upgradeReward: deleteRegen
     recipeReward: 
+  - promptText: Kill a boss (shown on map)
+    questType: boss
+    requirementCount: 1
+    icons:
+    - {fileID: 5250920423125103536, guid: e1e5d4e75cd331b48a9c90918d8a4c3d, type: 3}
+    itemNames:
+    - BossLazer
+    quantities: 01000000
+    rewardText: 'Reward: $1500, 60XP'
+    moneyReward: 1500
+    expReward: 60
+    upgradeReward: 
+    recipeReward: 
   - promptText: Collect 5 Mercury resources
     questType: resource
     requirementCount: 1
@@ -2847,6 +2873,19 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: gas
     recipeReward: Steel
+  - promptText: Create 3 Water Planets
+    questType: planet
+    requirementCount: 1
+    icons:
+    - {fileID: 8358963441820322171, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
+    itemNames:
+    - Water
+    quantities: 03000000
+    rewardText: 'Reward: Armory Planet, Health Upgrade, $2000'
+    moneyReward: 2000
+    expReward: 0
+    upgradeReward: health
+    recipeReward: Armory
   - promptText: Create 3 Water Planets
     questType: planet
     requirementCount: 1
