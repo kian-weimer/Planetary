@@ -198,7 +198,10 @@ public class ShopManager : MonoBehaviour
             case "Random Recipe":
                 int randomIndex = Random.Range(0,comboList.planetComboList.Count - 1);
                 PlanetCombo combo = comboList.planetComboList[randomIndex];
-                alminac.AddEntry(combo.planet.gameObject.GetComponent<SpriteRenderer>().sprite, combo.item1.name, combo.item2.name, combo.item3.name);
+                while(!alminac.AddEntry(combo.planet.gameObject.GetComponent<SpriteRenderer>().sprite, combo.item1.name, combo.item2.name, combo.item3.name)){
+                    randomIndex = Random.Range(0, comboList.planetComboList.Count - 1);
+                    combo = comboList.planetComboList[randomIndex];
+                }
                 break;
         }
 
