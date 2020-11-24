@@ -38,6 +38,7 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
+        loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
         resourceCost.Add("Rock", 1);
         resourceCost.Add("Water", 15);
         resourceCost.Add("Coal", 20);
@@ -63,6 +64,15 @@ public class ShopManager : MonoBehaviour
         resourceCost.Add("Plant", 50);
         resourceCost.Add("Sulfur", 50);
     }
+
+    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    {
+        if (PlayerPrefs.HasKey("upgradeAmount"))
+        {
+            upgradeAmount = PlayerPrefs.GetFloat("upgradeAmount");
+        }
+    }
+
     public void buyShopResultOf(ShopItem shopItem)
     {
         float cheeperMultiplier = 1f;

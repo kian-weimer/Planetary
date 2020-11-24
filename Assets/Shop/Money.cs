@@ -5,9 +5,27 @@ using UnityEngine.UI;
 
 public class Money : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private bool infiniteMoney = false;
+    private void Start()
+    {
+        loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+        if (infiniteMoney)
+        {
+            GetComponent<Text>().text = "∞";
+            GetComponent<Text>().fontSize = 90;
+
+        }
+    }
+    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    {
+        if (PlayerPrefs.HasKey("infiniteMoney"))
+        {
+            infiniteMoney = PlayerPrefs.GetInt("infiniteMoney") == 1;
+        }
+    }
     public void addMoney(int moneyToAdd)
     {
+        if (infiniteMoney) { return; }
         int currentMoney = int.Parse(GetComponent<Text>().text);
         currentMoney += moneyToAdd;
         GetComponent<Text>().text = currentMoney.ToString();
@@ -15,6 +33,7 @@ public class Money : MonoBehaviour
     }
     public bool removeMoney(int moneyToRemove)
     {
+        if (infiniteMoney) { return true; }
         int currentMoney = int.Parse(GetComponent<Text>().text);
         int potentialMoney = currentMoney -= moneyToRemove;
 

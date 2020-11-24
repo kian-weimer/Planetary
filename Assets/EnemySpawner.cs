@@ -21,8 +21,17 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
         timeBeforeNextEnemy = timeBetweenEnemies;
         playerLocation = new Vector3(0, 0, 0);
+    }
+
+    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    {
+        if (PlayerPrefs.HasKey("timeBetweenEnemies"))
+        {
+            timeBetweenEnemies = PlayerPrefs.GetFloat("timeBetweenEnemies");
+        }
     }
 
     // Update is called once per frame

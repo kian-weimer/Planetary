@@ -52,16 +52,50 @@ public class GameManager : MonoBehaviour
         REM.running = true;
     }
 
+    // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
     public void sandbox()
     {
+        PlayerPrefs.SetInt("infiniteMoney", 1); // endless money
+        PlayerPrefs.SetInt("infiniteSkills", 1); // endless skills
+
+        PlayerPrefs.SetInt("rarityRingDistanceLimit", 25);
+        PlayerPrefs.SetInt("frequencyIncrementor", 2);
+        PlayerPrefs.SetFloat("fuelConsumption", 1);
+        PlayerPrefs.SetInt("maxHealth", 200);
+        PlayerPrefs.SetFloat("timeBetweenEvents", 180);
+        PlayerPrefs.SetFloat("timeBetweenEnemies", 40);
+        PlayerPrefs.SetFloat("upgradeAmount", 1.25f);
         EnterGame();
     }
     public void normal()
     {
+        PlayerPrefs.SetInt("rarityRingDistanceLimit", 25); 
+        PlayerPrefs.SetInt("frequencyIncrementor", 2); 
+        PlayerPrefs.SetFloat("fuelConsumption", 1);
+        PlayerPrefs.SetInt("maxHealth", 200);
+        PlayerPrefs.SetFloat("timeBetweenEvents", 180);
+        PlayerPrefs.SetFloat("timeBetweenEnemies", 40);
+        PlayerPrefs.SetFloat("upgradeAmount", 1.25f);
+
+        PlayerPrefs.SetInt("infiniteMoney", 0);
+        PlayerPrefs.SetInt("infiniteSkills", 0);
+
         EnterGame();
     }
     public void hardcore()
     {
+        PlayerPrefs.SetInt("rarityRingDistanceLimit", 35); // make rarer planets further away
+        PlayerPrefs.SetInt("frequencyIncrementor", 4); // spawn fewer planets 
+        PlayerPrefs.SetFloat("fuelConsumption", 1.5f); // player consumes more fuel
+        PlayerPrefs.SetInt("maxHealth", 100); // lower starting max health 
+        PlayerPrefs.SetFloat("timeBetweenEvents", 120); // more frequent events 
+        PlayerPrefs.SetFloat("timeBetweenEnemies", 30); // more enemies spawn 
+        PlayerPrefs.SetFloat("upgradeAmount", 1.5f); // upgrades become more expensive faster
+        numberOfRings = (int)(numberOfRings*1.5); // allow for further travel 
+
+        PlayerPrefs.SetInt("infiniteMoney", 0);
+        PlayerPrefs.SetInt("infiniteSkills", 0);
+
         EnterGame();
     }
     public void EnterGame()

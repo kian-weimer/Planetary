@@ -79,9 +79,17 @@ public class Player : MonoBehaviour
     public float deletionGasRegenerationAmount;
 
     private float timeToReclick = .25f;
+    private bool infiniteSkills = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+        if (infiniteSkills)
+        {
+            skillPoints = 1;
+            skillPointText.text = "Unlimited" + " Points";
+        }
         pointsToNextLevel = pointsToNextLevelList[0];
         ExpBar.transform.Find("BarBG").Find("ExpBar").localScale = new Vector3((float)experiencePoints / pointsToNextLevel, 1, 1);
         ExpBar.transform.Find("NumeratedExp").GetComponent<Text>().text = experiencePoints + "/" + pointsToNextLevel;
@@ -95,6 +103,22 @@ public class Player : MonoBehaviour
         weapon.GetComponent<Weapon>().lastShotTime = 0;
         weapon.GetComponent<Weapon>().bullet.GetComponent<Bullet>().bulletDamage = 5;
         
+    }
+
+    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    {
+        if (PlayerPrefs.HasKey("fuelConsumption"))
+        {
+            fuelConsumption = PlayerPrefs.GetFloat("fuelConsumption");
+        }
+        if (PlayerPrefs.HasKey("maxHealth"))
+        {
+            maxHealth = PlayerPrefs.GetInt("maxHealth");
+        }
+        if (PlayerPrefs.HasKey("infiniteSkills"))
+        {
+            infiniteSkills = PlayerPrefs.GetInt("infiniteSkills") == 1;
+        }
     }
 
     void SwitchWeapon()
@@ -465,7 +489,10 @@ public class Player : MonoBehaviour
         experiencePoints = overflowPoints;
 
         levelText.text = "LEVEL " + level;
-        skillPointText.text = skillPoints + " Skill Points";
+        if (!infiniteSkills)
+        {
+            skillPointText.text = skillPoints + " Skill Points";
+        }
 
         ExpBar.transform.Find("BarBG").Find("ExpBar").localScale = new Vector3((float)experiencePoints / pointsToNextLevel, 1, 1);
         ExpBar.transform.Find("NumeratedExp").GetComponent<Text>().text = experiencePoints + "/" + pointsToNextLevel;
@@ -473,6 +500,7 @@ public class Player : MonoBehaviour
 
     public void useSkillPoints(int quantity)
     {
+        if (infiniteSkills) { return; }
         skillPoints -= quantity;
         skillPointText.text = skillPoints + " Skill Points";
     }

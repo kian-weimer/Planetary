@@ -13,7 +13,7 @@ public class LevelTree : MonoBehaviour
 
     private void Start()
     {
-        foreach(GameObject item in lockedItems)
+        foreach (GameObject item in lockedItems)
         {
             item.transform.Find("Lock").gameObject.SetActive(true);
         }

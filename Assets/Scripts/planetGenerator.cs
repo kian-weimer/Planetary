@@ -52,6 +52,7 @@ public class planetGenerator : MonoBehaviour
         go1.transform.Rotate(90f, 0, 0);
         go1.DrawCircle(70, .25f);//radius, thickness
         */
+        loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
         // Randomly generate all outside planets
         int numberOfRings = FindObjectOfType<GameManager>().numberOfRings;
         planetInfoList = new Dictionary<Vector2, ArrayList>();
@@ -115,6 +116,18 @@ public class planetGenerator : MonoBehaviour
         // fill planetsInGame list
         // this contains a list of the info of all planets in the game
         //Instantiate(planetTypes[0], new Vector2(0, 0), Quaternion.identity);
+    }
+
+    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    {
+        if (PlayerPrefs.HasKey("rarityRingDistanceLimit"))
+        {
+            rarityRingDistanceLimit = PlayerPrefs.GetInt("rarityRingDistanceLimit");
+        }
+        if (PlayerPrefs.HasKey("frequencyIncrementor"))
+        {
+            frequencyIncrementor = PlayerPrefs.GetInt("frequencyIncrementor");
+        }
     }
 
     public void Regenerate()

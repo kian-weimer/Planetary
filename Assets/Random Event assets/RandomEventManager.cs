@@ -21,7 +21,16 @@ public class RandomEventManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
         timeBeforeNextEvent = timeBetweenEvents;
+    }
+
+    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    {
+        if (PlayerPrefs.HasKey("timeBetweenEvents"))
+        {
+            timeBetweenEvents = PlayerPrefs.GetFloat("timeBetweenEvents");
+        }
     }
 
     // Update is called once per frame
