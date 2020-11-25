@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac0153c747e4ad4abd856b6addee133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3092420324474564214, guid: d7d39e930a3925644bc9058f85e9c5b5, type: 3}
+  bullet: {fileID: 8494929661465806203, guid: 5f318a4a03972064e84a8760b8af48ab, type: 3}
   enemySpawnable: {fileID: 0}
-  firerate: 10
+  firerate: 0.5
   bulletSpeed: 15
   lastShotTime: 40.68
   isInGUI: 0

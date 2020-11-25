@@ -328,7 +328,6 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "HomeCircle" && Mathf.Sqrt(transform.position.x * transform.position.x + transform.position.y * transform.position.y) > 70)
         {
-            Debug.Log(sheilding);
             isHome = false;
             if (canvas.transform.Find("ShopButton").gameObject.activeSelf == true)
             {
