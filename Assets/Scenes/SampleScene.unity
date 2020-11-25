@@ -8565,9 +8565,9 @@ MonoBehaviour:
   numberOfNormalEnemies: 0
   bomberEnemies: []
   numberOfBombers: 0
-  timeTillInvasionMax: 140
+  timeTillInvasionMax: 90
   timeTillInvasion: 0
-  secondsToStartTimer: 120
+  secondsToStartTimer: 80
   distanceAwayFromHome: 0
   timer: {fileID: 1237228987}
 --- !u!4 &603298907
