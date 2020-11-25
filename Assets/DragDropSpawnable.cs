@@ -56,13 +56,24 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
                     transform.parent.GetComponent<InventorySlot>().RemoveItem();
                     destroy();
                 }
-                if (raycastHit.transform.tag == "Player" && type == "heal")
+                if (raycastHit.transform.tag == "Player" && type == "heal") 
                 {
                     raycastHit.transform.gameObject.GetComponent<Player>().heal(200);
 
                     FindObjectOfType<ResourceInventory>().resourceList[transform.parent.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource] -= 1;
                     transform.parent.GetComponent<InventorySlot>().RemoveItem();
                     destroy();
+                }
+                if (raycastHit.transform.tag == "Planet" && type == "planet shield")
+                {
+                    if(raycastHit.transform.gameObject.GetComponent<HomePlanet>() != null)
+                    {
+                        raycastHit.transform.gameObject.GetComponent<HomePlanet>().addShield();
+
+                        FindObjectOfType<ResourceInventory>().resourceList[transform.parent.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource] -= 1;
+                        transform.parent.GetComponent<InventorySlot>().RemoveItem();
+                        destroy();
+                    }
                 }
             }
             else if (transform.parent.GetComponent<InventorySlot>() != null && type == "spawn") // only works from inventory

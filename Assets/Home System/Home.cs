@@ -32,6 +32,8 @@ public class Home : MonoBehaviour
     public BroadcastMessage BM;
     public Map map;
 
+    public GameObject planetShield;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -82,6 +84,7 @@ public class Home : MonoBehaviour
             {
                 planet.gameObject.AddComponent<HomePlanet>();
                 planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
+                planet.gameObject.GetComponent<HomePlanet>().shield = planetShield;
                 //planet.gameObject.name = "PLANET" + i;
                 planet.transform.parent = gameObject.transform;
 
@@ -138,6 +141,8 @@ public class Home : MonoBehaviour
 
         planet.gameObject.AddComponent<HomePlanet>();
         planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + planetNumber;
+        planet.gameObject.GetComponent<HomePlanet>().shield = planetShield;
+
         //planet.gameObject.name = "PLANET" + planetNumber;
         planet.transform.parent = gameObject.transform;
         homePlanets.Add(planet);

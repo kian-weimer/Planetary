@@ -121,6 +121,23 @@ public class Weapon : MonoBehaviour
                     }
                 }
                 break;
+            case 7:
+                if (Time.time > lastShotTime + 1 / firerate && !isInGUI)
+                {
+                    float angle = 0;
+                    for (int i = 0; i < 16; i++)
+                    {
+                        lastShotTime = Time.time;
+                        GameObject tempBullet = Instantiate(bullet).gameObject;
+                        tempBullet.transform.position = transform.parent.position;
+                        tempBullet.GetComponent<Rigidbody2D>().velocity = (new Vector2(Mathf.Cos(Mathf.Deg2Rad*angle), Mathf.Sin(Mathf.Deg2Rad * angle))) * bulletSpeed;
+                        angle += 360 / 16;
+                    }
+
+                    return true;
+                }
+                break;
+
         }
         if (Time.time > lastShotTime + 1/firerate && !isInGUI)
         {

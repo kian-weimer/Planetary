@@ -18,6 +18,11 @@ public class HomePlanet : MonoBehaviour
 
     public int maxSlotSize = 99;
 
+    public bool hasShield = false;
+    public GameObject shield;
+    public float maxShield;
+    public float shieldAmount;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +36,24 @@ public class HomePlanet : MonoBehaviour
         {
             items.Add(new PlanetResource());
         }
+    }
 
+    public void addShield()
+    {
+        hasShield = true;
+        shield = Instantiate(shield);
+        shield.transform.parent = transform;
+        shield.GetComponent<RectTransform>().anchoredPosition = transform.position;
+    }
+
+    public void damageShield(float damage)
+    {
+        shieldAmount -= damage;
+        if (shieldAmount <=0 && hasShield)
+        {
+            hasShield = false;
+            Destroy(shield);
+        }
     }
 
     public void UpdateUI()

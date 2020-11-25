@@ -94,6 +94,10 @@ public class EnemyBullet : MonoBehaviour
         {
             targeting = true;
         }
+        if (collision.transform.CompareTag("PlanetShield"))
+        {
+            collision.GetComponent<PlanetShield>().damage(bulletDamage);
+        }
         if (targeting && trackingBullet)
         {
             GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * 0.50f;

@@ -101,6 +101,11 @@ public class Bullet : MonoBehaviour
             }
         }
 
+        if (collision.transform.CompareTag("PlanetShield"))
+        {
+            collision.GetComponent<PlanetShield>().damage(bulletDamage);
+        }
+
         if (collision.gameObject.tag == "Enemy")
         {
             if (collision.gameObject.GetComponent<EnemyController>() != null)
