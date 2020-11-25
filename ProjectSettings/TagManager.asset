@@ -24,6 +24,7 @@ TagManager:
   - Friendly
   - Trader
   - Exp
+  - PlanetShield
   layers:
   - Default
   - TransparentFX
