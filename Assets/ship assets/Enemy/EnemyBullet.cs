@@ -105,7 +105,8 @@ public class EnemyBullet : MonoBehaviour
         }
         if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle"
             && collision.gameObject.tag != "resource" && collision.gameObject.tag != "enemyRangeCollider" && collision.gameObject.tag != "Trader"
-             && collision.gameObject.tag != "playerRange" && collision.gameObject.tag != "enemyBullet" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "background")
+             && collision.gameObject.tag != "playerRange" && collision.gameObject.tag != "enemyBullet" && collision.gameObject.tag != "Bullet" 
+             && collision.gameObject.tag != "background" && collision.gameObject.tag != "Exp")
         {
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);

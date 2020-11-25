@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
         {
             boss = true;
         }
-        if (tag == "Friendly")
+        if (tag == "Friendly" && friendlyThatFollowsPlayer)
         {
             target = player;
             inTargetingRange = true;
@@ -102,7 +102,7 @@ public class EnemyController : MonoBehaviour
 
         if (inTargetingRange)
         {
-            if (target == null) { target = player; }
+            if (target == null && tag != "Friendly") { target = player; }
             Vector3 playerRelativePosition = target.transform.position - transform.position;
             float playerDirection = Mathf.Rad2Deg * Mathf.Atan(playerRelativePosition.y / playerRelativePosition.x);
 

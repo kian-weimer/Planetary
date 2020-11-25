@@ -10,6 +10,7 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
     RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     public bool moved;
+    public string type;
 
     public GameObject tempUI;
     private void Awake()
@@ -47,8 +48,24 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
             if (raycastHit)
             {
                 Debug.Log("Hit: " + raycastHit.transform.gameObject.name);
+                if (raycastHit.transform.tag == "Planet" && type == "heal")
+                {
+                    raycastHit.transform.gameObject.GetComponent<Planet>().health = raycastHit.transform.gameObject.GetComponent<Planet>().maxHealth;
+
+                    FindObjectOfType<ResourceInventory>().resourceList[transform.parent.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource] -= 1;
+                    transform.parent.GetComponent<InventorySlot>().RemoveItem();
+                    destroy();
+                }
+                if (raycastHit.transform.tag == "Player" && type == "heal")
+                {
+                    raycastHit.transform.gameObject.GetComponent<Player>().heal(200);
+
+                    FindObjectOfType<ResourceInventory>().resourceList[transform.parent.GetComponent<InventorySlot>().item.GetComponent<rsrce>().nameOfResource] -= 1;
+                    transform.parent.GetComponent<InventorySlot>().RemoveItem();
+                    destroy();
+                }
             }
-            else if (transform.parent.GetComponent<InventorySlot>() != null) // only works from inventory
+            else if (transform.parent.GetComponent<InventorySlot>() != null && type == "spawn") // only works from inventory
             {
                 GameObject spawn = Instantiate(spawnable);
                 spawn.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));

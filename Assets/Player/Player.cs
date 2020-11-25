@@ -450,17 +450,35 @@ public class Player : MonoBehaviour
         if (gas + amount < maxGas)
         {
             gas += amount;
-
-            gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / (maxGas - maxGas * .1f), gasBar.transform.localScale.y, gasBar.transform.localScale.z);
-
-            if (gas <= maxGas * .1f)
-            {
-                gasBarEnd.transform.localScale = new Vector3(-1 * (maxGas * .1f - gas) / (maxGas * .1f), gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
-            }
         }
         else
         {
             gas = maxGas;
+        }
+
+        gasBar.transform.localScale = new Vector3(1 * (gas - maxGas * .1f) / (maxGas - maxGas * .1f), gasBar.transform.localScale.y, gasBar.transform.localScale.z);
+
+        if (gas <= maxGas * .1f)
+        {
+            gasBarEnd.transform.localScale = new Vector3(-1 * (maxGas * .1f - gas) / (maxGas * .1f), gasBarEnd.transform.localScale.y, gasBarEnd.transform.localScale.z);
+        }
+    }
+
+    public void heal(float amount)
+    {
+        if (health + amount < maxHealth)
+        {
+            health += amount;
+        }
+        else
+        {
+            health = maxHealth;
+        }
+        healthBar.transform.localScale = new Vector3(1 * (health - maxHealth * .1f) / (maxHealth - maxHealth * .1f), healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+
+        if (health <= maxHealth * .1f)
+        {
+            healthBarEnd.transform.localScale = new Vector3(-1 * (maxHealth * .1f - health) / (maxHealth * .1f), healthBarEnd.transform.localScale.y, healthBarEnd.transform.localScale.z);
         }
     }
 

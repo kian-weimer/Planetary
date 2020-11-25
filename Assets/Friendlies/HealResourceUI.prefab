@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1126543890336926173
+--- !u!1 &911179218466675031
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2513534541888756074}
-  - component: {fileID: 4961033942721778990}
-  - component: {fileID: 6662601019860833825}
-  - component: {fileID: 4602554938131899512}
-  - component: {fileID: 6850621730033757033}
-  - component: {fileID: 8447262041423813658}
+  - component: {fileID: 8521006195743450669}
+  - component: {fileID: 1186783928901610089}
+  - component: {fileID: 637048205694019942}
+  - component: {fileID: 7745875733395184447}
+  - component: {fileID: 843056651480011822}
+  - component: {fileID: 2421770800151520093}
   m_Layer: 0
-  m_Name: FriendlySpawnUI
+  m_Name: HealResourceUI
   m_TagString: ResourceUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2513534541888756074
+--- !u!224 &8521006195743450669
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126543890336926173}
+  m_GameObject: {fileID: 911179218466675031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
@@ -40,21 +40,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4961033942721778990
+--- !u!222 &1186783928901610089
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126543890336926173}
+  m_GameObject: {fileID: 911179218466675031}
   m_CullTransparentMesh: 0
---- !u!114 &6662601019860833825
+--- !u!114 &637048205694019942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126543890336926173}
+  m_GameObject: {fileID: 911179218466675031}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4ca1f3f105b96e1409f9bcc3513097dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa06341e2b7621f4592d2322bbc63b4b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -78,44 +78,43 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &4602554938131899512
+--- !u!225 &7745875733395184447
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126543890336926173}
+  m_GameObject: {fileID: 911179218466675031}
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6850621730033757033
+--- !u!114 &843056651480011822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126543890336926173}
+  m_GameObject: {fileID: 911179218466675031}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5af79d57f397bf47a70b6358c16f028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8447262041423813658
+--- !u!114 &2421770800151520093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126543890336926173}
+  m_GameObject: {fileID: 911179218466675031}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d31e12a92e45e84b8668db3fcc05ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnable: {fileID: 6246526566555457409, guid: 9311686c14861794cad7b2fb8c759a00,
-    type: 3}
+  spawnable: {fileID: 0}
   moved: 0
-  type: spawn
+  type: heal
   tempUI: {fileID: 0}

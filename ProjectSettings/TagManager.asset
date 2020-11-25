@@ -23,6 +23,7 @@ TagManager:
   - HomePlanet
   - Friendly
   - Trader
+  - Exp
   layers:
   - Default
   - TransparentFX
