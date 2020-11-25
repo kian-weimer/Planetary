@@ -20,8 +20,8 @@ public class HomePlanet : MonoBehaviour
 
     public bool hasShield = false;
     public GameObject shield;
-    public float maxShield;
-    public float shieldAmount;
+    public float maxShield = 100;
+    public float shieldAmount = 100;
 
 
     // Start is called before the first frame update
@@ -43,7 +43,7 @@ public class HomePlanet : MonoBehaviour
         hasShield = true;
         shield = Instantiate(shield);
         shield.transform.parent = transform;
-        shield.GetComponent<RectTransform>().anchoredPosition = transform.position;
+        shield.transform.position = transform.position;
     }
 
     public void damageShield(float damage)
@@ -61,6 +61,15 @@ public class HomePlanet : MonoBehaviour
         for (int item = 0; item < numberOfItemSlots; item++)
         {
             planetHUD.transform.Find("Item" + (item + 1)).Find("Quantity").gameObject.GetComponent<Text>().text = "X" + (items[item].quantity + "").PadLeft(2, '0');
+            if (hasShield)
+            {
+                planetHUD.transform.Find("Shield Bar").gameObject.SetActive(true);
+                planetHUD.transform.Find("Shield Bar").Find("BarBG").Find("ShieldBar").transform.localScale = new Vector3(shieldAmount / maxShield, 1, 1);
+            }
+            else if (planetHUD.transform.Find("Shield Bar") != null)
+            {
+                planetHUD.transform.Find("Shield Bar").gameObject.SetActive(false);
+            }
             foreach (Transform child in planetHUD.transform.Find("Item" + (item + 1)).transform)
             {
                 if (child.name != "Quantity")
