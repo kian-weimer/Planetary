@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIElement: 0
-  icon: {fileID: 0}
+  icon: {fileID: 911179218466675031, guid: f501b12c1c1ab9746a3e858300ae00eb, type: 3}
   nameOfResource: FriendlySpawn
   isInAnInventory: 0
   timeBeforeDeletion: 30
