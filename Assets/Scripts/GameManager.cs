@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public int gridResolution = 100; // whaT DOES THIS DO
+
+    public GameObject loadingPanel;
+    public Slider loadingBar;
+    public Text loadingText;
 
 
     public void Quit()
@@ -98,14 +103,32 @@ public class GameManager : MonoBehaviour
 
         EnterGame();
     }
+
+    IEnumerator LoadSceneAsync(string levelName)
+    {
+        loadingPanel.SetActive(true);
+
+        AsyncOperation op = SceneManager.LoadSceneAsync(levelName);
+
+        while (!op.isDone)
+        {
+            float progress = Mathf.Clamp01(op.progress / .9f);
+            // Debug.Log(op.progress);
+            loadingBar.value = progress;
+            loadingText.text = progress * 100f + "%";
+
+            yield return null;
+        }
+    }
+
     public void EnterGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        StartCoroutine(LoadSceneAsync("SampleScene"));
     }
 
     public void Tutorial()
     {
-        SceneManager.LoadScene("Tutorial");
+        StartCoroutine(LoadSceneAsync("Tutorial"));
     }
 
     public void Home()
