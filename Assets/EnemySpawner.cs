@@ -17,13 +17,13 @@ public class EnemySpawner : MonoBehaviour
 
     public int maxEnemies;
     public List<GameObject> listOfEnemies;
-    private Vector3 playerLocation;
+    private Vector3 oldPlayerLocation;
     // Start is called before the first frame update
     void Start()
     {
         loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
         timeBeforeNextEnemy = timeBetweenEnemies;
-        playerLocation = new Vector3(0, 0, 0);
+        oldPlayerLocation = new Vector3(0, 0, 0);
     }
 
     public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
@@ -62,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
     public void generateEnemy(int rarityLevel)
     {
         
-        if (FindObjectOfType<Player>().gameObject.transform.position == playerLocation)
+        if (FindObjectOfType<Player>().gameObject.transform.position == oldPlayerLocation)
         {
             return;
         }
@@ -100,6 +100,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
         listOfEnemies.Add(badGuy);
-        playerLocation = FindObjectOfType<Player>().gameObject.transform.position;
+        oldPlayerLocation = FindObjectOfType<Player>().gameObject.transform.position;
     }
 }

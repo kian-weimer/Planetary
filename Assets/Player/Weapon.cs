@@ -138,6 +138,14 @@ public class Weapon : MonoBehaviour
                 }
                 break;
 
+            case 8:
+                lastShotTime = Time.time;
+                GameObject tmpBullet = Instantiate(bullet).gameObject;
+                tmpBullet.transform.position = position;
+                tmpBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerSpeed;
+                return true;
+                break;
+
         }
         if (Time.time > lastShotTime + 1/firerate && !isInGUI)
         {
