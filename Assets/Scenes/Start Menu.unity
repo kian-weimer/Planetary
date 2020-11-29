@@ -533,6 +533,7 @@ MonoBehaviour:
   loadingPanel: {fileID: 643749525}
   loadingBar: {fileID: 2121387773}
   loadingText: {fileID: 470890468}
+  AM: {fileID: 1959339388}
 --- !u!4 &252155044
 Transform:
   m_ObjectHideFlags: 0
@@ -3022,6 +3023,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959110531}
   m_CullTransparentMesh: 0
+--- !u!1 &1959339387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959339389}
+  - component: {fileID: 1959339388}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &1959339388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959339387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566eb703b98f3c14ca45336b74acf4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: LazerShoot
+    clip: {fileID: 8300000, guid: 14fbf3ee3d5ec4d4092283a736def558, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Thrust
+    clip: {fileID: 8300000, guid: abfdcb3f609defa46b7d8acb19f91f15, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 8422551b9d2c7f742a95600750d200b0, type: 3}
+    volume: 0.035
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Main
+    clip: {fileID: 8300000, guid: 0deeceb7a4cfbfd4a8fd26a4a0caa53b, type: 3}
+    volume: 0.035
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+--- !u!4 &1959339389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959339387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 858.9043, y: 220.08522, z: -37.618286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012874431
 GameObject:
   m_ObjectHideFlags: 0

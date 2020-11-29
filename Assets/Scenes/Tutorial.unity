@@ -2434,6 +2434,7 @@ MonoBehaviour:
   resourceInventory: {fileID: 219234478}
   BM: {fileID: 1040353671}
   map: {fileID: 1882907309}
+  planetShield: {fileID: 0}
 --- !u!4 &82928089
 Transform:
   m_ObjectHideFlags: 0
@@ -5816,6 +5817,12 @@ MonoBehaviour:
     type: 3}
   crateSpawnPoint: {fileID: 1141782675}
   BM: {fileID: 0}
+  listOfResources: []
+  alminac: {fileID: 0}
+  comboList: {fileID: 0}
+  amountOfWarps: 0
+  warpAmount: {fileID: 0}
+  warpHolder: {fileID: 0}
 --- !u!4 &219234480
 Transform:
   m_ObjectHideFlags: 0
@@ -18465,7 +18472,12 @@ MonoBehaviour:
   player: {fileID: 263769581}
   playerController: {fileID: 263769585}
   REM: {fileID: 1830121301}
+  map: {fileID: 0}
   gridResolution: 100
+  loadingPanel: {fileID: 0}
+  loadingBar: {fileID: 0}
+  loadingText: {fileID: 0}
+  AM: {fileID: 1787013790}
 --- !u!4 &649919805
 Transform:
   m_ObjectHideFlags: 0
@@ -31846,6 +31858,7 @@ MonoBehaviour:
     type: 3}
   Money: {fileID: 90064741}
   ShopManager: {fileID: 219234477}
+  isTrader: 0
 --- !u!114 &998267334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32260,6 +32273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1fa62599cfefd41abd032da472708d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  broadcaster: {fileID: 0}
+  friendlySellShop: {fileID: 0}
+  friendlyBuyShop: {fileID: 0}
+  friendlyShopButton: {fileID: 0}
+  FriendlyShop: {fileID: 0}
+  mainBuyShop: {fileID: 0}
 --- !u!114 &1033262634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33897,6 +33916,7 @@ MonoBehaviour:
     type: 3}
   Money: {fileID: 90064741}
   ShopManager: {fileID: 219234477}
+  isTrader: 0
 --- !u!114 &1094849489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49575,7 +49595,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 628022153
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e21e99f046d955448d2b85c12c0e123, type: 3}
   m_Color: {r: 1, g: 0.9064234, b: 0.24056602, a: 1}
@@ -54313,6 +54333,12 @@ MonoBehaviour:
   playerScaleFactor: 3.75
   player: {fileID: 0}
   playerIcon: {fileID: 772167211}
+  boss1: {fileID: 0}
+  boss2: {fileID: 0}
+  boss3: {fileID: 0}
+  bossIcon1: {fileID: 0}
+  bossIcon2: {fileID: 0}
+  bossIcon3: {fileID: 0}
   texture: {fileID: 0}
   mapImage: {fileID: 2038850400}
 --- !u!114 &1882907310

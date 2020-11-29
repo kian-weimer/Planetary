@@ -30,7 +30,14 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        AM.Play("Theme");
+        if (SceneManager.GetActiveScene().name == "Start Menu")
+        {
+            AM.Play("Main");
+        }
+        else
+        {
+            AM.Play("Theme");
+        }
     }
     public void Quit()
     {
