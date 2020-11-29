@@ -56,7 +56,7 @@ public class QuestEntry : MonoBehaviour
         {
             planetGenerator PG = FindObjectOfType<planetGenerator>();
             bossCounter++;
-            Vector2 pos = ((15*bossCounter + 5) * PG.spacialResolution + PG.homeOffset) * PG.PositionGenerator(10 * bossCounter);
+            Vector2 pos = ((15*bossCounter + 10) * PG.spacialResolution + PG.homeOffset) * PG.PositionGenerator(10 * bossCounter);
             GameObject boss = Instantiate(quest.icons[0]);
             boss.transform.position = pos;
         }

@@ -25,7 +25,13 @@ public class GameManager : MonoBehaviour
     public Slider loadingBar;
     public Text loadingText;
 
+    public AudioManager AM;
 
+
+    public void Start()
+    {
+        AM.Play("Theme");
+    }
     public void Quit()
     {
         Application.Quit();
