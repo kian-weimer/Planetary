@@ -2888,9 +2888,9 @@ MonoBehaviour:
     questType: boss
     requirementCount: 1
     icons:
-    - {fileID: 5250920423125103536, guid: e1e5d4e75cd331b48a9c90918d8a4c3d, type: 3}
+    - {fileID: 2092701216333346601, guid: 15cb844edd121854b953b666cdca47d0, type: 3}
     itemNames:
-    - BossLazer
+    - BossFlame
     quantities: 01000000
     rewardText: 'Reward: $1500, 60XP'
     moneyReward: 1500
@@ -2962,19 +2962,19 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: gas
     recipeReward: Steel
-  - promptText: Create 3 Water Planets
-    questType: planet
+  - promptText: Kill a boss (shown on map)
+    questType: boss
     requirementCount: 1
     icons:
-    - {fileID: 8358963441820322171, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
+    - {fileID: 5250920423125103536, guid: e1e5d4e75cd331b48a9c90918d8a4c3d, type: 3}
     itemNames:
-    - Water
-    quantities: 03000000
-    rewardText: 'Reward: Armory Planet, Health Upgrade, $2000'
+    - BossLazer
+    quantities: 01000000
+    rewardText: 'Reward: $3000, 100XP'
     moneyReward: 2000
-    expReward: 0
-    upgradeReward: health
-    recipeReward: Armory
+    expReward: 100
+    upgradeReward: 
+    recipeReward: 
   - promptText: Create 3 Water Planets
     questType: planet
     requirementCount: 1
@@ -21454,6 +21454,9 @@ MonoBehaviour:
   REM: {fileID: 1233642940}
   map: {fileID: 240596175}
   gridResolution: 100
+  loadingPanel: {fileID: 0}
+  loadingBar: {fileID: 0}
+  loadingText: {fileID: 0}
 --- !u!4 &1159672789
 Transform:
   m_ObjectHideFlags: 0
@@ -70640,6 +70643,7 @@ MonoBehaviour:
   questSystem: {fileID: 0}
   target: {fileID: 0}
   friendlyThatFollowsPlayer: 0
+  hunting: 0
 --- !u!58 &2355340725655119684
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -71317,6 +71321,7 @@ MonoBehaviour:
   questSystem: {fileID: 0}
   target: {fileID: 0}
   friendlyThatFollowsPlayer: 0
+  hunting: 0
 --- !u!4 &3826538838430090619
 Transform:
   m_ObjectHideFlags: 0

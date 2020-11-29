@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
     public GameObject target;
     bool boss = false;
     public bool friendlyThatFollowsPlayer = false;
+    public bool hunting;
     
     private void Start()
     {
@@ -165,6 +166,10 @@ public class EnemyController : MonoBehaviour
                     rb.angularVelocity = 0;// rb.angularVelocity * angularDrag;
                 }
             }
+        }
+        else if (hunting)
+        {
+            // movement here
         }
         else
         {
