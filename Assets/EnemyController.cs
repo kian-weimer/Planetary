@@ -30,8 +30,11 @@ public class EnemyController : MonoBehaviour
     public GameObject target;
     bool boss = false;
     public bool friendlyThatFollowsPlayer = false;
-    public bool hunting;
-    
+    public bool invasionEnemy;
+    public float distanceAwayToStop;
+
+    public bool isBomber;
+
     private void Start()
     {
         questSystem = FindObjectOfType<QuestSystem>();
@@ -103,7 +106,12 @@ public class EnemyController : MonoBehaviour
 
         if (inTargetingRange)
         {
-            if (target == null && tag != "Friendly") { target = player; }
+            if (target == null && tag != "Friendly" && !isBomber) { target = player; }
+            else if(target == null)
+            {
+                inTargetingRange = false;
+                return;
+            }
             Vector3 playerRelativePosition = target.transform.position - transform.position;
             float playerDirection = Mathf.Rad2Deg * Mathf.Atan(playerRelativePosition.y / playerRelativePosition.x);
 
@@ -129,7 +137,7 @@ public class EnemyController : MonoBehaviour
             else
             {
                 speed = 0;
-                rb.velocity *= 0.90f;
+                rb.velocity =Vector2.zero;
             }
 
             if (enhancedTargeting)  // much more accurate, also more predictable
@@ -138,7 +146,7 @@ public class EnemyController : MonoBehaviour
             }
             else // less accurate, less predictable
             {
-                                if (playerDirection > (180 + rb.rotation+90)%360 + turnSpeed)
+                if (playerDirection > (180 + rb.rotation+90)%360 + turnSpeed)
                 {
                     if ( 180 > (180 + rb.rotation + 90 + turnSpeed) % 360 - playerDirection)
                     {
@@ -160,16 +168,50 @@ public class EnemyController : MonoBehaviour
                         rb.angularVelocity -= turnSpeed;
                     }
                 }
-
                 else
                 {
                     rb.angularVelocity = 0;// rb.angularVelocity * angularDrag;
                 }
             }
         }
-        else if (hunting)
+        else if (invasionEnemy)
         {
-            // movement here
+            if(speed < maxSpeed)
+            {
+                speed += thrust;
+            }
+            
+            if(transform.position.magnitude >= distanceAwayToStop)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, Vector2.zero, speed * Time.deltaTime);
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                Home home = FindObjectOfType<Home>();
+                if (home.homePlanets.Count > 0)
+                {
+                    int index = Random.Range(0, home.homePlanets.Count - 1);
+                    if(home.homePlanets[index] != null)
+                    {
+                        target = home.homePlanets[index].gameObject;
+                    }
+                    else
+                    {
+                        while(home.homePlanets[index] == null)
+                        {
+                            index = Random.Range(0, home.homePlanets.Count - 1);
+                        }
+                        target = home.homePlanets[index].gameObject;
+                    }
+                    inTargetingRange = true;
+                }
+            }
+
+            Vector2 direction = Vector2.zero - (Vector2)transform.position;
+            direction.Normalize();
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(Vector3.forward * (angle + 180 + 90));
         }
         else
         {
@@ -211,6 +253,10 @@ public class EnemyController : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Planet>().destroy(true);
             }
+        }
+        if (collision.transform.tag == "Sun")
+        {
+            damage(maxHealth);
         }
     }
 }

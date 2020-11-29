@@ -46,7 +46,7 @@ MonoBehaviour:
   bullet: {fileID: 3092420324474564214, guid: d7d39e930a3925644bc9058f85e9c5b5, type: 3}
   enemySpawnable: {fileID: 0}
   firerate: 2
-  bulletSpeed: 20
+  bulletSpeed: 10
   lastShotTime: 40.68
   isInGUI: 0
-  weaponSelect: 8
+  weaponSelect: 1

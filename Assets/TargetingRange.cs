@@ -39,6 +39,18 @@ public class TargetingRange : MonoBehaviour
             if (targets.Count > 0)
             {
                 EC.target = (GameObject)targets[targets.Count - 1];
+
+                GameObject stoppingRange = transform.parent.gameObject.transform.Find("StoppingRange").gameObject;
+                Collider2D[] collidersHit = Physics2D.OverlapCircleAll(gameObject.transform.position, stoppingRange.GetComponent<CircleCollider2D>().radius);
+                EC.inStoppingRange = false;
+                foreach (Collider2D collider in collidersHit)
+                {
+                    Debug.Log(collider.gameObject.name + " " + EC.target.name);
+                    if (collider.gameObject.name == EC.target.name)
+                    {
+                        EC.inStoppingRange = true;
+                    }
+                }
             }
             else
             {
@@ -48,6 +60,7 @@ public class TargetingRange : MonoBehaviour
                 }
                 else
                 {
+                    EC.inStoppingRange = false;
                     EC.inTargetingRange = false;
                     EC.target = null;
                 }

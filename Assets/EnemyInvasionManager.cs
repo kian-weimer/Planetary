@@ -12,8 +12,8 @@ public class EnemyInvasionManager : MonoBehaviour
     public float timeTillInvasionMax;
     public float timeTillInvasion;
     public int secondsToStartTimer;
-    private List<GameObject> bomberEnemiesToChooseFrom;
-    private List<GameObject> normalEnemiesToChooseFrom;
+    private List<GameObject> bomberEnemiesToChooseFrom = new List<GameObject>();
+    private List<GameObject> normalEnemiesToChooseFrom = new List<GameObject>();
     private Player player;
     public float distanceAwayFromHome;
     public Timer timer;
@@ -26,6 +26,8 @@ public class EnemyInvasionManager : MonoBehaviour
         {
             for(int j = 0; j < normalEnemy.rarityOfEnemy; j ++)
             {
+                Debug.Log(normalEnemy.rarityOfEnemy);
+                Debug.Log(normalEnemy.Enemy.name);
                 normalEnemiesToChooseFrom.Add(normalEnemy.Enemy);
             }
         }
@@ -56,7 +58,8 @@ public class EnemyInvasionManager : MonoBehaviour
         if(timeTillInvasion <= 0)
         {
             timer.gameObject.SetActive(false);
-            //generateAndSpawnInvasion();
+            generateAndSpawnInvasion();
+            timeTillInvasion = timeTillInvasionMax;
         } 
     }
     public void generateAndSpawnInvasion()

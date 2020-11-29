@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class StoppingRange : MonoBehaviour
 {
+    public bool isBomber;
     public EnemyController EC;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            EC.inStoppingRange = true;
+            if (!isBomber)
+            {
+                EC.inStoppingRange = true;
+            }
         }
         if (EC.target != null)
         {
@@ -24,11 +28,14 @@ public class StoppingRange : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            EC.inStoppingRange = false;
+            if (!isBomber)
+            {
+                EC.inStoppingRange = false;
+            }
         }
         if (EC.target != null)
         {
-            if (collision.gameObject.tag == EC.target.tag)
+            if (collision.gameObject == EC.target)
             {
                 EC.inStoppingRange = false;
             }

@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour
                     return true;
                 }
                 break;
-            case 5: // basic shooting
+            case 5:
                 if (Time.time > lastShotTime + 1 / firerate && !isInGUI)
                 {
                     //wider bullet
@@ -87,7 +87,7 @@ public class Weapon : MonoBehaviour
                     return true;
                 }
                 break;
-            case 6: // basic shooting
+            case 6: 
                 if (Time.time > lastShotTime + 1 / firerate && !isInGUI)
                 {
                     if (count < 5)

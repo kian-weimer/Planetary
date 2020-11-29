@@ -17,6 +17,7 @@ public class Planet : MonoBehaviour
     public GameObject planetResource; // holds the item resource that the planet pops out when destroyed
     public bool inHomeSystem = false; // is true when its in the home solar system
     public bool destroyed = false;
+    private bool destroyedByMine = false;
 
     public void Initialize(PlanetInfo info)
     {
@@ -39,6 +40,8 @@ public class Planet : MonoBehaviour
 
     public void destroy(bool doubleResource)
     {
+        destroyedByMine = true;
+        
         if (inHomeSystem)
         {
 
@@ -124,5 +127,10 @@ public class Planet : MonoBehaviour
             collision.gameObject.GetComponent<Player>().loseHealth(40);
             collision.gameObject.GetComponent<PlayerController>().bounceBack();
         }
+    }
+
+    public bool isDestroyedByMine()
+    {
+        return destroyedByMine;
     }
 }

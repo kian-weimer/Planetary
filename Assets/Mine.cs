@@ -9,6 +9,7 @@ public class Mine : MonoBehaviour
     public float blastRadius;
     public GameObject explosion;
     private bool hasWaited;
+    public bool isExploding;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +35,29 @@ public class Mine : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (waitTime <= 0 && hasWaited && (collision.gameObject.tag == "Planet" || collision.gameObject.tag == "Player"))
+        {
+            Debug.Log(collision.gameObject.tag);
+            damageSurroundings();
+        }
+    }
+
     public void damageSurroundings()
     {
+        isExploding = true;
         Collider2D[] collidersHit = Physics2D.OverlapCircleAll(gameObject.transform.position, blastRadius);
 
         foreach (Collider2D collider in collidersHit)
         {
+            if (collider.gameObject.tag == "Mine")
+            {
+                if (!collider.gameObject.GetComponent<Mine>().isExploding)
+                {
+                    collider.gameObject.GetComponent<Mine>().damageSurroundings();
+                }
+            }
             if (collider.gameObject.tag == "Player")
             {
                 collider.gameObject.GetComponent<Player>().loseHealth(50);
@@ -50,8 +68,12 @@ public class Mine : MonoBehaviour
             }
             if (collider.gameObject.tag == "Planet")
             {
-                collider.gameObject.GetComponent<Planet>().destroy(Player.doubleResource);
+                if (!collider.gameObject.GetComponent<Planet>().isDestroyedByMine())
+                {
+                    collider.gameObject.GetComponent<Planet>().destroy(Player.doubleResource);
+                }
             }
+            
         }
         GameObject exp = Instantiate(explosion);
         exp.transform.position = gameObject.transform.position;
