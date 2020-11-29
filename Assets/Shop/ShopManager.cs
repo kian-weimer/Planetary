@@ -36,6 +36,13 @@ public class ShopManager : MonoBehaviour
     public Text warpAmount;
     public GameObject warpHolder;
 
+    public GameObject drone;
+    public GameObject turret;
+    public GameObject decoy;
+    public GameObject heal;
+    public GameObject shield;
+
+
     void Start()
     {
         loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
@@ -138,6 +145,31 @@ public class ShopManager : MonoBehaviour
                     player.GetComponent<SpriteRenderer>().sprite = playerSprites[whichShipColorBase + 3 + whichShipLevel];
                     whichShipColorBase += 3;
                 }
+                break;
+
+            case "Drone":
+                GameObject droneItem = Instantiate(drone);
+                droneItem.transform.position = player.transform.position;
+                break;
+
+            case "Turret":
+                GameObject turretItem = Instantiate(turret);
+                turretItem.transform.position = player.transform.position;
+                break;
+
+            case "Decoy":
+                GameObject decoyItem = Instantiate(decoy);
+                decoyItem.transform.position = player.transform.position;
+                break;
+
+            case "Heal":
+                GameObject healItem = Instantiate(heal);
+                healItem.transform.position = player.transform.position;
+                break;
+
+            case "Shield":
+                GameObject shieldItem = Instantiate(shield);
+                shieldItem.transform.position = player.transform.position;
                 break;
 
             case "Buy Mine":

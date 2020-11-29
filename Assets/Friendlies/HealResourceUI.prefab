@@ -114,7 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d31e12a92e45e84b8668db3fcc05ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnable: {fileID: 0}
+  spawnable: {fileID: 5361021209533765854, guid: 1b28c8bc700e50641bdba10a3ed2688d,
+    type: 3}
   moved: 0
   type: heal
   tempUI: {fileID: 0}

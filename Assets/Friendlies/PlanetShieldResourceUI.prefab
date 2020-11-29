@@ -114,7 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d31e12a92e45e84b8668db3fcc05ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnable: {fileID: 0}
+  spawnable: {fileID: 5105878900724093304, guid: 904fec82542523b4fb31a88c226d40c5,
+    type: 3}
   moved: 0
   type: planet shield
   tempUI: {fileID: 0}
