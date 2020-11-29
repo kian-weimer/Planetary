@@ -10,6 +10,10 @@ public class EnemyInvasionManager : MonoBehaviour
     public List<EnemyRarity> bomberEnemies;
     public int numberOfBombers;
     public float timeTillInvasionMax;
+    public float timeBetweenWaves;
+    public int numberOfWaves;
+    private int currentWaveNumber;
+    private float timeTillWave = 0f;
     public float timeTillInvasion;
     public int secondsToStartTimer;
     private List<GameObject> bomberEnemiesToChooseFrom = new List<GameObject>();
@@ -17,6 +21,7 @@ public class EnemyInvasionManager : MonoBehaviour
     private Player player;
     public float distanceAwayFromHome;
     public Timer timer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +31,6 @@ public class EnemyInvasionManager : MonoBehaviour
         {
             for(int j = 0; j < normalEnemy.rarityOfEnemy; j ++)
             {
-                Debug.Log(normalEnemy.rarityOfEnemy);
-                Debug.Log(normalEnemy.Enemy.name);
                 normalEnemiesToChooseFrom.Add(normalEnemy.Enemy);
             }
         }
@@ -58,8 +61,21 @@ public class EnemyInvasionManager : MonoBehaviour
         if(timeTillInvasion <= 0)
         {
             timer.gameObject.SetActive(false);
-            generateAndSpawnInvasion();
-            timeTillInvasion = timeTillInvasionMax;
+            if (timeTillWave <= 0)
+            {
+                generateAndSpawnInvasion();
+                timeTillWave = timeBetweenWaves;
+                currentWaveNumber += 1;
+            }
+            else
+            {
+                timeTillWave -= Time.deltaTime;
+            }
+            
+            if(currentWaveNumber == numberOfWaves)
+            {
+                timeTillInvasion = timeTillInvasionMax;
+            }
         } 
     }
     public void generateAndSpawnInvasion()

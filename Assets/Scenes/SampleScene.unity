@@ -8465,6 +8465,8 @@ MonoBehaviour:
     rarityLevel: 0
   numberOfBombers: 6
   timeTillInvasionMax: 90
+  timeBetweenWaves: 3
+  numberOfWaves: 2
   timeTillInvasion: 0
   secondsToStartTimer: 80
   distanceAwayFromHome: 80
@@ -23356,7 +23358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1237228986
 RectTransform:
   m_ObjectHideFlags: 0
