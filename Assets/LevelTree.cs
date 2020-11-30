@@ -1,6 +1,8 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class LevelTree : MonoBehaviour
@@ -10,6 +12,50 @@ public class LevelTree : MonoBehaviour
     public List<GameObject> lockedItems;
     public List<GameObject> planetLockedItems; // if the planet's parent(s) are purchased, but the planet isnt discovered
     public Player player;
+
+    public void Save()
+    {
+        List<int> purchasedItemsIDs = new List<int>();
+        foreach (GameObject item in purchasedItems)
+        {
+            purchasedItemsIDs.Add(item.GetComponent<TreeEntry>().ID);
+        }
+        FileStream fs = new FileStream("savedLevelData.dat", FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, purchasedItemsIDs);
+        fs.Close();
+    }
+
+    public void Load()
+    {
+        List<int> purchasedItemsIDs;
+        using (Stream stream = File.Open("savedLevelData.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+
+            purchasedItemsIDs = (List<int>)bformatter.Deserialize(stream);
+        }
+        foreach (int ID in purchasedItemsIDs)
+        {
+            Debug.Log(ID);
+            foreach (GameObject item in availableItems)
+            {
+                if (item.GetComponent<TreeEntry>().ID == ID)
+                {
+                    if (item.GetComponent<TreeEntry>().lockedByPlanet)
+                    {
+                        unlockPlanetItem(item);
+                        purchaseItem(item);
+                    }
+                    else
+                    {
+                        purchaseItem(item);
+                    }
+                    break;
+                }
+            }
+        }
+    }
 
     private void Start()
     {

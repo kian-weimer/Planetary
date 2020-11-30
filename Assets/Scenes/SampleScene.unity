@@ -6489,6 +6489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 2
   children: []
   action: Money
   repeatable: 1
@@ -21435,6 +21436,8 @@ MonoBehaviour:
   loadingBar: {fileID: 0}
   loadingText: {fileID: 0}
   AM: {fileID: 2129333493}
+  BM: {fileID: 1197296656}
+  levelTree: {fileID: 1096552591937538878}
 --- !u!4 &1159672789
 Transform:
   m_ObjectHideFlags: 0
@@ -39857,6 +39860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 9
   children: []
   action: DoubleDrop
   repeatable: 0
@@ -40313,6 +40317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 1
   children:
   - {fileID: 1096552591783604282}
   - {fileID: 1096552590993523499}
@@ -41455,6 +41460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 5
   children:
   - {fileID: 1096552591995749836}
   action: PlanetDamage
@@ -42066,6 +42072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 10
   children:
   - {fileID: 1096552592662354658}
   action: Mine
@@ -46305,6 +46312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 7
   children:
   - {fileID: 1096552591061331084}
   action: DoubleShot
@@ -52100,6 +52108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 3
   children:
   - {fileID: 1096552591995749836}
   action: FastCooldown
@@ -55305,6 +55314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 6
   children:
   - {fileID: 1096552592530344666}
   - {fileID: 1096552591349878921}
@@ -57680,6 +57690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 8
   children:
   - {fileID: 1096552591995749836}
   action: CheaperShop
@@ -61892,6 +61903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 12
   children: []
   action: UpgradeShip
   repeatable: 0
@@ -64265,6 +64277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 4
   children:
   - {fileID: 1096552592183351188}
   - {fileID: 1096552590864711587}
@@ -66441,6 +66454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 11
   children:
   - {fileID: 1096552592422152284}
   action: BigGun

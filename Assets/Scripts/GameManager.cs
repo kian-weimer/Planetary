@@ -26,6 +26,25 @@ public class GameManager : MonoBehaviour
     public Text loadingText;
 
     public AudioManager AM;
+    public BroadcastMessage BM;
+
+    // save refrences
+    public LevelTree levelTree;
+
+    public void Update()
+    {
+        if (Input.GetKeyDown("["))
+        {
+            levelTree.Save();
+            BM.Broadcast("Saved");
+
+        }
+        if (Input.GetKeyDown("]"))
+        {
+            levelTree.Load();
+            BM.Broadcast("Loaded");
+        }
+    }
 
 
     public void Start()
