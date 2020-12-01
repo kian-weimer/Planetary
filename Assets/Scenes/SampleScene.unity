@@ -2736,7 +2736,8 @@ MonoBehaviour:
   questFrequency: 1
   currentQuestCount: 0
   quests:
-  - promptText: Get a Rock
+  - ID: 0
+    promptText: Get a Rock
     questType: resource
     requirementCount: 1
     icons:
@@ -2749,7 +2750,8 @@ MonoBehaviour:
     expReward: 5
     upgradeReward: 
     recipeReward: 
-  - promptText: Get a Water, Oxygen, and Wood resource
+  - ID: 0
+    promptText: Get a Water, Oxygen, and Wood resource
     questType: resource
     requirementCount: 3
     icons:
@@ -2766,7 +2768,8 @@ MonoBehaviour:
     expReward: 10
     upgradeReward: 
     recipeReward: 
-  - promptText: Kill an Enemy
+  - ID: 0
+    promptText: Kill an Enemy
     questType: enemy
     requirementCount: 1
     icons:
@@ -2779,7 +2782,8 @@ MonoBehaviour:
     expReward: 15
     upgradeReward: 
     recipeReward: 
-  - promptText: Create Food Planet
+  - ID: 0
+    promptText: Create Food Planet
     questType: planet
     requirementCount: 1
     icons:
@@ -2792,7 +2796,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: 
     recipeReward: 
-  - promptText: Kill a boss (shown on map)
+  - ID: 0
+    promptText: Kill a boss (shown on map)
     questType: boss
     requirementCount: 1
     icons:
@@ -2805,7 +2810,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: 
     recipeReward: 
-  - promptText: Kill the enemies blow to protect our solar system
+  - ID: 0
+    promptText: Kill the enemies blow to protect our solar system
     questType: enemy
     requirementCount: 2
     icons:
@@ -2820,7 +2826,8 @@ MonoBehaviour:
     expReward: 10
     upgradeReward: 
     recipeReward: River
-  - promptText: Collect 2 water, 1 oxygen, and 5 wood
+  - ID: 0
+    promptText: Collect 2 water, 1 oxygen, and 5 wood
     questType: resource
     requirementCount: 3
     icons:
@@ -2837,7 +2844,8 @@ MonoBehaviour:
     expReward: 20
     upgradeReward: gas
     recipeReward: 
-  - promptText: Kill More Enemies!
+  - ID: 0
+    promptText: Kill More Enemies!
     questType: enemy
     requirementCount: 3
     icons:
@@ -2854,7 +2862,8 @@ MonoBehaviour:
     expReward: 30
     upgradeReward: 
     recipeReward: Gold
-  - promptText: Create two Gold Planets
+  - ID: 0
+    promptText: Create two Gold Planets
     questType: planet
     requirementCount: 1
     icons:
@@ -2867,7 +2876,8 @@ MonoBehaviour:
     expReward: 11
     upgradeReward: 
     recipeReward: 
-  - promptText: Collect 2 Iron, 2 lead, and 2 Lava
+  - ID: 0
+    promptText: Collect 2 Iron, 2 lead, and 2 Lava
     questType: resource
     requirementCount: 3
     icons:
@@ -2884,7 +2894,8 @@ MonoBehaviour:
     expReward: 33
     upgradeReward: deleteRegen
     recipeReward: 
-  - promptText: Kill a boss (shown on map)
+  - ID: 0
+    promptText: Kill a boss (shown on map)
     questType: boss
     requirementCount: 1
     icons:
@@ -2897,7 +2908,8 @@ MonoBehaviour:
     expReward: 60
     upgradeReward: 
     recipeReward: 
-  - promptText: Collect 5 Mercury resources
+  - ID: 0
+    promptText: Collect 5 Mercury resources
     questType: resource
     requirementCount: 1
     icons:
@@ -2910,7 +2922,8 @@ MonoBehaviour:
     expReward: 60
     upgradeReward: 
     recipeReward: 
-  - promptText: Destroy enemy turrets!
+  - ID: 0
+    promptText: Destroy enemy turrets!
     questType: enemy
     requirementCount: 1
     icons:
@@ -2923,7 +2936,8 @@ MonoBehaviour:
     expReward: 45
     upgradeReward: gas
     recipeReward: 
-  - promptText: Create a Mercury Planet
+  - ID: 0
+    promptText: Create a Mercury Planet
     questType: planet
     requirementCount: 1
     icons:
@@ -2936,7 +2950,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: 
     recipeReward: Poison
-  - promptText: Collect 20 Rocks
+  - ID: 0
+    promptText: Collect 20 Rocks
     questType: resource
     requirementCount: 1
     icons:
@@ -2949,7 +2964,8 @@ MonoBehaviour:
     expReward: 100
     upgradeReward: health
     recipeReward: 
-  - promptText: Kill 10 enemys of any type
+  - ID: 0
+    promptText: Kill 10 enemys of any type
     questType: enemy
     requirementCount: 1
     icons:
@@ -2962,7 +2978,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: gas
     recipeReward: Steel
-  - promptText: Kill a boss (shown on map)
+  - ID: 0
+    promptText: Kill a boss (shown on map)
     questType: boss
     requirementCount: 1
     icons:
@@ -2975,7 +2992,8 @@ MonoBehaviour:
     expReward: 100
     upgradeReward: 
     recipeReward: 
-  - promptText: Create 3 Water Planets
+  - ID: 0
+    promptText: Create 3 Water Planets
     questType: planet
     requirementCount: 1
     icons:
@@ -2988,7 +3006,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: health
     recipeReward: Armory
-  - promptText: Create an Obsidian Planet
+  - ID: 0
+    promptText: Create an Obsidian Planet
     questType: planet
     requirementCount: 1
     icons:
@@ -3001,7 +3020,8 @@ MonoBehaviour:
     expReward: 100
     upgradeReward: 
     recipeReward: 
-  - promptText: Create a Diamond Planet
+  - ID: 0
+    promptText: Create a Diamond Planet
     questType: planet
     requirementCount: 1
     icons:
@@ -3014,7 +3034,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: trackingWeapon
     recipeReward: 
-  - promptText: Create a Dark Matter Planet
+  - ID: 0
+    promptText: Create a Dark Matter Planet
     questType: planet
     requirementCount: 1
     icons:
@@ -3027,6 +3048,7 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: 
     recipeReward: EndGame
+  completedQuests: []
   almanacRewards:
   - name: Food
     combo:
@@ -7093,6 +7115,19 @@ MonoBehaviour:
   tracking1: {fileID: 6354916}
   tracking2: {fileID: 688492136}
   tracking3: {fileID: 829881630}
+  quest:
+    ID: 0
+    promptText: 
+    questType: 
+    requirementCount: 0
+    icons: []
+    itemNames: []
+    quantities: 
+    rewardText: 
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: 
+    recipeReward: 
   BM: {fileID: 1197296656}
   tracking: 0
 --- !u!114 &497163099
@@ -20509,6 +20544,19 @@ MonoBehaviour:
   tracking1: {fileID: 6354916}
   tracking2: {fileID: 688492136}
   tracking3: {fileID: 829881630}
+  quest:
+    ID: 0
+    promptText: 
+    questType: 
+    requirementCount: 0
+    icons: []
+    itemNames: []
+    quantities: 
+    rewardText: 
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: 
+    recipeReward: 
   BM: {fileID: 1197296656}
   tracking: 0
 --- !u!114 &1083972633
@@ -21300,6 +21348,7 @@ MonoBehaviour:
   AM: {fileID: 2129333493}
   BM: {fileID: 1197296656}
   levelTree: {fileID: 1096552591937538878}
+  questSystem: {fileID: 204075745}
 --- !u!4 &1159672789
 Transform:
   m_ObjectHideFlags: 0
@@ -36919,6 +36968,19 @@ MonoBehaviour:
   tracking1: {fileID: 6354916}
   tracking2: {fileID: 688492136}
   tracking3: {fileID: 829881630}
+  quest:
+    ID: 0
+    promptText: 
+    questType: 
+    requirementCount: 0
+    icons: []
+    itemNames: []
+    quantities: 
+    rewardText: 
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: 
+    recipeReward: 
   BM: {fileID: 1197296656}
   tracking: 0
 --- !u!1 &2105464806

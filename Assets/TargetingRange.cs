@@ -16,7 +16,6 @@ public class TargetingRange : MonoBehaviour
                 EC.inTargetingRange = true;
                 EC.target = collision.gameObject;
                 targets.Add(collision.gameObject);
-                Debug.Log("Planettt!!!L!!L!");
             }
         }
         else
@@ -26,7 +25,6 @@ public class TargetingRange : MonoBehaviour
                 EC.inTargetingRange = true;
                 EC.target = collision.gameObject;
                 targets.Add(collision.gameObject);
-                Debug.Log("HERE!!!L!!L!");
             }
         }
     }
@@ -45,7 +43,6 @@ public class TargetingRange : MonoBehaviour
                 EC.inStoppingRange = false;
                 foreach (Collider2D collider in collidersHit)
                 {
-                    Debug.Log(collider.gameObject.name + " " + EC.target.name);
                     if (collider.gameObject.name == EC.target.name)
                     {
                         EC.inStoppingRange = true;

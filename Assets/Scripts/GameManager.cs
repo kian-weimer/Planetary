@@ -30,13 +30,15 @@ public class GameManager : MonoBehaviour
 
     // save refrences
     public LevelTree levelTree;
-
+    public QuestSystem questSystem;
+    
     public void Update()
     {
         if (Input.GetKeyDown("["))
         {
             player.Save(); // must be before levelTree
             levelTree.Save();
+            questSystem.Save();
             BM.Broadcast("Saved");
 
         }
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
         {
             player.Load(); // must be before levelTree
             levelTree.Load();
+            questSystem.Load();
             BM.Broadcast("Loaded");
         }
     }

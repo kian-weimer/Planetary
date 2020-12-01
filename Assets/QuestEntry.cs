@@ -19,7 +19,7 @@ public class QuestEntry : MonoBehaviour
     public GameObject tracking1;
     public GameObject tracking2;
     public GameObject tracking3;
-    private Quest quest;
+    public Quest quest;
 
     public BroadcastMessage BM;
 
@@ -255,7 +255,7 @@ public class QuestEntry : MonoBehaviour
 
         requiredCount = 0;
         completionCount = 0;
-        transform.parent.parent.parent.GetComponent<QuestSystem>().removeQuest(position);
+        transform.parent.parent.parent.GetComponent<QuestSystem>().removeQuest(quest);
     }
 
     public void RecipeReward()
@@ -322,5 +322,13 @@ public class QuestEntry : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void clearRewards()
+    {
+        moneyReward = 0;
+        expReward = 0;
+        upgradeReward = "";
+        recipeReward = "";
     }
 }

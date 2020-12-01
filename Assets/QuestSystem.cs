@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class QuestSystem : MonoBehaviour
@@ -9,6 +11,7 @@ public class QuestSystem : MonoBehaviour
     public int currentQuestCount = 1;
 
     public List<Quest> quests;
+    public List<Quest> completedQuests;
     public List<QuestAlminacReward> almanacRewards;
 
     public int questIndex = 1;
@@ -24,7 +27,90 @@ public class QuestSystem : MonoBehaviour
     void Start()
     {
         lastQuestCreationTime = -1 * questFrequency;// Time.time;
+        int i = 1;
+        foreach (Quest quest in quests)
+        {
+            quest.ID = i;
+            i++;
+        }
         //questEntry1.set(1, quests[0]);
+    }
+
+    public void Save()
+    {
+        List<int> completedQuestIDs = new List<int>();
+        foreach (Quest quest in completedQuests)
+        {
+            completedQuestIDs.Add(quest.ID);
+        }
+        FileStream fs = new FileStream("savedQuestData.dat", FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, completedQuestIDs);
+        fs.Close();
+    }
+
+    public void Load()
+    {
+        List<int> completedQuestIDs;
+        using (Stream stream = File.Open("savedQuestData.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+            completedQuestIDs = (List<int>)bformatter.Deserialize(stream);
+        }
+
+        QuestEntry tempQuestEntry = new QuestEntry(); // used to apply quest upgrades
+        tempQuestEntry.player = FindObjectOfType<Player>();
+        tempQuestEntry.BM = FindObjectOfType<GameManager>().BM;
+
+        // fill quest GUI
+        addQuest();
+        addQuest();
+        addQuest();
+
+        // complete each saved quest
+        foreach (int ID in completedQuestIDs)
+        {
+            Quest quest = new Quest();
+
+            // find quest by ID
+            foreach (Quest uncompletedQuest in quests)
+            {
+                if (uncompletedQuest.ID == ID)
+                {
+                    quest = uncompletedQuest;
+                }
+            }
+
+            //quests.Remove(quest); // remove quest from list
+
+            // apply quest upgrade if not gas or health
+            if (quest.upgradeReward.Length > 0 && quest.upgradeReward != "gas" && quest.upgradeReward != "health")
+            {
+                tempQuestEntry.upgradeReward = quest.upgradeReward;
+                tempQuestEntry.UpgradeReward();
+            }
+
+            // remove quest from UI if it is present
+            if (questEntry1.quest == quest)
+            {
+                questEntry1.clearRewards(); // remove rewards (should be saved by other means)
+                questEntry1.questCompleted(); // mark as complete
+                addQuest(); // add new quest to GUI
+            }
+            else if (questEntry2.quest == quest)
+            {
+                questEntry2.clearRewards();
+                questEntry2.questCompleted();
+                addQuest(); // add new quest to GUI
+            }
+            else if (questEntry3.quest == quest)
+            {
+                questEntry3.clearRewards();
+                questEntry3.questCompleted();
+                addQuest(); // add new quest to GUI
+            }
+
+        }
     }
 
     public void Dissappear()
@@ -51,24 +137,28 @@ public class QuestSystem : MonoBehaviour
     {
         if (questEntry1.requiredCount == 0)
         {
+            currentQuestCount++;
             questEntry1.set(1, quests[questIndex]);
             questIndex++;
         }
         else if (questEntry2.requiredCount == 0)
         {
+            currentQuestCount++;
             questEntry2.set(2, quests[questIndex]);
             questIndex++;
         }
         else if (questEntry3.requiredCount == 0)
         {
+            currentQuestCount++;
             questEntry3.set(3, quests[questIndex]);
             questIndex++;
         }
     }
 
-    public void removeQuest(int questSlot)
+    public void removeQuest(Quest quest)
     {
-
+        currentQuestCount--;
+        completedQuests.Add(quest);
     }
 
     public void updateQuestsEnemy(string name)
