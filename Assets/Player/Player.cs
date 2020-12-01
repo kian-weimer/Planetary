@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
 
     public void Load()
     {
-        // save level and experiance /////////////////////////////////////////////
+        // load level and experiance /////////////////////////////////////////////
         int loadedLevel = PlayerPrefs.GetInt("PlayerSavedNumericalLevel", level);
         int loadedExpPoints = PlayerPrefs.GetInt("PlayerSavedExperiancePoints", experiencePoints);
         for (int i = 0; i < loadedLevel - 1; i++)
