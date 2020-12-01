@@ -35,12 +35,14 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("["))
         {
+            player.Save(); // must be before levelTree
             levelTree.Save();
             BM.Broadcast("Saved");
 
         }
         if (Input.GetKeyDown("]"))
         {
+            player.Load(); // must be before levelTree
             levelTree.Load();
             BM.Broadcast("Loaded");
         }

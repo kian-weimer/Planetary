@@ -105,6 +105,30 @@ public class Player : MonoBehaviour
         
     }
 
+    public void Save()
+    {
+        // save level and experiance ///////////////////////////////////////
+        PlayerPrefs.SetInt("PlayerSavedNumericalLevel", level);
+        PlayerPrefs.SetInt("PlayerSavedExperiancePoints", experiencePoints);
+        ////////////////////////////////////////////////////////////////////
+
+    }
+
+    public void Load()
+    {
+        // save level and experiance /////////////////////////////////////////////
+        int loadedLevel = PlayerPrefs.GetInt("PlayerSavedNumericalLevel", level);
+        int loadedExpPoints = PlayerPrefs.GetInt("PlayerSavedExperiancePoints", experiencePoints);
+        for (int i = 0; i < loadedLevel - 1; i++)
+        {
+            addExpPoints(pointsToNextLevelList[i]);
+        }
+        addExpPoints(loadedExpPoints);
+        /////////////////////////////////////////////////////////////////////////
+        
+
+    }
+
     public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
     {
         if (PlayerPrefs.HasKey("fuelConsumption"))

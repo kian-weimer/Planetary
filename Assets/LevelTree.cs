@@ -35,15 +35,22 @@ public class LevelTree : MonoBehaviour
 
             purchasedItemsIDs = (List<int>)bformatter.Deserialize(stream);
         }
+
         foreach (int ID in purchasedItemsIDs)
         {
             Debug.Log(ID);
-            foreach (GameObject item in availableItems)
+            List<GameObject> unlockableItems = new List<GameObject>();
+            unlockableItems.AddRange(planetLockedItems);
+            unlockableItems.AddRange(availableItems);
+
+            foreach (GameObject item in unlockableItems)
             {
                 if (item.GetComponent<TreeEntry>().ID == ID)
                 {
+                    Debug.Log(item.GetComponent<TreeEntry>().lockedByPlanet);
                     if (item.GetComponent<TreeEntry>().lockedByPlanet)
                     {
+                        Debug.Log("Here");
                         unlockPlanetItem(item);
                         purchaseItem(item);
                     }
