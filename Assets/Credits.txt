@@ -3,3 +3,5 @@ https://freesound.org/people/LittleRobotSoundFactory/sounds/270536/
 
 Sound:  Thrust.wav (158894__primeval-polypod__rocket-launch) (June 19th, 2012); Created by: primeval_polypod. This work is licensed under the Attribution License.
 https://freesound.org/people/primeval_polypod/sounds/158894/
+
+Sound: planetExplosion1.wav, planetExplosion2.wav, planetExplosion3.wav  Sound effects obtained from https://www.zapsplat.com
