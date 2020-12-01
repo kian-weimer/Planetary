@@ -54,7 +54,8 @@ public class Planet : MonoBehaviour
                 cheeperMultiplier = FindObjectOfType<ShopManager>().expCheeperShopMultiplier;
             }
 
-            if (FindObjectOfType<Home>().numberOfStartingHomePlanets >= ShopManager.maxHomePlanets)
+            
+            if (FindObjectOfType<Home>().numberOfStartingHomePlanets == ShopManager.maxHomePlanets)
             {
                 ShopItemInfo shopItem = new ShopItemInfo();
                 shopItem.name = "Add Rock Planet";
@@ -62,8 +63,11 @@ public class Planet : MonoBehaviour
                 FindObjectOfType<canvas>().mainBuyShop.addShopItem(shopItem);
             }
             
-            FindObjectOfType<canvas>().mainBuyShop.GetComponent<Shop>().changePrice("Add Rock Planet", (int)(MaxItemsManager.priceOfPlanet / FindObjectOfType<ShopManager>().upgradeAmount / .98f / cheeperMultiplier));
 
+
+            FindObjectOfType<canvas>().mainBuyShop.GetComponent<Shop>().changePrice("Add Rock Planet", (int)(MaxItemsManager.priceOfPlanet / FindObjectOfType<ShopManager>().upgradeAmount / .98f / cheeperMultiplier));
+            FindObjectOfType<Home>().numberOfStartingHomePlanets--;
+            Debug.Log(FindObjectOfType<Home>().numberOfStartingHomePlanets);
             // TODO update the shop buy planet price
 
         }
