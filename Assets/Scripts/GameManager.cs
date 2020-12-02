@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         shopManager.Save();
         planetGenerator.Save();
         money.Save();
+        shopManager.GetComponent<ResourceInventory>().Save();
         BM.Broadcast("Saved");
     }
 
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
         questSystem.Load();
         shopManager.Load();
         money.Load();
+        shopManager.GetComponent<ResourceInventory>().Load();
         if (loadingFromSave) // will only do this if loading at start. only here to help dev testing
         {
             planetGenerator.Load();

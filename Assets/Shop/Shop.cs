@@ -145,6 +145,7 @@ public class Shop : MonoBehaviour
         itemShop.name = "Item " + (items.Count - 1);
         itemShop.transform.parent = transform;
         itemShop.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -1 * (items.Count - 1) * itemDistance, 0); // not sure why negative numbers there are needed...
+        itemShop.transform.localScale = Vector3.one;
 
         if (item.sellItem)
         {
