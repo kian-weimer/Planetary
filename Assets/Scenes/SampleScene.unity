@@ -21356,6 +21356,7 @@ MonoBehaviour:
   shopManager: {fileID: 1960612301}
   planetGenerator: {fileID: 1643416489}
   money: {fileID: 2068677633}
+  alminac: {fileID: 1096552592030131896}
 --- !u!4 &1159672789
 Transform:
   m_ObjectHideFlags: 0
@@ -55505,6 +55506,29 @@ MonoBehaviour:
     type: 3}
   AlminacEntryObjectInGame: []
   window: {fileID: 1096552592370912846}
+  sprites:
+  - {fileID: 21300000, guid: 14f481b254c75134e81ede9bdb9a1aeb, type: 3}
+  - {fileID: 21300000, guid: 5f8373bf5748d7746882e214a918ee7e, type: 3}
+  - {fileID: 21300000, guid: 9baa530efe0168c4791fc7abbac4f717, type: 3}
+  - {fileID: 21300000, guid: 56c421ed71623924eaefe388100a10c7, type: 3}
+  - {fileID: 21300000, guid: d615274c32f7ac64cb13aea4d6fb0b1e, type: 3}
+  - {fileID: 21300000, guid: c8dd50bfb4ff30c42a72558640415e35, type: 3}
+  - {fileID: 21300000, guid: 2a2a32c80882f6d458285b68d298b219, type: 3}
+  - {fileID: 21300000, guid: d7afa0d8260d02a4d87e445f4233e7f7, type: 3}
+  - {fileID: 21300000, guid: 48f8c8e0416863048b8d43b6e1a36aee, type: 3}
+  - {fileID: 21300000, guid: 1728da9b81c531342b71ee2c4c1ffd4f, type: 3}
+  - {fileID: 21300000, guid: 003d5fe6cbcda7a419021a837482c73d, type: 3}
+  - {fileID: 21300000, guid: 1a044a8043513984292c4e1b0f130545, type: 3}
+  - {fileID: 21300000, guid: 9b4ef0e661161af49a5a362cde6a79a9, type: 3}
+  - {fileID: 21300000, guid: 1b363a546fabb8249bc9d2745c2aa2f5, type: 3}
+  - {fileID: 21300000, guid: 901145abb57a67840bcc42b547ddb415, type: 3}
+  - {fileID: 21300000, guid: 50e91d528e96bed41864444b4847f8e1, type: 3}
+  - {fileID: 21300000, guid: b6505fe55a33352438beda9315e082d7, type: 3}
+  - {fileID: 21300000, guid: cd4fc904ffb111349814a886b9b5ba17, type: 3}
+  - {fileID: 21300000, guid: feb86f5d066ca364ba8ef992f657b58d, type: 3}
+  - {fileID: 21300000, guid: 524504432237df64c9fc6484e4acc6dc, type: 3}
+  - {fileID: 21300000, guid: fdb3ed996a9d8434f8b6d3bdcc73c448, type: 3}
+  - {fileID: 21300000, guid: b531df8c4652c764eae96a46d5ed3176, type: 3}
 --- !u!224 &1096552592030131897
 RectTransform:
   m_ObjectHideFlags: 0
