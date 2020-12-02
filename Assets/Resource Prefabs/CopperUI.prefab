@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5093155366847758021}
   - component: {fileID: 876482178367309713}
   m_Layer: 0
-  m_Name: CopperUI 1
+  m_Name: CopperUI
   m_TagString: ResourceUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 935dfab370b908845a6397a4f5f79e04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 030a33601978f054998a7bbc741af2ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
