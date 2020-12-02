@@ -26,6 +26,9 @@ public class QuestEntry : MonoBehaviour
     public bool tracking = false;
     public static int bossCounter = 0;
 
+    [HideInInspector]
+    public GameObject boss; // only contains a reference if the boss has been created
+
     void Start()
     {
         requiredCount = 0;
@@ -57,7 +60,7 @@ public class QuestEntry : MonoBehaviour
             planetGenerator PG = FindObjectOfType<planetGenerator>();
             bossCounter++;
             Vector2 pos = ((15*bossCounter + 10) * PG.spacialResolution + PG.homeOffset) * PG.PositionGenerator(10 * bossCounter);
-            GameObject boss = Instantiate(quest.icons[0]);
+            boss = Instantiate(quest.icons[0]);
             boss.transform.position = pos;
         }
 

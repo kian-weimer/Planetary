@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public LevelTree levelTree;
     public QuestSystem questSystem;
     public ShopManager shopManager;
+    public planetGenerator planetGenerator;
+    public static bool loadingFromSave = false;
     
     public void Update()
     {
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
             levelTree.Save();
             questSystem.Save();
             shopManager.Save();
+            planetGenerator.Save();
             BM.Broadcast("Saved");
 
         }
@@ -50,9 +53,16 @@ public class GameManager : MonoBehaviour
             levelTree.Load();
             questSystem.Load();
             shopManager.Load();
+            planetGenerator.Load();
             BM.Broadcast("Loaded");
         }
+        if (Input.GetKeyDown("'"))
+        {
+            loadingFromSave = true;
+        }
+
     }
+
 
 
     public void Start()
@@ -60,6 +70,10 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Start Menu")
         {
             AM.Play("Main");
+            if (loadingFromSave)
+            {
+
+            }
         }
         else
         {

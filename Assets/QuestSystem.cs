@@ -94,18 +94,30 @@ public class QuestSystem : MonoBehaviour
             if (questEntry1.quest == quest)
             {
                 questEntry1.clearRewards(); // remove rewards (should be saved by other means)
+                if (questEntry1.questType == "boss")
+                {
+                    Destroy(questEntry1.boss);
+                }
                 questEntry1.questCompleted(); // mark as complete
                 addQuest(); // add new quest to GUI
             }
             else if (questEntry2.quest == quest)
             {
                 questEntry2.clearRewards();
+                if (questEntry2.questType == "boss")
+                {
+                    Destroy(questEntry2.boss);
+                }
                 questEntry2.questCompleted();
                 addQuest(); // add new quest to GUI
             }
             else if (questEntry3.quest == quest)
             {
                 questEntry3.clearRewards();
+                if (questEntry3.questType == "boss")
+                {
+                    Destroy(questEntry3.boss);
+                }
                 questEntry3.questCompleted();
                 addQuest(); // add new quest to GUI
             }

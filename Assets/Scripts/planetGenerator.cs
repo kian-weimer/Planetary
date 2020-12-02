@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 // Y GRID POSITION REPORTS 1 VALUES GREATER THAN ACTUAL...
 public class planetGenerator : MonoBehaviour
@@ -53,6 +55,10 @@ public class planetGenerator : MonoBehaviour
         go1.DrawCircle(70, .25f);//radius, thickness
         */
         loadDifficlutySettings(); // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+        if (GameManager.loadingFromSave)
+        {
+            Load();
+        }
         // Randomly generate all outside planets
         int numberOfRings = FindObjectOfType<GameManager>().numberOfRings;
         planetInfoList = new Dictionary<Vector2, ArrayList>();
@@ -118,7 +124,35 @@ public class planetGenerator : MonoBehaviour
         //Instantiate(planetTypes[0], new Vector2(0, 0), Quaternion.identity);
     }
 
-    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    public void Save()
+    {
+        List<ArrayList> planets = new List<ArrayList>();
+        foreach (ArrayList list in planetInfoList.Values)
+        {
+            planets.Add(list);
+        }
+        FileStream fs = new FileStream("savedPlanetGeneratorData.dat", FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, planets);
+        fs.Close();
+    }
+
+    public void Load()
+    {
+        List<ArrayList> planets;
+        using (Stream stream = File.Open("savedPlanetGeneratorData.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+
+            planets = (List<ArrayList>)bformatter.Deserialize(stream);
+        }
+        foreach (ArrayList gridSection in planets)
+        {
+            planetInfoList.Add(GetGridPosition(new Vector2(((PlanetInfo)gridSection[0]).position[0], ((PlanetInfo)gridSection[0]).position[1])), gridSection);
+        }
+    }
+
+        public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
     {
         if (PlayerPrefs.HasKey("rarityRingDistanceLimit"))
         {
