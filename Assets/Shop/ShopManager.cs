@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +13,14 @@ public class ShopManager : MonoBehaviour
     public Dictionary<string, int> resourceCost = new Dictionary<string, int>();
     public GameObject home;
     public List<Sprite> playerSprites;
+
     [HideInInspector]
     public int whichShipColorBase = 0;
     public int whichShipLevel = 0;
     public static int maxHomePlanets = 20;
 
     public GameObject buyShop;
+    public GameObject sellShop;
     public float upgradeAmount;
     public float expCheeperShopMultiplier = 1;
 
@@ -42,6 +46,74 @@ public class ShopManager : MonoBehaviour
     public GameObject heal;
     public GameObject shield;
 
+    public void Save()
+    {
+        PlayerPrefs.SetInt("whichShipColorBase", whichShipColorBase);
+        PlayerPrefs.SetInt("whichShipLevel", whichShipLevel);
+        if (isCheaper)
+        {
+            PlayerPrefs.GetInt("isCheeper", 1);
+        }
+        else
+        {
+            PlayerPrefs.GetInt("isCheeper", 0);
+        }
+
+        PlayerPrefs.SetInt("amountOfWarps", amountOfWarps);
+
+        //saving the 2 shops
+        FileStream fs = new FileStream("savedBuyShopItems.dat", FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, buyShop.GetComponent<Shop>().items);
+        fs.Close();
+
+        FileStream fs2 = new FileStream("savedSellShopItems.dat", FileMode.Create);
+        BinaryFormatter bf2 = new BinaryFormatter();
+        List<ShopItemInfo> shoppp = sellShop.GetComponent<Shop>().items;
+        bf2.Serialize(fs2, shoppp);
+        fs2.Close();
+        
+    }
+
+    public void Load()
+    {
+        whichShipColorBase = PlayerPrefs.GetInt("whichShipColorBase");
+        whichShipLevel = PlayerPrefs.GetInt("whichShipLevel");
+        isCheaper = PlayerPrefs.GetInt("isCheeper") == 1;
+        amountOfWarps = PlayerPrefs.GetInt("amountOfWarps");
+
+        //shops
+        using (Stream stream = File.Open("savedBuyShopItems.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+            buyShop.GetComponent<Shop>().items.Clear();
+            buyShop.GetComponent<Shop>().shopItems.Clear();
+            buyShop.GetComponent<Shop>().itemsHudObjects.Clear();
+            foreach (Transform itemToBeDeleted in buyShop.transform)
+            {
+                Destroy(itemToBeDeleted.gameObject);
+            }
+            buyShop.GetComponent<Shop>().items = (List<ShopItemInfo>)bformatter.Deserialize(stream);
+        }
+
+        buyShop.GetComponent<Shop>().loadUp();
+
+        using (Stream stream = File.Open("savedSellShopItems.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+            sellShop.GetComponent<Shop>().items.Clear();
+            sellShop.GetComponent<Shop>().shopItems.Clear();
+            sellShop.GetComponent<Shop>().itemsHudObjects.Clear();
+            foreach (Transform itemToBeDeleted in sellShop.transform)
+            {
+                Destroy(itemToBeDeleted.gameObject);
+            }
+            sellShop.GetComponent<Shop>().items = (List<ShopItemInfo>)bformatter.Deserialize(stream);
+        }
+
+        sellShop.GetComponent<Shop>().loadUp();
+        
+    }
 
     void Start()
     {

@@ -1,7 +1,6 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +18,9 @@ public class Shop : MonoBehaviour
     public GameObject Money;
     public GameObject ShopManager;
     public bool isTrader;
+
     // Start is called before the first frame update
+    /*
     void Start()
     {
         
@@ -38,6 +39,36 @@ public class Shop : MonoBehaviour
             {
                 item.GetComponent<SellShopItem>().Generate(items[i]);
             }
+
+            else
+            {
+                item.GetComponent<ShopItem>().Generate(items[i]);
+            }
+            itemsHudObjects.Add(item);
+            shopItems.Add(item.GetComponent<ShopItem>());
+        }
+    }
+    */
+
+    public void loadUp()
+    {
+        rT = GetComponent<RectTransform>();
+        // rT.sizeDelta = new Vector2(rT.sizeDelta.x, items.Count * itemDistance);
+        for (int i = 0; i < items.Count; i++)
+        {
+            GameObject item = Instantiate(shopItem);
+            item.name = "Item " + i;
+            item.transform.parent = (transform);
+            item.transform.localScale = new Vector3(1, 1, 0);
+            item.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -1 * i * itemDistance, 0); // not sure why negative numbers there are needed...
+
+            //item.GetComponent<RectTransform>().position = new Vector3(0, 0 + i * itemDistance , 0); // not sure why negative numbers there are needed...
+
+            if (items[i].sellItem)
+            {
+                item.GetComponent<SellShopItem>().Generate(items[i]);
+            }
+
             else
             {
                 item.GetComponent<ShopItem>().Generate(items[i]);

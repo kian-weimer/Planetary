@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     // save refrences
     public LevelTree levelTree;
     public QuestSystem questSystem;
+    public ShopManager shopManager;
     
     public void Update()
     {
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
             player.Save(); // must be before levelTree
             levelTree.Save();
             questSystem.Save();
+            shopManager.Save();
             BM.Broadcast("Saved");
 
         }
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
             player.Load(); // must be before levelTree
             levelTree.Load();
             questSystem.Load();
+            shopManager.Load();
             BM.Broadcast("Loaded");
         }
     }

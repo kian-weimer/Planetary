@@ -30,7 +30,7 @@ public class Trader : MonoBehaviour
         float xDirection = distanceAway * Mathf.Cos(angle);
         float yDirection = distanceAway * Mathf.Sin(angle);
         Vector2 offset = new Vector2(xDirection, yDirection);
-        Debug.Log(offset);
+
         transform.position = playerPosition + offset;
 
         canvasHolder = FindObjectOfType<canvas>();

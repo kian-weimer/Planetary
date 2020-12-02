@@ -8,6 +8,5 @@ public class ShopItemInfo
     public string name;
     public int cost;
     public bool sellItem = false;
-
 }
 

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[SerializeField]
 public class ShopItem : MonoBehaviour
 {
     public string name;
