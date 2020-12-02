@@ -57,6 +57,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Planet")
         {
+            FindObjectOfType<AudioManager>().Play("BulletExplosion");
             if (extraDamageToPlanets)
             {
                 collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - bulletDamage * 1.5f;
@@ -89,6 +90,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.tag == "Satellite")
         {
+            FindObjectOfType<AudioManager>().Play("BulletExplosion");
             collision.gameObject.GetComponent<Satellite>().health = collision.gameObject.GetComponent<Satellite>().health - (int)bulletDamage;
 
             if (collision.gameObject.GetComponent<Satellite>().health <= 0)
@@ -97,6 +99,7 @@ public class Bullet : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<Satellite>().destroyed = true;
                     collision.gameObject.GetComponent<Satellite>().destroy();
+
                 }
             }
         }
@@ -116,11 +119,12 @@ public class Bullet : MonoBehaviour
             {
                 collision.gameObject.GetComponent<LootCrate>().damage(bulletDamage);
             }
-
+            FindObjectOfType<AudioManager>().Play("BulletExplosion");
         }
         if(collision.gameObject.tag == "Mine")
         {
             collision.gameObject.GetComponent<Mine>().damageSurroundings();
+            FindObjectOfType<AudioManager>().Play("BulletExplosion");
         }
 
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Popup" && collision.gameObject.tag != "HomeCircle" 
@@ -131,7 +135,7 @@ public class Bullet : MonoBehaviour
         {
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
+            FindObjectOfType<AudioManager>().Play("BulletExplosion");
             Destroy(gameObject);
         }
     }

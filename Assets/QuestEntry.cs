@@ -232,6 +232,7 @@ public class QuestEntry : MonoBehaviour
 
     public void questCompleted()
     {
+        FindObjectOfType<AudioManager>().PlayIfNotPlaying("QuestCompleted");
         playerMoney.addMoney(moneyReward);
         player.addExpPoints(expReward);
         if (upgradeReward.Length > 0)

@@ -41,7 +41,10 @@ public class Planet : MonoBehaviour
     public void destroy(bool doubleResource)
     {
         destroyedByMine = true;
-        
+
+        int planetExplosionNumber = Random.Range(1, 3);
+
+        FindObjectOfType<AudioManager>().PlayIfNotPlaying("PlanetExplosion" + planetExplosionNumber);
         if (inHomeSystem)
         {
 

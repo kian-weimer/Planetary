@@ -44,6 +44,7 @@ public class rsrce : MonoBehaviour
 
     public void Pickedup()
     {
+        FindObjectOfType<AudioManager>().PlayIfNotPlaying("ItemPickup");
         isInAnInventory = true;
         timeLeft = timeBeforeDeletion;
         transform.position = new Vector3(0, 0, 1);

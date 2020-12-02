@@ -8500,8 +8500,8 @@ MonoBehaviour:
     Enemy: {fileID: 6749549119045524634, guid: 801268317b5610a4f885d2781571b311, type: 3}
     rarityLevel: 0
   numberOfBombers: 3
-  timeTillInvasionMax: 90
-  timeBetweenWaves: 3
+  timeTillInvasionMax: 300
+  timeBetweenWaves: 5
   numberOfWaves: 2
   timeTillInvasion: 0
   secondsToStartTimer: 80
@@ -37111,6 +37111,48 @@ MonoBehaviour:
     volume: 0.035
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: PlanetExplosion1
+    clip: {fileID: 8300000, guid: 2b0fde3cac6bed74fa8d677c6e36a563, type: 3}
+    volume: 0.11
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlanetExplosion2
+    clip: {fileID: 8300000, guid: d2c2d74cbaa19264cb545fa08ebb31ba, type: 3}
+    volume: 0.11
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlanetExplosion3
+    clip: {fileID: 8300000, guid: 43f31339e0391734b82b6bcba0b96d3a, type: 3}
+    volume: 0.11
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerExplosion
+    clip: {fileID: 8300000, guid: 1307c4c2dbf6a5a4c9980a2a2c34e211, type: 3}
+    volume: 0.09
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ItemPickup
+    clip: {fileID: 8300000, guid: 79050fbfdd25cc5458edaf4f9f843efc, type: 3}
+    volume: 0.07
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: QuestCompleted
+    clip: {fileID: 8300000, guid: 1a04c2cedf8d1b44ca0e884410c6ac7d, type: 3}
+    volume: 0.07
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BulletExplosion
+    clip: {fileID: 8300000, guid: 625de2e25bda34b499e6dcd6e863f524, type: 3}
+    volume: 0.07
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &2129333494
 Transform:

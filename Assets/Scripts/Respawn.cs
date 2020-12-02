@@ -28,6 +28,7 @@ public class Respawn : MonoBehaviour
 
         if (!isGas)
         {
+            FindObjectOfType<AudioManager>().PlayIfNotPlaying("PlayerExplosion");
             GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             GameObject explosionObject = Instantiate(explosion);
             explosionObject.transform.position = transform.position;
