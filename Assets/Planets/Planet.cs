@@ -70,7 +70,6 @@ public class Planet : MonoBehaviour
 
             FindObjectOfType<canvas>().mainBuyShop.GetComponent<Shop>().changePrice("Add Rock Planet", (int)(MaxItemsManager.priceOfPlanet / FindObjectOfType<ShopManager>().upgradeAmount / .98f / cheeperMultiplier));
             FindObjectOfType<Home>().numberOfStartingHomePlanets--;
-            Debug.Log(FindObjectOfType<Home>().numberOfStartingHomePlanets);
             // TODO update the shop buy planet price
 
         }

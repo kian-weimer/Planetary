@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -13,10 +15,66 @@ public class Inventory : MonoBehaviour
     public bool isFull = false;
 
     public GameObject IS;
+
+    public List<GameObject> resources;
     // Start is called before the first frame update
     void Start()
     {
         InitializeInventory();
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("NumberOfInventorySlots", numberOfInventorySlots);
+        List<string> names = new List<string>();
+
+        foreach(GameObject resource in slots)
+        {
+            if(resource.GetComponent<InventorySlot>().item != null)
+            {
+                names.Add(resource.GetComponent<InventorySlot>().item.name.Replace("(Clone)", ""));
+            }
+        }
+        FileStream fs = new FileStream("savedInventory.dat", FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, names);
+        fs.Close();
+    }
+
+    public void Load()
+    {
+        List<string> names = new List<string>();
+        using (Stream stream = File.Open("savedInventory.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+            names = (List<string>)bformatter.Deserialize(stream);
+        }
+
+        foreach(Transform slot in gameObject.transform)
+        {
+            if(slot.gameObject.name == "InventorySlot(Clone)"){
+                Destroy(slot.gameObject);
+            }
+        }
+        slots.Clear();
+        numberOfInventorySlots = PlayerPrefs.GetInt("NumberOfInventorySlots");
+        for(int i  = 0; i < numberOfInventorySlots; i++)
+        {
+            addInventorySlot();
+        }
+
+        foreach(string name in names)
+        {
+            foreach(GameObject resource in resources)
+            {
+                if(name == resource.name)
+                {
+                    GameObject resourceToSpawn = Instantiate(resource);
+                    StoreItem(resourceToSpawn);
+                    FindObjectOfType<ResourceInventory>().checkForItemAndRemove(resourceToSpawn.GetComponent<rsrce>().nameOfResource);
+                }
+            }
+        }
     }
 
     public void InitializeInventory()

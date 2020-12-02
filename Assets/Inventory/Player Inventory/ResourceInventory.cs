@@ -22,6 +22,7 @@ public class ResourceInventory : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(fs, keys);
         fs.Close();
+        Debug.Log(keys.Count);
 
         FileStream fs2 = new FileStream("savedResourceInventoryValues.dat", FileMode.Create);
         BinaryFormatter bf2 = new BinaryFormatter();
@@ -51,9 +52,10 @@ public class ResourceInventory : MonoBehaviour
 
             values = (List<int>)bformatter.Deserialize(stream);
         }
-
-        for(int i = 1; i < keys.Count; i++)
+        Debug.Log(keys.Count);
+        for(int i = 0; i < keys.Count; i++)
         {
+            Debug.Log(keys[i] + " " + values[i]);
             resourceList.Add(keys[i], values[i]);
         }
 
@@ -88,7 +90,7 @@ public class ResourceInventory : MonoBehaviour
     }
 
     public bool checkForItemAndRemove(string nameOfResource, int numberOfItems = 1)
-    { 
+    {
         if (!resourceList.ContainsKey(nameOfResource))
         {
             return false;
@@ -97,6 +99,7 @@ public class ResourceInventory : MonoBehaviour
         if(resourceList[nameOfResource] >= numberOfItems)
         {
             resourceList[nameOfResource] = resourceList[nameOfResource] - numberOfItems;
+            Debug.Log(resourceList[nameOfResource]);
             return true;
         }
         return false;

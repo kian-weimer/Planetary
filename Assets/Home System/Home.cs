@@ -34,6 +34,16 @@ public class Home : MonoBehaviour
 
     public GameObject planetShield;
 
+    public void Save()
+    {
+
+    }
+
+    public void Load()
+    {
+
+    }
+
 
     // Start is called before the first frame update
     void Awake()

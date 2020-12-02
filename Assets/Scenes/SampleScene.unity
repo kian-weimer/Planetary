@@ -11744,6 +11744,30 @@ MonoBehaviour:
   spacing: 160
   isFull: 0
   IS: {fileID: 7767129172053350334, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
+  resources:
+  - {fileID: 1481198874152008526, guid: 76104483fe23cf545a0a149a8e84f898, type: 3}
+  - {fileID: 767656466236523335, guid: 92191089f76cbaa4b806bb865411a68f, type: 3}
+  - {fileID: 3600972685944312417, guid: 6fd6c7e6627463d4784c9d9ffc5fc3a2, type: 3}
+  - {fileID: 1840391992676916451, guid: e9b9deec056326b42947906e9937b49c, type: 3}
+  - {fileID: 4677564016738130330, guid: 5489e015fe23f774882937a98828005c, type: 3}
+  - {fileID: 746336850765839757, guid: 1e1c303022e665b42a8127eb0556eeea, type: 3}
+  - {fileID: 3307718173592059029, guid: 010a9d1e405ad144c828ba20498178fd, type: 3}
+  - {fileID: 6439163185437585190, guid: f0b4514fd2a4feb4cbb3a63df01438a1, type: 3}
+  - {fileID: 7581144767543362346, guid: 99aecabf7ad198b4fabcf79825c4d277, type: 3}
+  - {fileID: 9211185789169040804, guid: 2b3eda771b6af0b449bbc62587c931ac, type: 3}
+  - {fileID: 2608300956671047140, guid: 7a65055eb53261d439554f9c7308763f, type: 3}
+  - {fileID: 8185992990628113467, guid: f11cf6db948b1754b80fc0db5eb9034f, type: 3}
+  - {fileID: 1130035494589597368, guid: 3ac4cd50e70a28d40997746986afba1e, type: 3}
+  - {fileID: 8591499930326729780, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
+  - {fileID: 6502448202980844329, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+  - {fileID: 7763969217682065735, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
+  - {fileID: 5143818115458647788, guid: eeac8a02164464942af530fa198e8abd, type: 3}
+  - {fileID: 7945304767727497163, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+  - {fileID: 7096846163233868484, guid: d462a8b814751be418ef06f4445d80ef, type: 3}
+  - {fileID: 5918652370462035316, guid: 8d4252ff6accadc4e9814e17fe3475d4, type: 3}
+  - {fileID: 362963750672583067, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
+  - {fileID: 1505736530839571427, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+  - {fileID: 1176631071972580248, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
 --- !u!1 &777009675
 GameObject:
   m_ObjectHideFlags: 0
@@ -21355,8 +21379,8 @@ MonoBehaviour:
   questSystem: {fileID: 204075745}
   shopManager: {fileID: 1960612301}
   planetGenerator: {fileID: 1643416489}
-  money: {fileID: 2068677633}
   alminac: {fileID: 1096552592030131896}
+  money: {fileID: 2068677633}
 --- !u!4 &1159672789
 Transform:
   m_ObjectHideFlags: 0

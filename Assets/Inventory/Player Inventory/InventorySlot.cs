@@ -33,7 +33,6 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 eventData.pointerDrag.transform.parent.GetComponent<PlanetInventorySlot>().RemoveItem();
                 AddItemFromOldSlot(tempItem, eventData.pointerDrag);
             }
-            
         }
     }
 

@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public Alminac alminac;
     public static bool loadingFromSave = false;
     public Money money;
+    public Inventory inventory;
     
     public void Update()
     {
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
         money.Save();
         shopManager.GetComponent<ResourceInventory>().Save();
         alminac.Save();
+        inventory.Save();
         BM.Broadcast("Saved");
     }
 
@@ -81,6 +83,7 @@ public class GameManager : MonoBehaviour
             planetGenerator.Load();
             loadingFromSave = false;
         }
+        inventory.Load();
         alminac.Load();
         BM.Broadcast("Loaded");
     }

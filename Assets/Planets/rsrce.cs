@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.UI;
 
-
 public class rsrce : MonoBehaviour
 {
     public bool UIElement = false;
