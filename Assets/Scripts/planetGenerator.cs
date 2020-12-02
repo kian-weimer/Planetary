@@ -58,7 +58,9 @@ public class planetGenerator : MonoBehaviour
         if (GameManager.loadingFromSave)
         {
             Load();
+            return;
         }
+
         // Randomly generate all outside planets
         int numberOfRings = FindObjectOfType<GameManager>().numberOfRings;
         planetInfoList = new Dictionary<Vector2, ArrayList>();
@@ -140,6 +142,9 @@ public class planetGenerator : MonoBehaviour
     public void Load()
     {
         List<ArrayList> planets;
+        planetInfoList = new Dictionary<Vector2, ArrayList>();
+        planetsObjectsInGame = new ArrayList();
+
         using (Stream stream = File.Open("savedPlanetGeneratorData.dat", FileMode.Open))
         {
             var bformatter = new BinaryFormatter();
@@ -152,7 +157,7 @@ public class planetGenerator : MonoBehaviour
         }
     }
 
-        public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
     {
         if (PlayerPrefs.HasKey("rarityRingDistanceLimit"))
         {

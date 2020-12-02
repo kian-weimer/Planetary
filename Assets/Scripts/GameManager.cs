@@ -39,22 +39,12 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("["))
         {
-            player.Save(); // must be before levelTree
-            levelTree.Save();
-            questSystem.Save();
-            shopManager.Save();
-            planetGenerator.Save();
-            BM.Broadcast("Saved");
+            Save();
 
         }
         if (Input.GetKeyDown("]"))
         {
-            player.Load(); // must be before levelTree
-            levelTree.Load();
-            questSystem.Load();
-            shopManager.Load();
-            planetGenerator.Load();
-            BM.Broadcast("Loaded");
+            Load();
         }
         if (Input.GetKeyDown("'"))
         {
@@ -63,6 +53,29 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void Save()
+    {
+        player.Save(); // must be before levelTree
+        levelTree.Save();
+        questSystem.Save();
+        shopManager.Save();
+        planetGenerator.Save();
+        BM.Broadcast("Saved");
+    }
+
+    public void Load()
+    {
+        player.Load(); // must be before levelTree
+        levelTree.Load();
+        questSystem.Load();
+        shopManager.Load();
+        if (loadingFromSave) // will only do this if loading at start. only here to help dev testing
+        {
+            planetGenerator.Load();
+            loadingFromSave = false;
+        }
+        BM.Broadcast("Loaded");
+    }
 
 
     public void Start()
@@ -72,7 +85,7 @@ public class GameManager : MonoBehaviour
             AM.Play("Main");
             if (loadingFromSave)
             {
-
+                Load();
             }
         }
         else
