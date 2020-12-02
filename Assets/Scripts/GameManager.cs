@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public ShopManager shopManager;
     public planetGenerator planetGenerator;
     public static bool loadingFromSave = false;
+    public Money money;
     
     public void Update()
     {
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
         questSystem.Save();
         shopManager.Save();
         planetGenerator.Save();
+        money.Save();
         BM.Broadcast("Saved");
     }
 
@@ -69,6 +71,7 @@ public class GameManager : MonoBehaviour
         levelTree.Load();
         questSystem.Load();
         shopManager.Load();
+        money.Load();
         if (loadingFromSave) // will only do this if loading at start. only here to help dev testing
         {
             planetGenerator.Load();

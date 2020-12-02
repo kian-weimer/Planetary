@@ -148,6 +148,7 @@ MonoBehaviour:
   - {fileID: 1505736530839571427, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
   numberToSpawn: 8
   deathExplosion: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
+  rarityLevel: 3
 --- !u!61 &869389508707157531
 BoxCollider2D:
   m_ObjectHideFlags: 0

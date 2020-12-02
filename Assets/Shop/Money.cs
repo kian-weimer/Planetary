@@ -16,6 +16,18 @@ public class Money : MonoBehaviour
 
         }
     }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("MoneyAmount", int.Parse(GetComponent<Text>().text));
+    }
+    public void Load()
+    {
+        int moneyAmount = PlayerPrefs.GetInt("MoneyAmount");
+        GetComponent<Text>().text = moneyAmount.ToString();
+    }
+
+
     public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
     {
         if (PlayerPrefs.HasKey("infiniteMoney"))

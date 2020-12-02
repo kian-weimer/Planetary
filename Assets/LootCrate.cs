@@ -10,7 +10,7 @@ public class LootCrate : MonoBehaviour
     public GameObject[] spawnItems;
     public int numberToSpawn;
     public GameObject deathExplosion;
-
+    public int rarityLevel;
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class LootCrate : MonoBehaviour
             GameObject exp = Instantiate(deathExplosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             spawnExp();
-            MaxItemsManager.destroyLootCrate();
+            MaxItemsManager.destroyLootCrate(rarityLevel);
             Destroy(gameObject);
         }
     }

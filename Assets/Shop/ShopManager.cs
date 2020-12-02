@@ -46,6 +46,10 @@ public class ShopManager : MonoBehaviour
     public GameObject heal;
     public GameObject shield;
 
+    private int numberOfCommon;
+    private int numberOfRare;
+    private int numberOfLegendary;
+
     public void Save()
     {
         PlayerPrefs.SetInt("whichShipColorBase", whichShipColorBase);
@@ -72,7 +76,10 @@ public class ShopManager : MonoBehaviour
         List<ShopItemInfo> shoppp = sellShop.GetComponent<Shop>().items;
         bf2.Serialize(fs2, shoppp);
         fs2.Close();
-        
+
+        PlayerPrefs.SetInt("numberOfCommon", numberOfCommon);
+        PlayerPrefs.SetInt("numberOfRare", numberOfRare);
+        PlayerPrefs.SetInt("numberOfLegendary", numberOfLegendary);
     }
 
     public void Load()
@@ -112,7 +119,30 @@ public class ShopManager : MonoBehaviour
         }
 
         sellShop.GetComponent<Shop>().loadUp();
-        
+
+        numberOfCommon = PlayerPrefs.GetInt("numberOfCommon");
+        for (int i = 0; i < numberOfCommon; i++)
+        {
+            GameObject crate = Instantiate(commonCrate);
+            crate.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
+            MaxItemsManager.addLootCrate();
+        }
+
+        numberOfRare = PlayerPrefs.GetInt("numberOfRare");
+        for (int i = 0; i < numberOfRare; i++)
+        {
+            GameObject crateRare = Instantiate(rareCrate);
+            crateRare.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
+            MaxItemsManager.addLootCrate();
+        }
+
+        numberOfLegendary = PlayerPrefs.GetInt("numberOfLegendary");
+        for (int i = 0; i < numberOfLegendary; i++)
+        {
+            GameObject crateLegendary = Instantiate(legendaryCrate);
+            crateLegendary.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
+            MaxItemsManager.addLootCrate();
+        }
     }
 
     void Start()
@@ -144,6 +174,22 @@ public class ShopManager : MonoBehaviour
         resourceCost.Add("Ice", 50);
         resourceCost.Add("Plant", 50);
         resourceCost.Add("Sulfur", 50);
+    }
+
+    public void lowerAmountOfCrate(int rarity)
+    {
+        if(rarity == 1)
+        {
+            numberOfCommon -= 1;
+        }
+        if (rarity == 2)
+        {
+            numberOfRare-= 1;
+        }
+        if (rarity == 3)
+        {
+            numberOfLegendary -= 1;
+        }
     }
 
     public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
@@ -254,6 +300,7 @@ public class ShopManager : MonoBehaviour
                 crate.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 MaxItemsManager.addLootCrate();
+                numberOfCommon++;
                 break;
 
             case "Rare Crate":
@@ -261,6 +308,7 @@ public class ShopManager : MonoBehaviour
                 crateRare.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 MaxItemsManager.addLootCrate();
+                numberOfRare++;
                 break;
 
             case "Legendary Crate":
@@ -268,6 +316,7 @@ public class ShopManager : MonoBehaviour
                 crateLegendary.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
                 BM.Broadcast("Your purchased loot crate has been delivered near spawn!");
                 MaxItemsManager.addLootCrate();
+                numberOfLegendary++;
                 break;
 
             //friendly trader shop

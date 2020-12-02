@@ -21355,6 +21355,7 @@ MonoBehaviour:
   questSystem: {fileID: 204075745}
   shopManager: {fileID: 1960612301}
   planetGenerator: {fileID: 1643416489}
+  money: {fileID: 2068677633}
 --- !u!4 &1159672789
 Transform:
   m_ObjectHideFlags: 0

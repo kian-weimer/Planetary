@@ -27,7 +27,7 @@ public class MaxItemsManager : MonoBehaviour
         }
     }
 
-    public static void destroyLootCrate()
+    public static void destroyLootCrate(int rarity)
     {
         if(NumberOfLootCrates == MaxNumberOfLootCrates)
         {
@@ -47,6 +47,7 @@ public class MaxItemsManager : MonoBehaviour
             FindObjectOfType<canvas>().mainBuyShop.addShopItem(shopItem);
         }
         NumberOfLootCrates -= 1;
+        FindObjectOfType<ShopManager>().lowerAmountOfCrate(rarity);
     }
 
     public static void addMine(int amount = 1)
