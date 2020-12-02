@@ -19,7 +19,7 @@ public class BoostBossMainCollider : MonoBehaviour
             transform.parent.gameObject.GetComponent<BossSprintAtPlayer>().health -= collision.gameObject.GetComponent<Bullet>().bulletDamage;
             if(transform.parent.gameObject.GetComponent<BossSprintAtPlayer>().health <= 0)
             {
-                Destroy(transform.parent.gameObject);
+                transform.parent.GetComponent<BossSprintAtPlayer>().death();
             }
         }
     }
