@@ -60,6 +60,7 @@ public class Inventory : MonoBehaviour
         numberOfInventorySlots = PlayerPrefs.GetInt("NumberOfInventorySlots");
         for(int i  = 0; i < numberOfInventorySlots; i++)
         {
+            Debug.Log("Slot");
             addInventorySlot();
         }
 
@@ -67,7 +68,8 @@ public class Inventory : MonoBehaviour
         {
             foreach(GameObject resource in resources)
             {
-                if(name == resource.name)
+                Debug.Log(name + " " + resource.name);
+                if (name == resource.name)
                 {
                     GameObject resourceToSpawn = Instantiate(resource);
                     StoreItem(resourceToSpawn);

@@ -67,6 +67,24 @@ public class GameManager : MonoBehaviour
         shopManager.GetComponent<ResourceInventory>().Save();
         alminac.Save();
         inventory.Save();
+        if (popupsOn)
+        {
+            PlayerPrefs.SetInt("popupsOn", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("popupsOn", 0);
+        }
+
+        if (lightsOn)
+        {
+            PlayerPrefs.SetInt("lightsOn", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("lightsOn", 0);
+        }
+
         BM.Broadcast("Saved");
     }
 
@@ -83,8 +101,18 @@ public class GameManager : MonoBehaviour
             planetGenerator.Load();
             loadingFromSave = false;
         }
-        inventory.Load();
+        //inventory.Load();
         alminac.Load();
+
+        if(PlayerPrefs.GetInt("lightsOn") == 1)
+        {
+            toggleLights();
+        }
+        if (PlayerPrefs.GetInt("popupsOn") == 1)
+        {
+            togglePopups();
+        }
+
         BM.Broadcast("Loaded");
     }
 
@@ -202,6 +230,8 @@ public class GameManager : MonoBehaviour
     public void EnterGame()
     {
         StartCoroutine(LoadSceneAsync("SampleScene"));
+        lightsOn = false;
+        popupsOn = false;
     }
 
     public void Tutorial()
@@ -224,7 +254,10 @@ public class GameManager : MonoBehaviour
             var lights = FindObjectsOfType<Light2D>();
             foreach(Light2D light in lights)
             {
-                light.enabled = false;
+                if (light.gameObject.name != "Sun")
+                {
+                    light.enabled = false;
+                }
             }
         }
         else
@@ -233,7 +266,10 @@ public class GameManager : MonoBehaviour
             var lights = FindObjectsOfType<Light2D>();
             foreach (Light2D light in lights)
             {
-                light.enabled = true;
+                if(light.gameObject.name != "Sun")
+                {
+                    light.enabled = true;
+                }
             }
         }
     }

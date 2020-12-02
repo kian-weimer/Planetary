@@ -21381,6 +21381,7 @@ MonoBehaviour:
   planetGenerator: {fileID: 1643416489}
   alminac: {fileID: 1096552592030131896}
   money: {fileID: 2068677633}
+  inventory: {fileID: 752310339}
 --- !u!4 &1159672789
 Transform:
   m_ObjectHideFlags: 0
