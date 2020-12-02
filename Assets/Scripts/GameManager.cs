@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -53,7 +54,6 @@ public class GameManager : MonoBehaviour
         {
             loadingFromSave = true;
         }
-
     }
 
     public void Save()
@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("lightsOn", 0);
         }
 
+        map.Save();
         BM.Broadcast("Saved");
     }
 
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
     {
         player.Load(); // must be before levelTree
         levelTree.Load();
-        questSystem.Load();
+        questSystem.loadQuests = true;//Load();
         shopManager.Load();
         money.Load();
         shopManager.GetComponent<ResourceInventory>().Load();
@@ -113,6 +114,7 @@ public class GameManager : MonoBehaviour
             togglePopups();
         }
 
+        map.Load();
         BM.Broadcast("Loaded");
     }
 
@@ -122,16 +124,17 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Start Menu")
         {
             AM.Play("Main");
+        }
+        else
+        {
+            AM.Play("Theme");
             if (loadingFromSave)
             {
                 Load();
             }
         }
-        else
-        {
-            AM.Play("Theme");
-        }
     }
+
     public void Quit()
     {
         Application.Quit();

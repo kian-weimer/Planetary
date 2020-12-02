@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -190,9 +192,34 @@ public class Map : MonoBehaviour
         
     }
 
+    public void Save()
+    {
+        SerializeTexture spriteTexture = new SerializeTexture();
+        spriteTexture.x = mapImage.GetComponent<RawImage>().texture.width;
+        spriteTexture.y = mapImage.GetComponent<RawImage>().texture.height;
+
+        spriteTexture.bytes = texture.EncodeToPNG();
+        FileStream fs = new FileStream("savedMapData.dat", FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, spriteTexture);
+        fs.Close();
+    }
+
+    public void Load()
+    {
+        using (Stream stream = File.Open("savedMapData.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+            SerializeTexture spriteTexture = (SerializeTexture)bformatter.Deserialize(stream);
+            Texture2D tex = new Texture2D(spriteTexture.x, spriteTexture.y);
+            ImageConversion.LoadImage(tex, spriteTexture.bytes);
+            texture = tex;
+            mapImage.GetComponent<RawImage>().texture = texture;
+        }
+    }
     public void Initialize()
     {
-        texture = new Texture2D(4000, 4000, TextureFormat.ARGB32, false);
+        texture = new Texture2D(4000, 4000, TextureFormat.RGB24, false);
         mapImage.GetComponent<RawImage>().texture = texture;
         Color fillColor = Color.black;
         Color[] fillColorArray = texture.GetPixels();

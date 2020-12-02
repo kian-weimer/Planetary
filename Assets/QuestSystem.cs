@@ -23,6 +23,7 @@ public class QuestSystem : MonoBehaviour
     public Alminac alminac;
     public GameObject trackingWeapon;
 
+    public bool loadQuests = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -142,6 +143,11 @@ public class QuestSystem : MonoBehaviour
         {
             addQuest();
             lastQuestCreationTime = Time.time;
+        }
+        if (loadQuests)
+        {
+            Load();
+            loadQuests = false;
         }
     }
 
