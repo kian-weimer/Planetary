@@ -43,6 +43,7 @@ public class Inventory : MonoBehaviour
 
     public void Load()
     {
+        Debug.Log("in");
         List<string> names = new List<string>();
         using (Stream stream = File.Open("savedInventory.dat", FileMode.Open))
         {
@@ -50,14 +51,19 @@ public class Inventory : MonoBehaviour
             names = (List<string>)bformatter.Deserialize(stream);
         }
 
+        Debug.Log("number: " + gameObject.transform.childCount);
+        
         foreach(Transform slot in gameObject.transform)
         {
             if(slot.gameObject.name == "InventorySlot(Clone)"){
-                Destroy(slot.gameObject);
+                GameObject item = slot.gameObject;
+                Destroy(item);
             }
         }
+        
         slots.Clear();
         numberOfInventorySlots = PlayerPrefs.GetInt("NumberOfInventorySlots");
+        Debug.Log("numberOfSlots: " + numberOfInventorySlots);
         for(int i  = 0; i < numberOfInventorySlots; i++)
         {
             Debug.Log("Slot");
