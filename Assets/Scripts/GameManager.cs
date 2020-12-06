@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         money.Save();
         shopManager.GetComponent<ResourceInventory>().Save();
         alminac.Save();
-        //inventory.Save();
+        inventory.Save();
         if (popupsOn)
         {
             PlayerPrefs.SetInt("popupsOn", 1);
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             planetGenerator.Load();
             loadingFromSave = false;
         }
-        //inventory.Load();
+        inventory.Load();
         alminac.Load();
 
         if(PlayerPrefs.GetInt("lightsOn") == 1)
