@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3341252995592831398}
   - component: {fileID: 3341252995592831399}
   - component: {fileID: 7491654044804278813}
+  - component: {fileID: 2556991602381990558}
   m_Layer: 0
   m_Name: BasicFollower
   m_TagString: Friendly
@@ -123,6 +124,10 @@ MonoBehaviour:
   deathExplosion: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
   questSystem: {fileID: 0}
   target: {fileID: 0}
+  friendlyThatFollowsPlayer: 0
+  invasionEnemy: 0
+  distanceAwayToStop: 0
+  isBomber: 0
 --- !u!58 &3341252995592831398
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,6 +179,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceAwaySpawn: 20
   isMoving: 0
+--- !u!114 &2556991602381990558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341252995592831396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0, b: 0, a: 0}
+  useColor: 0
 --- !u!1 &3341252995959695118
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 3341252995592831449}
+  isBomber: 0
 --- !u!50 &1578028779646218638
 Rigidbody2D:
   serializedVersion: 4
@@ -456,6 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f1e9096a79c2f49abf776cfb7315d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBomber: 0
   EC: {fileID: 3341252995592831449}
 --- !u!50 &5098880256782792175
 Rigidbody2D:

@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 7702070509616434896}
   - component: {fileID: -5114107662490730445}
   - component: {fileID: 2706155703812675728}
+  - component: {fileID: -8370018628124693671}
   m_Layer: 0
   m_Name: CoalPlanet
   m_TagString: Planet
@@ -445,3 +446,18 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &-8370018628124693671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8180629556376146959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0.9607843, g: 0.6509804, b: 0.6509804, a: 0.7058824}
+  useColor: 1

@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 5805238415763284875}
   - component: {fileID: -2733175997135701233}
   - component: {fileID: -6133625058435874641}
+  - component: {fileID: 2897335309124246328}
   m_Layer: 0
   m_Name: ObsidianPlanet
   m_TagString: Planet
@@ -346,6 +347,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &2897335309124246328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473130270966823252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0.9607843, g: 0.6509804, b: 0.6509804, a: 0.7058824}
+  useColor: 1
 --- !u!1 &6931519664255571244
 GameObject:
   m_ObjectHideFlags: 0

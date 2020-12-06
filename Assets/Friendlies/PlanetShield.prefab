@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7338606788860186938}
   - component: {fileID: 3480459695839086401}
   - component: {fileID: 7728157760043545365}
+  - component: {fileID: 863776060995880428}
   m_Layer: 9
   m_Name: PlanetShield
   m_TagString: PlanetShield
@@ -112,3 +113,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f31c7825587f04987b122afc1cae55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &863776060995880428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457349552477056066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0.8727238, b: 1, a: 0.20392157}
+  useColor: 1

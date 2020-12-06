@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f1e9096a79c2f49abf776cfb7315d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBomber: 0
   EC: {fileID: 5250920423125103565}
 --- !u!1 &5250920422109191548
 GameObject:
@@ -687,6 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 5250920423125103565}
+  isBomber: 0
 --- !u!1 &5250920423051318554
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 5250920423125103565}
+  isBomber: 0
 --- !u!1 &5250920423125103536
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +765,7 @@ GameObject:
   - component: {fileID: 5250920423125103538}
   - component: {fileID: 5250920423125103539}
   - component: {fileID: 5250920423125103541}
+  - component: {fileID: -6895372829546251605}
   m_Layer: 0
   m_Name: EnemyBossLazer
   m_TagString: Enemy
@@ -876,6 +880,9 @@ MonoBehaviour:
   questSystem: {fileID: 0}
   target: {fileID: 0}
   friendlyThatFollowsPlayer: 0
+  invasionEnemy: 0
+  distanceAwayToStop: 0
+  isBomber: 0
 --- !u!58 &5250920423125103538
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -926,6 +933,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossNumber: 2
+--- !u!114 &-6895372829546251605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5250920423125103536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0, b: 0, a: 0}
+  useColor: 0
 --- !u!1 &6529013459419074884
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6246526566555457532}
   - component: {fileID: 6246526566555457411}
   - component: {fileID: 6246526566555457410}
+  - component: {fileID: -1596423253544754929}
   m_Layer: 0
   m_Name: Friend
   m_TagString: Friendly
@@ -124,7 +125,9 @@ MonoBehaviour:
   questSystem: {fileID: 0}
   target: {fileID: 0}
   friendlyThatFollowsPlayer: 1
-  hunting: 0
+  invasionEnemy: 0
+  distanceAwayToStop: 0
+  isBomber: 0
 --- !u!58 &6246526566555457411
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -162,6 +165,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-1596423253544754929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246526566555457409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0, b: 0, a: 0}
+  useColor: 0
 --- !u!1 &6246526566905573675
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f1e9096a79c2f49abf776cfb7315d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBomber: 0
   EC: {fileID: 6246526566555457532}
 --- !u!1 &6246526568123367189
 GameObject:

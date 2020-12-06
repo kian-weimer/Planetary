@@ -133,6 +133,10 @@ public class Bullet : MonoBehaviour
             && collision.gameObject.tag != "enemyBullet" && collision.gameObject.tag != "background" && collision.gameObject.tag != "Trader" 
             && collision.gameObject.tag != "Friendly" && collision.gameObject.tag != "Exp")
         {
+            if (collision.gameObject.GetComponent<Flash>() != null)
+            {
+                collision.gameObject.GetComponent<Flash>().start();
+            }
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             FindObjectOfType<AudioManager>().Play("BulletExplosion");

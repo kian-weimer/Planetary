@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1998435233404681833}
   - component: {fileID: -5409379404350166793}
   - component: {fileID: -887863700590309014}
+  - component: {fileID: 5205127620884721875}
   m_Layer: 0
   m_Name: WoodPlanet
   m_TagString: Planet
@@ -209,6 +210,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &5205127620884721875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63034102157829302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0.9607843, g: 0.6509804, b: 0.6509804, a: 0.7058824}
+  useColor: 1
 --- !u!1 &3105851782889654478
 GameObject:
   m_ObjectHideFlags: 0

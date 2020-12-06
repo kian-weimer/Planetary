@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6434803536069475348}
   - component: {fileID: 4569104257924521852}
   - component: {fileID: 3191636671014522812}
+  - component: {fileID: 6617450650762900131}
   m_Layer: 0
   m_Name: Satellite
   m_TagString: Satellite
@@ -144,3 +145,18 @@ MonoBehaviour:
   resourceSpawn: {fileID: 7096846163233868484, guid: d462a8b814751be418ef06f4445d80ef,
     type: 3}
   destroyed: 0
+--- !u!114 &6617450650762900131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597617602733753763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0, b: 0, a: 0}
+  useColor: 0

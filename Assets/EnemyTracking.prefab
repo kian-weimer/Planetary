@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1775593339267888720}
   - component: {fileID: 1775593339267888687}
   - component: {fileID: 1775593339267888686}
+  - component: {fileID: -8158305295463179840}
   m_Layer: 0
   m_Name: EnemyTracking
   m_TagString: Enemy
@@ -124,6 +125,9 @@ MonoBehaviour:
   questSystem: {fileID: 0}
   target: {fileID: 0}
   friendlyThatFollowsPlayer: 0
+  invasionEnemy: 0
+  distanceAwayToStop: 0
+  isBomber: 0
 --- !u!58 &1775593339267888687
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,6 +165,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-8158305295463179840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775593339267888685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0, b: 0, a: 0}
+  useColor: 0
 --- !u!1 &1775593339784346649
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 1775593339267888720}
+  isBomber: 0
 --- !u!1 &1775593339987087495
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 1775593339267888720}
+  isBomber: 0
 --- !u!1 &1775593340354243147
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f1e9096a79c2f49abf776cfb7315d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBomber: 0
   EC: {fileID: 1775593339267888720}
 --- !u!1 &1775593340381829345
 GameObject:

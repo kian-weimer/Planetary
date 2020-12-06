@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 1180540850115682420}
   - component: {fileID: 2973926279664444107}
   - component: {fileID: -5518408196411905699}
+  - component: {fileID: -80353857711627935}
   m_Layer: 0
   m_Name: IronPlanet
   m_TagString: Planet
@@ -346,6 +347,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &-80353857711627935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729115882049499423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0.9607843, g: 0.6509804, b: 0.6509804, a: 0.7058824}
+  useColor: 1
 --- !u!1 &8549905415968873831
 GameObject:
   m_ObjectHideFlags: 0

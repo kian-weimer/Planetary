@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6893182078779594093}
   - component: {fileID: 6858274477385365825}
   - component: {fileID: 5484958876962519166}
+  - component: {fileID: 5727893637777271009}
   m_Layer: 0
   m_Name: FoodPlanet
   m_TagString: Planet
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 273201793
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 524504432237df64c9fc6484e4acc6dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -209,6 +210,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &5727893637777271009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344606031622915078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0.9607843, g: 0.6509804, b: 0.6509804, a: 0.7058824}
+  useColor: 1
 --- !u!1 &4137896136847911038
 GameObject:
   m_ObjectHideFlags: 0

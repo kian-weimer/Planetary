@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f1e9096a79c2f49abf776cfb7315d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBomber: 0
   EC: {fileID: 792701233140208153}
 --- !u!1 &792701232577411824
 GameObject:
@@ -242,6 +243,7 @@ GameObject:
   - component: {fileID: 792701233140208153}
   - component: {fileID: 792701233140208230}
   - component: {fileID: 792701233140208231}
+  - component: {fileID: -3277460218430852106}
   m_Layer: 0
   m_Name: EnemyTurret
   m_TagString: Enemy
@@ -355,6 +357,9 @@ MonoBehaviour:
   questSystem: {fileID: 0}
   target: {fileID: 0}
   friendlyThatFollowsPlayer: 0
+  invasionEnemy: 0
+  distanceAwayToStop: 0
+  isBomber: 0
 --- !u!58 &792701233140208230
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -392,6 +397,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3277460218430852106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792701233140208228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0, b: 0, a: 0}
+  useColor: 0
 --- !u!1 &792701233532007630
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 792701233140208153}
+  isBomber: 0
 --- !u!1 &792701233599060048
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EC: {fileID: 792701233140208153}
+  isBomber: 0
 --- !u!1 &1820737352080437392
 GameObject:
   m_ObjectHideFlags: 0

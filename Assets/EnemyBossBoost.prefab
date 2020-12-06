@@ -548,6 +548,7 @@ GameObject:
   - component: {fileID: 2378561894335297199}
   - component: {fileID: 2378561894335297197}
   - component: {fileID: 4325881010185109899}
+  - component: {fileID: 2678021999191253321}
   m_Layer: 0
   m_Name: EnemyBossBoost
   m_TagString: Enemy
@@ -682,11 +683,25 @@ MonoBehaviour:
   maxHealth: 700
   health: 10
   weapon: {fileID: 4486377859956907996, guid: 6b3e9cb14e89a3b4f9bf53638854ddb6, type: 3}
-  audioManager: {fileID: 0}
   deathExplosion: {fileID: 2544709206327447535, guid: 31b64d25adf9dc643ad2e8204cb2909e,
     type: 3}
   expPoint: {fileID: 2851631526426794885, guid: dc99cfafc576c854480bd7b17a191e72,
     type: 3}
+--- !u!114 &2678021999191253321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378561894335297196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0, b: 0, a: 0}
+  useColor: 0
 --- !u!1 &2378561894798905350
 GameObject:
   m_ObjectHideFlags: 0

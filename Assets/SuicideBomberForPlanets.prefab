@@ -1016,6 +1016,7 @@ GameObject:
   - component: {fileID: 8107015230104370818}
   - component: {fileID: 8107015230104370941}
   - component: {fileID: 8107015230104370940}
+  - component: {fileID: 4276003273328227743}
   m_Layer: 0
   m_Name: SuicideBomberForPlanets
   m_TagString: Enemy
@@ -1174,6 +1175,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4276003273328227743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107015230104370943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0, g: 0, b: 0, a: 0}
+  useColor: 0
 --- !u!1 &8107015230616311403
 GameObject:
   m_ObjectHideFlags: 0

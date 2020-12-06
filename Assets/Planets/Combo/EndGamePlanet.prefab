@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 8587505494231752283}
   - component: {fileID: 7753932681078267663}
   - component: {fileID: 6854951692898185909}
+  - component: {fileID: 6932291447563362210}
   m_Layer: 0
   m_Name: EndGamePlanet
   m_TagString: Planet
@@ -175,7 +176,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 273201793
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fdb3ed996a9d8434f8b6d3bdcc73c448, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -321,6 +322,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &6932291447563362210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2759509325657029828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0.9607843, g: 0.6509804, b: 0.6509804, a: 0.7058824}
+  useColor: 1
 --- !u!1 &3021263219730080497
 GameObject:
   m_ObjectHideFlags: 0

@@ -112,6 +112,10 @@ public class EnemyBullet : MonoBehaviour
              && collision.gameObject.tag != "playerRange" && collision.gameObject.tag != "enemyBullet" && collision.gameObject.tag != "Bullet" 
              && collision.gameObject.tag != "background" && collision.gameObject.tag != "Exp")
         {
+            if (collision.gameObject.GetComponent<Flash>() != null)
+            {
+                collision.gameObject.GetComponent<Flash>().start();
+            }
             GameObject exp = Instantiate(explosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 

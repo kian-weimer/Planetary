@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1721616277505534532}
   - component: {fileID: 4904005153588100835}
   - component: {fileID: 530831926312323230}
+  - component: {fileID: 6585508376457992056}
   m_Layer: 0
   m_Name: LeadPlanet
   m_TagString: Planet
@@ -209,6 +210,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &6585508376457992056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900798597032898715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac2fc7312a0eac458caf55f2f06c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.15
+  color: {r: 0.9607843, g: 0.6509804, b: 0.6509804, a: 0.7058824}
+  useColor: 1
 --- !u!1 &2829814304795811043
 GameObject:
   m_ObjectHideFlags: 0
