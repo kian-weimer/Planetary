@@ -195,7 +195,7 @@ public class EnemyController : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 Home home = FindObjectOfType<Home>();
-                if (home.numberOfStartingHomePlanets > 0)
+                if (home.numberOfHomePlanets > 0)
                 {
                     int index = Random.Range(0, home.homePlanets.Count - 1);
                     if(home.homePlanets[index] != null)

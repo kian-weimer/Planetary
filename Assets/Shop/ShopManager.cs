@@ -235,7 +235,7 @@ public class ShopManager : MonoBehaviour
                 buyShop.GetComponent<Shop>().changePrice(shopItem.name, (int)(shopItem.cost * upgradeAmount * .98f * cheeperMultiplier));
 
                 MaxItemsManager.priceOfPlanet = (int)(shopItem.cost * upgradeAmount * .98f * cheeperMultiplier);
-                if (home.GetComponent<Home>().numberOfStartingHomePlanets >= maxHomePlanets)
+                if (home.GetComponent<Home>().numberOfHomePlanets >= maxHomePlanets)
                 {
                     buyShop.GetComponent<Shop>().RemoveItem(shopItem.name);
                     MaxItemsManager.priceOfPlanet = shopItem.cost;

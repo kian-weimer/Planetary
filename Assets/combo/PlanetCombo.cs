@@ -9,6 +9,7 @@ public class PlanetCombo
     public rsrce item1;
     public rsrce item2;
     public rsrce item3;
+    public int index;
 
     public List<ProductionItem> productionItems;
 }

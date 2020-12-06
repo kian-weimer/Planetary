@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[Serializable]
+[Serializable] // A LIE. Just used to trik unity into displaying it in the inspector
 public class ProductionItem
 {
     public rsrce resource;

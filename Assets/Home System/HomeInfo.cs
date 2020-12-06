@@ -8,4 +8,6 @@
 public class HomeInfo
 {
     // TO BE IMPLEMENTED LATER
+    public int numberOfPlanets;
+
 }

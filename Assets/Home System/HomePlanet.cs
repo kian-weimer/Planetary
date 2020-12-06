@@ -8,6 +8,8 @@ public class HomePlanet : MonoBehaviour
     public int numberOfItemSlots = 3;
     public string name;
 
+    public HomePlanetInfo homePlanetInfo;
+
     public GameObject planetHUD;
 
     // a list of the items that the planet is producing
@@ -27,7 +29,10 @@ public class HomePlanet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        productionItems = new List<ProductionItem>();
+        if (productionItems == null) // mostly true. Just here for possible timing issues on load
+        {
+            productionItems = new List<ProductionItem>();
+        }
         resourceInventory = FindObjectOfType<ResourceInventory>();
         hasProducedItem = new bool[5];
         planetHUD = transform.parent.GetComponent<Home>().planetHUD;
@@ -44,15 +49,18 @@ public class HomePlanet : MonoBehaviour
         shield = Instantiate(shield);
         shield.transform.parent = transform;
         shield.transform.position = transform.position;
+        homePlanetInfo.hasShield = true;
     }
 
     public void damageShield(float damage)
     {
         shieldAmount -= damage;
-        if (shieldAmount <=0 && hasShield)
+        homePlanetInfo.shieldHealth = shieldAmount;
+        if (shieldAmount <= 0 && hasShield)
         {
             hasShield = false;
             Destroy(shield);
+            homePlanetInfo.hasShield = false;
         }
     }
 

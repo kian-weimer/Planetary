@@ -44,6 +44,7 @@ public class planetGenerator : MonoBehaviour
 
     public Map map;
 
+    bool loaded = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -141,6 +142,8 @@ public class planetGenerator : MonoBehaviour
 
     public void Load()
     {
+        if (loaded) { return; }
+        loaded = true;
         List<ArrayList> planets;
         planetInfoList = new Dictionary<Vector2, ArrayList>();
         planetsObjectsInGame = new ArrayList();

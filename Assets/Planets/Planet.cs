@@ -51,6 +51,9 @@ public class Planet : MonoBehaviour
             // do something to show everything that it is gone (messes up the UI) 
             FindObjectOfType<Player>().HomePlanetDestroyed(this);
             FindObjectOfType<Home>().homePlanets[FindObjectOfType<Home>().homePlanets.IndexOf(this)] = null;
+            FindObjectOfType<Home>().planetInfo[FindObjectOfType<Home>().planetInfo.IndexOf(this.info)] = null;
+
+
             float cheeperMultiplier = 1f;
             if (ShopManager.isCheaper)
             {
@@ -58,7 +61,7 @@ public class Planet : MonoBehaviour
             }
 
             
-            if (FindObjectOfType<Home>().numberOfStartingHomePlanets == ShopManager.maxHomePlanets)
+            if (FindObjectOfType<Home>().numberOfHomePlanets == ShopManager.maxHomePlanets)
             {
                 ShopItemInfo shopItem = new ShopItemInfo();
                 shopItem.name = "Add Rock Planet";
@@ -69,7 +72,7 @@ public class Planet : MonoBehaviour
 
 
             FindObjectOfType<canvas>().mainBuyShop.GetComponent<Shop>().changePrice("Add Rock Planet", (int)(MaxItemsManager.priceOfPlanet / FindObjectOfType<ShopManager>().upgradeAmount / .98f / cheeperMultiplier));
-            FindObjectOfType<Home>().numberOfStartingHomePlanets--;
+            FindObjectOfType<Home>().numberOfHomePlanets--;
             // TODO update the shop buy planet price
 
         }
@@ -138,5 +141,14 @@ public class Planet : MonoBehaviour
     public bool isDestroyedByMine()
     {
         return destroyedByMine;
+    }
+
+    private void Update()
+    {
+        // not a great solution, but prevents from editing every location that damages a planet...
+        if (info.health != health)
+        {
+            info.health = health;
+        }
     }
 }

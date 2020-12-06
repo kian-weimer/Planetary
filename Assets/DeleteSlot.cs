@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+using System;
 
 public class DeleteSlot : MonoBehaviour, IDropHandler
 {
@@ -26,15 +26,15 @@ public class DeleteSlot : MonoBehaviour, IDropHandler
 
     public void delete()
     {
-        try
+        if (gameObject.activeSelf)
         {
             StartCoroutine(wait());
         }
-        catch { }
     }
 
     public void deleteNow()
     {
+        if (! gameObject.activeSelf) { return; }
         circleTimer.gameObject.SetActive(false);
         gameObject.SetActive(false);
 

@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public static bool loadingFromSave = false;
     public Money money;
     public Inventory inventory;
+    public Home home;
     
     public void Update()
     {
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
         }
 
         map.Save();
+        home.Save();
         BM.Broadcast("Saved");
     }
 
@@ -100,6 +102,7 @@ public class GameManager : MonoBehaviour
         if (loadingFromSave) // will only do this if loading at start. only here to help dev testing
         {
             planetGenerator.Load();
+            home.Load();
             loadingFromSave = false;
         }
         inventory.Load();

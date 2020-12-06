@@ -21278,6 +21278,7 @@ MonoBehaviour:
   alminac: {fileID: 1096552592030131896}
   money: {fileID: 2068677633}
   inventory: {fileID: 752310339}
+  home: {fileID: 1286308402}
 --- !u!4 &1159672789
 Transform:
   m_ObjectHideFlags: 0
@@ -23873,15 +23874,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14f848f2489f3b4dbe1bf346432d116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfStartingHomePlanets: 6
+  numberOfHomePlanets: 5
   planetRingSeperation: 12
   sunOffset: 20
   homePlanets: []
+  planetInfo: []
+  homePlanetInfo: []
   homePlanet: {fileID: 7707895349987823626, guid: 4d3a5ae17a5b72a4d9c408096433e565,
     type: 3}
   PG: {fileID: 1643416489}
   rockPlanet: {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5,
     type: 3}
+  info:
+    numberOfPlanets: 0
   main: {fileID: 519420031}
   planetView: {fileID: 1238475320}
   currentViewingPlanet: 0
