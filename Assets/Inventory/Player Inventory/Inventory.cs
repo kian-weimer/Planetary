@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
     public GameObject IS;
 
     public List<GameObject> resources;
+
+    public List<EnemyController> friendliesForSave;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,35 @@ public class Inventory : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(fs, names);
         fs.Close();
+
+        //for storing the friendly
+        EnemyController[] friendlies = FindObjectOfType<Home>().GetComponentsInChildren<EnemyController>();
+        Debug.Log("length: " + friendlies.Length);
+        List<string> friendiesSaveStrings = new List<string>();
+        foreach (EnemyController friendly in friendlies)
+        {
+
+            Debug.Log("saving");
+            if(friendly.gameObject.name == "Friend(Clone)")
+            {
+                friendiesSaveStrings.Add(friendly.gameObject.transform.position.x + "," + friendly.gameObject.transform.position.y + ",Friend");
+            }
+            else if (friendly.gameObject.name == "FriendDecoy(Clone)")
+            {
+                friendiesSaveStrings.Add(friendly.gameObject.transform.position.x + "," + friendly.gameObject.transform.position.y + ",FriendDecoy");
+            }
+            else if (friendly.gameObject.name == "FriendTurrret(Clone)")
+            {
+                friendiesSaveStrings.Add(friendly.gameObject.transform.position.x + "," + friendly.gameObject.transform.position.y + ",FriendTurret");
+            }
+        }
+
+        //Debug.Log(friendiesSaveStrings[0]);
+
+        FileStream fs2 = new FileStream("savedFriendlies.dat", FileMode.Create);
+        BinaryFormatter bf2 = new BinaryFormatter();
+        bf2.Serialize(fs2, friendiesSaveStrings);
+        fs2.Close();
     }
 
     public void Load()
@@ -80,6 +111,55 @@ public class Inventory : MonoBehaviour
                     StoreItem(resourceToSpawn);
                     FindObjectOfType<ResourceInventory>().checkForItemAndRemove(resourceToSpawn.GetComponent<rsrce>().nameOfResource);
                 }
+            }
+        }
+
+        List<string> freindlies = new List<string>();
+        using (Stream stream = File.Open("savedFriendlies.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+            freindlies = (List<string>)bformatter.Deserialize(stream);
+        }
+
+        foreach(string friendly in freindlies)
+        {
+
+            string[] components = friendly.Split(',');
+
+            Debug.Log("name: " + components[2] + " x: " + components[0] + " y: " + components[1]);
+
+            if(components[2] == "Friend")
+            {
+                GameObject friend = Instantiate(friendliesForSave[0].gameObject);
+
+                Vector3 positionToSpawn = new Vector3();
+                positionToSpawn.x = float.Parse(components[0]);
+                positionToSpawn.y = float.Parse(components[1]);
+                positionToSpawn.z = 0;
+
+                friend.transform.position = positionToSpawn;
+            }
+            else if (components[2] == "FriendDecoy")
+            {
+                GameObject friend = Instantiate(friendliesForSave[1].gameObject);
+
+                Vector3 positionToSpawn = new Vector3();
+                positionToSpawn.x = float.Parse(components[0]);
+                positionToSpawn.y = float.Parse(components[1]);
+                positionToSpawn.z = 0;
+
+                friend.transform.position = positionToSpawn;
+            }
+            else if (components[2] == "FriendTurret")
+            {
+                GameObject friend = Instantiate(friendliesForSave[2].gameObject);
+
+                Vector3 positionToSpawn = new Vector3();
+                positionToSpawn.x = float.Parse(components[0]);
+                positionToSpawn.y = float.Parse(components[1]);
+                positionToSpawn.z = 0;
+
+                friend.transform.position = positionToSpawn;
             }
         }
     }

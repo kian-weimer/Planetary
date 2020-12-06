@@ -11660,6 +11660,10 @@ MonoBehaviour:
   - {fileID: 362963750672583067, guid: 66506c9dcff77b94b93333024579b36f, type: 3}
   - {fileID: 1505736530839571427, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
   - {fileID: 1176631071972580248, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+  friendliesForSave:
+  - {fileID: 6246526566555457532, guid: 9311686c14861794cad7b2fb8c759a00, type: 3}
+  - {fileID: 6094241960238757491, guid: 918e350e8c36f35459fb0443fcfb31b0, type: 3}
+  - {fileID: 6113753133323348426, guid: 9f151590e47678448950c493c5757388, type: 3}
 --- !u!1 &777009675
 GameObject:
   m_ObjectHideFlags: 0

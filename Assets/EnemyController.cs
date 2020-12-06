@@ -50,6 +50,12 @@ public class EnemyController : MonoBehaviour
             target = player;
             inTargetingRange = true;
         }
+
+        if(tag == "Friendly")
+        {
+            transform.SetParent(FindObjectOfType<Home>().transform);
+        }
+
         weapon = Instantiate(weapon);
         weapon.transform.parent = transform;
         health = maxHealth;
