@@ -50,10 +50,33 @@ public class Home : MonoBehaviour
 
     public void Save()
     {
-        //foreach (Planet planet in homePlanets)
-        //{
-            //planet.GetComponent<HomePlanet>().homePlanetInfo.productionItems = planet.GetComponent<HomePlanet>().productionItems;
-        //}
+        List<rsrce> resources = new List<rsrce>();
+        List<string> planetResourceInfos = new List<string>();
+
+        //index,nameOfResource,count/index2,nameOfResource2,count2
+        foreach (Planet planet in homePlanets)
+        {
+            if (planet != null)
+            {
+                int i = 0;
+                if (planet.GetComponent<HomePlanet>().items != null)
+                {
+                    string tmp = "";
+                    foreach (PlanetResource planetResource in planet.GetComponent<HomePlanet>().items)
+                    {
+                        if (planetResource.resource != null)
+                        {
+                            tmp += i + "," + planetResource.resource.name.Replace("(Clone)", "") + "," + planetResource.quantity + "/";
+                        }
+                    }
+                    planetResourceInfos.Add(tmp);
+                }
+            }
+            else
+            {
+                planetResourceInfos.Add("");
+            }
+        }
 
         FileStream fs = new FileStream("savedHomePlanetData.dat", FileMode.Create);
         BinaryFormatter bf = new BinaryFormatter();
@@ -64,6 +87,11 @@ public class Home : MonoBehaviour
         BinaryFormatter bf2 = new BinaryFormatter();
         bf2.Serialize(fs2, homePlanetInfo);
         fs2.Close();
+
+        FileStream fs3 = new FileStream("savedHomePlanetResourceInfoData.dat", FileMode.Create);
+        BinaryFormatter bf3 = new BinaryFormatter();
+        bf3.Serialize(fs3, planetResourceInfos);
+        fs3.Close();
     }
 
     public void Load()
@@ -85,9 +113,48 @@ public class Home : MonoBehaviour
             homePlanetInfo = (List<HomePlanetInfo>)bformatter.Deserialize(stream);
         }
 
+        List<string> resourceInfos = new List<string>();
+        using (Stream stream = File.Open("savedHomePlanetResourceInfoData.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+
+            resourceInfos = (List<string>)bformatter.Deserialize(stream);
+        }
+
+        int i = 0;
         foreach (PlanetInfo info in planetInfo)
         {
-            loadExistingPlanet(info);
+            Planet planet = loadExistingPlanet(info);
+
+            string resources = resourceInfos[i];
+            
+            string[] resourceInfo = resources.Split('/');
+
+            foreach (string resourceSlot in resourceInfo)
+            {
+                if (resourceSlot != "")
+                {
+                    //slot[0] = index slot[1] = name slot[2] = count
+                    string[] slot = resourceSlot.Split(',');
+
+                    int index = int.Parse(slot[0]);
+                    string nameOfResource = slot[1];
+                    int count = int.Parse(slot[2]);
+
+                    GameObject resourceToSpawn = null;
+                    foreach (GameObject resource in FindObjectOfType<Inventory>().resources)
+                    {
+                        if (nameOfResource == resource.name)
+                        {
+                            resourceToSpawn = Instantiate(resource);
+                        }
+                    }
+                    resourceToSpawn.GetComponent<rsrce>().isInAnInventory = true;
+                    bool chk = planet.GetComponent<HomePlanet>().addItem(resourceToSpawn, count);
+                    FindObjectOfType<ResourceInventory>().checkForItemAndRemove(resourceToSpawn.GetComponent<rsrce>().nameOfResource, count);
+                }
+            }
+            i++;
         }
     }
 
@@ -100,8 +167,6 @@ public class Home : MonoBehaviour
             Load();
             return;
         }
-
-
         // Randomly generate home planets
         for (int i = 0; i < numberOfHomePlanets; i++)
         {
@@ -140,7 +205,6 @@ public class Home : MonoBehaviour
             planetInfo.Add(info);
             HomePlanetInfo hpi = (new HomePlanetInfo("PLANET" + i));
             homePlanetInfo.Add(hpi);
-            Debug.Log(hpi);
 
             Planet planet = Instantiate(rockPlanet);
 
@@ -154,6 +218,11 @@ public class Home : MonoBehaviour
                 planet.gameObject.GetComponent<HomePlanet>().homePlanetInfo = hpi;
                 planet.gameObject.GetComponent<HomePlanet>().name = "PLANET" + i;
                 planet.gameObject.GetComponent<HomePlanet>().shield = planetShield;
+                planet.gameObject.GetComponent<HomePlanet>().items = new List<PlanetResource>();
+                for (int item = 0; item < 3; item++)
+                {
+                    planet.gameObject.GetComponent<HomePlanet>().items.Add(new PlanetResource());
+                }
                 planet.gameObject.SetActive(true);
 
                 //planet.gameObject.name = "PLANET" + i;
@@ -163,6 +232,7 @@ public class Home : MonoBehaviour
                 map.addPlanetToMap(planet, true);
             }
         }
+        GameManager.loadingFromSave = false;
     }
 
     public void addRockPlanet()
@@ -227,12 +297,13 @@ public class Home : MonoBehaviour
 
     }
 
-    public void loadExistingPlanet(PlanetInfo planetInfo)
+    public Planet loadExistingPlanet(PlanetInfo planetInfo)
     {
-        if (planetInfo == null)
+        if (planetInfo == null || planetInfo.position == null)
         {
             homePlanets.Add(null);
-            return;
+            numberOfHomePlanets++;
+            return null;
         }
         numberOfHomePlanets++;
         Planet planet = Instantiate(rockPlanet);
@@ -245,7 +316,11 @@ public class Home : MonoBehaviour
         planet.gameObject.GetComponent<HomePlanet>().homePlanetInfo = homePlanetInfo[planetInfo.rarity];
         planet.gameObject.GetComponent<HomePlanet>().name = homePlanetInfo[planetInfo.rarity].name;
         planet.gameObject.GetComponent<HomePlanet>().shield = planetShield;
-        //planet.gameObject.AddComponent<HomePlanet>().productionItems = homePlanetInfo[planetInfo.rarity].productionItems;
+        planet.gameObject.GetComponent<HomePlanet>().items = new List<PlanetResource>();
+        for (int item = 0; item < 3; item++)
+        {
+            planet.gameObject.GetComponent<HomePlanet>().items.Add(new PlanetResource());
+        }
         planet.gameObject.SetActive(true);
 
 
@@ -260,33 +335,40 @@ public class Home : MonoBehaviour
         {
             ComboFromIndex(planet.gameObject, homePlanetInfo[planetInfo.rarity].comboIndex);
         }
+        return planet;
     }
 
     public void IncreasePlanetView(int changeValue)
     {
         Planet planet = homePlanets[currentViewingPlanet];
-
+        bool flipped = false;
         if (changeValue < 0 && currentViewingPlanet == 0)
         {
             changeValue = numberOfHomePlanets - 1;
+            flipped = true;
         }
 
         currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfHomePlanets;
-        Debug.Log(currentViewingPlanet);
+        
 
         while (homePlanets[currentViewingPlanet] == null)
         {
-            if (changeValue > 0)
+            if (changeValue > 0 && !flipped)
             {
                 changeValue++;
             }
             else
             {
                 changeValue--;
+                if (changeValue < 0 && currentViewingPlanet == 0)
+                {
+                    changeValue = numberOfHomePlanets - 1;
+                    flipped = true;
+                }
             }
             currentViewingPlanet = (planet.GetComponent<Planet>().rarity + changeValue) % numberOfHomePlanets;
         }
-        Debug.Log(currentViewingPlanet);
+
         Planet neighborPlanet = homePlanets[currentViewingPlanet];
         planetView.transform.position = new Vector3(neighborPlanet.transform.position.x, neighborPlanet.transform.position.y, -10);
 

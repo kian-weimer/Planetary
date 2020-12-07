@@ -9,7 +9,6 @@ public class BlockShooting : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         Player.newCanShoot = true && !forceBlocking;
-        Debug.Log("Blocked!");
     }
 
     public void OnPointerExit(PointerEventData eventData)

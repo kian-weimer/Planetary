@@ -94,17 +94,18 @@ public class GameManager : MonoBehaviour
 
     public void Load()
     {
+        shopManager.GetComponent<ResourceInventory>().Load();
         player.Load(); // must be before levelTree
         levelTree.Load();
         questSystem.loadQuests = true;//Load();
         shopManager.Load();
         money.Load();
-        shopManager.GetComponent<ResourceInventory>().Load();
+
         if (loadingFromSave) // will only do this if loading at start. only here to help dev testing
         {
-            planetGenerator.Load();
             home.Load();
-            loadingFromSave = false;
+            planetGenerator.Load();
+            //loadingFromSave = false;
         }
         inventory.Load();
         alminac.Load();

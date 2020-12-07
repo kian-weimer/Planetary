@@ -72,9 +72,7 @@ public class Planet : MonoBehaviour
 
 
             FindObjectOfType<canvas>().mainBuyShop.GetComponent<Shop>().changePrice("Add Rock Planet", (int)(MaxItemsManager.priceOfPlanet / FindObjectOfType<ShopManager>().upgradeAmount / .98f / cheeperMultiplier));
-            FindObjectOfType<Home>().numberOfHomePlanets--;
-            // TODO update the shop buy planet price
-
+            //FindObjectOfType<Home>().numberOfHomePlanets--;
         }
 
         GameObject exp = Instantiate(planetExplosion);

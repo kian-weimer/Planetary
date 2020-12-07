@@ -22,21 +22,28 @@ public class ResourceInventory : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(fs, keys);
         fs.Close();
-        Debug.Log(keys.Count);
 
         FileStream fs2 = new FileStream("savedResourceInventoryValues.dat", FileMode.Create);
         BinaryFormatter bf2 = new BinaryFormatter();
-        bf.Serialize(fs2, values);
+        bf2.Serialize(fs2, values);
         fs2.Close();
 
         FileStream fs3 = new FileStream("resourcesSeen.dat", FileMode.Create);
         BinaryFormatter bf3 = new BinaryFormatter();
-        bf.Serialize(fs3, resourcesSeen);
+        bf3.Serialize(fs3, resourcesSeen);
         fs3.Close();
     }
 
     public void Load()
     {
+        using (Stream stream = File.Open("resourcesSeen.dat", FileMode.Open))
+        {
+            var bformatter = new BinaryFormatter();
+
+            resourcesSeen = (List<string>)bformatter.Deserialize(stream);
+            Debug.Log(resourcesSeen[0] + resourcesSeen[1]);
+        }
+
         List<string> keys;
         using (Stream stream = File.Open("savedResourceInventoryKeys.dat", FileMode.Open))
         {
@@ -52,18 +59,10 @@ public class ResourceInventory : MonoBehaviour
 
             values = (List<int>)bformatter.Deserialize(stream);
         }
-        Debug.Log(keys.Count);
+
         for(int i = 0; i < keys.Count; i++)
         {
-            Debug.Log(keys[i] + " " + values[i]);
             resourceList.Add(keys[i], values[i]);
-        }
-
-        using (Stream stream = File.Open("resourcesSeen.dat", FileMode.Open))
-        {
-            var bformatter = new BinaryFormatter();
-
-            resourcesSeen = (List<string>)bformatter.Deserialize(stream);
         }
     }
 
@@ -99,7 +98,6 @@ public class ResourceInventory : MonoBehaviour
         if(resourceList[nameOfResource] >= numberOfItems)
         {
             resourceList[nameOfResource] = resourceList[nameOfResource] - numberOfItems;
-            Debug.Log(resourceList[nameOfResource]);
             return true;
         }
         return false;

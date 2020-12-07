@@ -36,10 +36,14 @@ public class HomePlanet : MonoBehaviour
         resourceInventory = FindObjectOfType<ResourceInventory>();
         hasProducedItem = new bool[5];
         planetHUD = transform.parent.GetComponent<Home>().planetHUD;
-        items = new List<PlanetResource>();
-        for (int item = 0; item < numberOfItemSlots; item++)
+
+        if(!GameManager.loadingFromSave)
         {
-            items.Add(new PlanetResource());
+            items = new List<PlanetResource>();
+            for (int item = 0; item < numberOfItemSlots; item++)
+            {
+                items.Add(new PlanetResource());
+            }
         }
     }
 
@@ -135,6 +139,7 @@ public class HomePlanet : MonoBehaviour
             {
                 if (items[itemSlot].quantity + quantity > maxSlotSize) {
                     items[itemSlot].quantity = maxSlotSize;
+
                     continue;
                 }
                 items[itemSlot].Set(item, items[itemSlot].quantity + quantity);
@@ -233,7 +238,11 @@ public class HomePlanet : MonoBehaviour
                 {
                     resourceInventory.addItem(prodItem.resource.GetComponent<rsrce>().nameOfResource, prodItem.amountProduced);
                 }
-                transform.parent.GetComponent<Home>().UpdatePlanetHud();
+
+                if (transform.parent.GetComponent<Home>().planetHUD.activeSelf)
+                {
+                    transform.parent.GetComponent<Home>().UpdatePlanetHud();
+                }
             }
             else if ((int)Time.time % prodItem.frequency != 0)
             {

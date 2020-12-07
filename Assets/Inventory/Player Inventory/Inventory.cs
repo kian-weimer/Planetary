@@ -44,12 +44,10 @@ public class Inventory : MonoBehaviour
 
         //for storing the friendly
         EnemyController[] friendlies = FindObjectOfType<Home>().GetComponentsInChildren<EnemyController>();
-        Debug.Log("length: " + friendlies.Length);
         List<string> friendiesSaveStrings = new List<string>();
         foreach (EnemyController friendly in friendlies)
         {
 
-            Debug.Log("saving");
             if(friendly.gameObject.name == "Friend(Clone)")
             {
                 friendiesSaveStrings.Add(friendly.gameObject.transform.position.x + "," + friendly.gameObject.transform.position.y + ",Friend");
@@ -92,7 +90,6 @@ public class Inventory : MonoBehaviour
         }        
         slots.Clear();
         int numberOfInventorySlotsToAdd = PlayerPrefs.GetInt("NumberOfInventorySlots");
-        Debug.Log(names.Count + " " + resources.Count + " " + numberOfInventorySlots);
 
         InitializeInventory();
         for (int i  = 0; i < numberOfInventorySlotsToAdd - 2; i++)
