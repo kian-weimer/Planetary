@@ -7,13 +7,20 @@ public class PopupManager : MonoBehaviour
 {
 
     public GameObject textPopup;
+
+    public GameObject detailedTextPopup;
+
     public void movePopup(string input = "", string whichType = "", GameObject gameObjectPopup = null)
     {
+        Debug.Log(input);
+
         if (input == "")
         {
             textPopup.SetActive(false);
+            detailedTextPopup.SetActive(false);
             return;
         }
+
         Vector3 position = Input.mousePosition;
 
         if (whichType == "resource")
@@ -33,6 +40,31 @@ public class PopupManager : MonoBehaviour
             position.x = gameObjectPopup.transform.position.x + gameObjectPopup.GetComponent<RectTransform>().rect.width / 2;
             position.y = gameObjectPopup.transform.position.y + gameObjectPopup.GetComponent<RectTransform>().rect.height/2 + gameObjectPopup.GetComponent<RectTransform>().rect.height / 2;
         }
+
+        else if (whichType == "skill")
+        {
+            if (position.y > 500)
+            {
+                position.y -= 75;
+            }
+            else
+            {
+                position.y += 75;
+            }
+
+            input = input.Replace("(Clone)", "");
+
+            Debug.Log(input + whichType);
+
+            position.z = 0;
+            detailedTextPopup.SetActive(true);
+            detailedTextPopup.transform.Find("Text").GetComponent<Text>().text = input;
+            detailedTextPopup.transform.position = position;
+
+            return;
+        }
+
+
 
         input = input.Replace("(Clone)", "");
 

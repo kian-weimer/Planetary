@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject button;
     public GameObject shopButton;
 
+    public PopupManager popupManager;
+
 
     public bool isBackButton = false;
     int state = 0;
@@ -32,6 +34,8 @@ public class PauseMenu : MonoBehaviour
                     screens.GetChild(i).gameObject.SetActive(false);
                 }
             }
+
+            popupManager.movePopup();
             isBackButton = false;
             button.GetComponent<Text>().text = states[state];
         }

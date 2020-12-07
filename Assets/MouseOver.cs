@@ -9,6 +9,7 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 {
     private PopupManager popupManager;
     public static GameObject mouseOverObject;
+    bool poppedUp = false;
     void Start()
     {
         popupManager = FindObjectOfType<PopupManager>();
@@ -16,11 +17,12 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void Update()
     {
-        if (mouseOverObject == null)
+        if (mouseOverObject == null && poppedUp)
         {
             popupManager.movePopup();
+            poppedUp = false;
         }
-        
+
     }
 
     void OnMouseOver()
@@ -64,5 +66,6 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerExit(PointerEventData eventData)
     {
         mouseOverObject = null;
+        poppedUp = true;
     }
 }

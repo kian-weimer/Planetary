@@ -62,7 +62,7 @@ public class LevelUpManager : MonoBehaviour
                 player.GetComponent<PlayerController>().maxSpeed += 2;
                 player.GetComponent<PlayerController>().thrust += .3f;
                 player.GetComponent<Player>().weapon.GetComponent<Weapon>().firerate += 2;
-                player.GetComponent<Player>().weapon.GetComponent<Weapon>().bulletSpeed += 5;
+                player.GetComponent<Player>().weapon.GetComponent<Weapon>().bulletSpeed += 3;
                 player.GetComponent<Player>().weapon.GetComponent<Weapon>().bullet.GetComponent<Bullet>().bulletDamage += 3;
                 player.GetComponent<SpriteRenderer>().sprite = playerSprites[shopManager.whichShipColorBase + whichShipLevel + 1];
 

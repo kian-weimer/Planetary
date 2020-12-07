@@ -10,4 +10,5 @@ public class TreeEntry : MonoBehaviour
     public bool repeatable = false;
 
     public bool lockedByPlanet = false;
+    public string detailedText;
 }
