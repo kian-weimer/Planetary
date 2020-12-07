@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     
     public void Update()
     {
+
         if (Input.GetKeyDown("["))
         {
             Save();

@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
     public PlayerInfo info;
+    public static bool newCanShoot = true; // managed by some UI components
 
     public Camera main;
     public Camera planetView;
@@ -176,7 +177,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && main.gameObject.activeSelf && canShoot)
+        if (Input.GetKey(KeyCode.Mouse0) && main.gameObject.activeSelf && canShoot && newCanShoot)
         {
             float rotation = (rb.rotation + 90);
             if (weapon.GetComponent<Weapon>().Shoot(transform.Find("Barrel").position, new Vector2(Mathf.Cos(((rotation) * Mathf.PI) / 180), Mathf.Sin(((rotation) * Mathf.PI) / 180)), gameObject.GetComponent<Rigidbody2D>().velocity)) {

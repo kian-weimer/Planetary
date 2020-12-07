@@ -8,6 +8,8 @@ public class Flash : MonoBehaviour
     public float waitTime = 0.15f;
     public Color color;
     public bool useColor;
+    Color storedColor;
+    int flashCount = 0;
 
     public void start()
     {
@@ -16,7 +18,12 @@ public class Flash : MonoBehaviour
 
     IEnumerator startFlash(float duration)
     {
-        Color storedColor = gameObject.GetComponent<SpriteRenderer>().color;
+        if (flashCount==0)
+        {
+            storedColor = gameObject.GetComponent<SpriteRenderer>().color;
+        }
+        flashCount++;
+
         if (!useColor)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
@@ -35,5 +42,6 @@ public class Flash : MonoBehaviour
             yield return null;
         }
         gameObject.GetComponent<SpriteRenderer>().color = storedColor;
+        flashCount--;
     }
 }

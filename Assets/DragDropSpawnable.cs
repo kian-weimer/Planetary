@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SocialPlatforms;
 
 public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
@@ -13,6 +14,9 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public string type;
 
     public GameObject tempUI;
+
+    public LayerMask mask;
+
     private void Awake()
     {
         canvas = FindObjectOfType<canvas>().GetComponent<Canvas>();
@@ -44,7 +48,7 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
         else
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D raycastHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)), Vector2.zero);
+            RaycastHit2D raycastHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)), Vector2.zero, mask);
             if (raycastHit)
             {
                 Debug.Log("Hit: " + raycastHit.transform.gameObject.name);
