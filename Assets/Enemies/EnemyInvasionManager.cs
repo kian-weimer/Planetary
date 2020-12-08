@@ -21,7 +21,19 @@ public class EnemyInvasionManager : MonoBehaviour
     private Player player;
     public float distanceAwayFromHome;
     public Timer timer;
-    
+
+    public void Save()
+    {
+        PlayerPrefs.SetFloat("timeTillInvasion",timeTillInvasion);
+        PlayerPrefs.SetFloat("timeTillWave", timeTillWave);
+    }
+
+    public void Load()
+    {
+        timeBetweenWaves = PlayerPrefs.GetFloat("timeTillWave");
+        timeTillInvasion = PlayerPrefs.GetFloat("timeTillInvasion");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

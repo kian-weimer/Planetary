@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
         map.Save();
         home.Save();
         BM.Broadcast("Saved");
+        player.Save();
     }
 
     public void Load()
@@ -121,6 +122,7 @@ public class GameManager : MonoBehaviour
 
         map.Load();
         BM.Broadcast("Loaded");
+        player.Load();
     }
 
 

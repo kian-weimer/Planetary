@@ -112,6 +112,22 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("PlayerSavedNumericalLevel", level);
         PlayerPrefs.SetInt("PlayerSavedExperiancePoints", experiencePoints);
         ////////////////////////////////////////////////////////////////////
+        PlayerPrefs.SetInt("maxHealth", maxHealth);
+        PlayerPrefs.SetFloat("maxGas", maxGas);
+        PlayerPrefs.SetFloat("health", health);
+        PlayerPrefs.SetFloat("gas", gas);
+        PlayerPrefs.SetFloat("regenRate", regenRate);
+        PlayerPrefs.SetFloat("xPosition", gameObject.transform.position.x);
+        PlayerPrefs.SetFloat("yPosition", gameObject.transform.position.y);
+        PlayerPrefs.SetString("nameOfWeapon", weapon.name);
+        if (isHome)
+        {
+            PlayerPrefs.SetInt("home", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("home", 0);
+        }
 
     }
 
@@ -126,7 +142,32 @@ public class Player : MonoBehaviour
         }
         addExpPoints(loadedExpPoints);
         /////////////////////////////////////////////////////////////////////////
-        
+        maxHealth = PlayerPrefs.GetInt("maxHealth");
+        maxGas = PlayerPrefs.GetFloat("maxGas");
+        health = PlayerPrefs.GetFloat("health");
+        gas = PlayerPrefs.GetFloat("gas");
+        regenRate = PlayerPrefs.GetFloat("regenRate");
+        float xPosition = PlayerPrefs.GetFloat("xPosition");
+        float yPosition = PlayerPrefs.GetFloat("yPosition");
+        Vector3 positionOfPlayer = new Vector3();
+        positionOfPlayer.x = xPosition;
+        positionOfPlayer.y = yPosition;
+
+        gameObject.transform.position = positionOfPlayer;
+
+        string nameOfWeapon = PlayerPrefs.GetString("nameOfWeapon");
+
+        foreach(GameObject weaponFromList in weapons)
+        {
+            if(weaponFromList.name == nameOfWeapon)
+            {
+                weapon = weaponFromList;
+            }
+        }
+
+        isHome = PlayerPrefs.GetInt("home") == 1;
+        regen(0);
+        heal(0);
 
     }
 

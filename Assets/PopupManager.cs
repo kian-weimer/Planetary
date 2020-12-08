@@ -12,7 +12,6 @@ public class PopupManager : MonoBehaviour
 
     public void movePopup(string input = "", string whichType = "", GameObject gameObjectPopup = null)
     {
-        Debug.Log(input);
 
         if (input == "")
         {

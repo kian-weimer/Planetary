@@ -35,7 +35,7 @@ public class ShopManager : MonoBehaviour
     public List<rsrce> listOfResources;
     public Alminac alminac;
     public PlanetComboList comboList;
-    public int amountOfWarps;
+    public int amountOfWarps = 0;
 
     public Text warpAmount;
     public GameObject warpHolder;
@@ -80,6 +80,7 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("numberOfCommon", numberOfCommon);
         PlayerPrefs.SetInt("numberOfRare", numberOfRare);
         PlayerPrefs.SetInt("numberOfLegendary", numberOfLegendary);
+        PlayerPrefs.SetInt("amountOfWarps", amountOfWarps);
     }
 
     public void Load()
@@ -143,6 +144,13 @@ public class ShopManager : MonoBehaviour
             crateLegendary.transform.position = crateSpawnPoint.transform.position + new Vector3(0, -10, 0);
             MaxItemsManager.addLootCrate();
         }
+        amountOfWarps = PlayerPrefs.GetInt("amountOfWarps");
+        if(amountOfWarps > 0)
+        {
+            warpHolder.SetActive(true);
+            warpAmount.text = "x" + amountOfWarps.ToString();
+        }
+        
     }
 
     void Start()

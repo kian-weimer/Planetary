@@ -41,7 +41,6 @@ public class ResourceInventory : MonoBehaviour
             var bformatter = new BinaryFormatter();
 
             resourcesSeen = (List<string>)bformatter.Deserialize(stream);
-            Debug.Log(resourcesSeen[0] + resourcesSeen[1]);
         }
 
         List<string> keys;

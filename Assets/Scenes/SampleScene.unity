@@ -14548,7 +14548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 0.5
   speed: 0
-  turnSpeed: 10
+  turnSpeed: 8
   maxSpeed: 8
   hasWarpSpeed: 0
   warpSpeedModifier: 6

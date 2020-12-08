@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float thrust = 1.0f;
     public float speed = 0f;
-    public float turnSpeed = 1;
+    public float turnSpeed = .9f;
     public float maxSpeed = 70f;
 
     public bool hasWarpSpeed = false;
@@ -47,6 +47,18 @@ public class PlayerController : MonoBehaviour
     public bool hasRespawned = false;
 
     public bool fasterCooldown = false;
+
+    public void Save()
+    {
+        PlayerPrefs.SetFloat("Thrust", thrust);
+        PlayerPrefs.SetFloat("MaxSpeed", maxSpeed);
+    }
+
+    public void Load()
+    {
+        thrust = PlayerPrefs.GetFloat("Thrust");
+        maxSpeed = PlayerPrefs.GetFloat("MaxSpeed");
+    }
 
     // Start is called before the first frame update
     void Start()

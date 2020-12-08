@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MaxItemsManager : MonoBehaviour
 {
@@ -12,6 +13,17 @@ public class MaxItemsManager : MonoBehaviour
 
     public static float priceOfPlanet = 800;
     
+    public void Save()
+    {
+        PlayerPrefs.SetInt("mineAmount", mineAmount);
+    }
+
+    public void Load()
+    {
+        mineAmount = PlayerPrefs.GetInt("mineAmount");
+        FindObjectOfType<LevelUpManager>().mineAmountText.GetComponent<Text>().text = "x" + MaxItemsManager.mineAmount;
+    }
+
     public static void addLootCrate()
     {
         if(NumberOfLootCrates + 1 == MaxNumberOfLootCrates)
