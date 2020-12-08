@@ -21,6 +21,11 @@ public class BoostBossMainCollider : MonoBehaviour
             {
                 transform.parent.GetComponent<BossSprintAtPlayer>().death();
             }
+
+            GameObject exp = Instantiate(collision.gameObject.GetComponent<Bullet>().explosion);
+            exp.transform.position = new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z);
+            FindObjectOfType<AudioManager>().Play("BulletExplosion");
+            Destroy(collision.gameObject);
         }
     }
 }
