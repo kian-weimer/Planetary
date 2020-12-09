@@ -136,7 +136,6 @@ public class Trader : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if(collision.gameObject.tag == "Bullet")
         {
             health -= collision.gameObject.GetComponent<Bullet>().bulletDamage;
