@@ -10063,8 +10063,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   broadcaster: {fileID: 1197296656}
-  friendlySellShop: {fileID: 258008889}
-  friendlyBuyShop: {fileID: 2026982510}
+  friendlySellShop: {fileID: 258008891}
+  friendlyBuyShop: {fileID: 2026982512}
   friendlyShopButton: {fileID: 1994958215}
   FriendlyShop: {fileID: 1627217585}
   mainBuyShop: {fileID: 293007892}

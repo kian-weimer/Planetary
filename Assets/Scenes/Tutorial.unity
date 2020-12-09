@@ -387,6 +387,8 @@ MonoBehaviour:
   spacing: 160
   isFull: 0
   IS: {fileID: 7767129172053350334, guid: e5e2695a3a055e14ebed734624389a9b, type: 3}
+  resources: []
+  friendliesForSave: []
 --- !u!1 &12153306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,15 +2419,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14f848f2489f3b4dbe1bf346432d116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfStartingHomePlanets: 10
+  numberOfHomePlanets: 5
   planetRingSeperation: 12
   sunOffset: 20
   homePlanets: []
+  planetInfo: []
+  homePlanetInfo: []
   homePlanet: {fileID: 7707895349987823626, guid: 4d3a5ae17a5b72a4d9c408096433e565,
     type: 3}
   PG: {fileID: 879465336}
   rockPlanet: {fileID: 8116600715463406612, guid: d4a95ab8f2c49e247819dacde3a982c5,
     type: 3}
+  info:
+    numberOfPlanets: 0
   main: {fileID: 513224882}
   planetView: {fileID: 224679059}
   currentViewingPlanet: 0
@@ -4002,10 +4008,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children: []
   action: DoubleDrop
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &151370174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4386,6 +4394,83 @@ RectTransform:
   m_AnchoredPosition: {x: -8.1, y: -25}
   m_SizeDelta: {x: 711.4487, y: 275}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &167069665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167069666}
+  - component: {fileID: 167069668}
+  - component: {fileID: 167069667}
+  m_Layer: 5
+  m_Name: DetailedPopupText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &167069666
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167069665}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1065886838}
+  - {fileID: 315970131}
+  m_Father: {fileID: 1033262637}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 222.19995, y: -292.2}
+  m_SizeDelta: {x: 400, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &167069667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167069665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0.53333336}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &167069668
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167069665}
+  m_CullTransparentMesh: 0
 --- !u!1 &167795895
 GameObject:
   m_ObjectHideFlags: 0
@@ -5806,6 +5891,7 @@ MonoBehaviour:
   whichShipColorBase: 0
   whichShipLevel: 0
   buyShop: {fileID: 998267331}
+  sellShop: {fileID: 0}
   upgradeAmount: 1.25
   expCheeperShopMultiplier: 1
   mineAmountText: {fileID: 155530716}
@@ -5823,6 +5909,11 @@ MonoBehaviour:
   amountOfWarps: 0
   warpAmount: {fileID: 0}
   warpHolder: {fileID: 0}
+  drone: {fileID: 0}
+  turret: {fileID: 0}
+  decoy: {fileID: 0}
+  heal: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!4 &219234480
 Transform:
   m_ObjectHideFlags: 0
@@ -8513,6 +8604,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315753142}
   m_CullTransparentMesh: 0
+--- !u!1 &315970130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315970131}
+  - component: {fileID: 315970133}
+  - component: {fileID: 315970132}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &315970131
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315970130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 167069666}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.0999, y: 0}
+  m_SizeDelta: {x: 380, y: 140}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &315970132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315970130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.3921569, g: 1, b: 0.90196085, a: 0.69411767}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 200
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.5
+  m_Text: Word word word word word word  word word word word word  word word word
+    word word  word word word word word  word word word
+--- !u!222 &315970133
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315970130}
+  m_CullTransparentMesh: 0
 --- !u!1 &324352130
 GameObject:
   m_ObjectHideFlags: 0
@@ -10051,7 +10222,8 @@ MonoBehaviour:
   questFrequency: 1
   currentQuestCount: 0
   quests:
-  - promptText: Get a rock
+  - ID: 0
+    promptText: Get a rock
     questType: resource
     requirementCount: 1
     icons:
@@ -10064,7 +10236,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: tutorial quest one
     recipeReward: 
-  - promptText: '   '
+  - ID: 0
+    promptText: '   '
     questType: resource
     requirementCount: 999
     icons: []
@@ -10075,7 +10248,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: 
     recipeReward: 
-  - promptText: '   '
+  - ID: 0
+    promptText: '   '
     questType: resource
     requirementCount: 999
     icons: []
@@ -10086,7 +10260,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: tutorial quest two
     recipeReward: 
-  - promptText: Make an Oxygen Planet
+  - ID: 0
+    promptText: Make an Oxygen Planet
     questType: planet
     requirementCount: 1
     icons:
@@ -10099,7 +10274,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: tutorial quest two
     recipeReward: 
-  - promptText: Make a food planet
+  - ID: 0
+    promptText: Make a food planet
     questType: planet
     requirementCount: 1
     icons:
@@ -10112,7 +10288,8 @@ MonoBehaviour:
     expReward: 0
     upgradeReward: tutorial quest three
     recipeReward: 
-  - promptText: Destroy the enemy
+  - ID: 0
+    promptText: Destroy the enemy
     questType: enemy
     requirementCount: 1
     icons:
@@ -10125,6 +10302,7 @@ MonoBehaviour:
     expReward: 50
     upgradeReward: tutorial quest four
     recipeReward: 
+  completedQuests: []
   almanacRewards:
   - name: hey
     combo:
@@ -10132,6 +10310,7 @@ MonoBehaviour:
       item1: {fileID: 0}
       item2: {fileID: 0}
       item3: {fileID: 0}
+      index: 0
       productionItems: []
   questIndex: 0
   questEntry1: {fileID: 1645720151}
@@ -10141,6 +10320,7 @@ MonoBehaviour:
   alminac: {fileID: 1514427356}
   trackingWeapon: {fileID: 1274781002387059007, guid: 0c38f06ba3eb48b45a499da2cb9e1540,
     type: 3}
+  loadQuests: 0
 --- !u!1 &378551622
 GameObject:
   m_ObjectHideFlags: 0
@@ -11444,11 +11624,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 885880671}
   action: CheaperShop
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &422946125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11925,11 +12107,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 804486473}
   action: BigGun
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &432729972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15246,12 +15430,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 422946123}
   - {fileID: 151370172}
   action: Sheild
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &532056974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18478,6 +18664,15 @@ MonoBehaviour:
   loadingBar: {fileID: 0}
   loadingText: {fileID: 0}
   AM: {fileID: 1787013790}
+  BM: {fileID: 0}
+  levelTree: {fileID: 0}
+  questSystem: {fileID: 0}
+  shopManager: {fileID: 0}
+  planetGenerator: {fileID: 0}
+  alminac: {fileID: 0}
+  money: {fileID: 0}
+  inventory: {fileID: 0}
+  home: {fileID: 0}
 --- !u!4 &649919805
 Transform:
   m_ObjectHideFlags: 0
@@ -19741,11 +19936,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 1554211315}
   action: DoubleShot
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &692922751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20220,6 +20417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPopup: {fileID: 1979625965}
+  detailedTextPopup: {fileID: 0}
 --- !u!4 &702469644
 Transform:
   m_ObjectHideFlags: 0
@@ -22216,6 +22414,7 @@ MonoBehaviour:
     item1: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
     item2: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
     item3: {fileID: 5597725384705265942, guid: e6f822adfdfe8fe4cb465668bb7cb6c0, type: 3}
+    index: 0
     productionItems:
     - resource: {fileID: 2975536293437078938, guid: 92191089f76cbaa4b806bb865411a68f,
         type: 3}
@@ -22226,6 +22425,7 @@ MonoBehaviour:
     item1: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
     item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
     item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    index: 0
     productionItems:
     - resource: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c,
         type: 3}
@@ -22236,6 +22436,7 @@ MonoBehaviour:
     item1: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
     item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
     item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    index: 0
     productionItems:
     - resource: {fileID: 7135516776879974215, guid: 5489e015fe23f774882937a98828005c,
         type: 3}
@@ -22246,6 +22447,7 @@ MonoBehaviour:
     item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
     item2: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
     item3: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
+    index: 0
     productionItems:
     - resource: {fileID: 6645287403074208633, guid: 2b3eda771b6af0b449bbc62587c931ac,
         type: 3}
@@ -22256,6 +22458,7 @@ MonoBehaviour:
     item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
     item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
     item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    index: 0
     productionItems:
     - resource: {fileID: 567157672158579513, guid: 7a65055eb53261d439554f9c7308763f,
         type: 3}
@@ -22977,10 +23180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children: []
   action: UpgradeShip
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!1 &809953947
 GameObject:
   m_ObjectHideFlags: 0
@@ -28732,12 +28937,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 532056972}
   - {fileID: 692922749}
   action: UpgradeShip
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &885880673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29253,6 +29460,7 @@ MonoBehaviour:
   gameManager: {fileID: 649919804}
   button: {fileID: 6330687}
   shopButton: {fileID: 1815935555}
+  popupManager: {fileID: 0}
   isBackButton: 0
 --- !u!114 &890325594
 MonoBehaviour:
@@ -30739,8 +30947,22 @@ MonoBehaviour:
   tracking1: {fileID: 1070597989}
   tracking2: {fileID: 795615304}
   tracking3: {fileID: 887402698}
+  quest:
+    ID: 0
+    promptText: 
+    questType: 
+    requirementCount: 0
+    icons: []
+    itemNames: []
+    quantities: 
+    rewardText: 
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: 
+    recipeReward: 
   BM: {fileID: 0}
   tracking: 0
+  boss: {fileID: 0}
 --- !u!114 &951558058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32273,12 +32495,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1fa62599cfefd41abd032da472708d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  broadcaster: {fileID: 0}
-  friendlySellShop: {fileID: 0}
-  friendlyBuyShop: {fileID: 0}
-  friendlyShopButton: {fileID: 0}
-  FriendlyShop: {fileID: 0}
-  mainBuyShop: {fileID: 0}
+  broadcaster: {fileID: 1040353671}
+  friendlySellShop: {fileID: 1094849488}
+  friendlyBuyShop: {fileID: 998267333}
+  friendlyShopButton: {fileID: 1815935555}
+  FriendlyShop: {fileID: 20345982}
+  mainBuyShop: {fileID: 998267333}
+  mainSellShop: {fileID: 1094849488}
+  WholeShop: {fileID: 20345982}
 --- !u!114 &1033262634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32375,6 +32599,7 @@ RectTransform:
   - {fileID: 378351468}
   - {fileID: 1070597990}
   - {fileID: 1979625966}
+  - {fileID: 167069666}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32977,6 +33202,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051860242}
+  m_CullTransparentMesh: 0
+--- !u!1 &1065886837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1065886838}
+  - component: {fileID: 1065886840}
+  - component: {fileID: 1065886839}
+  m_Layer: 5
+  m_Name: Foreground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1065886838
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065886837}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 167069666}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 380, y: 140}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1065886839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065886837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.514151, g: 1, b: 0.9397247, a: 0.14901961}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1065886840
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065886837}
   m_CullTransparentMesh: 0
 --- !u!1 &1066562342
 GameObject:
@@ -41571,8 +41871,22 @@ MonoBehaviour:
   tracking1: {fileID: 1070597989}
   tracking2: {fileID: 795615304}
   tracking3: {fileID: 887402698}
+  quest:
+    ID: 0
+    promptText: 
+    questType: 
+    requirementCount: 0
+    icons: []
+    itemNames: []
+    quantities: 
+    rewardText: 
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: 
+    recipeReward: 
   BM: {fileID: 0}
   tracking: 0
+  boss: {fileID: 0}
 --- !u!1 &1410609761
 GameObject:
   m_ObjectHideFlags: 0
@@ -44432,6 +44746,7 @@ MonoBehaviour:
     type: 3}
   AlminacEntryObjectInGame: []
   window: {fileID: 71305543}
+  sprites: []
 --- !u!1 &1517642919
 GameObject:
   m_ObjectHideFlags: 0
@@ -45570,11 +45885,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 432729970}
   action: Mine
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &1554211317
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46399,6 +46716,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   button: {fileID: 0}
   shopButton: {fileID: 0}
+  popupManager: {fileID: 0}
   isBackButton: 0
 --- !u!114 &1582059204
 MonoBehaviour:
@@ -48696,8 +49014,22 @@ MonoBehaviour:
   tracking1: {fileID: 1070597989}
   tracking2: {fileID: 795615304}
   tracking3: {fileID: 887402698}
+  quest:
+    ID: 0
+    promptText: 
+    questType: 
+    requirementCount: 0
+    icons: []
+    itemNames: []
+    quantities: 
+    rewardText: 
+    moneyReward: 0
+    expReward: 0
+    upgradeReward: 
+    recipeReward: 
   BM: {fileID: 1040353671}
   tracking: 0
+  boss: {fileID: 0}
 --- !u!1 &1662271001
 GameObject:
   m_ObjectHideFlags: 0
@@ -51339,11 +51671,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 885880671}
   action: FastCooldown
   repeatable: 0
   lockedByPlanet: 1
+  detailedText: 
 --- !u!224 &1770997364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52051,10 +52385,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children: []
   action: Money
   repeatable: 1
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &1789571086
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55089,6 +55425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 1770997362}
   - {fileID: 1961034011}
@@ -55096,6 +55433,7 @@ MonoBehaviour:
   action: Warp
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &1899566633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -56891,11 +57229,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ba71bbd25965b46b7bd7d3ee7ce562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   children:
   - {fileID: 885880671}
   action: PlanetDamage
   repeatable: 0
   lockedByPlanet: 0
+  detailedText: 
 --- !u!224 &1961034013
 RectTransform:
   m_ObjectHideFlags: 0

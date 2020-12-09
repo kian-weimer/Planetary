@@ -29,7 +29,6 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (GameManager.popupsOn)
         {
-            Debug.Log(gameObject.tag);
             if (gameObject.tag == "resource")
             {
                 popupManager.movePopup(gameObject.GetComponent<rsrce>().nameOfResource.Replace("(Clone)", ""), "resource");
