@@ -456,4 +456,16 @@ public class Home : MonoBehaviour
         comboPlanet.GetComponent<SpriteRenderer>().sprite = combo.planet.GetComponent<SpriteRenderer>().sprite;
         comboPlanet.GetComponent<HomePlanet>().productionItems = combo.productionItems;
     }
+
+    public bool anyPlanetsRemaining()
+    {
+        foreach(Planet planet in homePlanets)
+        {
+            if(planet != null)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

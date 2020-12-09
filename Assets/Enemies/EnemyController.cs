@@ -195,28 +195,27 @@ public class EnemyController : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 Home home = FindObjectOfType<Home>();
-                if (home.numberOfHomePlanets > 0)
+
+                if (home.anyPlanetsRemaining())
                 {
                     int index = Random.Range(0, home.homePlanets.Count - 1);
-                    if(home.homePlanets[index] != null)
+                    if (home.homePlanets[index] != null)
                     {
                         target = home.homePlanets[index].gameObject;
                     }
-                    else
+                    while (home.homePlanets[index] == null)
                     {
-                        while(home.homePlanets[index] == null)
-                        {
-                            index = Random.Range(0, home.homePlanets.Count - 1);
-                        }
-                        target = home.homePlanets[index].gameObject;
+                        index = Random.Range(0, home.homePlanets.Count - 1);
                     }
-                    inTargetingRange = true;
+                    target = home.homePlanets[index].gameObject;
                 }
                 else
                 {
-                    BroadcastMessage("You lose");
+                    Destroy(gameObject);
                 }
+                inTargetingRange = true;
             }
+           
 
             Vector2 direction = Vector2.zero - (Vector2)transform.position;
             direction.Normalize();
