@@ -38,7 +38,10 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         questSystem = FindObjectOfType<QuestSystem>();
-        player = FindObjectOfType<Player>().gameObject;
+        if (FindObjectOfType<Player>() != null)
+        {
+            player = FindObjectOfType<Player>().gameObject;
+        }
         audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         if (gameObject.GetComponent<Boss>() != null)
@@ -51,7 +54,7 @@ public class EnemyController : MonoBehaviour
             inTargetingRange = true;
         }
 
-        if(tag == "Friendly")
+        if(tag == "Friendly" && FindObjectOfType<Home>() != null)
         {
             transform.SetParent(FindObjectOfType<Home>().transform);
         }
@@ -74,7 +77,13 @@ public class EnemyController : MonoBehaviour
             GameObject exp = Instantiate(deathExplosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             spawnExp();
-            questSystem.updateQuestsEnemy(gameObject.name);
+            if (questSystem != null)
+            {
+                questSystem.updateQuestsEnemy(gameObject.name);
+            } else
+            {
+                Debug.LogWarning("ENEMYCONTROLLER QUEST SYSTEM IS NULL!!!");
+            }
             Destroy(gameObject);
         }
     }
