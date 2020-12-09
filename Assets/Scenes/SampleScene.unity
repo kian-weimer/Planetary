@@ -30600,7 +30600,7 @@ GameObject:
   - component: {fileID: 1774497151}
   - component: {fileID: 1774497150}
   m_Layer: 10
-  m_Name: AnitShootingPanel
+  m_Name: AntiShootingPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

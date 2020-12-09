@@ -5,8 +5,8 @@ using UnityEngine;
 public class canvas : MonoBehaviour
 {
     public BroadcastMessage broadcaster;
-    public GameObject friendlySellShop;
-    public GameObject friendlyBuyShop;
+    public Shop friendlySellShop;
+    public Shop friendlyBuyShop;
     public GameObject friendlyShopButton;
     public GameObject FriendlyShop;
     public Shop mainBuyShop;
@@ -17,6 +17,9 @@ public class canvas : MonoBehaviour
     {
         mainBuyShop.loadUp();
         mainSellShop.loadUp();
+        friendlyBuyShop.loadUp();
+        friendlySellShop.loadUp();
+
         //StartCoroutine(waitTime());
     }
 
@@ -38,8 +41,8 @@ public class canvas : MonoBehaviour
     public void closeTrader()
     {
         friendlyShopButton.SetActive(false);
-        friendlySellShop.SetActive(false);
-        friendlyBuyShop.SetActive(true);
+        friendlySellShop.gameObject.SetActive(false);
+        friendlyBuyShop.gameObject.SetActive(true);
         FriendlyShop.SetActive(false);
     }
 }

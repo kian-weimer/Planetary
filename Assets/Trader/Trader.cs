@@ -134,11 +134,15 @@ public class Trader : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "enemyBullet" || collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.tag == "Bullet")
         {
             health -= collision.gameObject.GetComponent<Bullet>().bulletDamage;
+            GameObject exp = Instantiate(collision.gameObject.GetComponent<Bullet>().explosion);
+            exp.transform.position = new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z);
+            FindObjectOfType<AudioManager>().Play("BulletExplosion");
+            Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Meteor")
         {

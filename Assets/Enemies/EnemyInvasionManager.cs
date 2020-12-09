@@ -120,5 +120,21 @@ public class EnemyInvasionManager : MonoBehaviour
             enemy.GetComponent<Rigidbody2D>().rotation = angleToHome.;
             */
         }
+        normalEnemiesToChooseFrom.Clear();
+        foreach (EnemyRarity normalEnemy in normalEnemies)
+        {
+            for (int j = 0; j < normalEnemy.rarityOfEnemy; j++)
+            {
+                normalEnemiesToChooseFrom.Add(normalEnemy.Enemy);
+            }
+        }
+        bomberEnemiesToChooseFrom.Clear();
+        foreach (EnemyRarity bomber in bomberEnemies)
+        {
+            for (int j = 0; j < bomber.rarityOfEnemy; j++)
+            {
+                bomberEnemiesToChooseFrom.Add(bomber.Enemy);
+            }
+        }
     }
 }

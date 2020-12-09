@@ -39,7 +39,6 @@ public class Mine : MonoBehaviour
     {
         if (waitTime <= 0 && hasWaited && (collision.gameObject.tag == "Planet" || collision.gameObject.tag == "Player"))
         {
-            Debug.Log(collision.gameObject.tag);
             damageSurroundings();
         }
     }

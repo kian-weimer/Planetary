@@ -365,6 +365,11 @@ public class ShopManager : MonoBehaviour
                     combo = comboList.planetComboList[randomIndex];
                     i++;
                 }
+                if(i >= 200)
+                {
+                    FindObjectOfType<canvas>().friendlyBuyShop.RemoveItem("Random Recipe");
+                    BM.Broadcast("You have bought all of the recipes");
+                }
                 break;
         }
 
