@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     public Money money;
     public Inventory inventory;
     public Home home;
+
+    public Button loadButton;
+    public GameObject warning;
     
     public void Update()
     {
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
+        PlayerPrefs.SetInt("GameSaved", 1);
         player.Save(); // must be before levelTree
         levelTree.Save();
         questSystem.Save();
@@ -125,12 +129,21 @@ public class GameManager : MonoBehaviour
         player.Load();
     }
 
+    public void displayWarning()
+    {
+        warning.SetActive(PlayerPrefs.GetInt("GameSaved") == 1);
+    }
+
 
     public void Start()
     {
         if (SceneManager.GetActiveScene().name == "Start Menu")
         {
             AM.Play("Main");
+            if (PlayerPrefs.GetInt("GameSaved") == 0)
+            {
+                loadButton.interactable = false;
+            }
         }
         else
         {
@@ -220,6 +233,12 @@ public class GameManager : MonoBehaviour
         EnterGame();
     }
 
+    public void loadFromSave()
+    {
+        loadingFromSave = true;
+        StartCoroutine(LoadSceneAsync("SampleScene"));
+    }
+
     IEnumerator LoadSceneAsync(string levelName)
     {
         loadingPanel.SetActive(true);
@@ -242,6 +261,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadSceneAsync("SampleScene"));
         lightsOn = false;
         popupsOn = false;
+        PlayerPrefs.SetInt("GameSaved", 0);
     }
 
     public void Tutorial()

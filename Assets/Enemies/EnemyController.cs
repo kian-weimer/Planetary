@@ -1,4 +1,3 @@
-﻿
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -38,7 +37,10 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         questSystem = FindObjectOfType<QuestSystem>();
-        player = FindObjectOfType<Player>().gameObject;
+        if (FindObjectOfType<Player>() != null)
+        {
+            player = FindObjectOfType<Player>().gameObject;
+        }
         audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         if (gameObject.GetComponent<Boss>() != null)
@@ -51,7 +53,7 @@ public class EnemyController : MonoBehaviour
             inTargetingRange = true;
         }
 
-        if(tag == "Friendly")
+        if(tag == "Friendly" && FindObjectOfType<Home>() != null)
         {
             transform.SetParent(FindObjectOfType<Home>().transform);
         }
@@ -74,7 +76,13 @@ public class EnemyController : MonoBehaviour
             GameObject exp = Instantiate(deathExplosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             spawnExp();
-            questSystem.updateQuestsEnemy(gameObject.name);
+            if (questSystem != null)
+            {
+                questSystem.updateQuestsEnemy(gameObject.name);
+            } else
+            {
+                Debug.LogWarning("ENEMYCONTROLLER QUEST SYSTEM IS NULL!!!");
+            }
             Destroy(gameObject);
         }
     }
@@ -195,27 +203,28 @@ public class EnemyController : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 Home home = FindObjectOfType<Home>();
-
-                if (home.anyPlanetsRemaining())
+                if (home.numberOfHomePlanets > 0)
                 {
                     int index = Random.Range(0, home.homePlanets.Count - 1);
-                    if (home.homePlanets[index] != null)
+                    if(home.homePlanets[index] != null)
                     {
                         target = home.homePlanets[index].gameObject;
                     }
-                    while (home.homePlanets[index] == null)
+                    else
                     {
-                        index = Random.Range(0, home.homePlanets.Count - 1);
+                        while(home.homePlanets[index] == null)
+                        {
+                            index = Random.Range(0, home.homePlanets.Count - 1);
+                        }
+                        target = home.homePlanets[index].gameObject;
                     }
-                    target = home.homePlanets[index].gameObject;
+                    inTargetingRange = true;
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    BroadcastMessage("You lose");
                 }
-                inTargetingRange = true;
             }
-           
 
             Vector2 direction = Vector2.zero - (Vector2)transform.position;
             direction.Normalize();
