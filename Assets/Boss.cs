@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -9,11 +10,18 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<GameManager>().map.addBoss(gameObject, bossNumber);
+        if(SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            FindObjectOfType<GameManager>().map.addBoss(gameObject, bossNumber);
+        }
+        
     }
 
     public void died()
     {
-        FindObjectOfType<GameManager>().map.removeBoss(gameObject, bossNumber);
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            FindObjectOfType<GameManager>().map.removeBoss(gameObject, bossNumber);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyInvasionManager : MonoBehaviour
 {
@@ -102,6 +103,11 @@ public class EnemyInvasionManager : MonoBehaviour
 
             GameObject enemy = Instantiate(normalEnemiesToChooseFrom[index]);
             enemy.transform.position = new Vector2(xDirection, yDirection);
+
+            if(SceneManager.GetActiveScene().name == "Start Menu")
+            {
+                enemy.GetComponent<EnemyController>().target = FindObjectOfType<BackgroundFriend>().gameObject;
+            }
         }
 
         for (int i = 0; i < numberOfBombers; i++)
@@ -128,12 +134,16 @@ public class EnemyInvasionManager : MonoBehaviour
                 normalEnemiesToChooseFrom.Add(normalEnemy.Enemy);
             }
         }
-        bomberEnemiesToChooseFrom.Clear();
-        foreach (EnemyRarity bomber in bomberEnemies)
+
+        if(numberOfBombers != 0)
         {
-            for (int j = 0; j < bomber.rarityOfEnemy; j++)
+            bomberEnemiesToChooseFrom.Clear();
+            foreach (EnemyRarity bomber in bomberEnemies)
             {
-                bomberEnemiesToChooseFrom.Add(bomber.Enemy);
+                for (int j = 0; j < bomber.rarityOfEnemy; j++)
+                {
+                    bomberEnemiesToChooseFrom.Add(bomber.Enemy);
+                }
             }
         }
     }

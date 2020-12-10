@@ -18673,6 +18673,8 @@ MonoBehaviour:
   money: {fileID: 0}
   inventory: {fileID: 0}
   home: {fileID: 0}
+  loadButton: {fileID: 0}
+  warning: {fileID: 0}
 --- !u!4 &649919805
 Transform:
   m_ObjectHideFlags: 0
@@ -20417,7 +20419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPopup: {fileID: 1979625965}
-  detailedTextPopup: {fileID: 0}
+  detailedTextPopup: {fileID: 167069665}
 --- !u!4 &702469644
 Transform:
   m_ObjectHideFlags: 0
@@ -29460,7 +29462,7 @@ MonoBehaviour:
   gameManager: {fileID: 649919804}
   button: {fileID: 6330687}
   shopButton: {fileID: 1815935555}
-  popupManager: {fileID: 0}
+  popupManager: {fileID: 702469643}
   isBackButton: 0
 --- !u!114 &890325594
 MonoBehaviour:
