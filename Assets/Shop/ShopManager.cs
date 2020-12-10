@@ -357,19 +357,33 @@ public class ShopManager : MonoBehaviour
                 break;
 
             case "Random Recipe":
-                int randomIndex = Random.Range(0,comboList.planetComboList.Count - 1);
-                PlanetCombo combo = comboList.planetComboList[randomIndex];
-                int i = 1;
-                while(!alminac.AddEntry(combo.planet.gameObject.GetComponent<SpriteRenderer>().sprite, combo.item1.name, combo.item2.name, combo.item3.name) && i >= 200){
-                    randomIndex = Random.Range(0, comboList.planetComboList.Count - 1);
-                    combo = comboList.planetComboList[randomIndex];
-                    i++;
+
+                List<PlanetCombo> randomList = comboList.planetComboList;
+                
+                int randomIndex = Random.Range(0, randomList.Count - 1);
+                PlanetCombo combo = randomList[randomIndex];
+                int startRandom = randomIndex;
+
+                while (!alminac.AddEntry(combo.planet.gameObject.GetComponent<SpriteRenderer>().sprite, combo.item1.name, combo.item2.name, combo.item3.name) && !(randomIndex == startRandom - 1))
+                {
+                    randomIndex += 1;
+
+                    
+                    combo = randomList[randomIndex];
+
+                    if(randomIndex == randomList.Count - 1)
+                    {
+                        randomIndex = -1;
+                    }
+                    Debug.Log("start: " + startRandom +" random: " +  randomIndex);
                 }
-                if(i >= 200)
+                
+                if(randomIndex == startRandom - 1)
                 {
                     FindObjectOfType<canvas>().friendlyBuyShop.RemoveItem("Random Recipe");
                     BM.Broadcast("You have bought all of the recipes");
                 }
+                
                 break;
         }
 

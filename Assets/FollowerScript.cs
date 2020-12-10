@@ -16,7 +16,18 @@ public class FollowerScript : MonoBehaviour
         float xOffset = Mathf.Cos(degree * Mathf.PI / 180) * distanceAwaySpawn;
         float yOffset = Mathf.Sin(degree * Mathf.PI / 180) * distanceAwaySpawn;
 
-        gameObject.transform.position = new Vector2(player.transform.position.x + xOffset, player.transform.position.y + yOffset);
+        Vector2 position = new Vector2(player.transform.position.x + xOffset, player.transform.position.y + yOffset);
+        while(position.magnitude < 80)
+        {
+            degree = Random.Range(0f, 360f);
+            xOffset = Mathf.Cos(degree * Mathf.PI / 180) * distanceAwaySpawn;
+            yOffset = Mathf.Sin(degree * Mathf.PI / 180) * distanceAwaySpawn;
+
+            position = new Vector2(player.transform.position.x + xOffset, player.transform.position.y + yOffset);
+        }
+
+
+        gameObject.transform.position = position;
         FindObjectOfType<canvas>().broadcast("use the x key to toggle him following you");
         GetComponent<EnemyController>().maxSpeed = FindObjectOfType<PlayerController>().maxSpeed * .95f;
 
@@ -53,8 +64,10 @@ public class FollowerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "HomeCircle")
         {
-            GetComponent<EnemyController>().spawnExp(10);
+            GetComponent<EnemyController>().spawnExp(8);
             FindObjectOfType<Money>().addMoney(750);
+            FindObjectOfType<GameManager>().BM.Broadcast("Mission Successful!");
+            FindObjectOfType<AudioManager>().Play("QuestCompleted");
             Destroy(gameObject);
         }
     }

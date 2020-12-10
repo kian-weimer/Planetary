@@ -4,7 +4,7 @@ public static class GameObjectEx
 {
     public static void DrawCircle(this GameObject container, float radius, float lineWidth)
     {
-        var segments = 360;
+        var segments = 1000;
         var line = container.AddComponent<LineRenderer>();
         line.useWorldSpace = false;
         line.startWidth = lineWidth;

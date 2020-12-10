@@ -124,7 +124,7 @@ MonoBehaviour:
   deathExplosion: {fileID: 100006, guid: a49596ebf788acd4ab1281bffea444b1, type: 3}
   questSystem: {fileID: 0}
   target: {fileID: 0}
-  friendlyThatFollowsPlayer: 0
+  friendlyThatFollowsPlayer: 1
   invasionEnemy: 0
   distanceAwayToStop: 0
   isBomber: 0

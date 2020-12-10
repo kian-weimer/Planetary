@@ -31,9 +31,9 @@ public class Alminac : MonoBehaviour
 
 
         // will throw an error if we forgot to add the planet to the alminac
-        if (!discoveredList.ContainsKey(planet.name))
+        if (!discoveredList.ContainsKey(planet.name + item1 + item2 + item3))
         {
-            discoveredList[planet.name] = true;
+            discoveredList[planet.name + item1 + item2 + item3] = true;
             GameObject entry = Instantiate(AlminacEntryObject);
             entry.transform.parent = window.transform;
             entry.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -100 * index, 0);
