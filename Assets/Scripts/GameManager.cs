@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("fuelConsumption", 1);
         PlayerPrefs.SetInt("maxHealth", 200);
         PlayerPrefs.SetFloat("timeBetweenEvents", 180);
-        PlayerPrefs.SetFloat("timeBetweenEnemies", 40);
+        PlayerPrefs.SetFloat("timeBetweenEnemies", 30);
         PlayerPrefs.SetFloat("upgradeAmount", 1.25f);
         EnterGame();
     }
@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("fuelConsumption", 1);
         PlayerPrefs.SetInt("maxHealth", 200);
         PlayerPrefs.SetFloat("timeBetweenEvents", 180);
-        PlayerPrefs.SetFloat("timeBetweenEnemies", 40);
+        PlayerPrefs.SetFloat("timeBetweenEnemies", 30);
         PlayerPrefs.SetFloat("upgradeAmount", 1.25f);
 
         PlayerPrefs.SetInt("infiniteMoney", 0);
@@ -223,7 +223,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("fuelConsumption", 1.5f); // player consumes more fuel
         PlayerPrefs.SetInt("maxHealth", 100); // lower starting max health 
         PlayerPrefs.SetFloat("timeBetweenEvents", 120); // more frequent events 
-        PlayerPrefs.SetFloat("timeBetweenEnemies", 30); // more enemies spawn 
+        PlayerPrefs.SetFloat("timeBetweenEnemies", 20); // more enemies spawn 
         PlayerPrefs.SetFloat("upgradeAmount", 1.5f); // upgrades become more expensive faster
         numberOfRings = (int)(numberOfRings*1.5); // allow for further travel 
 

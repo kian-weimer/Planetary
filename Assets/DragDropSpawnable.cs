@@ -95,6 +95,7 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        BlockShooting.forceBlocking = true;
         if (transform.parent.parent.Find("DeleteSlot") != null)
         {
             transform.parent.parent.Find("DeleteSlot").gameObject.SetActive(true);
@@ -161,6 +162,7 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        BlockShooting.forceBlocking = false;
         if (transform.parent.parent.Find("DeleteSlot") != null)
         {
             transform.parent.parent.Find("DeleteSlot").GetComponent<DeleteSlot>().delete();

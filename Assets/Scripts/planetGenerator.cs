@@ -236,7 +236,7 @@ public class planetGenerator : MonoBehaviour
 
     public Vector2 GetGridPosition(Vector2 pos)
     {
-        int gridResolution = FindObjectOfType<GameManager>().gridResolution;
+        int gridResolution = 500;// FindObjectOfType<GameManager>().gridResolution;
         return new Vector2((float)Math.Floor(pos.x / gridResolution), (float)Math.Floor(pos.y / gridResolution));
     }
 
