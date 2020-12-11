@@ -103,6 +103,22 @@ public class HomePlanet : MonoBehaviour
         planetHUD.transform.Find("Item" + (itemSlot + 1)).Find("Quantity").gameObject.GetComponent<Text>().text = "X" + (items[itemSlot].quantity + "").PadLeft(2, '0');
     }
 
+    public void clearInventory()
+    {
+        // loop through, check for item, add quantity if found
+        for (int itemSlot = 0; itemSlot < numberOfItemSlots; itemSlot++)
+        {
+            if (items[itemSlot] != null)
+            {
+                if (items[itemSlot].resource != null)
+                {
+                    resourceInventory.checkForItemAndRemove(items[itemSlot].resource.GetComponent<rsrce>().nameOfResource, items[itemSlot].quantity);
+                    removeItem(itemSlot, items[itemSlot].quantity);
+                }
+            }
+        }
+    }
+
     // add a quantity of an item to a specified item slot
     // returns true if successful, false otherwise
     public bool addItem(GameObject item, int quantity, int itemSlot)
@@ -225,7 +241,12 @@ public class HomePlanet : MonoBehaviour
     void FixedUpdate()
     {
         int i = 0;
-        foreach(ProductionItem prodItem in productionItems) 
+        if (resourceInventory == null)
+        {
+            resourceInventory = FindObjectOfType<ResourceInventory>();
+            Debug.LogWarning("RESOURCE INVENTORY NOT BEING ASSIGNED WHEN INTENDED, COULD CAUSE ERRORS...");
+        }
+        foreach (ProductionItem prodItem in productionItems) 
         { 
             if ((int)Time.time % prodItem.frequency == 0 && !hasProducedItem[i])
             {

@@ -13,12 +13,12 @@ public class MaxItemsManager : MonoBehaviour
 
     public static float priceOfPlanet = 800;
     
-    public void Save()
+    public static void Save()
     {
         PlayerPrefs.SetInt("mineAmount", mineAmount);
     }
 
-    public void Load()
+    public static void Load()
     {
         mineAmount = PlayerPrefs.GetInt("mineAmount");
         FindObjectOfType<LevelUpManager>().mineAmountText.GetComponent<Text>().text = "x" + MaxItemsManager.mineAmount;

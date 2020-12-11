@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         BM.Broadcast("Saved");
         player.Save();
         FindObjectOfType<EnemyInvasionManager>().Save();
-        FindObjectOfType<MaxItemsManager>().Save();
+        MaxItemsManager.Save();
         player.gameObject.GetComponent<PlayerController>().Save();
     }
 
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
         BM.Broadcast("Loaded");
         player.Load();
         FindObjectOfType<EnemyInvasionManager>().Load();
-        FindObjectOfType<MaxItemsManager>().Load();
+        MaxItemsManager.Load();
         player.gameObject.GetComponent<PlayerController>().Load();
     }
 

@@ -8,6 +8,8 @@ public class ExperiencePoint : MonoBehaviour
     GameObject player;
     bool mobile = false;
     public int value = 1;
+
+    public float timeLeft = 60;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,12 @@ public class ExperiencePoint : MonoBehaviour
         else
         {
             rb.velocity *= 0.99f;
+        }
+
+        timeLeft -= Time.deltaTime;
+        if (timeLeft <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
