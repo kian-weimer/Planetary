@@ -42,24 +42,7 @@ public class GameManager : MonoBehaviour
 
     public Button loadButton;
     public GameObject warning;
-    
-    public void Update()
-    {
-
-        if (Input.GetKeyDown("["))
-        {
-            Save();
-
-        }
-        if (Input.GetKeyDown("]"))
-        {
-            Load();
-        }
-        if (Input.GetKeyDown("'"))
-        {
-            loadingFromSave = true;
-        }
-    }
+   
 
     public void Save()
     {
