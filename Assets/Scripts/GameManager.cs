@@ -242,7 +242,7 @@ public class GameManager : MonoBehaviour
     }
     public void hardcore()
     {
-        PlayerPrefs.SetInt("rarityRingDistanceLimit", 35); // make rarer planets further away
+        PlayerPrefs.SetInt("rarityRingDistanceLimit", 38); // make rarer planets further away
         PlayerPrefs.SetInt("frequencyIncrementor", 4); // spawn fewer planets 
         PlayerPrefs.SetFloat("fuelConsumption", 1.5f); // player consumes more fuel
         PlayerPrefs.SetInt("maxHealth", 100); // lower starting max health 

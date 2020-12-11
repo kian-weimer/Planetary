@@ -8579,7 +8579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a704805387d9054285e70ec14527188, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7be5d8e705a64e5498c4c46cb30689f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9031,7 +9031,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 345e6c7238324044b9af50d4ce6e32f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 138be4c145bf5304b9bd6730f7ec471d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13661,7 +13661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fef09eaed41dec94f9aa16f71fe3bef3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11e76965fffa1d64ca6b19ea241055b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17920,7 +17920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b982bf354d535b6489752ac90a51e476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfRings: 200
+  numberOfRings: 250
   player: {fileID: 949674682}
   playerController: {fileID: 949674680}
   REM: {fileID: 1233642940}

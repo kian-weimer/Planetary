@@ -11,6 +11,7 @@ public class Respawn : MonoBehaviour
     // Start is called before the first frame update
     public void playerRespawn(bool isGasDeath)
     {
+        EnemyController.paused = true;
         if (!isRespawning)
         {
             transform.Find("PlayerTrail").gameObject.SetActive(false);
@@ -116,6 +117,7 @@ public class Respawn : MonoBehaviour
             GetComponent<PlayerController>().canMove = true;
         }
         isRespawning = false;
+        EnemyController.paused = false;
         GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
     }
 

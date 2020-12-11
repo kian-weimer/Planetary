@@ -36,6 +36,8 @@ public class EnemyController : MonoBehaviour
     public bool isBomber;
     private bool hasDied;
 
+    public static bool paused = false;
+
     private void Start()
     {
         questSystem = FindObjectOfType<QuestSystem>();
@@ -145,6 +147,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (paused) { return; }
         if (inFiringRange)
         {
             float rotation = (rb.rotation + 90);
