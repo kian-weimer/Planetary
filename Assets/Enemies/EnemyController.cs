@@ -213,16 +213,25 @@ public class EnemyController : MonoBehaviour
 
                 if (home.anyPlanetsRemaining())
                 {
+                    int i = 0;
                     int index = Random.Range(0, home.homePlanets.Count - 1);
                     if (home.homePlanets[index] != null)
                     {
                         target = home.homePlanets[index].gameObject;
                     }
-                    while (home.homePlanets[index] == null)
+                    while (home.homePlanets[index] == null && home.anyPlanetsRemaining() && i < 400)
                     {
                         index = Random.Range(0, home.homePlanets.Count - 1);
+                        i += 1;
                     }
-                    target = home.homePlanets[index].gameObject;
+                    if (home.homePlanets[index] != null)
+                    {
+                        target = home.homePlanets[index].gameObject;
+                    }
+                    else
+                    {
+                        Destroy(gameObject);
+                    }
                 }
                 else
                 {

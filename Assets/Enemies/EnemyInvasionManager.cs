@@ -11,9 +11,10 @@ public class EnemyInvasionManager : MonoBehaviour
     public List<EnemyRarity> bomberEnemies;
     public int numberOfBombers;
     public float timeTillInvasionMax;
+    public float timeTillInvasionMin;
     public float timeBetweenWaves;
     public int numberOfWaves;
-    private int currentWaveNumber;
+    private int currentWaveNumber = 0;
     private float timeTillWave = 0f;
     public float timeTillInvasion;
     public int secondsToStartTimer;
@@ -40,7 +41,9 @@ public class EnemyInvasionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeTillInvasion = timeTillInvasionMax;
+        timeTillInvasion = Random.Range(timeTillInvasionMin, timeTillInvasionMax);
+        loadDifficlutySettings();
+        
         player = FindObjectOfType<Player>();
         foreach(EnemyRarity normalEnemy in normalEnemies)
         {
@@ -89,7 +92,19 @@ public class EnemyInvasionManager : MonoBehaviour
             
             if(currentWaveNumber == numberOfWaves)
             {
-                timeTillInvasion = timeTillInvasionMax;
+                timeTillInvasion = Random.Range(timeTillInvasionMin,timeTillInvasionMax);
+                int random = Random.Range(0, 100);
+                if(random > 50)
+                {
+                    numberOfBombers += 1;
+                }
+
+                if (random < 50)
+                {
+                    numberOfNormalEnemies += 1;
+                }
+
+                currentWaveNumber = 0;
             }
         } 
     }
@@ -109,6 +124,10 @@ public class EnemyInvasionManager : MonoBehaviour
             if(SceneManager.GetActiveScene().name == "Start Menu")
             {
                 enemy.GetComponent<EnemyController>().target = FindObjectOfType<BackgroundFriend>().gameObject;
+            }
+            else
+            {
+                enemy.GetComponent<EnemyController>().target = player.gameObject;
             }
         }
 
@@ -164,6 +183,30 @@ public class EnemyInvasionManager : MonoBehaviour
         {
             invasionOccuring = false;
             FindObjectOfType<GameManager>().BM.Broadcast("Congratulations you have repelled the attack");
+        }
+    }
+
+    public void loadDifficlutySettings() // DIFFICULTY PARMS OVERWRITE THE INSPECTOR VALUES
+    {
+        if (PlayerPrefs.HasKey("numberOfWaves"))
+        {
+            numberOfWaves = PlayerPrefs.GetInt("numberOfWaves");
+        }
+        if (PlayerPrefs.HasKey("numberOfBombers"))
+        {
+            numberOfBombers = PlayerPrefs.GetInt("numberOfBombers");
+        }
+        if (PlayerPrefs.HasKey("numberOfNormals"))
+        {
+            numberOfNormalEnemies = PlayerPrefs.GetInt("numberOfNormals");
+        }
+        if (PlayerPrefs.HasKey("minTime"))
+        {
+            timeTillInvasionMin = PlayerPrefs.GetInt("minTime");
+        }
+        if (PlayerPrefs.HasKey("maxTime"))
+        {
+            timeTillInvasionMax = PlayerPrefs.GetInt("maxTime");
         }
     }
 }

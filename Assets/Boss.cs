@@ -22,6 +22,7 @@ public class Boss : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             FindObjectOfType<GameManager>().map.removeBoss(gameObject, bossNumber);
+            FindObjectOfType<EnemyInvasionManager>().numberOfWaves += 1;
         }
     }
 }

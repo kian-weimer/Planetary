@@ -205,6 +205,13 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("timeBetweenEvents", 180);
         PlayerPrefs.SetFloat("timeBetweenEnemies", 30);
         PlayerPrefs.SetFloat("upgradeAmount", 1.25f);
+
+
+        PlayerPrefs.SetFloat("maxTime", 800);
+        PlayerPrefs.SetFloat("minTime", 600);
+        PlayerPrefs.SetInt("numberOfNormals", 4);
+        PlayerPrefs.SetInt("numberOfBombers", 2);
+        PlayerPrefs.SetInt("numberOfWaves", 3);
         EnterGame();
     }
     public void normal()
@@ -219,6 +226,12 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("infiniteMoney", 0);
         PlayerPrefs.SetInt("infiniteSkills", 0);
+
+        PlayerPrefs.SetFloat("maxTime", 600);
+        PlayerPrefs.SetFloat("minTime", 420);
+        PlayerPrefs.SetInt("numberOfNormals", 4);
+        PlayerPrefs.SetInt("numberOfBombers", 2);
+        PlayerPrefs.SetInt("numberOfWaves", 3);
 
         EnterGame();
     }
@@ -235,6 +248,12 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("infiniteMoney", 0);
         PlayerPrefs.SetInt("infiniteSkills", 0);
+
+        PlayerPrefs.SetFloat("maxTime", 500);
+        PlayerPrefs.SetFloat("minTime", 300);
+        PlayerPrefs.SetInt("numberOfNormals", 4);
+        PlayerPrefs.SetInt("numberOfBombers", 2);
+        PlayerPrefs.SetInt("numberOfWaves",3);
 
         EnterGame();
     }

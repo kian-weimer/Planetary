@@ -8635,20 +8635,21 @@ MonoBehaviour:
   normalEnemies:
   - rarityOfEnemy: 1
     Enemy: {fileID: 9059160483914365293, guid: 89fb9f4d1482f2646a29781a50f62285, type: 3}
-    rarityLevel: 0
+    rarityLevel: 1
   - rarityOfEnemy: 3
     Enemy: {fileID: 7276843060727450723, guid: d980988294f211c44b2efd4c384fde14, type: 3}
-    rarityLevel: 0
+    rarityLevel: 3
   numberOfNormalEnemies: 2
   bomberEnemies:
   - rarityOfEnemy: 1
     Enemy: {fileID: 8107015230104370943, guid: 47b0790001f57074c8519ab7c45d52f0, type: 3}
-    rarityLevel: 0
+    rarityLevel: 1
   - rarityOfEnemy: 3
     Enemy: {fileID: 6749549119045524634, guid: 801268317b5610a4f885d2781571b311, type: 3}
-    rarityLevel: 0
-  numberOfBombers: 2
-  timeTillInvasionMax: 300
+    rarityLevel: 3
+  numberOfBombers: 1
+  timeTillInvasionMax: 600
+  timeTillInvasionMin: 420
   timeBetweenWaves: 8
   numberOfWaves: 2
   timeTillInvasion: 0
