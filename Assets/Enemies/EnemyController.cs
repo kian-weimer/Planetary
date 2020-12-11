@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -83,6 +84,7 @@ public class EnemyController : MonoBehaviour
             GameObject exp = Instantiate(deathExplosion);
             exp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             spawnExp();
+            randomDropChance();
             if (questSystem != null)
             {
                 questSystem.updateQuestsEnemy(gameObject.name);
@@ -111,6 +113,33 @@ public class EnemyController : MonoBehaviour
             exp.GetComponent<Rigidbody2D>().velocity = velocityDirection;
             exp.GetComponent<Rigidbody2D>().angularVelocity = 720;
         } 
+    }
+
+    public List<GameObject> randomlyDroppedItems;
+    public double probability = 0.40;
+    private static System.Random random = new System.Random();
+
+
+    void randomDropChance()
+    {
+        bool result = random.NextDouble() < probability;
+        if (result && randomlyDroppedItems.Count > 0)
+        {
+            int select = random.Next(0, randomlyDroppedItems.Count);
+            GameObject resource = Instantiate(randomlyDroppedItems[select]);
+            resource.tag = "resource";
+            resource.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+            Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+
+            while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
+            {
+                velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            }
+
+            resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;
+            resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
+        }
+    
     }
 
     // Update is called once per frame
