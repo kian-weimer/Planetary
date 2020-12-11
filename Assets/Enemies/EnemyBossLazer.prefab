@@ -883,6 +883,10 @@ MonoBehaviour:
   invasionEnemy: 0
   distanceAwayToStop: 0
   isBomber: 0
+  randomlyDroppedItems:
+  - {fileID: 8591499930326729780, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
+  - {fileID: 4677564016738130330, guid: 5489e015fe23f774882937a98828005c, type: 3}
+  probability: 0.75
 --- !u!58 &5250920423125103538
 CircleCollider2D:
   m_ObjectHideFlags: 0

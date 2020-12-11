@@ -360,6 +360,13 @@ MonoBehaviour:
   invasionEnemy: 0
   distanceAwayToStop: 0
   isBomber: 0
+  randomlyDroppedItems:
+  - {fileID: 5361021209533765854, guid: 1b28c8bc700e50641bdba10a3ed2688d, type: 3}
+  - {fileID: 5105878900724093304, guid: 904fec82542523b4fb31a88c226d40c5, type: 3}
+  - {fileID: 1577504811095502026, guid: f49efa302c0e1a84cb711743aee6f427, type: 3}
+  - {fileID: 6769816875262372131, guid: 125358e9324c29d419de50e0efc90479, type: 3}
+  - {fileID: 6969791751690008119, guid: c3c9335855a284b4bb32aa8345896a8f, type: 3}
+  probability: 0.1
 --- !u!58 &2355340726299722171
 CircleCollider2D:
   m_ObjectHideFlags: 0
