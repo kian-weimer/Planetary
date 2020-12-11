@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7060783109664073348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 1}
   m_Children:
   - {fileID: 8072687877701728083}
   m_Father: {fileID: 0}
@@ -49,9 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 2544709206327447535, guid: 31b64d25adf9dc643ad2e8204cb2909e,
     type: 3}
+  enemy: {fileID: 0}
   despawnTime: 5
-  bulletDamage: 12
-  extraDamageToPlanets: 0
+  bulletDamage: 18
+  extraDamageToPlanets: 1
+  trackingBullet: 0
+  targeting: 0
+  trackingIntensity: 10
 --- !u!212 &9150029198020388831
 SpriteRenderer:
   m_ObjectHideFlags: 0
