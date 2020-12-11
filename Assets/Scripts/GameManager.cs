@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -42,7 +44,27 @@ public class GameManager : MonoBehaviour
 
     public Button loadButton;
     public GameObject warning;
-   
+    public static Volume volume;
+
+    public static void chromify()
+    {
+        if (volume == null) { volume = FindObjectOfType<Volume>(); }
+        ChromaticAberration ca;
+        if (volume.profile.TryGet<ChromaticAberration>(out ca))
+        {
+            ca.intensity.value = 1;
+        }
+    }
+
+    public static void dechromify()
+    {
+        if (volume == null) { volume = FindObjectOfType<Volume>(); }
+        ChromaticAberration ca;
+        if (volume.profile.TryGet<ChromaticAberration>(out ca))
+        {
+            ca.intensity.value = 0;
+        }
+    }
 
     public void Save()
     {

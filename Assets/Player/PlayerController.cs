@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
                 thrust = thrust * warpSpeedModifier;
                 maxSpeed = maxSpeed * warpSpeedModifier;
                 transform.GetComponent<Player>().fuelConsumption = transform.GetComponent<Player>().fuelConsumption * warpFuelModifier;
+
+                GameManager.chromify();
             }
             
             warpSpeed -= warpConsumption;
@@ -104,6 +106,7 @@ public class PlayerController : MonoBehaviour
             thrust = thrust / warpSpeedModifier;
             maxSpeed = maxSpeed / warpSpeedModifier;
             transform.GetComponent<Player>().fuelConsumption = transform.GetComponent<Player>().fuelConsumption / warpFuelModifier;
+            GameManager.dechromify();
         }
         else if (hasWarpSpeed && warpSpeed < maxWarpSpeed)
         {

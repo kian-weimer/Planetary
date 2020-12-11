@@ -19880,7 +19880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -69410,7 +69410,7 @@ PrefabInstance:
     - target: {fileID: 7381013857689185002, guid: ce952f53b80664f4cb72a9ff79ec2ff0,
         type: 3}
       propertyPath: skillPoints
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381013857689185003, guid: ce952f53b80664f4cb72a9ff79ec2ff0,
         type: 3}
