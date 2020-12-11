@@ -22,6 +22,8 @@ public class EnemyInvasionManager : MonoBehaviour
     private Player player;
     public float distanceAwayFromHome;
     public Timer timer;
+    public static bool invasionOccuring = false;
+    private static int numberOfInvasionEnemiesAlive = 0;
 
     public void Save()
     {
@@ -126,6 +128,14 @@ public class EnemyInvasionManager : MonoBehaviour
             enemy.GetComponent<Rigidbody2D>().rotation = angleToHome.;
             */
         }
+
+        numberOfInvasionEnemiesAlive += (numberOfBombers + numberOfNormalEnemies);
+
+        if (!invasionOccuring)
+        {
+            invasionOccuring = true;
+        }
+
         normalEnemiesToChooseFrom.Clear();
         foreach (EnemyRarity normalEnemy in normalEnemies)
         {
@@ -145,6 +155,15 @@ public class EnemyInvasionManager : MonoBehaviour
                     bomberEnemiesToChooseFrom.Add(bomber.Enemy);
                 }
             }
+        }
+    }
+    public static void lowerCount()
+    {
+        numberOfInvasionEnemiesAlive -= 1;
+        if (numberOfInvasionEnemiesAlive == 0)
+        {
+            invasionOccuring = false;
+            FindObjectOfType<GameManager>().BM.Broadcast("Congratulations you have repelled the attack");
         }
     }
 }

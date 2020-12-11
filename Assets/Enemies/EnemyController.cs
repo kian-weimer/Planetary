@@ -33,6 +33,7 @@ public class EnemyController : MonoBehaviour
     public float distanceAwayToStop;
 
     public bool isBomber;
+    private bool hasDied;
 
     private void Start()
     {
@@ -67,8 +68,14 @@ public class EnemyController : MonoBehaviour
     {
         health -= hitPoints;
         inTargetingRange = true;
-        if (health <= 0)
+        if (health <= 0 && !hasDied)
         {
+            hasDied = true;
+            if (invasionEnemy)
+            {
+                EnemyInvasionManager.lowerCount();
+            }
+
             if (boss)
             {
                 GetComponent<Boss>().died();

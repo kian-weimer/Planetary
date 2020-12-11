@@ -95,6 +95,9 @@ public class GameManager : MonoBehaviour
         home.Save();
         BM.Broadcast("Saved");
         player.Save();
+        FindObjectOfType<EnemyInvasionManager>().Save();
+        FindObjectOfType<MaxItemsManager>().Save();
+        player.gameObject.GetComponent<PlayerController>().Save();
     }
 
     public void Load()
@@ -127,6 +130,9 @@ public class GameManager : MonoBehaviour
         map.Load();
         BM.Broadcast("Loaded");
         player.Load();
+        FindObjectOfType<EnemyInvasionManager>().Load();
+        FindObjectOfType<MaxItemsManager>().Load();
+        player.gameObject.GetComponent<PlayerController>().Load();
     }
 
     public void displayWarning()

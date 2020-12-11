@@ -46,7 +46,21 @@ public class Respawn : MonoBehaviour
                     FindObjectOfType<PauseMenu>().togglePauseMenu();
                 }
             }
-            GetComponent<Player>().health = 1;
+            
+            if (EnemyInvasionManager.invasionOccuring)
+            {
+                GetComponent<Player>().healthBarEnd.transform.localScale = new Vector3(1, GetComponent<Player>().healthBarEnd.transform.localScale.y, GetComponent<Player>().healthBarEnd.transform.localScale.z);
+                GetComponent<Player>().healthBar.transform.localScale = new Vector3(1, GetComponent<Player>().healthBar.transform.localScale.y, GetComponent<Player>().healthBar.transform.localScale.z);
+                GetComponent<Player>().health = GetComponent<Player>().maxHealth;
+                GetComponent<Player>().gasBarEnd.transform.localScale = new Vector3(1, GetComponent<Player>().gasBarEnd.transform.localScale.y, GetComponent<Player>().gasBarEnd.transform.localScale.z);
+                GetComponent<Player>().gasBar.transform.localScale = new Vector3(1, GetComponent<Player>().gasBar.transform.localScale.y, GetComponent<Player>().gasBar.transform.localScale.z);
+                GetComponent<Player>().gas = GetComponent<Player>().maxGas;
+            }
+            else
+            {
+                GetComponent<Player>().health = 1;
+            }
+            
             GetComponent<Player>().gas = GetComponent<Player>().maxGas / 12;
             GetComponent<Player>().transform.position = spawnLocation.transform.position;
             GetComponent<PlayerController>().canMove = true;

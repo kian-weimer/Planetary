@@ -328,7 +328,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (isHome)
+        if (isHome && !EnemyInvasionManager.invasionOccuring)
         {
             regen();
         }

@@ -124,7 +124,8 @@ public class Weapon : MonoBehaviour
             case 7:
                 if (Time.time > lastShotTime + 1 / firerate && !isInGUI)
                 {
-                    float angle = 0;
+                    
+                    float angle = Random.Range(0,22.5f);
                     for (int i = 0; i < 16; i++)
                     {
                         lastShotTime = Time.time;
