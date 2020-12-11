@@ -8703,7 +8703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalEnemies:
   - rarityOfEnemy: 1
-    Enemy: {fileID: 9059160483914365293, guid: 89fb9f4d1482f2646a29781a50f62285, type: 3}
+    Enemy: {fileID: 8107015230104370943, guid: 47b0790001f57074c8519ab7c45d52f0, type: 3}
     rarityLevel: 1
   - rarityOfEnemy: 3
     Enemy: {fileID: 7276843060727450723, guid: d980988294f211c44b2efd4c384fde14, type: 3}
@@ -68157,7 +68157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6a704805387d9054285e70ec14527188, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7546e43ae5774a74ba6d51ad290d66d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -69107,6 +69107,16 @@ PrefabInstance:
     - target: {fileID: 7381013857689184997, guid: ce952f53b80664f4cb72a9ff79ec2ff0,
         type: 3}
       propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381013857689184998, guid: ce952f53b80664f4cb72a9ff79ec2ff0,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381013857689184998, guid: ce952f53b80664f4cb72a9ff79ec2ff0,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7381013857689185000, guid: ce952f53b80664f4cb72a9ff79ec2ff0,
