@@ -113,6 +113,23 @@ public class HomePlanet : MonoBehaviour
                 if (items[itemSlot].resource != null)
                 {
                     resourceInventory.checkForItemAndRemove(items[itemSlot].resource.GetComponent<rsrce>().nameOfResource, items[itemSlot].quantity);
+                    int count = 0;
+                    while(count != items[itemSlot].quantity)
+                    {
+                        GameObject resource = Instantiate(items[itemSlot].resource);
+                        resource.tag = "resource";
+                        resource.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+                        Vector2 velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+
+                        while ((velocityDirection.x < .5f && velocityDirection.x > -.5f) && (velocityDirection.y < .5f && velocityDirection.y > -.5f))
+                        {
+                            velocityDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+                        }
+
+                        resource.GetComponent<Rigidbody2D>().velocity = velocityDirection;
+                        resource.GetComponent<Rigidbody2D>().angularVelocity = 720;
+                        count++;
+                    }
                     removeItem(itemSlot, items[itemSlot].quantity);
                 }
             }
