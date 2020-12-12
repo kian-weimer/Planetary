@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     public GameObject warning;
     public static Volume volume;
 
+    public static bool canSave = true;
+
     public static void chromify()
     {
         if (volume == null) { volume = FindObjectOfType<Volume>(); }
@@ -68,6 +70,16 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
+        if (!canSave)
+        {
+            BM.Broadcast("You can not save at this time!");
+            return;
+        }
+        if (!player.isHome)
+        {
+            BM.Broadcast("You can not save outside of your home!");
+            return;
+        }
         PlayerPrefs.SetInt("GameSaved", 1);
         player.Save(); // must be before levelTree
         levelTree.Save();

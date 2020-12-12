@@ -129,8 +129,10 @@ public class EnemyInvasionManager : MonoBehaviour
             }
         } 
     }
+
     public void generateAndSpawnInvasion()
     {
+        GameManager.canSave = false;
         for (int i = 0; i < numberOfNormalEnemies; i++)
         {
             int index = Random.Range(0, normalEnemiesToChooseFrom.Count - 1);
@@ -206,6 +208,7 @@ public class EnemyInvasionManager : MonoBehaviour
         {
             invasionOccuring = false;
             FindObjectOfType<GameManager>().BM.Broadcast("Congratulations you have repelled the attack");
+            GameManager.canSave = true;
             shopButton.SetActive(true);
             enemiesRemaingTxt.gameObject.SetActive(false);
         }
