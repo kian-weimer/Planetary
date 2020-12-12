@@ -12,7 +12,7 @@ public class BoostBossMainCollider : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().loseHealth(20);
+            collision.gameObject.GetComponent<Player>().loseHealth(60);
         }
         if(collision.gameObject.tag == "Bullet")
         {

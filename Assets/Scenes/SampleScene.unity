@@ -8648,9 +8648,9 @@ MonoBehaviour:
     Enemy: {fileID: 6749549119045524634, guid: 801268317b5610a4f885d2781571b311, type: 3}
     rarityLevel: 3
   numberOfBombers: 1
-  timeTillInvasionMax: 600
-  timeTillInvasionMin: 420
-  timeBetweenWaves: 8
+  timeTillInvasionMax: 800
+  timeTillInvasionMin: 700
+  timeBetweenWaves: 15
   numberOfWaves: 2
   timeTillInvasion: 0
   secondsToStartTimer: 80
