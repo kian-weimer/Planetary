@@ -76,7 +76,7 @@ public class EnemyController : MonoBehaviour
             hasDied = true;
             if (invasionEnemy)
             {
-                EnemyInvasionManager.lowerCount();
+                FindObjectOfType<EnemyInvasionManager>().lowerCount();
             }
 
             if (boss)

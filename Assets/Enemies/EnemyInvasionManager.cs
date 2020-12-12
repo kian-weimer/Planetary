@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemyInvasionManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class EnemyInvasionManager : MonoBehaviour
     public int numberOfWaves;
     private int currentWaveNumber = 0;
     private float timeTillWave = 0f;
-    public float timeTillInvasion;
+    public static float timeTillInvasion =0f;
     public int secondsToStartTimer;
     private List<GameObject> bomberEnemiesToChooseFrom = new List<GameObject>();
     private List<GameObject> normalEnemiesToChooseFrom = new List<GameObject>();
@@ -25,6 +26,8 @@ public class EnemyInvasionManager : MonoBehaviour
     public Timer timer;
     public static bool invasionOccuring = false;
     private static int numberOfInvasionEnemiesAlive = 0;
+    public GameObject shopButton;
+    public Text enemiesRemaingTxt;
 
     public void Save()
     {
@@ -78,6 +81,16 @@ public class EnemyInvasionManager : MonoBehaviour
 
         if(timeTillInvasion <= 0)
         {
+            if (shopButton.activeSelf)
+            {
+                shopButton.SetActive(false);
+            }
+
+            if(!enemiesRemaingTxt.gameObject.activeSelf)
+            {
+                enemiesRemaingTxt.gameObject.SetActive(true);
+            }
+
             timer.gameObject.SetActive(false);
             if (timeTillWave <= 0)
             {
@@ -175,14 +188,18 @@ public class EnemyInvasionManager : MonoBehaviour
                 }
             }
         }
+        enemiesRemaingTxt.text = "Enemies remaining: " + numberOfInvasionEnemiesAlive;
     }
-    public static void lowerCount()
+    public void lowerCount()
     {
         numberOfInvasionEnemiesAlive -= 1;
-        if (numberOfInvasionEnemiesAlive == 0)
+        enemiesRemaingTxt.text = "Enemies remaining: " + numberOfInvasionEnemiesAlive;
+        if (numberOfInvasionEnemiesAlive == 0 && timeTillInvasion > 0f)
         {
             invasionOccuring = false;
             FindObjectOfType<GameManager>().BM.Broadcast("Congratulations you have repelled the attack");
+            shopButton.SetActive(true);
+            enemiesRemaingTxt.gameObject.SetActive(false);
         }
     }
 

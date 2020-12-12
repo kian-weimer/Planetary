@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3826538837520844541}
   - component: {fileID: 3826538837520844542}
   - component: {fileID: 3826538837520844543}
-  - component: {fileID: 3826538837520844416}
   - component: {fileID: 3826538837520844417}
   - component: {fileID: -2872921991983796003}
+  - component: {fileID: 7065052298298514938}
+  - component: {fileID: 909776398449272741}
   m_Layer: 0
   m_Name: EnemyBasic
   m_TagString: Enemy
@@ -135,22 +136,6 @@ MonoBehaviour:
   - {fileID: 6769816875262372131, guid: 125358e9324c29d419de50e0efc90479, type: 3}
   - {fileID: 6969791751690008119, guid: c3c9335855a284b4bb32aa8345896a8f, type: 3}
   probability: 0.05
---- !u!58 &3826538837520844416
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3826538837520844418}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0121536255}
-  serializedVersion: 2
-  m_Radius: 0.3163185
 --- !u!50 &3826538837520844417
 Rigidbody2D:
   serializedVersion: 4
@@ -187,6 +172,48 @@ MonoBehaviour:
   waitTime: 0.15
   color: {r: 0, g: 0, b: 0, a: 0}
   useColor: 0
+--- !u!61 &7065052298298514938
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826538837520844418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000029802322, y: -0.15130949}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5514123, y: 0.46240687}
+  m_EdgeRadius: 0
+--- !u!70 &909776398449272741
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826538837520844418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0017800629, y: 0.007120371}
+  m_Size: {x: 0.1918301, y: 0.8860729}
+  m_Direction: 0
 --- !u!1 &3826538838135868598
 GameObject:
   m_ObjectHideFlags: 0

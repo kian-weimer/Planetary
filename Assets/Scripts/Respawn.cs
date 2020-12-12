@@ -119,6 +119,7 @@ public class Respawn : MonoBehaviour
         isRespawning = false;
         EnemyController.paused = false;
         GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+        GetComponent<Player>().isHome = true;
     }
 
     public void warpHome()

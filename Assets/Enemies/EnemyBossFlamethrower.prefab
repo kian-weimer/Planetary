@@ -135,10 +135,11 @@ GameObject:
   - component: {fileID: 2092701216333346646}
   - component: {fileID: 2092701216333346645}
   - component: {fileID: 2092701216333346644}
-  - component: {fileID: 2092701216333346603}
   - component: {fileID: 2092701216333346602}
   - component: {fileID: 2092701216333346600}
   - component: {fileID: -274590893299703627}
+  - component: {fileID: 5912750537658078352}
+  - component: {fileID: 6320003525753436552}
   m_Layer: 0
   m_Name: EnemyBossFlamethrower
   m_TagString: Enemy
@@ -258,22 +259,6 @@ MonoBehaviour:
   - {fileID: 4677564016738130330, guid: 5489e015fe23f774882937a98828005c, type: 3}
   - {fileID: 8591499930326729780, guid: f72922f7b7a1c8d4da4eab4184b8c233, type: 3}
   probability: 0.5
---- !u!58 &2092701216333346603
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092701216333346601}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0121536255}
-  serializedVersion: 2
-  m_Radius: 0.3163185
 --- !u!50 &2092701216333346602
 Rigidbody2D:
   serializedVersion: 4
@@ -323,6 +308,48 @@ MonoBehaviour:
   waitTime: 0.15
   color: {r: 0, g: 0, b: 0, a: 0}
   useColor: 0
+--- !u!70 &5912750537658078352
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092701216333346601}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.024422169, y: 0.012407303}
+  m_Size: {x: 0.34466648, y: 0.8908882}
+  m_Direction: 0
+--- !u!61 &6320003525753436552
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092701216333346601}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03899789, y: -0.12762833}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.68801737, y: 0.567482}
+  m_EdgeRadius: 0
 --- !u!1 &2092701216895131581
 GameObject:
   m_ObjectHideFlags: 0
