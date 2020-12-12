@@ -216,9 +216,9 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("maxTime", 800);
         PlayerPrefs.SetFloat("minTime", 600);
-        PlayerPrefs.SetInt("numberOfNormals", 4);
-        PlayerPrefs.SetInt("numberOfBombers", 2);
-        PlayerPrefs.SetInt("numberOfWaves", 3);
+        PlayerPrefs.SetInt("numberOfNormals", 2);
+        PlayerPrefs.SetInt("numberOfBombers", 1);
+        PlayerPrefs.SetInt("numberOfWaves", 2);
         EnterGame();
     }
     public void normal()
@@ -236,9 +236,9 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("maxTime", 600);
         PlayerPrefs.SetFloat("minTime", 420);
-        PlayerPrefs.SetInt("numberOfNormals", 4);
-        PlayerPrefs.SetInt("numberOfBombers", 2);
-        PlayerPrefs.SetInt("numberOfWaves", 3);
+        PlayerPrefs.SetInt("numberOfNormals", 2);
+        PlayerPrefs.SetInt("numberOfBombers", 1);
+        PlayerPrefs.SetInt("numberOfWaves", 2);
 
         EnterGame();
     }
@@ -258,9 +258,9 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("maxTime", 500);
         PlayerPrefs.SetFloat("minTime", 300);
-        PlayerPrefs.SetInt("numberOfNormals", 4);
+        PlayerPrefs.SetInt("numberOfNormals", 3);
         PlayerPrefs.SetInt("numberOfBombers", 2);
-        PlayerPrefs.SetInt("numberOfWaves",3);
+        PlayerPrefs.SetInt("numberOfWaves",2);
 
         EnterGame();
     }
