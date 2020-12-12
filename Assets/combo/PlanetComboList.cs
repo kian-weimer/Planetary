@@ -67,7 +67,7 @@ public class PlanetComboList : MonoBehaviour
 
             if (comboResult.planet.name.Contains("EndGame"))
             {
-                FindObjectOfType<canvas>().transform.Find("EndGamePrompt").gameObject.SetActive(true);
+                FindObjectOfType<GameManager>().BM.Broadcast("congratulations, you have found the secret to the universe! You can continue playing if you like, but your quest is fufilled.");
             }
         }
 
