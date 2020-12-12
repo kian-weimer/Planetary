@@ -2956,11 +2956,11 @@ MonoBehaviour:
     - Basic
     - Double
     quantities: 0400000001000000
-    rewardText: 'Reward: Rainforest Recipe, 10XP'
+    rewardText: 'Reward: Sulfur Recipe, 10XP'
     moneyReward: 0
     expReward: 10
     upgradeReward: 
-    recipeReward: River
+    recipeReward: Sulfur
   - ID: 0
     promptText: Collect 2 water, 1 oxygen, and 5 wood
     questType: resource
@@ -3197,7 +3197,7 @@ MonoBehaviour:
         type: 3}
       index: 0
       productionItems: []
-  - name: River
+  - name: Sulfur
     combo:
       planet: {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4,
         type: 3}
