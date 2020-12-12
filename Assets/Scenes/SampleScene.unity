@@ -2956,11 +2956,11 @@ MonoBehaviour:
     - Basic
     - Double
     quantities: 0400000001000000
-    rewardText: 'Reward: Sulfur Recipe, 10XP'
+    rewardText: 'Reward: Plant Recipe, 10XP'
     moneyReward: 0
     expReward: 10
     upgradeReward: 
-    recipeReward: Sulfur
+    recipeReward: Plant
   - ID: 0
     promptText: Collect 2 water, 1 oxygen, and 5 wood
     questType: resource
@@ -3197,9 +3197,9 @@ MonoBehaviour:
         type: 3}
       index: 0
       productionItems: []
-  - name: Sulfur
+  - name: Plant
     combo:
-      planet: {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4,
+      planet: {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336,
         type: 3}
       item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8,
         type: 3}
@@ -25496,7 +25496,6 @@ MonoBehaviour:
     - {fileID: 4424518751619165468, guid: 7d11f554198a49b4d9f089c09b9fbe7d, type: 3}
     - {fileID: 3492839163673525715, guid: f9d613afcb70ca6449a10a9899f32c71, type: 3}
     - {fileID: 4947203564870176798, guid: 8a1abd5a03bb7bb489e774388847bc14, type: 3}
-    - {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336, type: 3}
   - rarityLevel: 1000
     planets:
     - {fileID: 3890935795835789479, guid: 05d0a1d49db08ef48a86cb0f8320491f, type: 3}
@@ -29475,14 +29474,14 @@ MonoBehaviour:
   - planet: {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336,
       type: 3}
     item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
-    item2: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
-    item3: {fileID: 8777849045417385460, guid: ff265f72120f25e4d970863e991b7d11, type: 3}
+    item2: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
+    item3: {fileID: 3726802060923561285, guid: 9f62fc8fc40858e4891eb1698ed71a86, type: 3}
     index: 0
     productionItems:
     - resource: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3,
         type: 3}
       amountProduced: 1
-      frequency: 60
+      frequency: 45
   - planet: {fileID: 5165126385522756775, guid: a23588a8d84dfc744a6e1ca6ade4e336,
       type: 3}
     item1: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3, type: 3}
@@ -29493,7 +29492,7 @@ MonoBehaviour:
     - resource: {fileID: 5211599203596760986, guid: ba433284ae912f64a9117610d183c1e3,
         type: 3}
       amountProduced: 1
-      frequency: 45
+      frequency: 60
   - planet: {fileID: 8600572002921476812, guid: a88548897cc8a7c48af812dcaf27a5a4,
       type: 3}
     item1: {fileID: 3965712384090420542, guid: 6ec0ccc2fe089a8438c57a94dcd6e0f8, type: 3}
