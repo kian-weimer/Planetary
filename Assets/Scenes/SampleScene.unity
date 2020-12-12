@@ -3174,7 +3174,7 @@ MonoBehaviour:
     questType: planet
     requirementCount: 1
     icons:
-    - {fileID: 5607915213000418836, guid: 6d4267d1868aa1949b00b6e1c51ee73b, type: 3}
+    - {fileID: 3108250835394371517, guid: 6d4267d1868aa1949b00b6e1c51ee73b, type: 3}
     itemNames:
     - Dark
     quantities: 01000000
@@ -29699,7 +29699,8 @@ MonoBehaviour:
         type: 3}
       amountProduced: 1
       frequency: 75
-  - planet: {fileID: 696755485912486588, guid: 6d4267d1868aa1949b00b6e1c51ee73b, type: 3}
+  - planet: {fileID: 8023927903844985621, guid: 6d4267d1868aa1949b00b6e1c51ee73b,
+      type: 3}
     item1: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
     item2: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
     item3: {fileID: 4208081445281669694, guid: e9b9deec056326b42947906e9937b49c, type: 3}
