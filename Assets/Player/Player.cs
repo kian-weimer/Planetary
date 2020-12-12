@@ -332,6 +332,9 @@ public class Player : MonoBehaviour
         {
             regen();
         }
+        else{
+            Debug.Log(EnemyInvasionManager.invasionOccuring + " " + isHome);
+        }
     }
 
     public bool nearHomePlanet = false;

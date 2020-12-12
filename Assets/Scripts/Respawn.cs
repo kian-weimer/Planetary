@@ -60,9 +60,8 @@ public class Respawn : MonoBehaviour
             else
             {
                 GetComponent<Player>().health = 1;
+                GetComponent<Player>().gas = GetComponent<Player>().maxGas / 12;
             }
-            
-            GetComponent<Player>().gas = GetComponent<Player>().maxGas / 12;
             GetComponent<Player>().transform.position = spawnLocation.transform.position;
             GetComponent<PlayerController>().canMove = true;
             GetComponent<PlayerController>().hasRespawned = false;
