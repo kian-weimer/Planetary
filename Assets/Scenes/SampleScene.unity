@@ -4702,43 +4702,43 @@ MonoBehaviour:
   font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
   items:
   - name: Armor Up
-    cost: 100
+    cost: 80
     sellItem: 0
   - name: Bigger Tank
-    cost: 50
+    cost: 30
     sellItem: 0
   - name: Better Thrusters
-    cost: 750
+    cost: 500
     sellItem: 0
   - name: Add Rock Planet
-    cost: 800
+    cost: 600
     sellItem: 0
   - name: More Inventory
-    cost: 1000
+    cost: 800
     sellItem: 0
   - name: Decoy
-    cost: 150
+    cost: 100
     sellItem: 0
   - name: Drone
-    cost: 250
+    cost: 200
     sellItem: 0
   - name: Turret
-    cost: 400
+    cost: 300
     sellItem: 0
   - name: Heal
     cost: 150
     sellItem: 0
   - name: Shield
-    cost: 400
+    cost: 300
     sellItem: 0
   - name: Common Crate
-    cost: 1000
+    cost: 500
     sellItem: 0
   - name: Rare Crate
-    cost: 2000
+    cost: 1000
     sellItem: 0
   - name: Legendary Crate
-    cost: 3000
+    cost: 2000
     sellItem: 0
   - name: Switch Color
     cost: 100
