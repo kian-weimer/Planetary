@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class EnemyInvasionManager : MonoBehaviour
 {
-
     public List<EnemyRarity> normalEnemies;
     public int numberOfNormalEnemies;
     public List<EnemyRarity> bomberEnemies;
@@ -50,7 +49,10 @@ public class EnemyInvasionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentWaveNumber = 0;
+        invasionOccuring = false;
         timeTillInvasion = Random.Range(timeTillInvasionMin, timeTillInvasionMax);
+        numberOfInvasionEnemiesAlive = 0;
         loadDifficlutySettings();
         
         player = FindObjectOfType<Player>();
@@ -111,6 +113,7 @@ public class EnemyInvasionManager : MonoBehaviour
 
             if (currentWaveNumber == numberOfWaves)
             {
+                Debug.Log("boo");
                 timeTillInvasion = Random.Range(timeTillInvasionMin,timeTillInvasionMax);
                 int random = Random.Range(0, 100);
                 if(random > 50)
@@ -170,6 +173,7 @@ public class EnemyInvasionManager : MonoBehaviour
         }
 
         numberOfInvasionEnemiesAlive += numberOfBombers + numberOfNormalEnemies;
+        Debug.Log(numberOfBombers + " " + numberOfNormalEnemies);
 
         if (!invasionOccuring)
         {
@@ -233,7 +237,7 @@ public class EnemyInvasionManager : MonoBehaviour
         }
         else
         {
-            timeTillInvasionMin = 420;
+            timeTillInvasionMin = 700;
         }
 
         if (PlayerPrefs.HasKey("maxTime") && PlayerPrefs.GetInt("maxTime") != 0)
@@ -242,7 +246,7 @@ public class EnemyInvasionManager : MonoBehaviour
         }
         else
         {
-            timeTillInvasionMax = 600;
+            timeTillInvasionMax = 900;
         }
     }
 }

@@ -44,7 +44,7 @@ public class Meteor : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().loseHealth(25);
+            collision.gameObject.GetComponent<Player>().loseHealth(100);
             destroy();
         }
     }

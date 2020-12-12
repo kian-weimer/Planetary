@@ -59,8 +59,12 @@ public class Respawn : MonoBehaviour
             }
             else
             {
-                GetComponent<Player>().health = 1;
-                GetComponent<Player>().gas = GetComponent<Player>().maxGas / 12;
+                GetComponent<Player>().healthBarEnd.transform.localScale = new Vector3(1, GetComponent<Player>().healthBarEnd.transform.localScale.y, GetComponent<Player>().healthBarEnd.transform.localScale.z);
+                GetComponent<Player>().healthBar.transform.localScale = new Vector3(1, GetComponent<Player>().healthBar.transform.localScale.y, GetComponent<Player>().healthBar.transform.localScale.z);
+                GetComponent<Player>().health = GetComponent<Player>().maxHealth;
+                GetComponent<Player>().gasBarEnd.transform.localScale = new Vector3(1, GetComponent<Player>().gasBarEnd.transform.localScale.y, GetComponent<Player>().gasBarEnd.transform.localScale.z);
+                GetComponent<Player>().gasBar.transform.localScale = new Vector3(1, GetComponent<Player>().gasBar.transform.localScale.y, GetComponent<Player>().gasBar.transform.localScale.z);
+                GetComponent<Player>().gas = GetComponent<Player>().maxGas;
             }
             GetComponent<Player>().transform.position = spawnLocation.transform.position;
             GetComponent<PlayerController>().canMove = true;
@@ -118,7 +122,10 @@ public class Respawn : MonoBehaviour
         isRespawning = false;
         EnemyController.paused = false;
         GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+
+        Debug.Log(GetComponent<Player>().isHome);
         GetComponent<Player>().isHome = true;
+        Debug.Log(GetComponent<Player>().isHome);
     }
 
     public void warpHome()

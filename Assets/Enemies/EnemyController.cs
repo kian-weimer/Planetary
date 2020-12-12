@@ -76,8 +76,12 @@ public class EnemyController : MonoBehaviour
             hasDied = true;
             if (invasionEnemy)
             {
+                Debug.Log(hasDied);
+                hasDied = true;
                 FindObjectOfType<EnemyInvasionManager>().lowerCount();
             }
+
+            hasDied = true;
 
             if (boss)
             {
