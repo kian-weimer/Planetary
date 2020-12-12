@@ -11853,7 +11853,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 11550, y: 10650}
+  m_SizeDelta: {x: 15000, y: 15000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &752310337
 GameObject:
@@ -17798,7 +17798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b982bf354d535b6489752ac90a51e476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfRings: 250
+  numberOfRings: 300
   player: {fileID: 949674682}
   playerController: {fileID: 949674680}
   REM: {fileID: 1233642940}
@@ -25516,7 +25516,7 @@ MonoBehaviour:
     - {fileID: 2725874488225651500, guid: 11875b1b186faac4b9c6933a19869cab, type: 3}
     - {fileID: 5062594940442508710, guid: 61ec2a7c4a9a1cc458e6c2b53a2d5d5c, type: 3}
     - {fileID: 4300934066779167416, guid: b55a65c678ba88f42835eb26dea3ce7b, type: 3}
-  - rarityLevel: 125
+  - rarityLevel: 200
     planets:
     - {fileID: 1120403152165817852, guid: 85136233b4e5b6348bef706bafcda557, type: 3}
     - {fileID: 696755485912486588, guid: 6d4267d1868aa1949b00b6e1c51ee73b, type: 3}
