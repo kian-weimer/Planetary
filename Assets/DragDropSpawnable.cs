@@ -39,6 +39,7 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Debug.Log("onenddrag");
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         if (moved)
@@ -96,6 +97,7 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public void OnPointerDown(PointerEventData eventData)
     {
         BlockShooting.forceBlocking = true;
+        Debug.Log("OnPointerDown");
         if (transform.parent.parent.Find("DeleteSlot") != null)
         {
             transform.parent.parent.Find("DeleteSlot").gameObject.SetActive(true);
@@ -163,6 +165,8 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public void OnPointerUp(PointerEventData eventData)
     {
         BlockShooting.forceBlocking = false;
+        Player.newCanShoot = true;
+        Debug.Log("OnPointerUp");
         if (transform.parent.parent.Find("DeleteSlot") != null)
         {
             transform.parent.parent.Find("DeleteSlot").GetComponent<DeleteSlot>().delete();

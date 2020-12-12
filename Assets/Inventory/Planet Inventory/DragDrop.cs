@@ -115,6 +115,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnPointerUp(PointerEventData eventData)
     {
         BlockShooting.forceBlocking = false;
+        Player.newCanShoot = true;
         if (transform.parent.parent.Find("DeleteSlot") != null)
         {
             transform.parent.parent.Find("DeleteSlot").GetComponent<DeleteSlot>().delete();
