@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 3341252995592831451}
   - component: {fileID: 3341252995592831448}
   - component: {fileID: 3341252995592831449}
-  - component: {fileID: 3341252995592831398}
   - component: {fileID: 3341252995592831399}
   - component: {fileID: 7491654044804278813}
   - component: {fileID: 2556991602381990558}
+  - component: {fileID: 7358611692869521560}
+  - component: {fileID: 5564873789161258058}
   m_Layer: 0
   m_Name: BasicFollower
   m_TagString: Friendly
@@ -128,22 +129,8 @@ MonoBehaviour:
   invasionEnemy: 0
   distanceAwayToStop: 0
   isBomber: 0
---- !u!58 &3341252995592831398
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3341252995592831396}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0121536255}
-  serializedVersion: 2
-  m_Radius: 0.3163185
+  randomlyDroppedItems: []
+  probability: 0.4
 --- !u!50 &3341252995592831399
 Rigidbody2D:
   serializedVersion: 4
@@ -194,6 +181,48 @@ MonoBehaviour:
   waitTime: 0.15
   color: {r: 0, g: 0, b: 0, a: 0}
   useColor: 0
+--- !u!70 &7358611692869521560
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341252995592831396}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0070209503}
+  m_Size: {x: 0.26123565, y: 0.7996025}
+  m_Direction: 0
+--- !u!61 &5564873789161258058
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341252995592831396}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15638351}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5143852, y: 0.4238472}
+  m_EdgeRadius: 0
 --- !u!1 &3341252995959695118
 GameObject:
   m_ObjectHideFlags: 0

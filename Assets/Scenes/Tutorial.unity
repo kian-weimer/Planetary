@@ -5870,27 +5870,24 @@ MonoBehaviour:
   money: {fileID: 90064741}
   home: {fileID: 82928086}
   playerSprites:
-  - {fileID: 21300000, guid: f469b4ea0cc09494684680cb813befc7, type: 3}
-  - {fileID: 21300000, guid: 30d96aaae790ed844939c1022d4d23eb, type: 3}
-  - {fileID: 21300000, guid: b93695a715fcdea45a9ae2b611559e18, type: 3}
-  - {fileID: 21300000, guid: a3c3ebf8af1a54d4cb1e066da8e70c42, type: 3}
-  - {fileID: 21300000, guid: aa006ff140b5aff43ba3c5eda2e1f6dd, type: 3}
-  - {fileID: 21300000, guid: 488b76e2adf5b4c43a387741339bdbe3, type: 3}
-  - {fileID: 21300000, guid: 4f0006337ece5164dbfd534837d7a0d6, type: 3}
-  - {fileID: 21300000, guid: 3f7d5062a47aa5344bf10db64e701441, type: 3}
-  - {fileID: 21300000, guid: 47f9ea165baf81540ad8aa7a961d0f72, type: 3}
-  - {fileID: 21300000, guid: 59aa486b62ed5fc428f4fea81007da85, type: 3}
-  - {fileID: 21300000, guid: 4f0dd9cbb9b27ab4b8803fac829440b3, type: 3}
-  - {fileID: 21300000, guid: 0c4729fb53367f84cacdc81b62a3962c, type: 3}
-  - {fileID: 21300000, guid: d7ffaa94356abae48a5306cc459e63b2, type: 3}
-  - {fileID: 21300000, guid: c4b41c9a6ac0de34885621bb25ea9105, type: 3}
-  - {fileID: 21300000, guid: 11e76965fffa1d64ca6b19ea241055b8, type: 3}
-  - {fileID: 21300000, guid: d302d9a4fb896b947ac7a9b01edfc0a3, type: 3}
-  - {fileID: 21300000, guid: 98b62e31bb550fa46994ca4fbde06583, type: 3}
-  - {fileID: 21300000, guid: c3bced9886c1ebe499b3df2d73fd2384, type: 3}
-  - {fileID: 21300000, guid: 8d118d6f54e1a1442874641f871cf210, type: 3}
-  - {fileID: 21300000, guid: 01d0b31cd544d9e448548230128bb1f7, type: 3}
-  - {fileID: 21300000, guid: 55e4581c5af9eb7438545847b1ad01b7, type: 3}
+  - {fileID: 21300000, guid: 18e99bb16f965b941b4adba84dbba23a, type: 3}
+  - {fileID: 21300000, guid: 08370922b75af0d4db1922f6bf44a4ac, type: 3}
+  - {fileID: 21300000, guid: 18ff164747a334a44b479397e1782dbc, type: 3}
+  - {fileID: 21300000, guid: faf7f4369beedcd49b766a52854bebb6, type: 3}
+  - {fileID: 21300000, guid: 88e01dc962583c74b85895ca1205d896, type: 3}
+  - {fileID: 21300000, guid: b74e8b24bc61cfa469e9afb6a36a5550, type: 3}
+  - {fileID: 21300000, guid: 0908f734e8afb444893984a66bb08eaa, type: 3}
+  - {fileID: 21300000, guid: df608ce3de43f4643a72334b220a10ad, type: 3}
+  - {fileID: 21300000, guid: ea4bd62ab13274e4388b10819967d527, type: 3}
+  - {fileID: 21300000, guid: d1c16e35347144046ba6b966055127fe, type: 3}
+  - {fileID: 21300000, guid: bb45a3a0139e4024b9d453017b1a4506, type: 3}
+  - {fileID: 21300000, guid: fef09eaed41dec94f9aa16f71fe3bef3, type: 3}
+  - {fileID: 21300000, guid: 6a704805387d9054285e70ec14527188, type: 3}
+  - {fileID: 21300000, guid: 9af4e61659d283b4383dd325bd93266a, type: 3}
+  - {fileID: 21300000, guid: adce247a0714df046ad3056f6c66cb64, type: 3}
+  - {fileID: 21300000, guid: 345e6c7238324044b9af50d4ce6e32f8, type: 3}
+  - {fileID: 21300000, guid: 0dd4982f975e10f48beab53e5da565d1, type: 3}
+  - {fileID: 21300000, guid: 38a3491c58393e74ba65084e496985af, type: 3}
   whichShipColorBase: 0
   whichShipLevel: 0
   buyShop: {fileID: 998267331}
@@ -5905,18 +5902,21 @@ MonoBehaviour:
   legendaryCrate: {fileID: 6543640816968637207, guid: b6d96e5551cefd5409a52efac812b336,
     type: 3}
   crateSpawnPoint: {fileID: 1141782675}
-  BM: {fileID: 0}
-  listOfResources: []
+  BM: {fileID: 1040353671}
+  listOfResources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   alminac: {fileID: 0}
-  comboList: {fileID: 0}
+  comboList: {fileID: 778990252}
   amountOfWarps: 0
   warpAmount: {fileID: 0}
   warpHolder: {fileID: 0}
-  drone: {fileID: 0}
-  turret: {fileID: 0}
-  decoy: {fileID: 0}
-  heal: {fileID: 0}
-  shield: {fileID: 0}
+  drone: {fileID: 6769816875262372131, guid: 125358e9324c29d419de50e0efc90479, type: 3}
+  turret: {fileID: 6969791751690008119, guid: c3c9335855a284b4bb32aa8345896a8f, type: 3}
+  decoy: {fileID: 1577504811095502026, guid: f49efa302c0e1a84cb711743aee6f427, type: 3}
+  heal: {fileID: 5361021209533765854, guid: 1b28c8bc700e50641bdba10a3ed2688d, type: 3}
+  shield: {fileID: 5105878900724093304, guid: 904fec82542523b4fb31a88c226d40c5, type: 3}
 --- !u!4 &219234480
 Transform:
   m_ObjectHideFlags: 0
@@ -7164,7 +7164,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f469b4ea0cc09494684680cb813befc7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91f91a1a3b9f2454f86e0d56dcadf5b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -7192,7 +7192,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.9, y: 0.64}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
