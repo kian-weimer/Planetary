@@ -160,6 +160,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        canSave = true;
         if (SceneManager.GetActiveScene().name == "Start Menu")
         {
             AM.Play("Main");
