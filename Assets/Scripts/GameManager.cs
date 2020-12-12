@@ -157,6 +157,7 @@ public class GameManager : MonoBehaviour
             }
             PlayerPrefs.SetInt("numberOfBombers", 0);
             PlayerPrefs.SetInt("numberOfNormals", 1);
+            PlayerPrefs.SetInt("numberOfWaves", 1000000);
         }
         else
         {

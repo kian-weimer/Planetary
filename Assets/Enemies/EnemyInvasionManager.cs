@@ -31,14 +31,20 @@ public class EnemyInvasionManager : MonoBehaviour
 
     public void Save()
     {
-        PlayerPrefs.SetFloat("timeTillInvasion",timeTillInvasion);
-        PlayerPrefs.SetFloat("timeTillWave", timeTillWave);
+        PlayerPrefs.SetFloat("timeTillInvasionSave", timeTillInvasion);
+        PlayerPrefs.SetFloat("timeTillWaveSave", timeTillWave);
+        PlayerPrefs.SetInt("numberOfWavesSave", numberOfWaves);
+        PlayerPrefs.SetInt("numberOfNormalEnemiesSave", numberOfNormalEnemies);
+        PlayerPrefs.SetInt("numberOfBombersSave", numberOfBombers);
     }
 
     public void Load()
     {
-        timeTillWave = PlayerPrefs.GetFloat("timeTillWave");
-        timeTillInvasion = PlayerPrefs.GetFloat("timeTillInvasion");
+        timeTillWave = PlayerPrefs.GetFloat("timeTillWaveSave");
+        timeTillInvasion = PlayerPrefs.GetFloat("timeTillInvasionSave");
+        numberOfWaves = PlayerPrefs.GetInt("numberOfWavesSave");
+        numberOfNormalEnemies = PlayerPrefs.GetInt("numberOfNormalEnemiesSave");
+        numberOfBombers = PlayerPrefs.GetInt("numberOfBombersSave");
     }
 
     // Start is called before the first frame update
