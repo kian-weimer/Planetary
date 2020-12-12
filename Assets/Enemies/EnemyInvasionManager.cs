@@ -52,8 +52,6 @@ public class EnemyInvasionManager : MonoBehaviour
     {
         timeTillInvasion = Random.Range(timeTillInvasionMin, timeTillInvasionMax);
         loadDifficlutySettings();
-        Debug.Log(numberOfWaves);
-
         
         player = FindObjectOfType<Player>();
         foreach(EnemyRarity normalEnemy in normalEnemies)
@@ -110,8 +108,8 @@ public class EnemyInvasionManager : MonoBehaviour
             {
                 timeTillWave -= Time.deltaTime;
             }
-            
-            if(currentWaveNumber == numberOfWaves)
+
+            if (currentWaveNumber == numberOfWaves)
             {
                 timeTillInvasion = Random.Range(timeTillInvasionMin,timeTillInvasionMax);
                 int random = Random.Range(0, 100);
@@ -124,7 +122,7 @@ public class EnemyInvasionManager : MonoBehaviour
                 {
                     numberOfNormalEnemies += 1;
                 }
-
+                timeTillWave = 0;
                 currentWaveNumber = 0;
             }
         } 
@@ -171,7 +169,7 @@ public class EnemyInvasionManager : MonoBehaviour
             */
         }
 
-        numberOfInvasionEnemiesAlive += (numberOfBombers + numberOfNormalEnemies);
+        numberOfInvasionEnemiesAlive += numberOfBombers + numberOfNormalEnemies;
 
         if (!invasionOccuring)
         {
@@ -204,6 +202,7 @@ public class EnemyInvasionManager : MonoBehaviour
     {
         numberOfInvasionEnemiesAlive -= 1;
         enemiesRemaingTxt.text = "Enemies remaining: " + numberOfInvasionEnemiesAlive;
+
         if (numberOfInvasionEnemiesAlive == 0 && timeTillInvasion > 0f)
         {
             invasionOccuring = false;
@@ -228,13 +227,22 @@ public class EnemyInvasionManager : MonoBehaviour
         {
             numberOfNormalEnemies = PlayerPrefs.GetInt("numberOfNormals");
         }
-        if (PlayerPrefs.HasKey("minTime"))
+        if (PlayerPrefs.HasKey("minTime") && PlayerPrefs.GetInt("minTime") != 0)
         {
             timeTillInvasionMin = PlayerPrefs.GetInt("minTime");
         }
-        if (PlayerPrefs.HasKey("maxTime"))
+        else
+        {
+            timeTillInvasionMin = 420;
+        }
+
+        if (PlayerPrefs.HasKey("maxTime") && PlayerPrefs.GetInt("maxTime") != 0)
         {
             timeTillInvasionMax = PlayerPrefs.GetInt("maxTime");
+        }
+        else
+        {
+            timeTillInvasionMax = 600;
         }
     }
 }

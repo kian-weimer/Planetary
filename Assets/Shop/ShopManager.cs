@@ -375,7 +375,6 @@ public class ShopManager : MonoBehaviour
                     {
                         randomIndex = -1;
                     }
-                    Debug.Log("start: " + startRandom +" random: " +  randomIndex);
                 }
                 
                 if(randomIndex == startRandom - 1)

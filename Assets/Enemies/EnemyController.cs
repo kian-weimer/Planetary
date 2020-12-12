@@ -262,11 +262,13 @@ public class EnemyController : MonoBehaviour
                     }
                     else
                     {
+                        FindObjectOfType<EnemyInvasionManager>().lowerCount();
                         Destroy(gameObject);
                     }
                 }
                 else
                 {
+                    FindObjectOfType<EnemyInvasionManager>().lowerCount();
                     Destroy(gameObject);
                 }
                 inTargetingRange = true;

@@ -39,7 +39,6 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("onenddrag");
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         if (moved)
@@ -52,7 +51,6 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
             RaycastHit2D raycastHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)), Vector2.zero, mask);
             if (raycastHit)
             {
-                Debug.Log("Hit: " + raycastHit.transform.gameObject.name);
                 if (raycastHit.transform.tag == "Planet" && type == "heal")
                 {
                     raycastHit.transform.gameObject.GetComponent<Planet>().health = raycastHit.transform.gameObject.GetComponent<Planet>().maxHealth;
@@ -97,7 +95,7 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public void OnPointerDown(PointerEventData eventData)
     {
         BlockShooting.forceBlocking = true;
-        Debug.Log("OnPointerDown");
+
         if (transform.parent.parent.Find("DeleteSlot") != null)
         {
             transform.parent.parent.Find("DeleteSlot").gameObject.SetActive(true);
@@ -166,7 +164,7 @@ public class DragDropSpawnable : MonoBehaviour, IPointerDownHandler, IPointerUpH
     {
         BlockShooting.forceBlocking = false;
         Player.newCanShoot = true;
-        Debug.Log("OnPointerUp");
+
         if (transform.parent.parent.Find("DeleteSlot") != null)
         {
             transform.parent.parent.Find("DeleteSlot").GetComponent<DeleteSlot>().delete();

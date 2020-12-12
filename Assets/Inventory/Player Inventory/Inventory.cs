@@ -101,7 +101,6 @@ public class Inventory : MonoBehaviour
         {
             foreach(GameObject resource in resources)
             {
-                Debug.Log(name + " " + resource.name);
                 if (name == resource.name)
                 {
                     GameObject resourceToSpawn = Instantiate(resource);
@@ -122,8 +121,6 @@ public class Inventory : MonoBehaviour
         {
 
             string[] components = friendly.Split(',');
-
-            Debug.Log("name: " + components[2] + " x: " + components[0] + " y: " + components[1]);
 
             if(components[2] == "Friend")
             {
