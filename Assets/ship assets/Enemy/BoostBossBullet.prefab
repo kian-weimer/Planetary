@@ -9490,7 +9490,7 @@ MonoBehaviour:
   explosion: {fileID: 2544709206327447535, guid: 31b64d25adf9dc643ad2e8204cb2909e,
     type: 3}
   despawnTime: 3
-  bulletDamage: 15
+  bulletDamage: 25
   trackingBullet: 0
   targeting: 0
   trackingIntensity: 50
