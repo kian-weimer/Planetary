@@ -155,6 +155,8 @@ public class GameManager : MonoBehaviour
             {
                 loadButton.interactable = false;
             }
+            PlayerPrefs.SetInt("numberOfBombers", 0);
+            PlayerPrefs.SetInt("numberOfNormals", 1);
         }
         else
         {

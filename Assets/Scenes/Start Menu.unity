@@ -2432,12 +2432,16 @@ MonoBehaviour:
     Enemy: {fileID: 5213504124392001109, guid: d925f7c5549cd8e4cb333a0a54d43001, type: 3}
     rarityLevel: 1
   numberOfNormalEnemies: 1
-  bomberEnemies: []
+  bomberEnemies:
+  - rarityOfEnemy: 1
+    Enemy: {fileID: 5213504124392001109, guid: d925f7c5549cd8e4cb333a0a54d43001, type: 3}
+    rarityLevel: 1
   numberOfBombers: 0
   timeTillInvasionMax: 5
   timeTillInvasionMin: 0
   timeBetweenWaves: 3
   numberOfWaves: 1000000
+  timeTillInvasion: 0
   secondsToStartTimer: -1
   distanceAwayFromHome: 5
   timer: {fileID: 1549854323}

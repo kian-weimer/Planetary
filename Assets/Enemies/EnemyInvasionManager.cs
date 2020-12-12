@@ -13,11 +13,11 @@ public class EnemyInvasionManager : MonoBehaviour
     public int numberOfBombers;
     public float timeTillInvasionMax;
     public float timeTillInvasionMin;
-    public float timeBetweenWaves;
-    public int numberOfWaves;
+    public float timeBetweenWaves = 8;
+    public int numberOfWaves = 3;
     private int currentWaveNumber = 0;
     private float timeTillWave = 0f;
-    public static float timeTillInvasion =0f;
+    public float timeTillInvasion =0f;
     public int secondsToStartTimer;
     private List<GameObject> bomberEnemiesToChooseFrom = new List<GameObject>();
     private List<GameObject> normalEnemiesToChooseFrom = new List<GameObject>();
@@ -37,7 +37,7 @@ public class EnemyInvasionManager : MonoBehaviour
 
     public void Load()
     {
-        timeBetweenWaves = PlayerPrefs.GetFloat("timeTillWave");
+        timeTillWave = PlayerPrefs.GetFloat("timeTillWave");
         timeTillInvasion = PlayerPrefs.GetFloat("timeTillInvasion");
     }
 
@@ -46,6 +46,8 @@ public class EnemyInvasionManager : MonoBehaviour
     {
         timeTillInvasion = Random.Range(timeTillInvasionMin, timeTillInvasionMax);
         loadDifficlutySettings();
+        Debug.Log(numberOfWaves);
+
         
         player = FindObjectOfType<Player>();
         foreach(EnemyRarity normalEnemy in normalEnemies)
