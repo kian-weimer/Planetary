@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,24 +59,23 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.tag == "Planet")
         {
-            FindObjectOfType<AudioManager>().Play("BulletExplosion");
-            if (extraDamageToPlanets)
+            try
             {
-                collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - bulletDamage * 1.5f;
-            }
-            else
-            {
-                collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - bulletDamage;
-            }
-
-            if (collision.gameObject.GetComponent<Planet>().health <= 0)
-            {
-                if (!collision.gameObject.GetComponent<Planet>().destroyed)
+                FindObjectOfType<AudioManager>().Play("BulletExplosion");
+                if (extraDamageToPlanets)
                 {
-                    collision.gameObject.GetComponent<Planet>().destroyed = true;
-                    collision.gameObject.GetComponent<Planet>().destroy(Player.doubleResource);
+                    collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - bulletDamage * 1.5f;
+                }
+                else
+                {
+                    collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - bulletDamage;
                 }
             }
+            catch (NullReferenceException e)
+            {
+                Debug.LogWarning("bulletHitIssueWithPlanetCaught");
+            }
+            
         }
         
         if (collision.transform.CompareTag("enemyRangeCollider") && collision.name == "StoppingRange")

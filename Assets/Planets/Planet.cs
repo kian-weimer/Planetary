@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
@@ -148,6 +149,10 @@ public class Planet : MonoBehaviour
         if (info.health != health)
         {
             info.health = health;
+        }
+        if (health <= 0)
+        {
+            destroy(Player.doubleResource);
         }
     }
 }

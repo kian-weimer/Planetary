@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,15 +56,12 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Planet")
         {
-            collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - (int)bulletDamage;
-
-            if (collision.gameObject.GetComponent<Planet>().health <= 0)
+            try { 
+                collision.gameObject.GetComponent<Planet>().health = collision.gameObject.GetComponent<Planet>().health - (int)bulletDamage;
+            }
+            catch (NullReferenceException e)
             {
-                if (!collision.gameObject.GetComponent<Planet>().destroyed)
-                {
-                    collision.gameObject.GetComponent<Planet>().destroyed = true;
-                    collision.gameObject.GetComponent<Planet>().destroy(false);
-                }
+                Debug.LogWarning("bulletHitIssueWithPlanetCaught");
             }
         }
 
